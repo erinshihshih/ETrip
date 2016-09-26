@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="461" y="503"/>
+            <point key="canvasLocation" x="593" y="503"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="oXv-hT-lQd">
@@ -89,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2nO-wc-T5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1094" y="503"/>
+            <point key="canvasLocation" x="1226" y="503"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Bjs-g3-wXC">
@@ -103,14 +103,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-WU-mP9">
-                                <rect key="frame" x="264" y="28" width="73" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TCT-vf-NAg">
-                                <rect key="frame" x="40" y="57" width="520" height="180"/>
+                                <rect key="frame" x="40" y="89" width="520" height="180"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTJ-4P-QYJ">
                                         <rect key="frame" x="229" y="19" width="63" height="21"/>
@@ -122,7 +116,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-wG-JjD">
-                                <rect key="frame" x="40" y="245" width="253" height="128"/>
+                                <rect key="frame" x="40" y="277" width="253" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qY-l2-L3S">
                                         <rect key="frame" x="8" y="8" width="113" height="21"/>
@@ -134,7 +128,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djO-Hs-zbH">
-                                <rect key="frame" x="308" y="245" width="252" height="128"/>
+                                <rect key="frame" x="308" y="277" width="252" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accommodation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRV-9I-fXg">
                                         <rect key="frame" x="8" y="8" width="125" height="21"/>
@@ -146,7 +140,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wfk-if-zvv">
-                                <rect key="frame" x="42" y="385" width="251" height="128"/>
+                                <rect key="frame" x="42" y="417" width="251" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attractions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-oI-9IL">
                                         <rect key="frame" x="8" y="8" width="84" height="21"/>
@@ -158,7 +152,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wF-CF-1Eh">
-                                <rect key="frame" x="308" y="385" width="252" height="128"/>
+                                <rect key="frame" x="308" y="417" width="252" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TBD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyL-eS-ylq">
                                         <rect key="frame" x="8" y="8" width="34" height="21"/>
@@ -169,10 +163,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfV-x5-vQd">
-                                <rect key="frame" x="20" y="23" width="144" height="30"/>
-                                <state key="normal" title="Cancel &lt; Home Page"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVY-cd-lZb">
                                 <rect key="frame" x="284" y="550" width="30" height="30"/>
                                 <state key="normal" title="+"/>
@@ -185,17 +175,35 @@
                                 <rect key="frame" x="243" y="550" width="30" height="30"/>
                                 <state key="normal" title="+"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAG-GH-8Z4">
-                                <rect key="frame" x="444" y="23" width="136" height="30"/>
-                                <state key="normal" title="SAVE &gt; Result Page"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URL-WU-mP9">
+                                <rect key="frame" x="264" y="64" width="73" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="EVg-Rr-LGb">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="xDj-tI-UUI">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jfV-x5-vQd">
+                                <rect key="frame" x="20" y="-8" width="144" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel &lt; Home Page"/>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qMS-Bj-lbV">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gAG-GH-8Z4">
+                                <rect key="frame" x="444" y="-7" width="136" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SAVE &gt; Result Page"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qh-L4-3T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="503"/>
+            <point key="canvasLocation" x="2533" y="503"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -215,15 +223,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-fO-ia9">
-                                <rect key="frame" x="133" y="66" width="335" height="29"/>
-                                <segments>
-                                    <segment title="Day1"/>
-                                    <segment title="Day2"/>
-                                    <segment title="Day3"/>
-                                    <segment title="ALL"/>
-                                </segments>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaf-ia-YUk">
                                 <rect key="frame" x="537" y="28" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
@@ -232,6 +231,27 @@
                                 <rect key="frame" x="414" y="28" width="115" height="30"/>
                                 <state key="normal" title="EDIT &lt; Edit Page"/>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGs-Sp-Ti0">
+                                <rect key="frame" x="40" y="66" width="520" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIr-aQ-8rS">
+                                        <rect key="frame" x="229" y="19" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9LS-fO-ia9">
+                                <rect key="frame" x="133" y="254" width="335" height="29"/>
+                                <segments>
+                                    <segment title="Day1"/>
+                                    <segment title="Day2"/>
+                                    <segment title="Day3"/>
+                                    <segment title="Overview"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -239,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3083" y="869"/>
+            <point key="canvasLocation" x="3895" y="869"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="zfu-5J-xp9">
@@ -259,15 +279,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PLs-F8-9qL">
-                                <rect key="frame" x="139" y="65" width="335" height="29"/>
-                                <segments>
-                                    <segment title="Day1"/>
-                                    <segment title="Day2"/>
-                                    <segment title="Day3"/>
-                                    <segment title="ALL"/>
-                                </segments>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-Tv-AK9">
                                 <rect key="frame" x="537" y="23" width="40" height="30"/>
                                 <state key="normal" title="Share"/>
@@ -276,6 +287,27 @@
                                 <rect key="frame" x="408" y="23" width="115" height="30"/>
                                 <state key="normal" title="EDIT &lt; Edit Page"/>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-d3-CTS">
+                                <rect key="frame" x="40" y="57" width="520" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-Kb-gMM">
+                                        <rect key="frame" x="229" y="19" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PLs-F8-9qL">
+                                <rect key="frame" x="139" y="245" width="335" height="29"/>
+                                <segments>
+                                    <segment title="Day1"/>
+                                    <segment title="Day2"/>
+                                    <segment title="Day3"/>
+                                    <segment title="Overview"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -283,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTk-uD-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3083" y="160"/>
+            <point key="canvasLocation" x="3895" y="160"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6HT-Pa-C8n">
@@ -301,7 +333,25 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exl-gS-ise" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2366" y="503"/>
+            <point key="canvasLocation" x="3178" y="503"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8Na-GB-dEI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vho-em-cZv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TzT-Pd-PbV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="51y-uk-KEg" kind="relationship" relationship="rootViewController" id="a00-1w-vI1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y5Q-u5-hRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1869" y="503"/>
         </scene>
     </scenes>
 </document>
