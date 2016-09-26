@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */; };
 		95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08711D98D01C009C404A /* AppDelegate.swift */; };
 		95DB08741D98D01C009C404A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08731D98D01C009C404A /* ViewController.swift */; };
 		95DB08771D98D01C009C404A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB08751D98D01C009C404A /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB087D1D98D01C009C404A /* LaunchScreen.storyboard */; };
 		95DB088A1D98D01C009C404A /* ETripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08891D98D01C009C404A /* ETripTests.swift */; };
 		95DB08951D98D01C009C404A /* ETripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08941D98D01C009C404A /* ETripUITests.swift */; };
+		D6F07712019D8ADE2D6E7253 /* libPods-ETrip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A7F88B4F8D95B76DA8CF398 /* libPods-ETrip.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.release.xcconfig"; sourceTree = "<group>"; };
+		413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.debug.xcconfig"; sourceTree = "<group>"; };
+		7A7F88B4F8D95B76DA8CF398 /* libPods-ETrip.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ETrip.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95DB086E1D98D01C009C404A /* ETrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08711D98D01C009C404A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DB08731D98D01C009C404A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F07712019D8ADE2D6E7253 /* libPods-ETrip.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,13 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B672F724339F868AF7F3098 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A7F88B4F8D95B76DA8CF398 /* libPods-ETrip.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60CBBBF4667EC48F3C3230DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */,
+				221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		95DB08651D98D01C009C404A = {
 			isa = PBXGroup;
 			children = (
+				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
 				95DB08701D98D01C009C404A /* ETrip */,
 				95DB08881D98D01C009C404A /* ETripTests */,
 				95DB08931D98D01C009C404A /* ETripUITests */,
 				95DB086F1D98D01C009C404A /* Products */,
+				60CBBBF4667EC48F3C3230DD /* Pods */,
+				0B672F724339F868AF7F3098 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95DB08991D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETrip" */;
 			buildPhases = (
+				409EEC9DEB919C85375EADFF /* [CP] Check Pods Manifest.lock */,
 				95DB086A1D98D01C009C404A /* Sources */,
 				95DB086B1D98D01C009C404A /* Frameworks */,
 				95DB086C1D98D01C009C404A /* Resources */,
+				86A640DB7B8E8B6089D805D8 /* [CP] Embed Pods Frameworks */,
+				491B4C0B214E65A1EFA69BC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */,
+				9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */,
 				95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */,
 				95DB08771D98D01C009C404A /* Main.storyboard in Resources */,
 			);
@@ -253,6 +284,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		409EEC9DEB919C85375EADFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		491B4C0B214E65A1EFA69BC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETrip/Pods-ETrip-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86A640DB7B8E8B6089D805D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETrip/Pods-ETrip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95DB086A1D98D01C009C404A /* Sources */ = {
@@ -403,6 +482,7 @@
 		};
 		95DB089A1D98D01C009C404A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ETrip/Info.plist;
@@ -414,6 +494,7 @@
 		};
 		95DB089B1D98D01C009C404A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ETrip/Info.plist;
@@ -488,6 +569,7 @@
 				95DB089B1D98D01C009C404A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95DB089C1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +578,7 @@
 				95DB089E1D98D01C009C404A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95DB089F1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +587,7 @@
 				95DB08A11D98D01C009C404A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
