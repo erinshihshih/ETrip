@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseDatabase
 
 class EditViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
@@ -51,6 +52,13 @@ class EditViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             
             let title = titleTextField.text ?? ""
             let destination = destinationTextField.text ?? ""
+            
+            // Store in Firebase
+         
+            let postOnFire: [String: AnyObject] = [ "title": title,
+                                                    "destination": destination ]
+            let databaseRef = FIRDatabase.database().reference()
+            databaseRef.child("posts").childByAutoId().setValue(postOnFire)
             
             // Set the meal to be passed to MealListTableViewController after the unwind segue.
             post = Post(title: title, destination: destination)

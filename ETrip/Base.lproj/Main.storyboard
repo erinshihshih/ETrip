@@ -161,10 +161,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfk-if-zvv">
-                                <rect key="frame" x="42" y="467" width="518" height="78"/>
+                                <rect key="frame" x="40" y="467" width="520" height="78"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attractions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fU1-oI-9IL">
-                                        <rect key="frame" x="8" y="8" width="84" height="21"/>
+                                        <rect key="frame" x="10" y="8" width="84" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -173,7 +173,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fU1-oI-9IL" firstAttribute="top" secondItem="Wfk-if-zvv" secondAttribute="topMargin" id="B1o-ql-sPE"/>
-                                    <constraint firstItem="fU1-oI-9IL" firstAttribute="leading" secondItem="Wfk-if-zvv" secondAttribute="leadingMargin" id="z8U-gn-jDC"/>
+                                    <constraint firstItem="fU1-oI-9IL" firstAttribute="leading" secondItem="Wfk-if-zvv" secondAttribute="leadingMargin" constant="2" id="z8U-gn-jDC"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVY-cd-lZb">
@@ -210,7 +210,7 @@
                             <constraint firstItem="RXY-wG-JjD" firstAttribute="top" secondItem="djO-Hs-zbH" secondAttribute="top" constant="-93" id="9Qp-eq-673"/>
                             <constraint firstItem="lVY-cd-lZb" firstAttribute="leading" secondItem="X61-wh-wTw" secondAttribute="trailing" constant="11" id="Ar7-zO-DJ2"/>
                             <constraint firstItem="djO-Hs-zbH" firstAttribute="leading" secondItem="Nvt-Wx-81b" secondAttribute="leading" constant="40" id="DtI-uW-9Um"/>
-                            <constraint firstItem="Wfk-if-zvv" firstAttribute="leading" secondItem="Nvt-Wx-81b" secondAttribute="leadingMargin" constant="22" id="H3s-jN-Yf5"/>
+                            <constraint firstItem="Wfk-if-zvv" firstAttribute="leading" secondItem="Nvt-Wx-81b" secondAttribute="leadingMargin" constant="20" id="H3s-jN-Yf5"/>
                             <constraint firstItem="RXY-wG-JjD" firstAttribute="trailing" secondItem="Wfk-if-zvv" secondAttribute="trailing" id="HJc-EE-kVB"/>
                             <constraint firstItem="RXY-wG-JjD" firstAttribute="top" secondItem="TCT-vf-NAg" secondAttribute="bottom" constant="8" symbolic="YES" id="LhC-v2-8sB"/>
                             <constraint firstItem="TCT-vf-NAg" firstAttribute="leading" secondItem="Nvt-Wx-81b" secondAttribute="leadingMargin" constant="20" id="N6u-SL-3Za"/>
@@ -233,7 +233,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ypt-nu-Adw"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="BGg-JT-4UI">
                             <connections>
-                                <segue destination="geS-K2-DBy" kind="unwind" unwindAction="unwindToJournalList:" id="a9M-3q-8TS"/>
+                                <segue destination="geS-K2-DBy" kind="unwind" unwindAction="unwindToHomePage:" id="waF-6b-181"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

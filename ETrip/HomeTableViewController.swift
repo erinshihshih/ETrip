@@ -17,6 +17,17 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let databaseRef = FIRDatabase.database().reference()
+        
+        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
+            
+            let title = snapshot.value!["title"] as! String
+            let destination = snapshot.value!["destination"] as! String
+            
+            self.posts.insert(Post(title: title, destination: destination), atIndex: 0)
+            self.tableView.reloadData()
+        })
         
     }
     
@@ -48,15 +59,6 @@ class HomeTableViewController: UITableViewController {
         cell.titleLabel.text = post.title
         cell.destinationLabel.text = post.destination
 
-        // Store in Firebase
-        let title = cell.titleLabel.text
-        let destination = cell.destinationLabel.text
-            
-        let postOnFire: [String: AnyObject] = [ "title": title!,
-                                                "destination": destination! ]
-        let databaseRef = FIRDatabase.database().reference()
-        databaseRef.child("posts").childByAutoId().setValue(postOnFire)
-        
         
         return cell
     }
@@ -82,21 +84,7 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToJournalList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.sourceViewController as? EditViewController,
-            post = sourceViewController.post {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing meal.
-                posts[selectedIndexPath.row] = post
-                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
-            } else {
-                // Add a new item.
-                let newIndexPath = NSIndexPath(forRow: posts.count, inSection: 0)
-                posts.append(post)
-                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-            }
-        }
-    }
+    @IBAction func unwindToHomePage(sender: UIStoryboardSegue) { }
 
 
 
