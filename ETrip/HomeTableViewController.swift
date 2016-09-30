@@ -75,7 +75,7 @@ class HomeTableViewController: UITableViewController {
         let post = posts[indexPath.row]
         
         cell.titleLabel.text = post.title
-        cell.destinationLabel.text = post.destination
+        cell.destinationLabel.text = "Destination: \(post.destination)"
 
         
         return cell

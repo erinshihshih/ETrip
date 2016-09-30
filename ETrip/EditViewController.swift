@@ -39,6 +39,7 @@ class EditViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         destinationTextField.delegate = self
         
         if let post = post {
+            navigationItem.title = post.title
             titleTextField.text = post.title
             destinationTextField.text = post.destination
         }
@@ -57,6 +58,10 @@ class EditViewController: UIViewController, UITextFieldDelegate, UINavigationCon
         // Hide the keyboard.
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        navigationItem.title = textField.text
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
