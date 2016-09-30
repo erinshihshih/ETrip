@@ -10,9 +10,26 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+var cell = TitleTableViewCell()
+
 class EditTableViewController: UITableViewController, UITextFieldDelegate {
 
     var post: Post?
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        
+        let isPresentingInAddPostMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddPostMode {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            navigationController!.popViewControllerAnimated(true)
+        }
+
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +48,7 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,19 +60,37 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "titleCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
+        cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
 
         cell.titleTextField.delegate = self
         cell.destinationTextField.delegate = self
         
         if let post = post {
-            
             cell.titleTextField.text = post.title
             cell.destinationTextField.text = post.destination
         }
 
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            
+            let title = cell.titleTextField.text ?? ""
+            let destination = cell.destinationTextField.text ?? ""
+            
+            // Store in Firebase
+            
+            let postOnFire: [String: AnyObject] = [ "title": title,
+                                                    "destination": destination ]
+            let databaseRef = FIRDatabase.database().reference()
+            databaseRef.child("posts").childByAutoId().setValue(postOnFire)
+            
+            // Set the post to be passed to HomeTableViewController after the unwind segue.
+            post = Post(title: title, destination: destination)
+        }
+    }
+
 
 
     /*
