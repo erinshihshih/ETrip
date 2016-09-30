@@ -18,7 +18,7 @@
 		9549ED8E1D991E970074E306 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8D1D991E970074E306 /* Attraction.swift */; };
 		9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */; };
 		95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08711D98D01C009C404A /* AppDelegate.swift */; };
-		95DB08741D98D01C009C404A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08731D98D01C009C404A /* ViewController.swift */; };
+		95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08731D98D01C009C404A /* LoginViewController.swift */; };
 		95DB08771D98D01C009C404A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB08751D98D01C009C404A /* Main.storyboard */; };
 		95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */; };
 		95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95DB087B1D98D01C009C404A /* Assets.xcassets */; };
@@ -60,7 +60,7 @@
 		9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		95DB086E1D98D01C009C404A /* ETrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08711D98D01C009C404A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95DB08731D98D01C009C404A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		95DB08731D98D01C009C404A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95DB08761D98D01C009C404A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95DB08791D98D01C009C404A /* ETrip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ETrip.xcdatamodel; sourceTree = "<group>"; };
 		95DB087B1D98D01C009C404A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			children = (
 				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
 				95DB08711D98D01C009C404A /* AppDelegate.swift */,
-				95DB08731D98D01C009C404A /* ViewController.swift */,
+				95DB08731D98D01C009C404A /* LoginViewController.swift */,
 				95DB08751D98D01C009C404A /* Main.storyboard */,
 				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
 				95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */,
@@ -374,7 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95143BF21D9D120100E389E1 /* EditViewController.swift in Sources */,
-				95DB08741D98D01C009C404A /* ViewController.swift in Sources */,
+				95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */,
 				95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */,
 				95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */,
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,

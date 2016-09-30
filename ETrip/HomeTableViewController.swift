@@ -9,11 +9,29 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FBSDKCoreKit
 
 class HomeTableViewController: UITableViewController {
 
     var posts = [Post]()
     
+    @IBAction func logoutButton(sender: AnyObject) {
+        
+        // sign the user out of the Firebase app
+        try! FIRAuth.auth()!.signOut()
+        
+        // sign the user out of the facebook app
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        // move the user to the login page
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginViewController
+        //                self.presentViewController(homeTableViewController, animated: true, completion: nil)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

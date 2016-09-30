@@ -16,8 +16,20 @@ class EditViewController: UIViewController, UITextFieldDelegate, UINavigationCon
   
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var destinationTextField: UITextField!
+
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBAction func cancelButton(sender: UIBarButtonItem) {
+        
+        let isPresentingInAddPostMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddPostMode {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            navigationController!.popViewControllerAnimated(true)
+        }
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,7 +72,7 @@ class EditViewController: UIViewController, UITextFieldDelegate, UINavigationCon
             let databaseRef = FIRDatabase.database().reference()
             databaseRef.child("posts").childByAutoId().setValue(postOnFire)
             
-            // Set the meal to be passed to MealListTableViewController after the unwind segue.
+            // Set the post to be passed to HomeTableViewController after the unwind segue.
             post = Post(title: title, destination: destination)
         }
     }
