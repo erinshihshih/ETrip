@@ -90,13 +90,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         //                        let providerID = profile.providerID
                         let name = profile.displayName
                         let email = profile.email
-                        let photoURL = profile.photoURL
+                        let profilePicURL = profile.photoURL
                         
                         let newUser: [String: AnyObject] = [
                             //                            "providerID": providerID,
                             "name": name!,
                             "email": email!,
-                            "photoURL": "\(photoURL!)"]
+                            "profilePicURL": "\(profilePicURL!)"]
                         
                         databaseRef.child("users").child(user.uid).setValue(newUser)
                     }

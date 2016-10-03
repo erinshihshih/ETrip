@@ -12,5 +12,9 @@ class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var destinationTextField: UITextField!
+   
+    // to be re-designed
+    @IBOutlet weak var startDateTextField: UITextField!
     
+    @IBOutlet weak var returnDateTextField: UITextField!
 }

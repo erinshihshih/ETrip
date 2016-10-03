@@ -13,5 +13,10 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
  
     @IBOutlet weak var destinationLabel: UILabel!
+    
+
+    @IBOutlet weak var startDateLabel: UILabel!
+    
+    @IBOutlet weak var returnDateLabel: UILabel!
 
 }

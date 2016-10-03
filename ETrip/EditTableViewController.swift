@@ -59,10 +59,14 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
         
         cell.titleTextField.delegate = self
         cell.destinationTextField.delegate = self
+        cell.startDateTextField.delegate = self
+        cell.returnDateTextField.delegate = self
         
         if let post = post {
             cell.titleTextField.text = post.title
             cell.destinationTextField.text = post.destination
+            cell.startDateTextField.text = post.startDate
+            cell.returnDateTextField.text = post.returnDate
         }
         
         return cell
@@ -74,19 +78,25 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
             let title = cell.titleTextField.text ?? ""
             let destination = cell.destinationTextField.text ?? ""
             
+            // needs to be re-designed
+            let startDate = cell.startDateTextField.text ?? ""
+            let returnDate = cell.returnDateTextField.text ?? ""
+            
             // Store in Firebase
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
             
             let postOnFire: [String: AnyObject] = [ "uid": userID!,
                                                     "title": title,
-                                                    "destination": destination ]
+                                                    "destination": destination,
+                                                    "startDate": startDate,
+                                                    "returnDate": returnDate]
             databaseRef.child("posts").childByAutoId().setValue(postOnFire)
             
             
             
             // Set the post to be passed to HomeTableViewController after the unwind segue.
-            post = Post(title: title, destination: destination)
+            post = Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate)
         }
     }
     

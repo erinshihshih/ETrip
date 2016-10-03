@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbu-iw-zRN" id="aBb-tF-fEF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-F2-2cw">
@@ -81,16 +81,34 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku0-UT-crE">
+                                            <rect key="frame" x="21" y="66" width="72" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="returnDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bka-Ap-lfL">
+                                            <rect key="frame" x="21" y="95" width="83" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="5VZ-F2-2cw" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" id="816-ik-WtV"/>
+                                        <constraint firstItem="ku0-UT-crE" firstAttribute="top" secondItem="Gw0-SB-Xru" secondAttribute="bottom" constant="8" id="Bfe-DA-UBd"/>
                                         <constraint firstItem="Gw0-SB-Xru" firstAttribute="top" secondItem="5VZ-F2-2cw" secondAttribute="bottom" constant="8" symbolic="YES" id="E4Q-4u-rAR"/>
+                                        <constraint firstItem="Bka-Ap-lfL" firstAttribute="leading" secondItem="ku0-UT-crE" secondAttribute="leading" id="OdW-pb-wMP"/>
+                                        <constraint firstItem="Bka-Ap-lfL" firstAttribute="top" secondItem="ku0-UT-crE" secondAttribute="bottom" constant="8" id="Os9-xh-YUx"/>
                                         <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="Gw0-SB-Xru" secondAttribute="leading" constant="-13" id="QfH-IO-JwH"/>
                                         <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leadingMargin" id="V9u-cU-8Jj"/>
+                                        <constraint firstItem="ku0-UT-crE" firstAttribute="leading" secondItem="Gw0-SB-Xru" secondAttribute="leading" id="ufa-45-cmp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="destinationLabel" destination="Gw0-SB-Xru" id="5kt-67-L4U"/>
+                                    <outlet property="returnDateLabel" destination="Bka-Ap-lfL" id="Xog-67-L7A"/>
+                                    <outlet property="startDateLabel" destination="ku0-UT-crE" id="h68-xi-Gip"/>
                                     <outlet property="titleLabel" destination="5VZ-F2-2cw" id="Nrc-rC-zJF"/>
                                     <segue destination="AbE-jo-gHu" kind="show" id="KNm-yE-NKY"/>
                                 </connections>
@@ -158,11 +176,30 @@
                                             <rect key="frame" x="562" y="99" width="30" height="30"/>
                                             <state key="normal" title="+"/>
                                         </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="startDate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-kU-c6x">
+                                            <rect key="frame" x="8" y="84" width="200" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="pU3-qT-fTr"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="returnDate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-y9-iUW">
+                                            <rect key="frame" x="8" y="112" width="200" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="MrG-2h-vmK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="YWS-kU-c6x" firstAttribute="top" secondItem="5hl-ho-272" secondAttribute="bottom" constant="8" id="3SO-v8-Iy1"/>
                                         <constraint firstItem="Ehr-sK-PE1" firstAttribute="baseline" secondItem="kzJ-be-t3Y" secondAttribute="baseline" id="6p0-fA-Qin"/>
                                         <constraint firstItem="kzJ-be-t3Y" firstAttribute="baseline" secondItem="1Uk-Pe-Xw8" secondAttribute="baseline" id="Eqq-Xd-xke"/>
+                                        <constraint firstItem="YWS-kU-c6x" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="GEv-I5-a1q"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="trailing" secondItem="VRp-T8-cQT" secondAttribute="trailingMargin" id="JDM-nF-vhl"/>
+                                        <constraint firstItem="rJu-y9-iUW" firstAttribute="top" secondItem="YWS-kU-c6x" secondAttribute="top" constant="28" id="Jsj-Ed-KJP"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="top" secondItem="VRp-T8-cQT" secondAttribute="topMargin" id="OIA-cR-EHl"/>
                                         <constraint firstItem="1Uk-Pe-Xw8" firstAttribute="leading" secondItem="kzJ-be-t3Y" secondAttribute="trailing" constant="19" id="Qwe-M6-G6Q"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="UMU-Md-YG9"/>
@@ -171,10 +208,13 @@
                                         <constraint firstItem="kzJ-be-t3Y" firstAttribute="leading" secondItem="Ehr-sK-PE1" secondAttribute="trailing" constant="20" id="iJa-le-e7t"/>
                                         <constraint firstItem="Ehr-sK-PE1" firstAttribute="top" secondItem="Hfc-Jm-FW5" secondAttribute="bottom" constant="61" id="iwM-5H-7Jh"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="trailing" secondItem="1Uk-Pe-Xw8" secondAttribute="trailing" id="pAy-KK-g1m"/>
+                                        <constraint firstItem="rJu-y9-iUW" firstAttribute="leading" secondItem="YWS-kU-c6x" secondAttribute="trailing" constant="-200" id="zQa-zB-K6s"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="destinationTextField" destination="5hl-ho-272" id="pnp-xY-9zI"/>
+                                    <outlet property="returnDateTextField" destination="rJu-y9-iUW" id="vvt-o2-Nna"/>
+                                    <outlet property="startDateTextField" destination="YWS-kU-c6x" id="mM5-9k-xrQ"/>
                                     <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
                                 </connections>
                             </tableViewCell>
