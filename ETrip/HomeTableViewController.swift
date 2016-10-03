@@ -15,6 +15,7 @@ class HomeTableViewController: UITableViewController {
 
     var posts = [Post]()
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,13 @@ class HomeTableViewController: UITableViewController {
             
             self.posts.insert(Post(title: title, destination: destination), atIndex: 0)
             self.tableView.reloadData()
+            
+            // sideMenu set up
+            
+            self.menuButton.target = self.revealViewController()
+            self.menuButton.action = Selector("revealToggle:")
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         })
         
     }

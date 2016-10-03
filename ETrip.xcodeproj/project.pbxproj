@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95044D291DA23C5200696DC8 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */; };
 		95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BED1D9D0D9F00E389E1 /* Post.swift */; };
 		95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */; };
 		95143BF21D9D120100E389E1 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF11D9D120100E389E1 /* EditViewController.swift */; };
@@ -16,7 +17,8 @@
 		9549ED891D9918260074E306 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED881D9918260074E306 /* Transportation.swift */; };
 		9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8A1D991C3D0074E306 /* Accommodation.swift */; };
 		9549ED8E1D991E970074E306 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8D1D991E970074E306 /* Attraction.swift */; };
-		9590022E1DA1FC1500EB5C76 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9590022D1DA1FC1500EB5C76 /* ProfileViewController.swift */; };
+		959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959002341DA2354700EB5C76 /* SWRevealViewController.m */; };
+		959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */; };
 		9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */; };
 		95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08711D98D01C009C404A /* AppDelegate.swift */; };
 		95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08731D98D01C009C404A /* LoginViewController.swift */; };
@@ -51,6 +53,7 @@
 /* Begin PBXFileReference section */
 		221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.release.xcconfig"; sourceTree = "<group>"; };
 		413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.debug.xcconfig"; sourceTree = "<group>"; };
+		95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		95143BED1D9D0D9F00E389E1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		95143BF11D9D120100E389E1 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +63,10 @@
 		9549ED881D9918260074E306 /* Transportation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		9549ED8A1D991C3D0074E306 /* Accommodation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
 		9549ED8D1D991E970074E306 /* Attraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
-		9590022D1DA1FC1500EB5C76 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ETrip-Bridging-Header.h"; sourceTree = "<group>"; };
+		959002331DA2354700EB5C76 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		959002341DA2354700EB5C76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		95DB086E1D98D01C009C404A /* ETrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08711D98D01C009C404A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +141,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		959002311DA2351400EB5C76 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
+				959002341DA2354700EB5C76 /* SWRevealViewController.m */,
+				959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		95DB08651D98D01C009C404A = {
 			isa = PBXGroup;
 			children = (
@@ -164,19 +180,21 @@
 				95DB08711D98D01C009C404A /* AppDelegate.swift */,
 				95DB08731D98D01C009C404A /* LoginViewController.swift */,
 				95DB08751D98D01C009C404A /* Main.storyboard */,
-				9590022D1DA1FC1500EB5C76 /* ProfileViewController.swift */,
 				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
 				95E3E9181D9E6513005BC373 /* EditTableViewController.swift */,
-				95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */,
 				95143BF11D9D120100E389E1 /* EditViewController.swift */,
 				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
 				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
+				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
 				95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */,
+				95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */,
+				95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */,
 				95DB087B1D98D01C009C404A /* Assets.xcassets */,
 				95DB087D1D98D01C009C404A /* LaunchScreen.storyboard */,
 				95DB08801D98D01C009C404A /* Info.plist */,
 				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
 				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
+				959002311DA2351400EB5C76 /* SupportingFiles */,
 			);
 			path = ETrip;
 			sourceTree = "<group>";
@@ -386,6 +404,7 @@
 				95E3E9191D9E6513005BC373 /* EditTableViewController.swift in Sources */,
 				95143BF21D9D120100E389E1 /* EditViewController.swift in Sources */,
 				95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */,
+				959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */,
 				95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */,
 				95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */,
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,
@@ -393,8 +412,9 @@
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,
 				9549ED8E1D991E970074E306 /* Attraction.swift in Sources */,
+				959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */,
 				95143BF81D9D1ADB00E389E1 /* PlannerViewController.swift in Sources */,
-				9590022E1DA1FC1500EB5C76 /* ProfileViewController.swift in Sources */,
+				95044D291DA23C5200696DC8 /* SideMenuTableViewCell.swift in Sources */,
 				9549ED891D9918260074E306 /* Transportation.swift in Sources */,
 				95143BF61D9D127B00E389E1 /* ResultViewController.swift in Sources */,
 			);
@@ -541,6 +561,7 @@
 			baseConfigurationReference = 413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
@@ -560,6 +581,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -568,6 +591,7 @@
 			baseConfigurationReference = 221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
@@ -587,6 +611,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  SideMenuTableViewController.swift
 //  ETrip
 //
 //  Created by Erin Shih on 2016/10/3.
@@ -11,77 +11,77 @@ import Firebase
 import FirebaseDatabase
 import FBSDKCoreKit
 
-
-class ProfileViewController: UIViewController {
+class SideMenuTableViewController: UITableViewController {
     
-    @IBOutlet weak var profileImage: UIImageView!
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    @IBAction func logoutButton(sender: AnyObject) {
-        // sign the user out of the Firebase app
-        try! FIRAuth.auth()!.signOut()
-        
-        // sign the user out of the facebook app
-        FBSDKAccessToken.setCurrentAccessToken(nil)
-        
-        // move the user to the login page
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.window?.rootViewController = loginViewController
-        //                self.presentViewController(homeTableViewController, animated: true, completion: nil)
-    }
-    //    @IBAction func logoutButton(sender: AnyObject) {
-    //
-    
-    //
-    //    }
+    var items = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2
         
-        self.profileImage.clipsToBounds = true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 1
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "SideMenuTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SideMenuTableViewCell
+        
+//        let item = items[indexPath.row]
+        
+        cell.profileImage.layer.cornerRadius =  cell.profileImage.frame.size.width / 2
+        
+        cell.profileImage.clipsToBounds = true
         
         if let user = FIRAuth.auth()?.currentUser {
             // User is signed in.
             let name = user.displayName
-            //            let email = user.email
-            let photoUrl = user.photoURL
-            //            let uid = user.uid
+            // let email = user.email
+//            let photoUrl = user.photoURL
+            // let uid = user.uid
             
-            self.nameLabel.text = name
-            
-            //            let data = NSData(contentsOfURL: photoUrl!)
-            //            self.profileImage.image = UIImage(data:data!)
-            
+            cell.nameLabel.text = name
             
             // 儲存圖像至firebase
             let storage = FIRStorage.storage()
             let storageRef = storage.referenceForURL("gs://etrip-fb2ab.appspot.com")
-            
             let profilePicRef = storageRef.child(user.uid+"/profile_pic.jpg")
             
             // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
             profilePicRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                if (error != nil) {
+                if error != nil {
                     
                     print("Unable to download image")
+                    
                 } else {
                     
                     if data != nil {
                         
                         print("User already has an image, no need to download from Facebook")
-                        self.profileImage.image = UIImage(data: data!)
+                        cell.profileImage.image = UIImage(data: data!)
+                        
                     }
                 }
             }
             
-            if self.profileImage.image == nil{
-                
+            if cell.profileImage.image == nil{
                 
                 let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height":300, "width":300, "redirect": false], HTTPMethod: "GET")
                 profilePic.startWithCompletionHandler({(connection, result, error)-> Void in
@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController {
                                 }
                             }
                             
-                            self.profileImage.image = UIImage(data: imageData)
+                            cell.profileImage.image = UIImage(data: imageData)
                         }
                     }
                     
@@ -119,13 +119,47 @@ class ProfileViewController: UIViewController {
         }
         
         
+        
+        
+        
+        return cell
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
+    /*
+     // Override to support editing the table view.
+     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+     if editingStyle == .Delete {
+     // Delete the row from the data source
+     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+     } else if editingStyle == .Insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
+    /*
+     // Override to support rearranging the table view.
+     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+     
+     }
+     */
+    
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
     
     /*
      // MARK: - Navigation

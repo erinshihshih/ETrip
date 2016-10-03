@@ -12,4 +12,6 @@ pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 
+pod 'ENSwiftSideMenu', '~> 0.1.1'
+
 end
