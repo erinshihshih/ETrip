@@ -8,12 +8,12 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let loginButton: FBSDKLoginButton = FBSDKLoginButton()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,10 +26,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 // HomeNavigationController
-//                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
-//
-//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                appDelegate.window?.rootViewController = homeNavigationController
+                //                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
+                //
+                //                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                //                appDelegate.window?.rootViewController = homeNavigationController
                 
                 // test RevealViewController
                 let revealViewController = storyboard.instantiateViewControllerWithIdentifier("RevealViewController")
@@ -48,6 +48,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.view.addSubview(self.loginButton)
                 
                 self.loginButton.hidden = false
+                
             }
         }
         
@@ -56,6 +57,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        
+        let databaseRef = FIRDatabase.database().reference()
+        
         print("User Logged In")
         
         self.loginButton.hidden = true
@@ -65,8 +69,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.loginButton.hidden = false
             
             print("Error :  \(error.description)")
-        
-
+            
+            
         }else if result.isCancelled {
             
             self.loginButton.hidden = false
@@ -78,9 +82,30 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             // login to firebasee
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             
-            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            FIRAuth.auth()?.signInWithCredential(credential) { user, error in
                 print("User Logged In to Firebase App")
+                
+                if let user = FIRAuth.auth()?.currentUser {
+                    for profile in user.providerData {
+                        //                        let providerID = profile.providerID
+                        let name = profile.displayName
+                        let email = profile.email
+                        let photoURL = profile.photoURL
+                        
+                        let newUser: [String: AnyObject] = [
+                            //                            "providerID": providerID,
+                            "name": name!,
+                            "email": email!,
+                            "photoURL": "\(photoURL!)"]
+                        
+                        databaseRef.child("users").child(user.uid).setValue(newUser)
+                    }
+                } else {
+                    print("No user is signed in.")
+                }
+                
             }
+        
         }
     }
     

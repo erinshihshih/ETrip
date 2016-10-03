@@ -92,7 +92,7 @@
                                 <connections>
                                     <outlet property="destinationLabel" destination="Gw0-SB-Xru" id="5kt-67-L4U"/>
                                     <outlet property="titleLabel" destination="5VZ-F2-2cw" id="Nrc-rC-zJF"/>
-                                    <segue destination="HA2-SM-KdM" kind="show" identifier="showDetailSegue" id="ehl-Lt-KOI"/>
+                                    <segue destination="AbE-jo-gHu" kind="show" id="KNm-yE-NKY"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -206,7 +206,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwc-1u-zve" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kvz-3R-LYx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="1079"/>
+            <point key="canvasLocation" x="1986" y="761"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -454,4 +454,7 @@
             <point key="canvasLocation" x="285" y="-298"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KNm-yE-NKY"/>
+    </inferredMetricsTieBreakers>
 </document>
