@@ -35,6 +35,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // reload data from Firebase
         let databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {

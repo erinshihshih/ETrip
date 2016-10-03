@@ -22,7 +22,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="-229"/>
+            <point key="canvasLocation" x="293" y="-217"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="3cV-JG-P2V">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="nlJ-LR-Pdn" customClass="ProfileViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TiQ-8w-EBH"/>
+                        <viewControllerLayoutGuide type="bottom" id="HFQ-9m-wfo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hoe-ub-raJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A8q-6O-AbU">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2vJ-ES-2IK"/>
+                                    <constraint firstAttribute="height" constant="200" id="L9T-ZV-uUP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-80-GHw">
+                                <rect key="frame" x="279" y="408" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="M7j-80-GHw" firstAttribute="centerX" secondItem="A8q-6O-AbU" secondAttribute="centerX" id="BPp-IM-RWi"/>
+                            <constraint firstItem="A8q-6O-AbU" firstAttribute="centerY" secondItem="hoe-ub-raJ" secondAttribute="centerY" id="Eb1-p6-q2P"/>
+                            <constraint firstItem="A8q-6O-AbU" firstAttribute="centerX" secondItem="hoe-ub-raJ" secondAttribute="centerX" id="HZV-bv-gAp"/>
+                            <constraint firstItem="M7j-80-GHw" firstAttribute="top" secondItem="A8q-6O-AbU" secondAttribute="bottom" constant="8" id="fhZ-fW-pUP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="M7j-80-GHw" id="RFA-sA-xEb"/>
+                        <outlet property="profileImage" destination="A8q-6O-AbU" id="VL3-C5-tKS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ClH-EE-c7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="-208"/>
         </scene>
         <!--My Trips-->
         <scene sceneID="Lzr-Mm-rTb">
@@ -49,7 +92,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-PK-D87">
                                             <rect key="frame" x="114" y="37" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-SB-Xru">
@@ -93,22 +136,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfn-Go-LVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="503"/>
+            <point key="canvasLocation" x="1116" y="495"/>
         </scene>
         <!--Edit Table View Controller-->
         <scene sceneID="4IA-9f-xJJ">
             <objects>
                 <tableViewController id="AbE-jo-gHu" customClass="EditTableViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="CYl-mD-tla">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="CYl-mD-tla">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="137" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="137"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="150" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="137"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
@@ -156,11 +199,11 @@
                                     <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" rowHeight="162" id="VFS-FW-Nrk">
-                                <rect key="frame" x="0.0" y="229" width="600" height="162"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" rowHeight="150" id="VFS-FW-Nrk">
+                                <rect key="frame" x="0.0" y="242" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFS-FW-Nrk" id="ScI-DX-LDd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -189,7 +232,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwc-1u-zve" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kvz-3R-LYx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="503"/>
+            <point key="canvasLocation" x="2685" y="495"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -258,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="2049"/>
+            <point key="canvasLocation" x="1897" y="2017"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="zfu-5J-xp9">
@@ -327,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTk-uD-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2533" y="1327"/>
+            <point key="canvasLocation" x="1897" y="1255"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="6HT-Pa-C8n">
@@ -345,7 +388,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exl-gS-ise" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1220" y="1631"/>
+            <point key="canvasLocation" x="1116" y="1631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R2U-0c-wLE">
@@ -363,7 +406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4c-PA-np5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="541" y="503"/>
+            <point key="canvasLocation" x="293" y="495"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fMj-Ag-7u7">
@@ -381,7 +424,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5M-jj-00R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="503"/>
+            <point key="canvasLocation" x="1897" y="495"/>
         </scene>
     </scenes>
 </document>

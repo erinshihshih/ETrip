@@ -24,11 +24,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 // User is signed in.
                 // move the user to the home page
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
                 
+                // HomeNavigationController
+//                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
+//
+//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.window?.rootViewController = homeNavigationController
+                
+                // test ProfileViewController
+                let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window?.rootViewController = homeNavigationController
-                //                self.presentViewController(homeTableViewController, animated: true, completion: nil)
+                appDelegate.window?.rootViewController = profileViewController
                 
                 
             } else {
