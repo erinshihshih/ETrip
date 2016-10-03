@@ -32,9 +32,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 //                appDelegate.window?.rootViewController = homeNavigationController
                 
                 // test ProfileViewController
-                let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController")
+                let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeView")
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.window?.rootViewController = profileViewController
+                appDelegate.window?.rootViewController = homeViewController
                 
                 
             } else {

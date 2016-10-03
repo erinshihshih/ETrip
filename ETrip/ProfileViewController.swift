@@ -18,6 +18,27 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBAction func logoutButton(sender: AnyObject) {
+        // sign the user out of the Firebase app
+        try! FIRAuth.auth()!.signOut()
+        
+        // sign the user out of the facebook app
+        FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        // move the user to the login page
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = loginViewController
+        //                self.presentViewController(homeTableViewController, animated: true, completion: nil)
+    }
+    //    @IBAction func logoutButton(sender: AnyObject) {
+    //
+    
+    //
+    //    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +55,8 @@ class ProfileViewController: UIViewController {
             
             self.nameLabel.text = name
             
-//            let data = NSData(contentsOfURL: photoUrl!)
-//            self.profileImage.image = UIImage(data:data!)
+            //            let data = NSData(contentsOfURL: photoUrl!)
+            //            self.profileImage.image = UIImage(data:data!)
             
             
             // 儲存圖像至firebase

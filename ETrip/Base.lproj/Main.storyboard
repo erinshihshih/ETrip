@@ -22,9 +22,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293" y="-217"/>
+            <point key="canvasLocation" x="-1251" y="1014"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="3cV-JG-P2V">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="nlJ-LR-Pdn" customClass="ProfileViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,15 +49,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM8-ro-Nuq">
+                                <rect key="frame" x="276" y="437" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="nlJ-LR-Pdn" eventType="touchUpInside" id="d5c-p5-3vb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M7j-80-GHw" firstAttribute="centerX" secondItem="A8q-6O-AbU" secondAttribute="centerX" id="BPp-IM-RWi"/>
+                            <constraint firstItem="sM8-ro-Nuq" firstAttribute="centerX" secondItem="M7j-80-GHw" secondAttribute="centerX" id="CRJ-T6-MPn"/>
                             <constraint firstItem="A8q-6O-AbU" firstAttribute="centerY" secondItem="hoe-ub-raJ" secondAttribute="centerY" id="Eb1-p6-q2P"/>
                             <constraint firstItem="A8q-6O-AbU" firstAttribute="centerX" secondItem="hoe-ub-raJ" secondAttribute="centerX" id="HZV-bv-gAp"/>
+                            <constraint firstItem="sM8-ro-Nuq" firstAttribute="top" secondItem="M7j-80-GHw" secondAttribute="bottom" constant="8" id="TGz-KY-nir"/>
                             <constraint firstItem="M7j-80-GHw" firstAttribute="top" secondItem="A8q-6O-AbU" secondAttribute="bottom" constant="8" id="fhZ-fW-pUP"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="BAV-03-qrO"/>
                     <connections>
                         <outlet property="nameLabel" destination="M7j-80-GHw" id="RFA-sA-xEb"/>
                         <outlet property="profileImage" destination="A8q-6O-AbU" id="VL3-C5-tKS"/>
@@ -65,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ClH-EE-c7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="-208"/>
+            <point key="canvasLocation" x="293" y="1603"/>
         </scene>
         <!--My Trips-->
         <scene sceneID="Lzr-Mm-rTb">
@@ -122,21 +132,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Trips" id="JjH-7q-JRF">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="4bA-Ui-0nH">
-                            <connections>
-                                <action selector="logoutButton:" destination="BdE-xp-Twg" id="Ijf-Ql-Ysd"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="72s-fy-jAS">
                             <connections>
-                                <segue destination="ZDh-eY-FiH" kind="presentation" identifier="addPostSegue" id="aVj-A0-b8I"/>
+                                <segue destination="AbE-jo-gHu" kind="show" identifier="addPostSegue" id="wV4-r5-jUR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfn-Go-LVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="495"/>
+            <point key="canvasLocation" x="1056" y="495"/>
         </scene>
         <!--Edit Table View Controller-->
         <scene sceneID="4IA-9f-xJJ">
@@ -214,11 +219,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="UxM-jq-QXC">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="f7Y-da-hLI">
-                            <connections>
-                                <action selector="cancelButton:" destination="AbE-jo-gHu" id="npM-tj-Qwb"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="xRN-yR-Y9a">
                             <connections>
                                 <segue destination="kvz-3R-LYx" kind="unwind" unwindAction="unwindToHomePage:" id="3M4-i4-Yiz"/>
@@ -232,7 +232,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwc-1u-zve" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kvz-3R-LYx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2685" y="495"/>
+            <point key="canvasLocation" x="1888" y="1079"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -301,7 +301,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="2017"/>
+            <point key="canvasLocation" x="2709" y="193"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="zfu-5J-xp9">
@@ -370,7 +370,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTk-uD-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="1255"/>
+            <point key="canvasLocation" x="2709" y="-529"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="6HT-Pa-C8n">
@@ -388,12 +388,13 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Exl-gS-ise" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1116" y="1631"/>
+            <point key="canvasLocation" x="1888" y="-161"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Trips-->
         <scene sceneID="R2U-0c-wLE">
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="PoN-NF-pqU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trips" id="orK-iN-ai6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lxL-Wl-SEX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -408,23 +409,23 @@
             </objects>
             <point key="canvasLocation" x="293" y="495"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fMj-Ag-7u7">
+        <!--Tab Bar Controller-->
+        <scene sceneID="j2D-xo-jvl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZDh-eY-FiH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeView" automaticallyAdjustsScrollViewInsets="NO" id="n3E-n6-zVo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WHw-4b-7HQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="HNe-Nk-5is">
                         <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue destination="AbE-jo-gHu" kind="relationship" relationship="rootViewController" id="TzC-b5-9Dx"/>
+                        <segue destination="nlJ-LR-Pdn" kind="relationship" relationship="viewControllers" id="VAH-CN-vMg"/>
+                        <segue destination="PoN-NF-pqU" kind="relationship" relationship="viewControllers" id="tkX-x2-gWs"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N5M-jj-00R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="28P-ZG-Oai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1897" y="495"/>
+            <point key="canvasLocation" x="-520" y="1014"/>
         </scene>
     </scenes>
 </document>

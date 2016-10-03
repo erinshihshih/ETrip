@@ -20,14 +20,9 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         
-        let isPresentingInAddPostMode = presentingViewController is UINavigationController
         
-        if isPresentingInAddPostMode {
             dismissViewControllerAnimated(true, completion: nil)
-        } else {
-            navigationController!.popViewControllerAnimated(true)
-        }
-
+       
         
     }
     
