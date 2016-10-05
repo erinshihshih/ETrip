@@ -160,15 +160,17 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
                                                     <rect key="frame" x="8" y="8" width="584" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
-                                                    <rect key="frame" x="8" y="46" width="97" height="30"/>
+                                                    <rect key="frame" x="8" y="46" width="200" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="97" id="hnD-iN-FDg"/>
+                                                        <constraint firstAttribute="width" constant="200" id="hnD-iN-FDg"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="0.50762392241379306" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehr-sK-PE1">
@@ -231,27 +233,16 @@
                                     <outlet property="delegate" destination="Agl-cn-ojr" id="wf1-4v-ZrZ"/>
                                 </connections>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJQ-pf-Km2">
-                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XZy-wa-uF0" firstAttribute="top" secondItem="EaU-7v-6GB" secondAttribute="bottom" constant="-64" id="2dq-uG-2MI"/>
-                            <constraint firstItem="2fv-w3-tID" firstAttribute="top" secondItem="TJQ-pf-Km2" secondAttribute="bottom" id="4C7-18-H8u"/>
                             <constraint firstItem="XZy-wa-uF0" firstAttribute="leading" secondItem="lXI-Tf-QVt" secondAttribute="leading" id="9aX-ja-vpx"/>
-                            <constraint firstItem="TJQ-pf-Km2" firstAttribute="centerX" secondItem="lXI-Tf-QVt" secondAttribute="centerX" id="EX0-C7-hXS"/>
                             <constraint firstAttribute="trailing" secondItem="XZy-wa-uF0" secondAttribute="trailing" id="XGc-ZS-S8a"/>
                             <constraint firstItem="2fv-w3-tID" firstAttribute="top" secondItem="XZy-wa-uF0" secondAttribute="bottom" id="gS5-Df-Nkv"/>
-                            <constraint firstItem="TJQ-pf-Km2" firstAttribute="width" secondItem="lXI-Tf-QVt" secondAttribute="width" id="wsN-Lb-Ogi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Trt-NG-UI6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="KgQ-7x-py4">
-                            <connections>
-                                <action selector="cancelButton:" destination="Agl-cn-ojr" id="G2g-5F-gdJ"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="uGe-Sv-gZm">
                             <connections>
                                 <segue destination="dzK-jg-B4c" kind="unwind" unwindAction="unwindToHomePage:" id="sEr-Jp-xCu"/>
@@ -259,7 +250,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="countryPickerView" destination="TJQ-pf-Km2" id="Dk2-cn-wAF"/>
                         <outlet property="saveButton" destination="uGe-Sv-gZm" id="fyG-VX-rtA"/>
                     </connections>
                 </viewController>

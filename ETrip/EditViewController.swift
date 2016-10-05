@@ -17,22 +17,21 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var post: Post?
     
     var countryArray = [String]()
-
+    var pickerView = UIPickerView()
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    @IBAction func cancelButton(sender: UIBarButtonItem) {
-        
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBOutlet weak var countryPickerView: UIPickerView!
-    
+//    @IBAction func cancelButton(sender: UIBarButtonItem) {
+//        
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        countryPickerView.hidden = true
-
+        //        countryPickerView.hidden = true
+        
         
         for code in NSLocale.ISOCountryCodes() as [String] {
             
@@ -45,15 +44,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             })
             
         }
-    
         
-        countryPickerView.delegate = self
-        countryPickerView.dataSource = self
-        countryPickerView.backgroundColor = UIColor.blackColor()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+//        pickerView.tintColor = 
+        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditViewController.dismissController(_:)))
+//        tapGestureRecognizer.numberOfTapsRequired = 1
+//        self.view.addGestureRecognizer(tapGestureRecognizer)
 
-       
-        
     }
+//    
+//    func dismissController(gesture: UITapGestureRecognizer){
+//        self.view.endEditing(true)
+//    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -70,14 +76,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         myCell.destinationTextField.text = countryArray[row]
     }
-  
+    
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
         return title
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -115,39 +121,40 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.returnDateTextField.text = post.returnDate
         }
         
-//         cell.destinationTextField.inputView = countryPickerView
         myCell = cell
+        cell.destinationTextField.inputView = pickerView
         
         return cell
+        
     }
-
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if saveButton === sender {
-//            
-//            let title = cell.titleTextField.text ?? ""
-//            let destination = cell.destinationTextField.text ?? ""
-//            
-//            // needs to be re-designed > Date Picker
-//            let startDate = cell.startDateTextField.text ?? ""
-//            let returnDate = cell.returnDateTextField.text ?? ""
-//            
-//            // Store in Firebase
-//            let databaseRef = FIRDatabase.database().reference()
-//            let userID = FIRAuth.auth()?.currentUser?.uid
-//            
-//            let postOnFire: [String: AnyObject] = [ "uid": userID!,
-//                                                    "title": title,
-//                                                    "destination": destination,
-//                                                    "startDate": startDate,
-//                                                    "returnDate": returnDate]
-//            databaseRef.child("posts").childByAutoId().setValue(postOnFire)
-//            
-//            
-//            
-//            // Set the post to be passed to HomeTableViewController after the unwind segue.
-//            post = Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate)
-//        }
-//    }
+    
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if saveButton === sender {
+    
+                let title = myCell.titleTextField.text ?? ""
+                let destination = myCell.destinationTextField.text ?? ""
+    
+                // needs to be re-designed > Date Picker
+                let startDate = myCell.startDateTextField.text ?? ""
+                let returnDate = myCell.returnDateTextField.text ?? ""
+    
+                // Store in Firebase
+                let databaseRef = FIRDatabase.database().reference()
+                let userID = FIRAuth.auth()?.currentUser?.uid
+    
+                let postOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                        "title": title,
+                                                        "destination": destination,
+                                                        "startDate": startDate,
+                                                        "returnDate": returnDate]
+                databaseRef.child("posts").childByAutoId().setValue(postOnFire)
+    
+    
+    
+                // Set the post to be passed to HomeTableViewController after the unwind segue.
+                post = Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate)
+            }
+        }
     
     
     
