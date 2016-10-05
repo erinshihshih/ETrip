@@ -20,7 +20,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
-    var datePicker : UIDatePicker!
+//    var datePicker : UIDatePicker!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -68,13 +68,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func startDatePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
+        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
         myCell.startDateTextField.text = formatter.stringFromDate(sender.date)
     }
     
     func returnDatePickerChanged(sender: UIDatePicker) {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
+        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
         myCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
     }
     

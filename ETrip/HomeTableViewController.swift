@@ -81,7 +81,7 @@ class HomeTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "showDetailSegue" {
-//            let detailViewController = segue.destinationViewController as! ResultViewController
+//            let detailViewController = segue.destinationViewController as! EditViewController
 //            
 //            // Get the cell that generated this segue.
 //            if let selectedCell = sender as? HomeTableViewCell {
