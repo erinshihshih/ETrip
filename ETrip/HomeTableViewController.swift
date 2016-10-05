@@ -27,11 +27,11 @@ class HomeTableViewController: UITableViewController {
             snapshot in
             
             let title = snapshot.value!["title"] as! String
-            let destination = snapshot.value!["destination"] as! String
+            let country = snapshot.value!["country"] as! String
             let startDate = snapshot.value!["startDate"] as! String
             let returnDate = snapshot.value!["returnDate"] as! String
             
-            self.posts.insert(Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate), atIndex: 0)
+            self.posts.insert(Post(title: title, country: country, startDate: startDate, returnDate: returnDate), atIndex: 0)
             self.tableView.reloadData()
             
             // sideMenu set up
@@ -70,9 +70,9 @@ class HomeTableViewController: UITableViewController {
         let post = posts[indexPath.row]
         
         cell.titleLabel.text = post.title
-        cell.destinationLabel.text = "Destination: \(post.destination)"
-        cell.startDateLabel.text = "Start: \(post.startDate)"
-        cell.returnDateLabel.text = "Return: \(post.returnDate)"
+        cell.countryLabel.text = post.country
+        cell.startDateLabel.text = post.startDate
+        cell.returnDateLabel.text = post.returnDate
 
         return cell
     }

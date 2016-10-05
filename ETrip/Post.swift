@@ -11,16 +11,16 @@ import UIKit
 class Post {
     
     var title: String
-    var destination: String
+    var country: String
     
     //type needs to be re-defined
     var startDate: String
     var returnDate: String
     
-    init(title: String, destination: String, startDate: String, returnDate: String) {
+    init(title: String, country: String, startDate: String, returnDate: String) {
         
         self.title = title
-        self.destination = destination
+        self.country = country
         self.startDate = startDate
         self.returnDate = returnDate
         

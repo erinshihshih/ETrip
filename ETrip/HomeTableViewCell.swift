@@ -12,8 +12,7 @@ class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
  
-    @IBOutlet weak var destinationLabel: UILabel!
-    
+    @IBOutlet weak var countryLabel: UILabel!
 
     @IBOutlet weak var startDateLabel: UILabel!
     

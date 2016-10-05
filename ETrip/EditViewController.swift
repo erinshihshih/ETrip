@@ -18,7 +18,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var countryArray = [String]()
     var pickerView = UIPickerView()
-    
+    var startDatePicker = UIDatePicker()
+    var returnDatePicker = UIDatePicker()
+
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
 //    @IBAction func cancelButton(sender: UIBarButtonItem) {
@@ -29,14 +31,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        countryPickerView.hidden = true
-        
-        
+
+        // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
             
-            let id = NSLocale.localeIdentifierFromComponents([NSLocaleCountryCode: code])
-            let name = NSLocale(localeIdentifier: "en_EN").displayNameForKey(NSLocaleIdentifier, value: id) ?? "Country not found for code: \(code)"
+            let name = NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: code) ?? "Country not found for code: \(code)"
             
             countryArray.append(name)
             countryArray.sortInPlace({ ( name1, name2) -> Bool in
@@ -45,46 +44,26 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
 //        pickerView.tintColor = 
         
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EditViewController.dismissController(_:)))
-//        tapGestureRecognizer.numberOfTapsRequired = 1
-//        self.view.addGestureRecognizer(tapGestureRecognizer)
+        // Date Picker
+        startDatePicker.minuteInterval = 30
+        startDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        startDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        
+        returnDatePicker.minuteInterval = 30
+        returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+//        datePicker.setValue(0.8, forKeyPath: "alpha")
 
     }
-//    
-//    func dismissController(gesture: UITapGestureRecognizer){
-//        self.view.endEditing(true)
-//    }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
+
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countryArray.count
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countryArray[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        myCell.destinationTextField.text = countryArray[row]
-    }
-    
-    
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
-        let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        return title
-    }
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -109,20 +88,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
         
         cell.titleTextField.delegate = self
-        cell.destinationTextField.delegate = self
+        cell.countryTextField.delegate = self
         cell.startDateTextField.delegate = self
         cell.returnDateTextField.delegate = self
         
         
         if let post = post {
             cell.titleTextField.text = post.title
-            cell.destinationTextField.text = post.destination
+            cell.countryTextField.text = post.country
             cell.startDateTextField.text = post.startDate
             cell.returnDateTextField.text = post.returnDate
         }
         
         myCell = cell
-        cell.destinationTextField.inputView = pickerView
+        cell.countryTextField.inputView = pickerView
         
         return cell
         
@@ -132,7 +111,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             if saveButton === sender {
     
                 let title = myCell.titleTextField.text ?? ""
-                let destination = myCell.destinationTextField.text ?? ""
+                let country = myCell.countryTextField.text ?? ""
     
                 // needs to be re-designed > Date Picker
                 let startDate = myCell.startDateTextField.text ?? ""
@@ -144,7 +123,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
                 let postOnFire: [String: AnyObject] = [ "uid": userID!,
                                                         "title": title,
-                                                        "destination": destination,
+                                                        "country": country,
                                                         "startDate": startDate,
                                                         "returnDate": returnDate]
                 databaseRef.child("posts").childByAutoId().setValue(postOnFire)
@@ -152,11 +131,57 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
                 // Set the post to be passed to HomeTableViewController after the unwind segue.
-                post = Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate)
+                post = Post(title: title, country: country, startDate: startDate, returnDate: returnDate)
             }
         }
     
+    // Country Picker Delegate
     
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return countryArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return countryArray[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        myCell.countryTextField.text = countryArray[row]
+    }
+    
+    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+        return title
+    }
+    
+    // date TextField Delegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        myCell.startDateTextField.inputView = startDatePicker
+        myCell.returnDateTextField.inputView = returnDatePicker
+        startDatePicker.addTarget(self, action: #selector(EditViewController.startDatePickerChanged(_:)), forControlEvents: .ValueChanged)
+        returnDatePicker.addTarget(self, action: #selector(EditViewController.returnDatePickerChanged(_:)), forControlEvents: .ValueChanged)
+        
+    }
+    
+    func startDatePickerChanged(sender: UIDatePicker) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
+        myCell.startDateTextField.text = formatter.stringFromDate(sender.date)
+    }
+    
+    
+    func returnDatePickerChanged(sender: UIDatePicker) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
+        myCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
+    }
     
     
     

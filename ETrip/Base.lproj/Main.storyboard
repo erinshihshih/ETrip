@@ -66,47 +66,73 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-F2-2cw">
                                             <rect key="frame" x="8" y="8" width="36" height="23"/>
                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="0.73566810344827582" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-PK-D87">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-PK-D87">
                                             <rect key="frame" x="114" y="37" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-SB-Xru">
-                                            <rect key="frame" x="21" y="39" width="78" height="19"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="countryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-SB-Xru">
+                                            <rect key="frame" x="95" y="46" width="92" height="19"/>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku0-UT-crE">
-                                            <rect key="frame" x="21" y="66" width="72" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku0-UT-crE">
+                                            <rect key="frame" x="95" y="75" width="114" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="returnDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bka-Ap-lfL">
-                                            <rect key="frame" x="21" y="95" width="83" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0t-ii-9IL">
+                                            <rect key="frame" x="17" y="46" width="62" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNo-wg-aUZ">
+                                            <rect key="frame" x="39" y="75" width="40" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-tc-ms3">
+                                            <rect key="frame" x="28" y="105" width="51" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="returnDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bka-Ap-lfL">
+                                            <rect key="frame" x="95" y="105" width="124" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" id="816-ik-WtV"/>
-                                        <constraint firstItem="ku0-UT-crE" firstAttribute="top" secondItem="Gw0-SB-Xru" secondAttribute="bottom" constant="8" id="Bfe-DA-UBd"/>
-                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="top" secondItem="5VZ-F2-2cw" secondAttribute="bottom" constant="8" symbolic="YES" id="E4Q-4u-rAR"/>
-                                        <constraint firstItem="Bka-Ap-lfL" firstAttribute="leading" secondItem="ku0-UT-crE" secondAttribute="leading" id="OdW-pb-wMP"/>
-                                        <constraint firstItem="Bka-Ap-lfL" firstAttribute="top" secondItem="ku0-UT-crE" secondAttribute="bottom" constant="8" id="Os9-xh-YUx"/>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="Gw0-SB-Xru" secondAttribute="leading" constant="-13" id="QfH-IO-JwH"/>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leadingMargin" id="V9u-cU-8Jj"/>
-                                        <constraint firstItem="ku0-UT-crE" firstAttribute="leading" secondItem="Gw0-SB-Xru" secondAttribute="leading" id="ufa-45-cmp"/>
+                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leadingMargin" id="1b9-Dn-s84"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="top" secondItem="j0t-ii-9IL" secondAttribute="bottom" constant="8" symbolic="YES" id="9hZ-xh-WCb"/>
+                                        <constraint firstItem="aDZ-tc-ms3" firstAttribute="top" secondItem="gNo-wg-aUZ" secondAttribute="bottom" constant="9" id="CHQ-A4-sNZ"/>
+                                        <constraint firstItem="j0t-ii-9IL" firstAttribute="top" secondItem="5VZ-F2-2cw" secondAttribute="bottom" constant="15" id="E18-4c-Z5X"/>
+                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="top" secondItem="j0t-ii-9IL" secondAttribute="top" id="FIy-Fg-0DS"/>
+                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" id="FxS-h3-MEM"/>
+                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="leading" secondItem="j0t-ii-9IL" secondAttribute="trailing" constant="16" id="Gb0-N4-bJv"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="baseline" secondItem="ku0-UT-crE" secondAttribute="baseline" id="KTZ-Px-g4b"/>
+                                        <constraint firstItem="ku0-UT-crE" firstAttribute="leading" secondItem="Bka-Ap-lfL" secondAttribute="leading" id="PhG-D7-Rjw"/>
+                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="j0t-ii-9IL" secondAttribute="leading" constant="-9" id="S2Z-24-NJe"/>
+                                        <constraint firstItem="gSR-PK-D87" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leading" constant="114" id="V36-H6-egi"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="trailing" secondItem="aDZ-tc-ms3" secondAttribute="trailing" id="f4v-zh-7CT"/>
+                                        <constraint firstItem="aDZ-tc-ms3" firstAttribute="baseline" secondItem="Bka-Ap-lfL" secondAttribute="baseline" id="nuY-XV-MEo"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="trailing" secondItem="j0t-ii-9IL" secondAttribute="trailing" id="rJf-U8-B9g"/>
+                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="leading" secondItem="ku0-UT-crE" secondAttribute="leading" id="rZi-qv-DNd"/>
+                                        <constraint firstItem="gSR-PK-D87" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" constant="29" id="zAH-2l-qzk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="destinationLabel" destination="Gw0-SB-Xru" id="5kt-67-L4U"/>
+                                    <outlet property="countryLabel" destination="Gw0-SB-Xru" id="yMo-E2-W9t"/>
                                     <outlet property="returnDateLabel" destination="Bka-Ap-lfL" id="Xog-67-L7A"/>
                                     <outlet property="startDateLabel" destination="ku0-UT-crE" id="h68-xi-Gip"/>
                                     <outlet property="titleLabel" destination="5VZ-F2-2cw" id="Nrc-rC-zJF"/>
@@ -160,16 +186,16 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
                                                     <rect key="frame" x="8" y="8" width="584" height="30"/>
-                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Destination" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
                                                     <rect key="frame" x="8" y="46" width="200" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="hnD-iN-FDg"/>
                                                     </constraints>
-                                                    <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="0.50762392241379306" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -190,7 +216,8 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="pU3-qT-fTr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="returnDate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-y9-iUW">
@@ -198,7 +225,8 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="MrG-2h-vmK"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -221,7 +249,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="destinationTextField" destination="5hl-ho-272" id="pnp-xY-9zI"/>
+                                            <outlet property="countryTextField" destination="5hl-ho-272" id="X4G-8c-o20"/>
                                             <outlet property="returnDateTextField" destination="rJu-y9-iUW" id="vvt-o2-Nna"/>
                                             <outlet property="startDateTextField" destination="YWS-kU-c6x" id="mM5-9k-xrQ"/>
                                             <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
