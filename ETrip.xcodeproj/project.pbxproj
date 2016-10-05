@@ -128,6 +128,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		95044D2A1DA345A100696DC8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95DB08731D98D01C009C404A /* LoginViewController.swift */,
+				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
+				95E3E9181D9E6513005BC373 /* EditTableViewController.swift */,
+				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
+				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
+				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		95044D2B1DA345AB00696DC8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */,
+				95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */,
+				95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		9549ED8C1D991E290074E306 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +165,9 @@
 		959002311DA2351400EB5C76 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				95DB08801D98D01C009C404A /* Info.plist */,
+				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
+				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
 				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
 				959002341DA2354700EB5C76 /* SWRevealViewController.m */,
 				959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */,
@@ -174,24 +200,14 @@
 		95DB08701D98D01C009C404A /* ETrip */ = {
 			isa = PBXGroup;
 			children = (
-				9549ED8C1D991E290074E306 /* Model */,
 				95DB08711D98D01C009C404A /* AppDelegate.swift */,
-				95DB08731D98D01C009C404A /* LoginViewController.swift */,
 				95DB08751D98D01C009C404A /* Main.storyboard */,
-				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
-				95E3E9181D9E6513005BC373 /* EditTableViewController.swift */,
-				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
-				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
-				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
-				95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */,
-				95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */,
-				95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */,
+				95044D2A1DA345A100696DC8 /* Controller */,
+				9549ED8C1D991E290074E306 /* Model */,
+				95044D2B1DA345AB00696DC8 /* Cell */,
 				95DB087B1D98D01C009C404A /* Assets.xcassets */,
-				95DB087D1D98D01C009C404A /* LaunchScreen.storyboard */,
-				95DB08801D98D01C009C404A /* Info.plist */,
-				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
-				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
 				959002311DA2351400EB5C76 /* SupportingFiles */,
+				95DB087D1D98D01C009C404A /* LaunchScreen.storyboard */,
 			);
 			path = ETrip;
 			sourceTree = "<group>";

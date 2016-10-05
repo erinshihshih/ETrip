@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbu-iw-zRN" id="aBb-tF-fEF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-F2-2cw">
@@ -110,7 +110,7 @@
                                     <outlet property="returnDateLabel" destination="Bka-Ap-lfL" id="Xog-67-L7A"/>
                                     <outlet property="startDateLabel" destination="ku0-UT-crE" id="h68-xi-Gip"/>
                                     <outlet property="titleLabel" destination="5VZ-F2-2cw" id="Nrc-rC-zJF"/>
-                                    <segue destination="AbE-jo-gHu" kind="show" id="KNm-yE-NKY"/>
+                                    <segue destination="HA2-SM-KdM" kind="show" id="c7n-Jy-Utd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -138,17 +138,17 @@
         <!--Edit Table View Controller-->
         <scene sceneID="4IA-9f-xJJ">
             <objects>
-                <tableViewController id="AbE-jo-gHu" customClass="EditTableViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="CYl-mD-tla">
+                <tableViewController title="Edit Table View Controller" id="AbE-jo-gHu" customClass="EditTableViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" id="CYl-mD-tla">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="150" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="150"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="160" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="160"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
@@ -185,7 +185,7 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="returnDate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-y9-iUW">
-                                            <rect key="frame" x="8" y="112" width="200" height="30"/>
+                                            <rect key="frame" x="8" y="122" width="200" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="MrG-2h-vmK"/>
                                             </constraints>
@@ -199,7 +199,7 @@
                                         <constraint firstItem="kzJ-be-t3Y" firstAttribute="baseline" secondItem="1Uk-Pe-Xw8" secondAttribute="baseline" id="Eqq-Xd-xke"/>
                                         <constraint firstItem="YWS-kU-c6x" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="GEv-I5-a1q"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="trailing" secondItem="VRp-T8-cQT" secondAttribute="trailingMargin" id="JDM-nF-vhl"/>
-                                        <constraint firstItem="rJu-y9-iUW" firstAttribute="top" secondItem="YWS-kU-c6x" secondAttribute="top" constant="28" id="Jsj-Ed-KJP"/>
+                                        <constraint firstItem="rJu-y9-iUW" firstAttribute="top" secondItem="YWS-kU-c6x" secondAttribute="top" constant="38" id="Jsj-Ed-KJP"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="top" secondItem="VRp-T8-cQT" secondAttribute="topMargin" id="OIA-cR-EHl"/>
                                         <constraint firstItem="1Uk-Pe-Xw8" firstAttribute="leading" secondItem="kzJ-be-t3Y" secondAttribute="trailing" constant="19" id="Qwe-M6-G6Q"/>
                                         <constraint firstItem="Hfc-Jm-FW5" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="UMU-Md-YG9"/>
@@ -218,11 +218,11 @@
                                     <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" rowHeight="150" id="VFS-FW-Nrk">
-                                <rect key="frame" x="0.0" y="242" width="600" height="150"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="planCell" rowHeight="124" id="VFS-FW-Nrk" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="252" width="600" height="124"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VFS-FW-Nrk" id="ScI-DX-LDd">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="124"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -246,7 +246,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwc-1u-zve" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kvz-3R-LYx" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1986" y="761"/>
+            <point key="canvasLocation" x="1888" y="757"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -302,7 +302,7 @@
                             <constraint firstItem="JGs-Sp-Ti0" firstAttribute="top" secondItem="1X6-Zf-DXr" secondAttribute="bottom" constant="41" id="GYV-xP-z7c"/>
                             <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="9LS-fO-ia9" secondAttribute="bottom" constant="192" id="N3D-RB-5HS"/>
                             <constraint firstItem="C24-ba-8dr" firstAttribute="trailing" secondItem="tih-hk-ZUw" secondAttribute="trailingMargin" id="Ne5-Qe-GQC"/>
-                            <constraint firstItem="1X6-Zf-DXr" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="8" symbolic="YES" id="SjJ-9I-Y3L"/>
+                            <constraint firstItem="1X6-Zf-DXr" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="52" id="SjJ-9I-Y3L"/>
                             <constraint firstItem="JGs-Sp-Ti0" firstAttribute="centerX" secondItem="tih-hk-ZUw" secondAttribute="centerX" id="Y2U-YW-lB4"/>
                             <constraint firstItem="1X6-Zf-DXr" firstAttribute="baseline" secondItem="C24-ba-8dr" secondAttribute="baseline" id="Zpo-nb-CHm"/>
                             <constraint firstItem="C24-ba-8dr" firstAttribute="leading" secondItem="1X6-Zf-DXr" secondAttribute="trailing" constant="8" symbolic="YES" id="fqG-HH-EZz"/>
@@ -377,7 +377,7 @@
                             <constraint firstItem="pzc-Lf-nhk" firstAttribute="top" secondItem="PLs-F8-9qL" secondAttribute="bottom" constant="214" id="drm-MR-BFX"/>
                             <constraint firstItem="9QV-d3-CTS" firstAttribute="centerX" secondItem="PLs-F8-9qL" secondAttribute="centerX" id="gab-iw-S5c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8R9-Tv-AK9" secondAttribute="trailing" constant="-6" id="jGC-EO-w1c"/>
-                            <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="2y1-0j-BF2" secondAttribute="bottom" constant="8" symbolic="YES" id="wQQ-vh-UFT"/>
+                            <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="2y1-0j-BF2" secondAttribute="bottom" constant="52" id="wQQ-vh-UFT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Planner View" id="Ir2-xe-2hl"/>
@@ -494,7 +494,4 @@
             <point key="canvasLocation" x="285" y="-298"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="KNm-yE-NKY"/>
-    </inferredMetricsTieBreakers>
 </document>

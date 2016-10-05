@@ -14,64 +14,61 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     let loginButton: FBSDKLoginButton = FBSDKLoginButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.loginButton.hidden = true
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
+            
             if let user = user {
-                // User is signed in.
-                // move the user to the home page
+                
+                // User is signed in and move to the home page
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 // HomeNavigationController
-                //                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
-                //
-                //                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                //                appDelegate.window?.rootViewController = homeNavigationController
+//                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
+//                
+//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                appDelegate.window?.rootViewController = homeNavigationController
                 
-                // test RevealViewController
+                // RevealViewController
                 let revealViewController = storyboard.instantiateViewControllerWithIdentifier("RevealViewController")
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.window?.rootViewController = revealViewController
                 
                 
             } else {
-                // No user is signed in.
-                // show the user the login button
                 
-                // set up FB login button
+                // No user is signed in and show the login button
+                self.loginButton.hidden = false
                 self.loginButton.center = self.view.center
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
-                self.view.addSubview(self.loginButton)
                 
-                self.loginButton.hidden = false
+                self.view.addSubview(self.loginButton)
                 
             }
         }
-        
-        
-        
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
+        // Creat a reference to Firebase
         let databaseRef = FIRDatabase.database().reference()
         
         print("User Logged In")
         
         self.loginButton.hidden = true
         
-        if  error != nil {
+        if error != nil {
             
             self.loginButton.hidden = false
             
             print("Error :  \(error.description)")
             
-            
-        }else if result.isCancelled {
+        } else if result.isCancelled {
             
             self.loginButton.hidden = false
             
@@ -79,39 +76,45 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
         } else {
             
-            // login to firebasee
+            // login to Firebasee
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             
             FIRAuth.auth()?.signInWithCredential(credential) { user, error in
+                
                 print("User Logged In to Firebase App")
                 
                 if let user = FIRAuth.auth()?.currentUser {
+                    
                     for profile in user.providerData {
-                        //                        let providerID = profile.providerID
+                        
+//                        let providerID = profile.providerID
                         let name = profile.displayName
                         let email = profile.email
                         let profilePicURL = profile.photoURL
                         
                         let newUser: [String: AnyObject] = [
-                            //                            "providerID": providerID,
+//                            "providerID": providerID, // 管理不同的第三方登入
                             "name": name!,
                             "email": email!,
                             "profilePicURL": "\(profilePicURL!)"]
                         
                         databaseRef.child("users").child(user.uid).setValue(newUser)
+                        
                     }
+                    
                 } else {
+                    
                     print("No user is signed in.")
-                }
                 
+                }
             }
-        
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
         print("User did Logout")
+        
     }
-    
 }
 

@@ -71,10 +71,9 @@ class HomeTableViewController: UITableViewController {
         
         cell.titleLabel.text = post.title
         cell.destinationLabel.text = "Destination: \(post.destination)"
-        cell.startDateLabel.text = post.startDate
-        cell.returnDateLabel.text = post.returnDate
+        cell.startDateLabel.text = "Start: \(post.startDate)"
+        cell.returnDateLabel.text = "Return: \(post.returnDate)"
 
-        
         return cell
     }
     

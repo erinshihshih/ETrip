@@ -12,27 +12,49 @@ import FirebaseDatabase
 
 var cell = TitleTableViewCell()
 
-class EditTableViewController: UITableViewController, UITextFieldDelegate {
+class EditTableViewController: UITableViewController, UITextFieldDelegate
+//UIPickerViewDataSource, UIPickerViewDelegate
+{
     
     var post: Post?
+    
+    var countryArray = [String]()
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func cancelButton(sender: UIBarButtonItem) {
         
-        
         dismissViewControllerAnimated(true, completion: nil)
-        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let pickerView = UIPickerView()
+//        
+//        for code in NSLocale.ISOCountryCodes() as [String] {
+//            
+//            let id = NSLocale.localeIdentifierFromComponents([NSLocaleCountryCode: code])
+//            let name = NSLocale(localeIdentifier: "en_EN").displayNameForKey(NSLocaleIdentifier, value: id) ?? "Country not found for code: \(code)"
+//            
+//            countryArray.append(name)
+//            countryArray.sortInPlace({ ( name1, name2) -> Bool in
+//                name1 > name2
+//            })
+//            
+//        }
         
-        
-        
+//        pickerView.delegate = self
+//        pickerView.dataSource = self
+//        cell.countryPickerView = UIPickerView()
+//        cell.destinationTextField.inputView = pickerView
+
+    
     }
+    
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,6 +84,7 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
         cell.startDateTextField.delegate = self
         cell.returnDateTextField.delegate = self
         
+        
         if let post = post {
             cell.titleTextField.text = post.title
             cell.destinationTextField.text = post.destination
@@ -71,14 +94,14 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
         
         return cell
     }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             
             let title = cell.titleTextField.text ?? ""
             let destination = cell.destinationTextField.text ?? ""
             
-            // needs to be re-designed
+            // needs to be re-designed > Date Picker
             let startDate = cell.startDateTextField.text ?? ""
             let returnDate = cell.returnDateTextField.text ?? ""
             
@@ -99,6 +122,29 @@ class EditTableViewController: UITableViewController, UITextFieldDelegate {
             post = Post(title: title, destination: destination, startDate: startDate, returnDate: returnDate)
         }
     }
+    
+//    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return countryArray[row]
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        cell.destinationTextField.text = countryArray[row]
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return countryArray.count
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+//        
+//        let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+//        return title
+//    }
+    
     
     
     

@@ -27,7 +27,7 @@ class SideMenuTableViewCell: UITableViewCell {
         
         // move the user to the login page
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! UIViewController
+        let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.window?.rootViewController = loginViewController
