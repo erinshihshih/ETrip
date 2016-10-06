@@ -16,13 +16,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var post: Post?
     
+    var transportations = [Transportation]()
+    
     var countryArray = [String]()
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
-//    var datePicker : UIDatePicker!
+    
+    var cellArray: [ AnyObject ] = [38, Transportation(type: "airplane", departDate: "2016", arriveDate: "2017", departFrom: "Taipei", arriveAt: "Dubai", airlineCom: "Emirates", flightNo: "EK566", bookingRef: "hiiiii")]
+    
+    //    var datePicker : UIDatePicker!
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,30 +60,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         
+
+        
         
     }
     
-    // date TextField Delegate
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        myCell.startDateTextField.inputView = startDatePicker
-        myCell.returnDateTextField.inputView = returnDatePicker
-        startDatePicker.addTarget(self, action: #selector(EditViewController.startDatePickerChanged(_:)), forControlEvents: .ValueChanged)
-        returnDatePicker.addTarget(self, action: #selector(EditViewController.returnDatePickerChanged(_:)), forControlEvents: .ValueChanged)
-        
-    }
-    
-    func startDatePickerChanged(sender: UIDatePicker) {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
-        myCell.startDateTextField.text = formatter.stringFromDate(sender.date)
-    }
-    
-    func returnDatePickerChanged(sender: UIDatePicker) {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
-        myCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,34 +80,64 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return cellArray.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "titleCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
+        let type = cellArray[indexPath.row]
         
-        cell.titleTextField.delegate = self
-        cell.countryTextField.delegate = self
-        cell.startDateTextField.delegate = self
-        cell.returnDateTextField.delegate = self
-        
-        
-        if let post = post {
-            cell.titleTextField.text = post.title
-            cell.countryTextField.text = post.country
-            cell.startDateTextField.text = post.startDate
-            cell.returnDateTextField.text = post.returnDate
+        if (type as? Transportation) != nil {
+            
+            let cellIdentifier = "transportationCell"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TransportationTableViewCell
+            
+            //        let transportation = transportations[indexPath.row]
+            //        cell.typeLabel.text = transportation.type
+            
+            let infoView = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
+//            infoView.frame = cell.frame
+            
+            cell.addSubview(infoView)
+            
+            // transportation xib set up
+//            let nib = UINib(nibName: "TransportationTableViewCell", bundle: nil)
+//            cell.registerNib(nib, forCellReuseIdentifier: "transportationCell")
+//            
+            return cell
+            
+        } else {
+            
+            let cellIdentifier = "titleCell"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
+            
+            cell.titleTextField.delegate = self
+            cell.countryTextField.delegate = self
+            cell.startDateTextField.delegate = self
+            cell.returnDateTextField.delegate = self
+            
+            if let post = post {
+                cell.titleTextField.text = post.title
+                cell.countryTextField.text = post.country
+                cell.startDateTextField.text = post.startDate
+                cell.returnDateTextField.text = post.returnDate
+            }
+            
+            myCell = cell
+            cell.countryTextField.inputView = pickerView
+            
+            return cell
         }
-        
-        myCell = cell
-        cell.countryTextField.inputView = pickerView
-        
-        return cell
-        
     }
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
+//    
+//    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
@@ -174,6 +192,30 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return title
     }
     
+    // date TextField Delegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        myCell.startDateTextField.inputView = startDatePicker
+        myCell.returnDateTextField.inputView = returnDatePicker
+        startDatePicker.reloadInputViews()
+        startDatePicker.addTarget(self, action: #selector(EditViewController.startDatePickerChanged(_:)), forControlEvents: .ValueChanged)
+        returnDatePicker.addTarget(self, action: #selector(EditViewController.returnDatePickerChanged(_:)), forControlEvents: .ValueChanged)
+        
+    }
+    
+    func startDatePickerChanged(sender: UIDatePicker) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
+        myCell.startDateTextField.text = formatter.stringFromDate(sender.date)
+    }
+    
+    func returnDatePickerChanged(sender: UIDatePicker) {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
+        myCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
+    }
+    
+    
     //    //MARK:- textFiled Delegate
     //    func textFieldDidBeginEditing(textField: UITextField) {
     //        self.pickUpDate(myCell.startDateTextField)
@@ -208,16 +250,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //    }
     //
     //    // MARK:- Button Done and Cancel
+    //
     //    func doneClick() {
+    //
     //        let formatter = NSDateFormatter()
     //        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
     //        myCell.startDateTextField.text = formatter.stringFromDate(datePicker.date)
     //        myCell.startDateTextField.resignFirstResponder()
     //        myCell.returnDateTextField.text = formatter.stringFromDate(datePicker.date)
     //        myCell.returnDateTextField.resignFirstResponder()
-    //            }
+    //
+    //    }
     //
     //    func cancelClick() {
+    //
     //        myCell.startDateTextField.resignFirstResponder()
     //        myCell.returnDateTextField.resignFirstResponder()
     //

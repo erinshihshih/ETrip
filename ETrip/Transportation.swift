@@ -13,23 +13,23 @@ import Foundation
 class Transportation {
     
     let type: String
-    let departDate: NSDate
-    let arriveDate: NSDate
-    let departPort: String
-    let arrivePort: String
+    let departDate: String
+    let arriveDate: String
+    let departFrom: String
+    let arriveAt: String
     let airlineCom: String
-    let infoNo: String
+    let flightNo: String
     let bookingRef: String
     
-    init(type: String, departDate: NSDate, arriveDate: NSDate, departPort: String, arrivePort: String, airlineCom: String, infoNo: String, bookingRef: String) {
+    init(type: String, departDate: String, arriveDate: String, departFrom: String, arriveAt: String, airlineCom: String, flightNo: String, bookingRef: String ) {
         
         self.type = type
         self.departDate = departDate
         self.arriveDate = arriveDate
-        self.departPort = departPort
-        self.arrivePort = arrivePort
+        self.departFrom = departFrom
+        self.arriveAt = arriveAt
         self.airlineCom = airlineCom
-        self.infoNo = infoNo
+        self.flightNo = flightNo
         self.bookingRef = bookingRef
         
     }
