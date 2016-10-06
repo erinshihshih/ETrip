@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="321"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="320.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="321"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-3Z-nbr">
@@ -94,10 +94,16 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="typeLabel" destination="FQq-3Z-nbr" id="4oM-4G-UFm"/>
+                <outlet property="airlineComTextField" destination="h4D-6f-myW" id="hsu-Br-1wS"/>
+                <outlet property="arriveAtTextField" destination="tuf-yI-uQ0" id="hmT-Et-D5n"/>
+                <outlet property="arriveDateTextField" destination="MHk-4g-p4G" id="Ifd-uY-7dA"/>
+                <outlet property="bookingRefTextField" destination="Kj2-6N-kGT" id="Jfa-yB-4nO"/>
+                <outlet property="departDateTextField" destination="LHu-gP-P3R" id="AKi-Hb-NwK"/>
+                <outlet property="departFromTextField" destination="N7H-54-Lx3" id="EEa-zv-xc2"/>
+                <outlet property="flightNoTextField" destination="Yg9-3r-lAX" id="cpt-Vm-mjl"/>
                 <outlet property="typeTextField" destination="VOX-yu-gIk" id="WAq-fj-HYQ"/>
             </connections>
-            <point key="canvasLocation" x="801.5" y="385.5"/>
+            <point key="canvasLocation" x="563.5" y="388.5"/>
         </tableViewCell>
     </objects>
 </document>

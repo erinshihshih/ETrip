@@ -8,28 +8,22 @@
 
 import UIKit
 
-// let infoView = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
 
 class TransportationTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var typeLabel: UILabel!
-    
     @IBOutlet weak var typeTextField: UITextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-       
-        //        let infoView = NSBundle.mainBundle().loadNibNamed("CustomInfoView", owner: self, options: nil).first as! CustomInfoView
-        
-//        infoView.frame =  self.frame
-        
-//        infoView.mainTitle.text = "123"
-//        infoView.viewMap.addTarget(self, action: #selector(MyTableViewCell.viewMap(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-        
-//        contentView.addSubview(infoView)
-        
-        
-    }
+    @IBOutlet weak var airlineComTextField: UITextField!
     
+    @IBOutlet weak var flightNoTextField: UITextField!
+    
+    @IBOutlet weak var bookingRefTextField: UITextField!
+    
+    @IBOutlet weak var departFromTextField: UITextField!
+    
+    @IBOutlet weak var arriveAtTextField: UITextField!
+    
+    @IBOutlet weak var departDateTextField: UITextField!
+    
+    @IBOutlet weak var arriveDateTextField: UITextField!
 }

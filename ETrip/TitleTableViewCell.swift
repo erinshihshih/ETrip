@@ -11,7 +11,6 @@ import UIKit
 class TitleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleTextField: UITextField!
-
     @IBOutlet weak var countryTextField: UITextField!
    
     // to be re-designed
