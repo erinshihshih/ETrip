@@ -149,7 +149,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                      "title": title,
                                                      "country": country,
                                                      "startDate": startDate,
-                                                     "returnDate": returnDate]
+                                                     "returnDate": returnDate ]
             databaseRef.child("posts").child(postAutoId).setValue(titleOnFire)
             
             // Transportation Cell
