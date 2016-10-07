@@ -185,11 +185,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                               "departDate": departDate,
                                                               "arriveDate": arriveDate ]
             
-            databaseRef.child("posts").child("transportations").childByAutoId().setValue(transportationOnFire)
+            databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
             
             
             // Set the post to be passed to HomeTableViewController after the unwind segue.
-            post = Post()
+            post = Post(title: title, country: country, startDate: startDate, returnDate: returnDate)
         }
     }
     

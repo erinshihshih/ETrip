@@ -27,13 +27,13 @@ class HomeTableViewController: UITableViewController {
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
-//            let title = snapshot.value!["title"] as! String
-//            let country = snapshot.value!["country"] as! String
-//            let startDate = snapshot.value!["startDate"] as! String
-//            let returnDate = snapshot.value!["returnDate"] as! String
-            print("aaaaahhhhhhhh: \(snapshot.key)")
+            let title = snapshot.value!["title"] as! String
+            let country = snapshot.value!["country"] as! String
+            let startDate = snapshot.value!["startDate"] as! String
+            let returnDate = snapshot.value!["returnDate"] as! String
+//            print("aaaaahhhhhhhh: \(snapshot.key)")
     
-            self.posts.insert(Post(), atIndex: 0)
+            self.posts.insert(Post(title: title, country: country, startDate: startDate, returnDate: returnDate), atIndex: 0)
             self.tableView.reloadData()
             
             // sideMenu set up
@@ -43,17 +43,17 @@ class HomeTableViewController: UITableViewController {
             
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             
-//            self.tableView.allowsMultipleSelectionDuringEditing = true
+            self.tableView.allowsMultipleSelectionDuringEditing = true
         })
         
-        databaseRef.child("posts").observeEventType(.ChildRemoved, withBlock: { (snapshot) in
-            
-            print(snapshot.key)
-            
-            self.postDictionary.removeValueForKey(snapshot.key)
-            self.tableView.reloadData()
-            
-            }, withCancelBlock: nil)
+//        databaseRef.child("posts").observeEventType(.ChildRemoved, withBlock: { (snapshot) in
+//
+//            print(snapshot.key)
+//            
+//            self.postDictionary.removeValueForKey(snapshot.key)
+//            self.tableView.reloadData()
+//            
+//            }, withCancelBlock: nil)
         
         }
     
