@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-var myCell0 = TitleTableViewCell()
-var myCell1 = TransportationTableViewCell()
+var titleCell = TitleTableViewCell()
+var transportationCell = TransportationTableViewCell()
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post: Post?
+   
+
     var transportation: Transportation?
     
     var transportations = [Transportation]()
@@ -25,7 +27,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
-    var cellArray: [ AnyObject ] = [38, Transportation(type: "airplane", departDate: "2016", arriveDate: "2017", departFrom: "Taipei", arriveAt: "Dubai", airlineCom: "Emirates", flightNo: "EK566", bookingRef: "hiiiii")]
+    var cellArray: [ AnyObject ] = [0]
     
     //    var datePicker : UIDatePicker!
     
@@ -33,8 +35,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func addTransportationButton(sender: UIBarButtonItem) {
+
+        cellArray.append(Transportation())
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cellArray.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+        tableView.endUpdates()
+        
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -48,25 +62,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         
-        // Country Picker
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
-        
-        // Date Picker
-        startDatePicker.minuteInterval = 30
-        startDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
-        startDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        
-        returnDatePicker.minuteInterval = 30
-        returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
-        returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        
+        setUpPickerViewUI()
         
         
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,7 +94,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
             
-            myCell1 = cell
+            transportationCell = cell
             return cell
             
         } else {
@@ -114,10 +114,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
             }
             
-            myCell0 = cell
+            titleCell = cell
             cell.countryTextField.inputView = pickerView
             
             return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete{
+            self.cellArray.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
         }
     }
     
@@ -130,42 +137,45 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if saveButton === sender {
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
-            let postAutoId = databaseRef.childByAutoId().key
+            let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
             // Trip Title Cell
-            let title = myCell0.titleTextField.text ?? ""
-            let country = myCell0.countryTextField.text ?? ""
+            let title = titleCell.titleTextField.text ?? ""
+            let country = titleCell.countryTextField.text ?? ""
             
             // needs to be re-designed > Date Picker
-            let startDate = myCell0.startDateTextField.text ?? ""
-            let returnDate = myCell0.returnDateTextField.text ?? ""
+            let startDate = titleCell.startDateTextField.text ?? ""
+            let returnDate = titleCell.returnDateTextField.text ?? ""
             
             // Store Trip Title in Firebase
             let titleOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                     "timestamp": timeStamp,
                                                      "title": title,
                                                      "country": country,
                                                      "startDate": startDate,
                                                      "returnDate": returnDate ]
-            databaseRef.child("posts").child(postAutoId).setValue(titleOnFire)
+            
+            databaseRef.child("posts").childByAutoId().setValue(titleOnFire)
             
             // Transportation Cell
-            let type = myCell1.typeTextField.text ?? ""
-            let airlineCom = myCell1.airlineComTextField.text ?? ""
-            let flightNo = myCell1.flightNoTextField.text ?? ""
-            let bookingRef = myCell1.departFromTextField.text ?? ""
-            let departFrom = myCell1.departFromTextField.text ?? ""
-            let arriveAt = myCell1.arriveAtTextField.text ?? ""
-            let departDate = myCell1.departDateTextField.text ?? ""
-            let arriveDate = myCell1.arriveDateTextField.text ?? ""
+            let type = transportationCell.typeTextField.text ?? ""
+            let airlineCom = transportationCell.airlineComTextField.text ?? ""
+            let flightNo = transportationCell.flightNoTextField.text ?? ""
+            let bookingRef = transportationCell.departFromTextField.text ?? ""
+            let departFrom = transportationCell.departFromTextField.text ?? ""
+            let arriveAt = transportationCell.arriveAtTextField.text ?? ""
+            let departDate = transportationCell.departDateTextField.text ?? ""
+            let arriveDate = transportationCell.arriveDateTextField.text ?? ""
             
             // Store Transportation in Firebase
             
             let transportationOnFire: [String: AnyObject] = [ "userID": userID!,
-                                                              "postID": postAutoId,
+                                                              "timestamp": timeStamp,
                                                               "type": type,
                                                               "airlineCom": airlineCom,
                                                               "flightNo": flightNo,
@@ -175,11 +185,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                               "departDate": departDate,
                                                               "arriveDate": arriveDate ]
             
-            databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
+            databaseRef.child("posts").child("transportations").childByAutoId().setValue(transportationOnFire)
             
             
             // Set the post to be passed to HomeTableViewController after the unwind segue.
-            post = Post(title: title, country: country, startDate: startDate, returnDate: returnDate)
+            post = Post()
         }
     }
     
@@ -198,7 +208,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        myCell0.countryTextField.text = countryArray[row]
+        titleCell.countryTextField.text = countryArray[row]
     }
     
     
@@ -210,85 +220,53 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     // Date TextField Delegate
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        myCell0.startDateTextField.inputView = startDatePicker
-        myCell0.returnDateTextField.inputView = returnDatePicker
-        startDatePicker.reloadInputViews()
-        startDatePicker.addTarget(self, action: #selector(EditViewController.startDatePickerChanged(_:)), forControlEvents: .ValueChanged)
-        returnDatePicker.addTarget(self, action: #selector(EditViewController.returnDatePickerChanged(_:)), forControlEvents: .ValueChanged)
+        titleCell.startDateTextField.inputView = startDatePicker
+        titleCell.returnDateTextField.inputView = returnDatePicker
+        //        startDatePicker.reloadInputViews()
+        startDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+        returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         
     }
     
-    func startDatePickerChanged(sender: UIDatePicker) {
+    
+    func updateDateField(sender: UIDatePicker) {
+        
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
-        myCell0.startDateTextField.text = formatter.stringFromDate(sender.date)
+        
+        if sender == startDatePicker {
+            
+            titleCell.startDateTextField.text = formatter.stringFromDate(sender.date)
+            
+        } else if sender == returnDatePicker {
+            
+            titleCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
+            
+        }
     }
     
-    func returnDatePickerChanged(sender: UIDatePicker) {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
-        myCell0.returnDateTextField.text = formatter.stringFromDate(sender.date)
+    func setUpPickerViewUI() {
+        
+        // Country Picker
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        
+        // Date Picker
+        startDatePicker.minuteInterval = 30
+        startDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        startDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        
+        returnDatePicker.minuteInterval = 30
+        returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        
+        
     }
-    
-    
-    //    //MARK:- textFiled Delegate
-    //    func textFieldDidBeginEditing(textField: UITextField) {
-    //        self.pickUpDate(myCell.startDateTextField)
-    //        self.pickUpDate(myCell.returnDateTextField)
-    //    }
-    //
-    //    func pickUpDate(textField : UITextField){
-    //
-    //        // DatePicker
-    //        self.datePicker = UIDatePicker(frame:CGRectMake(0, 0, self.view.frame.size.width, 216))
-    //        self.datePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
-    //        self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-    //        self.datePicker.datePickerMode = UIDatePickerMode.DateAndTime
-    //        self.datePicker.minuteInterval = 30
-    //        textField.inputView = self.datePicker
-    //
-    //        // ToolBar
-    //        let toolBar = UIToolbar()
-    //        toolBar.barStyle = .Default
-    //        toolBar.translucent = true
-    //        toolBar.tintColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
-    //        toolBar.sizeToFit()
-    //
-    //        // Adding Button ToolBar
-    //        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: #selector(EditViewController.doneClick))
-    //        let spaceButton = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-    //        let cancelButton = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(EditViewController.cancelClick))
-    //        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-    //        toolBar.userInteractionEnabled = true
-    //        textField.inputAccessoryView = toolBar
-    //
-    //    }
-    //
-    //    // MARK:- Button Done and Cancel
-    //
-    //    func doneClick() {
-    //
-    //        let formatter = NSDateFormatter()
-    //        formatter.dateFormat = "HH:mm EEE MMM dd, yyy"
-    //        myCell.startDateTextField.text = formatter.stringFromDate(datePicker.date)
-    //        myCell.startDateTextField.resignFirstResponder()
-    //        myCell.returnDateTextField.text = formatter.stringFromDate(datePicker.date)
-    //        myCell.returnDateTextField.resignFirstResponder()
-    //
-    //    }
-    //
-    //    func cancelClick() {
-    //
-    //        myCell.startDateTextField.resignFirstResponder()
-    //        myCell.returnDateTextField.resignFirstResponder()
-    //
-    //    }
-    
-    
-    
-    
+
     
     /*
      // Override to support conditional editing of the table view.

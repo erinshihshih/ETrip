@@ -7,22 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class Post {
     
-    var title: String
-    var country: String
+    var title: String?
+    var country: String?
     
     //type needs to be re-defined
-    var startDate: String
-    var returnDate: String
+    var startDate: String?
+    var returnDate: String?
+    var postID: String?
     
-    init(title: String, country: String, startDate: String, returnDate: String) {
-        
-        self.title = title
-        self.country = country
-        self.startDate = startDate
-        self.returnDate = returnDate
-        
-    }
+  
 }

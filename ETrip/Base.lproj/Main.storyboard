@@ -275,7 +275,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-ko-G6r">
                                 <rect key="frame" x="0.0" y="492" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="B0l-7k-JI9"/>
+                                    <barButtonItem systemItem="add" id="B0l-7k-JI9">
+                                        <connections>
+                                            <action selector="addTransportationButton:" destination="Agl-cn-ojr" id="6Fx-g9-QeI"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="edit" id="0hL-jB-7xn"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -308,7 +313,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEN-SE-VrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dzK-jg-B4c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="1162"/>
+            <point key="canvasLocation" x="1767" y="1074"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">

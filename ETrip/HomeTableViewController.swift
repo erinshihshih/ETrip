@@ -14,24 +14,26 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-    
+     var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    let databaseRef = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // reload data from Firebase
-        let databaseRef = FIRDatabase.database().reference()
         
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
-            let title = snapshot.value!["title"] as! String
-            let country = snapshot.value!["country"] as! String
-            let startDate = snapshot.value!["startDate"] as! String
-            let returnDate = snapshot.value!["returnDate"] as! String
-            
-            self.posts.insert(Post(title: title, country: country, startDate: startDate, returnDate: returnDate), atIndex: 0)
+//            let title = snapshot.value!["title"] as! String
+//            let country = snapshot.value!["country"] as! String
+//            let startDate = snapshot.value!["startDate"] as! String
+//            let returnDate = snapshot.value!["returnDate"] as! String
+            print("aaaaahhhhhhhh: \(snapshot.key)")
+    
+            self.posts.insert(Post(), atIndex: 0)
             self.tableView.reloadData()
             
             // sideMenu set up
@@ -40,9 +42,21 @@ class HomeTableViewController: UITableViewController {
             self.menuButton.action = Selector("revealToggle:")
             
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+//            self.tableView.allowsMultipleSelectionDuringEditing = true
         })
         
-    }
+        databaseRef.child("posts").observeEventType(.ChildRemoved, withBlock: { (snapshot) in
+            
+            print(snapshot.key)
+            
+            self.postDictionary.removeValueForKey(snapshot.key)
+            self.tableView.reloadData()
+            
+            }, withCancelBlock: nil)
+        
+        }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -78,6 +92,22 @@ class HomeTableViewController: UITableViewController {
     }
     
     
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            
+            self.posts.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+            
+        }}
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //        if segue.identifier == "showDetailSegue" {
@@ -102,13 +132,9 @@ class HomeTableViewController: UITableViewController {
     
     
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+
+ 
+ 
     
     /*
      // Override to support editing the table view.
