@@ -212,6 +212,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
+    
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
         let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
@@ -230,7 +232,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         
     }
-    
     
     func updateDateField(sender: UIDatePicker) {
         
