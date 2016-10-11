@@ -25,7 +25,7 @@ class HomeTableViewController: UITableViewController {
         // sideMenu set up
         
         self.menuButton.target = self.revealViewController()
-        self.menuButton.action = Selector("revealToggle:")
+        self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
@@ -35,18 +35,16 @@ class HomeTableViewController: UITableViewController {
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
+            let tripTitle = snapshot.value!["tripTitle"] as! [String : AnyObject]
+            
             let postID = snapshot.key
-            let title = snapshot.value!["title"] as! String
-            let country = snapshot.value!["country"] as! String
-            let startDate = snapshot.value!["startDate"] as! String
-            let returnDate = snapshot.value!["returnDate"] as! String
-            
-            // print("aaaaahhhhhhhh: \(snapshot)")
-            
+            let title = tripTitle["title"] as! String
+            let country = tripTitle["country"] as! String
+            let startDate = tripTitle["startDate"] as! String
+            let returnDate = tripTitle["returnDate"] as! String
             
             self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
-            print(self.posts.count)
-            print("ssssssssssssss:\(postID)")
+
             self.tableView.reloadData()
             
             

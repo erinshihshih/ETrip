@@ -16,8 +16,8 @@ var transportationCell = TransportationTableViewCell()
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post: Post?
-   
-
+    
+    
     var transportation: Transportation?
     
     var transportations = [Transportation]()
@@ -36,14 +36,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func addTransportationButton(sender: UIBarButtonItem) {
-
+        
         cellArray.append(Transportation())
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cellArray.count - 1, inSection: 0)], withRowAnimation: .Bottom)
         tableView.endUpdates()
         
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,7 +135,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-
+    
     
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
@@ -151,7 +151,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
-//            let key = FIRDatabase.database().reference().childByAutoId().key
+            //            let key = FIRDatabase.database().reference().childByAutoId().key
             
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
@@ -164,14 +164,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let returnDate = titleCell.returnDateTextField.text ?? ""
             
             // Store Trip Title in Firebase
-            let titleOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                     "timestamp": timeStamp,
-                                                     "title": title,
-                                                     "country": country,
-                                                     "startDate": startDate,
-                                                     "returnDate": returnDate ]
+            //            let titleOnFire: [String: AnyObject] =
+            //                [ "title":
+            //                    ["uid": userID!,
+            //                        "timestamp": timeStamp,
+            //                        "title": title,
+            //                        "country": country,
+            //                        "startDate": startDate,
+            //                        "returnDate": returnDate ]
+            //            ]
             
-            databaseRef.child("posts").childByAutoId().setValue(titleOnFire)
+            //            databaseRef.child("posts").childByAutoId().setValue(titleOnFire)
             
             // Transportation Cell
             let type = transportationCell.typeTextField.text ?? ""
@@ -185,22 +188,32 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // Store Transportation in Firebase
             
-            let transportationOnFire: [String: AnyObject] = [ "userID": userID!,
-                                                              "timestamp": timeStamp,
-                                                              "type": type,
-                                                              "airlineCom": airlineCom,
-                                                              "flightNo": flightNo,
-                                                              "bookingRef": bookingRef,
-                                                              "departFrom": departFrom,
-                                                              "arriveAt": arriveAt,
-                                                              "departDate": departDate,
-                                                              "arriveDate": arriveDate ]
+            let addOnFire: [String: AnyObject] =
+                [ "tripTitle":
+                    ["uid": userID!,
+                        "timestamp": timeStamp,
+                        "title": title,
+                        "country": country,
+                        "startDate": startDate,
+                        "returnDate": returnDate ],
+                  "tranportations":
+                    ["userID": userID!,
+                        "timestamp": timeStamp,
+                        "type": type,
+                        "airlineCom": airlineCom,
+                        "flightNo": flightNo,
+                        "bookingRef": bookingRef,
+                        "departFrom": departFrom,
+                        "arriveAt": arriveAt,
+                        "departDate": departDate,
+                        "arriveDate": arriveDate ]
+            ]
             
-            databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
+            databaseRef.child("posts").childByAutoId().setValue(addOnFire)
             
             
             // Set the post to be passed to HomeTableViewController after the unwind segue.
-//            post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
+            // post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
         }
     }
     
@@ -278,7 +291,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
     }
-
+    
     
     /*
      // Override to support conditional editing of the table view.
