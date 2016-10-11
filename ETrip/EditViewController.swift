@@ -125,8 +125,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         if editingStyle == .Delete{
             self.cellArray.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
+            
+            
+            
+            
+            
+            
+            
         }
     }
+    
+
     
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
@@ -142,6 +151,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
+//            let key = FIRDatabase.database().reference().childByAutoId().key
+            
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
             // Trip Title Cell
@@ -189,7 +200,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             
             // Set the post to be passed to HomeTableViewController after the unwind segue.
-            post = Post(title: title, country: country, startDate: startDate, returnDate: returnDate)
+//            post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
         }
     }
     

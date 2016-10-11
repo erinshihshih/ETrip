@@ -14,7 +14,7 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-     var postDictionary = [String: Post]()
+    //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let databaseRef = FIRDatabase.database().reference()
@@ -22,40 +22,46 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // reload data from Firebase
+        // sideMenu set up
         
+        self.menuButton.target = self.revealViewController()
+        self.menuButton.action = Selector("revealToggle:")
+        
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        self.tableView.allowsMultipleSelectionDuringEditing = true
+        
+        // reload data from Firebase
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
+            let postID = snapshot.key
             let title = snapshot.value!["title"] as! String
             let country = snapshot.value!["country"] as! String
             let startDate = snapshot.value!["startDate"] as! String
             let returnDate = snapshot.value!["returnDate"] as! String
-//            print("aaaaahhhhhhhh: \(snapshot.key)")
-    
-            self.posts.insert(Post(title: title, country: country, startDate: startDate, returnDate: returnDate), atIndex: 0)
+            
+            // print("aaaaahhhhhhhh: \(snapshot)")
+            
+            
+            self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
+            print(self.posts.count)
+            print("ssssssssssssss:\(postID)")
             self.tableView.reloadData()
             
-            // sideMenu set up
             
-            self.menuButton.target = self.revealViewController()
-            self.menuButton.action = Selector("revealToggle:")
-            
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            self.tableView.allowsMultipleSelectionDuringEditing = true
         })
         
-//        databaseRef.child("posts").observeEventType(.ChildRemoved, withBlock: { (snapshot) in
-//
-//            print(snapshot.key)
-//            
-//            self.postDictionary.removeValueForKey(snapshot.key)
-//            self.tableView.reloadData()
-//            
-//            }, withCancelBlock: nil)
+        databaseRef.child("posts").observeEventType(.ChildChanged, withBlock: { (snapshot) in
+            
+            print(snapshot.key)
+            
+            //            self.postDictionary.removeValueForKey(snapshot.key)
+            self.tableView.reloadData()
+            
+            }, withCancelBlock: nil)
         
-        }
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -102,10 +108,19 @@ class HomeTableViewController: UITableViewController {
         
         if editingStyle == .Delete {
             
+            let postID = posts[indexPath.row].postID
+            
+            databaseRef.child("posts").child(postID).removeValue()
+            
+            
             self.posts.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
             
-        }}
+            print("\(indexPath.row) ssssssss: \(postID)")
+            
+            
+        }
+    }
     
     
     
@@ -132,9 +147,9 @@ class HomeTableViewController: UITableViewController {
     
     
     
-
- 
- 
+    
+    
+    
     
     /*
      // Override to support editing the table view.

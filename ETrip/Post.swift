@@ -10,6 +10,7 @@ import UIKit
 
 class Post {
     
+    var postID: String
     var title: String
     var country: String
     
@@ -17,8 +18,9 @@ class Post {
     var startDate: String
     var returnDate: String
     
-    init(title: String, country: String, startDate: String, returnDate: String) {
+    init(postID: String, title: String, country: String, startDate: String, returnDate: String) {
         
+        self.postID = postID
         self.title = title
         self.country = country
         self.startDate = startDate

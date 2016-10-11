@@ -12,6 +12,7 @@ import Foundation
 
 class Transportation {
     
+    var postID: String?
     var type: String?
     var departDate: String?
     var arriveDate: String?
