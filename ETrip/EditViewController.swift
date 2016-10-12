@@ -10,16 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-var titleCell = TitleTableViewCell()
-var transportationCell = TransportationTableViewCell()
+//var titleCell = TitleTableViewCell()
+//var transportationCell = TransportationTableViewCell()
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post: Post?
     
-    
     var transportation: Transportation?
-    
     var transportations = [Transportation]()
     
     var countryArray = [String]()
@@ -28,6 +26,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
+    
+    enum Row {
+        case title, transportation
+    }
+    
+    var rows: [ Row ] = [ .title ]
+    
+    //    rows.append(.transportation)
     
     var cellArray: [ AnyObject ] = [0]
     
@@ -39,9 +45,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func addTransportationButton(sender: UIBarButtonItem) {
         
-        cellArray.append(Transportation(postID: "", type: "", departDate: "", arriveDate: "", departFrom: "", arriveAt: "", airlineCom: "", flightNo: "", bookingRef: ""))
+        rows.append(.transportation)
         tableView.beginUpdates()
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cellArray.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
         tableView.endUpdates()
         
     }
@@ -66,8 +72,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         setUpPickerViewUI()
         
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,22 +88,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cellArray.count
+        return rows.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let type = cellArray[indexPath.row]
-        
-        if (type as? Transportation) != nil {
-            
-            let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
-            
-            transportationCell = cell
-            return cell
-            
-        } else {
+        switch rows[indexPath.row] {
+        case .title:
             
             let cellIdentifier = "titleCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! TitleTableViewCell
@@ -113,15 +109,21 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.countryTextField.text = post.country
                 cell.startDateTextField.text = post.startDate
                 cell.returnDateTextField.text = post.returnDate
-                
             }
             
-            
-            titleCell = cell
             cell.countryTextField.inputView = pickerView
+            return cell
+            
+            
+        case .transportation:
+            
+            let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
             
             return cell
+            
+            
         }
+        
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -146,59 +148,75 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if saveButton === sender {
-            
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
-             let key = FIRDatabase.database().reference().childByAutoId().key
-            
+            let key = FIRDatabase.database().reference().childByAutoId().key
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
-            // Trip Title Cell
-            let title = titleCell.titleTextField.text ?? ""
-            let country = titleCell.countryTextField.text ?? ""
+            for row in rows {
+                
+                switch row {
+                case .title:
+                    
+                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
+                    
+                    // Trip Title Cell
+                    let title = cell.titleTextField.text ?? ""
+                    let country = cell.countryTextField.text ?? ""
+                    
+                    // needs to be re-designed > Date Picker
+                    let startDate = cell.startDateTextField.text ?? ""
+                    let returnDate = cell.returnDateTextField.text ?? ""
+                    
+                    // Store tripTitle in Firebase
+                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
+                                                            "postID": key,
+                                                            "timestamp": timeStamp,
+                                                            "title": title,
+                                                            "country": country,
+                                                            "startDate": startDate,
+                                                            "returnDate": returnDate ]
+                    
+                    databaseRef.child("posts").child(key).setValue(titleOnFire)
+                    
+                case .transportation:
+                    
+                    let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    
+                    // Transportation Cell
+                    let type = cell.typeTextField.text ?? ""
+                    let airlineCom = cell.airlineComTextField.text ?? ""
+                    let flightNo = cell.flightNoTextField.text ?? ""
+                    let bookingRef = cell.departFromTextField.text ?? ""
+                    let departFrom = cell.departFromTextField.text ?? ""
+                    let arriveAt = cell.arriveAtTextField.text ?? ""
+                    let departDate = cell.departDateTextField.text ?? ""
+                    let arriveDate = cell.arriveDateTextField.text ?? ""
+                    
+                    let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                      "postID": key,
+                                                                      "timestamp": timeStamp,
+                                                                      "type": type,
+                                                                      "airlineCom": airlineCom,
+                                                                      "flightNo": flightNo,
+                                                                      "bookingRef": bookingRef,
+                                                                      "departFrom": departFrom,
+                                                                      "arriveAt": arriveAt,
+                                                                      "departDate": departDate,
+                                                                      "arriveDate": arriveDate ]
+                    
+                    databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
+                    
+                    
+                }
+                
+            }
             
-            // needs to be re-designed > Date Picker
-            let startDate = titleCell.startDateTextField.text ?? ""
-            let returnDate = titleCell.returnDateTextField.text ?? ""
             
-            // Transportation Cell
-            let type = transportationCell.typeTextField.text ?? ""
-            let airlineCom = transportationCell.airlineComTextField.text ?? ""
-            let flightNo = transportationCell.flightNoTextField.text ?? ""
-            let bookingRef = transportationCell.departFromTextField.text ?? ""
-            let departFrom = transportationCell.departFromTextField.text ?? ""
-            let arriveAt = transportationCell.arriveAtTextField.text ?? ""
-            let departDate = transportationCell.departDateTextField.text ?? ""
-            let arriveDate = transportationCell.arriveDateTextField.text ?? ""
             
-            // Store Transportation in Firebase
             
-            let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                                                    "postID": key,
-                                                    "timestamp": timeStamp,
-                                                    "title": title,
-                                                    "country": country,
-                                                    "startDate": startDate,
-                                                    "returnDate": returnDate ]
-            
-            let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                              "postID": key,
-                                                              "timestamp": timeStamp,
-                                                              "type": type,
-                                                              "airlineCom": airlineCom,
-                                                              "flightNo": flightNo,
-                                                              "bookingRef": bookingRef,
-                                                              "departFrom": departFrom,
-                                                              "arriveAt": arriveAt,
-                                                              "departDate": departDate,
-                                                              "arriveDate": arriveDate ]
-            
-            databaseRef.child("posts").child(key).setValue(titleOnFire)
-            
-            databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
-            
-            // Set the post to be passed to HomeTableViewController after the unwind segue.
-            // post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
         }
     }
     
@@ -217,11 +235,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        titleCell.countryTextField.text = countryArray[row]
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
+        cell.countryTextField.text = countryArray[row]
     }
-    
-    
-    
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         
@@ -233,9 +251,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Date TextField Delegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        
-        titleCell.startDateTextField.inputView = startDatePicker
-        titleCell.returnDateTextField.inputView = returnDatePicker
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
+        cell.startDateTextField.inputView = startDatePicker
+        cell.returnDateTextField.inputView = returnDatePicker
         //        startDatePicker.reloadInputViews()
         startDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
@@ -248,12 +267,14 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
         
         if sender == startDatePicker {
-            
-            titleCell.startDateTextField.text = formatter.stringFromDate(sender.date)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
+            cell.startDateTextField.text = formatter.stringFromDate(sender.date)
             
         } else if sender == returnDatePicker {
-            
-            titleCell.returnDateTextField.text = formatter.stringFromDate(sender.date)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
+            cell.returnDateTextField.text = formatter.stringFromDate(sender.date)
             
         }
     }
