@@ -60,33 +60,29 @@ class HomeTableViewController: UITableViewController {
             
             self.tableView.reloadData()
             
-            
         })
         
-        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            let posts = snapshot.value! as! [String : AnyObject]
-            
-            
-            let postID = posts["postID"] as! String
-            let type = posts["type"] as! String
-            let departDate = posts["departDate"] as! String
-            let arriveDate = posts["arriveDate"] as! String
-            let departFrom = posts["departFrom"] as! String
-            
-            let arriveAt = posts["arriveAt"] as! String
-            let airlineCom = posts["airlineCom"] as! String
-            let flightNo = posts["flightNo"] as! String
-            let bookingRef = posts["bookingRef"] as! String
-            
-            self.transportations.append(Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef))
-            
-            self.tableView.reloadData()
-            
-            
-        })
-        
+//        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+//            snapshot in
+//            
+//            let posts = snapshot.value! as! [String : AnyObject]
+//            
+//            
+//            let postID = posts["postID"] as! String
+//            let type = posts["type"] as! String
+//            let departDate = posts["departDate"] as! String
+//            let arriveDate = posts["arriveDate"] as! String
+//            let departFrom = posts["departFrom"] as! String
+//            let arriveAt = posts["arriveAt"] as! String
+//            let airlineCom = posts["airlineCom"] as! String
+//            let flightNo = posts["flightNo"] as! String
+//            let bookingRef = posts["bookingRef"] as! String
+//            
+//            self.transportations.append(Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef))
+//            
+//            self.tableView.reloadData()
+//        })
+//        
         
         
     }
@@ -149,6 +145,17 @@ class HomeTableViewController: UITableViewController {
                 let transportationID = snapshot.key
                 if transportationsPostID == postID {
                     self.databaseRef.child("transportations").child(transportationID).removeValue()
+                }
+            })
+            
+            // Delete Attractions
+            databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                snapshot in
+                
+                let attractionsPostID = snapshot.value!["postID"] as! String
+                let attractionID = snapshot.key
+                if attractionsPostID == postID {
+                    self.databaseRef.child("attractions").child(attractionID).removeValue()
                 }
             })
             

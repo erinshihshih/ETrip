@@ -84,6 +84,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         setUpPickerViewUI()
         getTransportationData()
+        getAttractionData()
         
     }
     
@@ -174,7 +175,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-                let theAttraction = attractions[indexPath.row - 1]
+                let theAttraction = attractions[indexPath.row - 2]
                 
                 // Set up views if editing an existing data.
                 let attraction = theAttraction
@@ -212,13 +213,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //        return UITableViewAutomaticDimension
     //    }
     
+    // Get the data
     func getTransportationData() {
         
         guard let postID = post?.postID else {
             print("Cannot find the postID")
             return
         }
-        
         
         databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
@@ -242,18 +243,53 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let arriveDate = transportationDict["arriveDate"] as! String
                 
                 
-                let tsCard = Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
+                let transportationCard = Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
                 
-                self.transportations.append(tsCard)
+                self.transportations.append(transportationCard)
                 self.rows.append(.transportation)
                 self.tableView.reloadData()
             }
+        })
+    }
+    
+    func getAttractionData() {
+        
+        guard let postID = post?.postID else {
+            print("Cannot find the postID")
+            return
+        }
+        
+        databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
             
+            guard let attractionDict = snapshot.value as? NSDictionary else {
+                fatalError()
+            }
             
+            let attractionPostID = snapshot.value!["postID"] as! String
             
+            if attractionPostID == postID {
+                
+                let postID = attractionDict["postID"] as! String
+                let name = attractionDict["name"] as! String
+                let stayHour = attractionDict["stayHour"] as! String
+                let address = attractionDict["address"] as! String
+                let note = attractionDict["note"] as! String
+                
+                let attractionCard = Attraction(postID: postID, name: name, stayHour: stayHour, address: address, note: note)
+                
+                self.attractions.append(attractionCard)
+                self.rows.append(.attraction)
+                self.tableView.reloadData()
+            }
             
         })
     }
+
+    
+    
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if saveButton === sender {

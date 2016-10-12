@@ -12,14 +12,16 @@ import Foundation
 
 class Accommodation {
     
+    let postID: String
     let name: String
     let checkinDate: NSDate
     let checkoutDate: NSDate
     let address: String
     let bookingRef: String
     
-    init(name: String, checkinDate: NSDate, checkoutDate: NSDate, address: String, bookingRef: String) {
+    init(postID: String, name: String, checkinDate: NSDate, checkoutDate: NSDate, address: String, bookingRef: String) {
         
+        self.postID = postID
         self.name = name
         self.checkinDate = checkinDate
         self.checkoutDate = checkoutDate
