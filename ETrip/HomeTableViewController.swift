@@ -14,6 +14,8 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
+    var transportations = [Transportation]()
+    
     //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -35,13 +37,22 @@ class HomeTableViewController: UITableViewController {
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
-            let tripTitle = snapshot.value!["tripTitle"] as! [String : AnyObject]
+//            print("snapShotValue: \(snapshot.value)")
+//            if let postDict = snapshot.value as? [String:AnyObject] {
+//                for each in postDict as [String: AnyObject] {
+//                    let item = each.0
+//                    print("autoID: \(item)")
+//                    
+//                }
+//            }
+
+            let posts = snapshot.value! as! [String : AnyObject]
             
             let postID = snapshot.key
-            let title = tripTitle["title"] as! String
-            let country = tripTitle["country"] as! String
-            let startDate = tripTitle["startDate"] as! String
-            let returnDate = tripTitle["returnDate"] as! String
+            let title = posts["title"] as! String
+            let country = posts["country"] as! String
+            let startDate = posts["startDate"] as! String
+            let returnDate = posts["returnDate"] as! String
             
             self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
 
@@ -50,14 +61,31 @@ class HomeTableViewController: UITableViewController {
             
         })
         
-        databaseRef.child("posts").observeEventType(.ChildChanged, withBlock: { (snapshot) in
+        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
             
-            print(snapshot.key)
+            let posts = snapshot.value! as! [String : AnyObject]
+
             
-            //            self.postDictionary.removeValueForKey(snapshot.key)
+            let postID = posts["postID"] as! String
+            let type = posts["type"] as! String
+            let departDate = posts["departDate"] as! String
+            let arriveDate = posts["arriveDate"] as! String
+            let departFrom = posts["departFrom"] as! String
+            
+            let arriveAt = posts["arriveAt"] as! String
+            let airlineCom = posts["airlineCom"] as! String
+            let flightNo = posts["flightNo"] as! String
+            let bookingRef = posts["bookingRef"] as! String
+            
+            self.transportations.append(Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef))
+            
             self.tableView.reloadData()
             
-            }, withCancelBlock: nil)
+            
+        })
+        
+        
         
     }
     
@@ -108,14 +136,23 @@ class HomeTableViewController: UITableViewController {
             
             let postID = posts[indexPath.row].postID
             
+            // Delete Post
             databaseRef.child("posts").child(postID).removeValue()
             
+            // Delete Transportations
+            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                snapshot in
             
+                let transportationsPostID = snapshot.value!["postID"] as! String
+                let transportationID = snapshot.key
+                if transportationsPostID == postID {
+                    self.databaseRef.child("transportations").child(transportationID).removeValue()
+                }
+            })
+
+            // Remove From Table View
             self.posts.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
-            
-            print("\(indexPath.row) ssssssss: \(postID)")
-            
             
         }
     }

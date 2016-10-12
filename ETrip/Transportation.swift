@@ -22,5 +22,20 @@ class Transportation {
     var flightNo: String?
     var bookingRef: String?
     
+    init(postID: String, type: String, departDate: String, arriveDate: String, departFrom: String, arriveAt: String, airlineCom: String, flightNo: String, bookingRef: String) {
+        
+        self.postID = postID
+        self.type = type
+        self.departDate = departDate
+        self.arriveDate = arriveDate
+        self.departFrom = departFrom
+        
+        self.arriveAt = arriveAt
+        self.airlineCom = airlineCom
+        self.flightNo = flightNo
+        self.bookingRef = bookingRef
+        
+    }
+
 }
 
