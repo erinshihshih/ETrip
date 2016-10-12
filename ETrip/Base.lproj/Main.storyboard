@@ -169,18 +169,18 @@
                         <viewControllerLayoutGuide type="bottom" id="2fv-w3-tID"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lXI-Tf-QVt">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XZy-wa-uF0">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="189"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
@@ -244,7 +244,7 @@
                                         <rect key="frame" x="0.0" y="217" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="76y-GK-wZm" id="0GI-9a-cDH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -255,7 +255,7 @@
                                 </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-ko-G6r">
-                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="add" id="B0l-7k-JI9">
                                         <connections>
@@ -295,7 +295,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEN-SE-VrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dzK-jg-B4c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="900"/>
+            <point key="canvasLocation" x="1905" y="857"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -354,7 +354,7 @@
                             <constraint firstItem="JGs-Sp-Ti0" firstAttribute="top" secondItem="1X6-Zf-DXr" secondAttribute="bottom" constant="8" id="GYV-xP-z7c"/>
                             <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="9LS-fO-ia9" secondAttribute="bottom" constant="318" id="N3D-RB-5HS"/>
                             <constraint firstItem="C24-ba-8dr" firstAttribute="trailing" secondItem="tih-hk-ZUw" secondAttribute="trailingMargin" id="Ne5-Qe-GQC"/>
-                            <constraint firstItem="1X6-Zf-DXr" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="8" id="SjJ-9I-Y3L"/>
+                            <constraint firstItem="1X6-Zf-DXr" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="52" id="SjJ-9I-Y3L"/>
                             <constraint firstItem="JGs-Sp-Ti0" firstAttribute="centerX" secondItem="tih-hk-ZUw" secondAttribute="centerX" id="Y2U-YW-lB4"/>
                             <constraint firstItem="1X6-Zf-DXr" firstAttribute="baseline" secondItem="C24-ba-8dr" secondAttribute="baseline" id="Zpo-nb-CHm"/>
                             <constraint firstItem="C24-ba-8dr" firstAttribute="leading" secondItem="1X6-Zf-DXr" secondAttribute="trailing" constant="8" symbolic="YES" id="fqG-HH-EZz"/>
@@ -430,7 +430,7 @@
                             <constraint firstItem="pzc-Lf-nhk" firstAttribute="top" secondItem="PLs-F8-9qL" secondAttribute="bottom" constant="316" id="P4L-i7-5cV"/>
                             <constraint firstItem="PLs-F8-9qL" firstAttribute="top" secondItem="9QV-d3-CTS" secondAttribute="bottom" constant="8" symbolic="YES" id="QAi-Op-swL"/>
                             <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="gjk-fi-TIK" secondAttribute="trailing" constant="8" symbolic="YES" id="VqA-69-zKW"/>
-                            <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="2y1-0j-BF2" secondAttribute="bottom" constant="8" id="afZ-hG-MZb"/>
+                            <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="2y1-0j-BF2" secondAttribute="bottom" constant="52" id="afZ-hG-MZb"/>
                             <constraint firstItem="9QV-d3-CTS" firstAttribute="centerX" secondItem="PLs-F8-9qL" secondAttribute="centerX" id="gab-iw-S5c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8R9-Tv-AK9" secondAttribute="trailing" constant="-6" id="jGC-EO-w1c"/>
                         </constraints>
@@ -544,6 +544,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UmO-gR-6b5"/>
+        <segue reference="WG7-Al-Law"/>
     </inferredMetricsTieBreakers>
 </document>

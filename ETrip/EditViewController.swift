@@ -21,6 +21,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var posts = [Post]()
     var transportations : [Transportation] = []
     
+    var isEditingTransportation = false
+    
     var countryArray = [String]()
     
     // pickerView
@@ -41,7 +43,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func addTransportationButton(sender: UIBarButtonItem) {
-        
+        isEditingTransportation = true
         rows.append(.transportation)
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
@@ -129,7 +131,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.departDateTextField.delegate = self
             cell.arriveDateTextField.delegate = self
             
-            if transportations.count > 0 {
+            if !isEditingTransportation  {
                 
                 let theTransportation = transportations[indexPath.row - 1]
                 
@@ -224,7 +226,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let key = FIRDatabase.database().reference().childByAutoId().key
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
-            for row in rows {
+            for index in 0..<rows.count {
+                
+                let row = rows[index]
                 
                 switch row {
                     
@@ -259,7 +263,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     //                    }
                     //
                     //                    let indexPath = tableView.indexPathForCell(senderCell)
-                    let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     
                     // Transportation Cell
