@@ -16,6 +16,8 @@ class HomeTableViewController: UITableViewController {
     var posts = [Post]()
     var transportations = [Transportation]()
     
+    
+    
     //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -37,15 +39,15 @@ class HomeTableViewController: UITableViewController {
         databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
-//            print("snapShotValue: \(snapshot.value)")
-//            if let postDict = snapshot.value as? [String:AnyObject] {
-//                for each in postDict as [String: AnyObject] {
-//                    let item = each.0
-//                    print("autoID: \(item)")
-//                    
-//                }
-//            }
-
+            //            print("snapShotValue: \(snapshot.value)")
+            //            if let postDict = snapshot.value as? [String:AnyObject] {
+            //                for each in postDict as [String: AnyObject] {
+            //                    let item = each.0
+            //                    print("autoID: \(item)")
+            //
+            //                }
+            //            }
+            
             let posts = snapshot.value! as! [String : AnyObject]
             
             let postID = snapshot.key
@@ -55,7 +57,7 @@ class HomeTableViewController: UITableViewController {
             let returnDate = posts["returnDate"] as! String
             
             self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
-
+            
             self.tableView.reloadData()
             
             
@@ -65,7 +67,7 @@ class HomeTableViewController: UITableViewController {
             snapshot in
             
             let posts = snapshot.value! as! [String : AnyObject]
-
+            
             
             let postID = posts["postID"] as! String
             let type = posts["type"] as! String
@@ -142,14 +144,14 @@ class HomeTableViewController: UITableViewController {
             // Delete Transportations
             databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                 snapshot in
-            
+                
                 let transportationsPostID = snapshot.value!["postID"] as! String
                 let transportationID = snapshot.key
                 if transportationsPostID == postID {
                     self.databaseRef.child("transportations").child(transportationID).removeValue()
                 }
             })
-
+            
             // Remove From Table View
             self.posts.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
@@ -160,31 +162,26 @@ class HomeTableViewController: UITableViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //        if segue.identifier == "showDetailSegue" {
-        //            let detailViewController = segue.destinationViewController as! EditViewController
-        //
-        //            // Get the cell that generated this segue.
-        //            if let selectedCell = sender as? HomeTableViewCell {
-        //                let indexPath = tableView.indexPathForCell(selectedCell)!
-        //                let selectedPost = posts[indexPath.row]
-        //                detailViewController.post = selectedPost
-        //
-        //                print("Editing post.")
-        //            }
-        //        }
-        //        else
+                if segue.identifier == "showDetailSegue" {
+                    let detailViewController = segue.destinationViewController as! EditViewController
+        
+                    // Get the cell that generated this segue.
+                    if let selectedCell = sender as? HomeTableViewCell {
+                        let indexPath = tableView.indexPathForCell(selectedCell)!
+                        
+                        let selectedPost = posts[indexPath.row]
+                        detailViewController.post = selectedPost
+        
+                        print("Editing post.")
+                    }
+                }
+                else
         if segue.identifier == "addPostSegue" {
             print("Adding new post.")
         }
     }
     
     @IBAction func unwindToHomePage(sender: UIStoryboardSegue) { }
-    
-    
-    
-    
-    
-    
     
     /*
      // Override to support editing the table view.
