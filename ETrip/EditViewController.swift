@@ -51,6 +51,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func addAttractionButton(sender: UIBarButtonItem) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -148,7 +151,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.arriveDateTextField.text = transportation.arriveDate!
             }
             
-
+            
             
             return cell
             
@@ -192,7 +195,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             let transportationsPostID = snapshot.value!["postID"] as! String
-//            let transportationID = snapshot.key
+            //            let transportationID = snapshot.key
             if transportationsPostID == postID {
                 let postID = transportationDict["postID"] as! String
                 let type = transportationDict["type"] as! String
@@ -212,7 +215,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView.reloadData()
             }
             
-
+            
             
             
         })
@@ -333,7 +336,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Date TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        if  let cell = textField.superview?.superview as? TitleTableViewCell{
+        if let cell = textField.superview?.superview as? TitleTableViewCell{
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             //        startDatePicker.reloadInputViews()
@@ -341,11 +344,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
         
-        if  let cell = textField.superview?.superview as? TransportationTableViewCell {
-            print("it's transportation Cell!")
-        }
+        // 等新增完其他cell再做判斷
+        //        if  let cell = textField.superview?.superview as? TransportationTableViewCell {
+        //            print("it's transportation Cell!")
+        //        }
         
-
+        
         
     }
     

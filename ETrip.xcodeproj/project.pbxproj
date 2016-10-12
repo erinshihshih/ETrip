@@ -12,6 +12,8 @@
 		95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */; };
 		95143BF61D9D127B00E389E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF51D9D127B00E389E1 /* ResultViewController.swift */; };
 		95143BF81D9D1ADB00E389E1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */; };
+		9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */; };
+		9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */; };
 		9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */; };
 		9549ED891D9918260074E306 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED881D9918260074E306 /* Transportation.swift */; };
 		9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8A1D991C3D0074E306 /* Accommodation.swift */; };
@@ -59,6 +61,8 @@
 		95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		95143BF51D9D127B00E389E1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
+		9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
+		9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionTableViewCell.xib; sourceTree = "<group>"; };
 		9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9549ED881D9918260074E306 /* Transportation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		9549ED8A1D991C3D0074E306 /* Accommodation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */,
 				95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */,
 				95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */,
+				9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */,
+				9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */,
 				95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */,
 				9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */,
 				95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */,
@@ -431,6 +438,7 @@
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,
 				9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */,
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
+				9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,
 				9549ED8E1D991E970074E306 /* Attraction.swift in Sources */,
 				959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */,

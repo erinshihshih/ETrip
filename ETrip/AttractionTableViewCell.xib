@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="transportationCell" rowHeight="200" id="a1z-Mq-q9c" customClass="TransportationTableViewCell" customModule="ETrip" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a1z-Mq-q9c" id="Ii8-eV-aN4">
+                <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-1f-dTc">
+                        <rect key="frame" x="8" y="8" width="85" height="21"/>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9r-Py-GtP">
+                        <rect key="frame" x="193" y="75" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9OV-fX-PXJ">
+                        <rect key="frame" x="8" y="113" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-mt-4zI">
+                        <rect key="frame" x="8" y="75" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cRh-xX-bQW">
+                        <rect key="frame" x="8" y="151" width="365" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Attraction Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BY6-ds-oVH">
+                        <rect key="frame" x="8" y="37" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Stay Hour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="We4-PT-r0C">
+                        <rect key="frame" x="193" y="37" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-MT-sTU">
+                        <rect key="frame" x="193" y="113" width="180" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PYh-1f-dTc" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="topMargin" id="0c8-Na-pjX"/>
+                    <constraint firstItem="G6C-MT-sTU" firstAttribute="leading" secondItem="G9r-Py-GtP" secondAttribute="leading" id="3SV-f1-9q0"/>
+                    <constraint firstItem="G9r-Py-GtP" firstAttribute="top" secondItem="We4-PT-r0C" secondAttribute="bottom" constant="8" id="3n4-fc-HVU"/>
+                    <constraint firstItem="G6C-MT-sTU" firstAttribute="width" secondItem="G9r-Py-GtP" secondAttribute="width" id="9JZ-XL-P66"/>
+                    <constraint firstItem="QSi-mt-4zI" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="bottom" constant="8" id="DQe-tN-Z6J"/>
+                    <constraint firstItem="QSi-mt-4zI" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" id="FLA-0e-C2c"/>
+                    <constraint firstItem="cRh-xX-bQW" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="MNw-X3-mmY"/>
+                    <constraint firstItem="We4-PT-r0C" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" id="MiM-K3-iao"/>
+                    <constraint firstItem="cRh-xX-bQW" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" constant="185" id="O9q-7S-Rph"/>
+                    <constraint firstItem="cRh-xX-bQW" firstAttribute="top" secondItem="9OV-fX-PXJ" secondAttribute="bottom" constant="8" id="PEI-P3-VIA"/>
+                    <constraint firstItem="9OV-fX-PXJ" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="RFF-D0-Y3V"/>
+                    <constraint firstItem="We4-PT-r0C" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="top" id="Rsz-lZ-84n"/>
+                    <constraint firstItem="9OV-fX-PXJ" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" id="WJG-0t-8hh"/>
+                    <constraint firstItem="BY6-ds-oVH" firstAttribute="leading" secondItem="PYh-1f-dTc" secondAttribute="leading" id="WKL-VZ-kaS"/>
+                    <constraint firstItem="G9r-Py-GtP" firstAttribute="leading" secondItem="We4-PT-r0C" secondAttribute="leading" id="YJi-v7-Gzr"/>
+                    <constraint firstItem="We4-PT-r0C" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="trailing" constant="5" id="YLD-Nu-25l"/>
+                    <constraint firstItem="9OV-fX-PXJ" firstAttribute="top" secondItem="QSi-mt-4zI" secondAttribute="bottom" constant="8" id="eVl-sQ-ztn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="G9r-Py-GtP" secondAttribute="trailing" id="gEQ-Gd-rC8"/>
+                    <constraint firstItem="PYh-1f-dTc" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leadingMargin" id="h3x-wg-5Y4"/>
+                    <constraint firstItem="QSi-mt-4zI" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="n1L-9S-BFZ"/>
+                    <constraint firstItem="G6C-MT-sTU" firstAttribute="top" secondItem="G9r-Py-GtP" secondAttribute="bottom" constant="8" id="pQe-gK-uLk"/>
+                    <constraint firstItem="BY6-ds-oVH" firstAttribute="top" secondItem="PYh-1f-dTc" secondAttribute="bottom" constant="8" id="s5O-a0-ckO"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="We4-PT-r0C" secondAttribute="trailing" id="tNL-dZ-E5Z"/>
+                    <constraint firstItem="G6C-MT-sTU" firstAttribute="leading" secondItem="G9r-Py-GtP" secondAttribute="leading" id="ylW-Nk-XPh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="airlineComTextField" destination="We4-PT-r0C" id="nfP-tE-IOr"/>
+                <outlet property="arriveAtTextField" destination="cRh-xX-bQW" id="Gfj-e1-5CH"/>
+                <outlet property="bookingRefTextField" destination="G9r-Py-GtP" id="Fda-iU-a35"/>
+                <outlet property="departDateTextField" destination="G6C-MT-sTU" id="Jl3-WW-dLI"/>
+                <outlet property="departFromTextField" destination="9OV-fX-PXJ" id="pDh-1U-GK9"/>
+                <outlet property="flightNoTextField" destination="QSi-mt-4zI" id="bVE-kQ-I4S"/>
+                <outlet property="typeTextField" destination="BY6-ds-oVH" id="Mwm-tm-jTj"/>
+            </connections>
+            <point key="canvasLocation" x="300.5" y="482"/>
+        </tableViewCell>
+    </objects>
+</document>
