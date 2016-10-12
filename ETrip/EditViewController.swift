@@ -332,13 +332,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // Date TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! TitleTableViewCell
-        cell.startDateTextField.inputView = startDatePicker
-        cell.returnDateTextField.inputView = returnDatePicker
-        //        startDatePicker.reloadInputViews()
-        startDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
-        returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+        
+        if  let cell = textField.superview?.superview as? TitleTableViewCell{
+            cell.startDateTextField.inputView = startDatePicker
+            cell.returnDateTextField.inputView = returnDatePicker
+            //        startDatePicker.reloadInputViews()
+            startDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+            returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+        }
+        
+        if  let cell = textField.superview?.superview as? TransportationTableViewCell {
+            print("it's transportation Cell!")
+        }
+        
+
         
     }
     
