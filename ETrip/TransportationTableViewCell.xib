@@ -103,7 +103,7 @@
                 <outlet property="flightNoTextField" destination="Yg9-3r-lAX" id="cpt-Vm-mjl"/>
                 <outlet property="typeTextField" destination="VOX-yu-gIk" id="WAq-fj-HYQ"/>
             </connections>
-            <point key="canvasLocation" x="233.5" y="480.5"/>
+            <point key="canvasLocation" x="563.5" y="328.5"/>
         </tableViewCell>
     </objects>
 </document>

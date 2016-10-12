@@ -12,15 +12,15 @@ import Foundation
 
 class Transportation {
     
-    var postID: String?
-    var type: String?
-    var departDate: String?
-    var arriveDate: String?
-    var departFrom: String?
-    var arriveAt: String?
-    var airlineCom: String?
-    var flightNo: String?
-    var bookingRef: String?
+    let postID: String
+    let type: String
+    let departDate: String
+    let arriveDate: String
+    let departFrom: String
+    let arriveAt: String
+    let airlineCom: String
+    let flightNo: String
+    let bookingRef: String
     
     init(postID: String, type: String, departDate: String, arriveDate: String, departFrom: String, arriveAt: String, airlineCom: String, flightNo: String, bookingRef: String) {
         

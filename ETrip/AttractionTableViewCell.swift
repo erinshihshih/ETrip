@@ -10,15 +10,12 @@ import UIKit
 
 class AttractionTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var nameTextField: UITextField!
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var stayHourTextField: UITextField!
+    
+    @IBOutlet weak var addressTextField: UITextField!
+    
+    @IBOutlet weak var noteTextView: UITextView!
     
 }

@@ -13,28 +13,31 @@ import FirebaseDatabase
 //var titleCell = TitleTableViewCell()
 //var transportationCell = TransportationTableViewCell()
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post: Post?
     var transportation: Transportation?
+    var attraction: Attraction?
     
     var posts = [Post]()
-    var transportations : [Transportation] = []
+    var transportations: [Transportation] = []
+    var attractions: [Attraction] = []
     
     var isEditingTransportation = false
+    var isEditingAttraction = false
     
     var countryArray = [String]()
     
-    // pickerView
+    // title pickerView
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
     enum Row {
-        case title, transportation
+        case title, transportation, attraction
     }
-    var rows: [ Row ] = [ .title ]
     
+    var rows: [ Row ] = [ .title ]
     
     let databaseRef = FIRDatabase.database().reference()
     
@@ -43,6 +46,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func addTransportationButton(sender: UIBarButtonItem) {
+        
         isEditingTransportation = true
         rows.append(.transportation)
         tableView.beginUpdates()
@@ -52,6 +56,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func addAttractionButton(sender: UIBarButtonItem) {
+        
+        isEditingAttraction = true
+        rows.append(.attraction)
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+        tableView.endUpdates()
         
     }
     override func viewDidLoad() {
@@ -94,7 +104,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         return rows.count
     }
     
-    
+    /////// Set up Table View ////////
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch rows[indexPath.row] {
@@ -141,20 +151,43 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // Set up views if editing an existing data.
                 let transportation = theTransportation
                 
-                cell.typeTextField.text = transportation.type!
-                cell.airlineComTextField.text = transportation.airlineCom!
-                cell.flightNoTextField.text = transportation.flightNo!
-                cell.bookingRefTextField.text = transportation.bookingRef!
-                cell.departFromTextField.text = transportation.departFrom!
-                cell.arriveAtTextField.text = transportation.arriveAt!
-                cell.departDateTextField.text = transportation.departDate!
-                cell.arriveDateTextField.text = transportation.arriveDate!
+                cell.typeTextField.text = transportation.type
+                cell.airlineComTextField.text = transportation.airlineCom
+                cell.flightNoTextField.text = transportation.flightNo
+                cell.bookingRefTextField.text = transportation.bookingRef
+                cell.departFromTextField.text = transportation.departFrom
+                cell.arriveAtTextField.text = transportation.arriveAt
+                cell.departDateTextField.text = transportation.departDate
+                cell.arriveDateTextField.text = transportation.arriveDate
             }
-            
-            
-            
             return cell
             
+        case .attraction:
+
+            let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.nameTextField.delegate = self
+            cell.stayHourTextField.delegate = self
+            cell.addressTextField.delegate = self
+            cell.noteTextView.delegate = self
+            
+            if !isEditingAttraction  {
+                
+                let theAttraction = attractions[indexPath.row - 1]
+                
+                // Set up views if editing an existing data.
+                let attraction = theAttraction
+                
+                cell.nameTextField.text = attraction.name
+                cell.stayHourTextField.text = attraction.stayHour
+                cell.addressTextField.text = attraction.address
+                cell.noteTextView.text = attraction.note
+  
+            }
+            
+            return cell
+
         }
         
     }
@@ -195,8 +228,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             let transportationsPostID = snapshot.value!["postID"] as! String
-            //            let transportationID = snapshot.key
+   
             if transportationsPostID == postID {
+                
                 let postID = transportationDict["postID"] as! String
                 let type = transportationDict["type"] as! String
                 let airlineCom = transportationDict["airlineCom"] as! String
@@ -260,12 +294,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     databaseRef.child("posts").child(key).setValue(titleOnFire)
                     
                 case .transportation:
-                    
-                    //                    guard let senderCell = sender as? TransportationTableViewCell else {
-                    //                        fatalError()
-                    //                    }
-                    //
-                    //                    let indexPath = tableView.indexPathForCell(senderCell)
+                
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     
@@ -294,12 +323,27 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
                     
+                case .attraction:
                     
-                    //                    let indexPath = NSIndexPath(forRow: 1, inSection: 0)
-                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                     
+                    // Attraction Cell
+                    let name = cell.nameTextField.text ?? ""
+                    let stayHour = cell.stayHourTextField.text ?? ""
+                    let address = cell.addressTextField.text ?? ""
+                    let note = cell.noteTextView.text ?? ""
                     
+                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                      "postID": key,
+                                                                      "timestamp": timeStamp,
+                                                                      "name": name,
+                                                                      "stayHour": stayHour,
+                                                                      "address": address,
+                                                                      "note": note ]
                     
+                    databaseRef.child("attractions").childByAutoId().setValue(attractionOnFire)
+
                     
                 }
             }

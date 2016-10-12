@@ -13,14 +13,16 @@ import Foundation
 class Attraction {
     
     let name: String
-    let stayHour: Double
+    let stayHour: String
     let address: String
+    let note: String
     
-    init(name: String, stayHour: Double, address: String) {
+    init(name: String, stayHour: String, address: String, note: String) {
         
         self.name = name
         self.stayHour = stayHour
         self.address = address
+        self.note = note
         
     }
     
