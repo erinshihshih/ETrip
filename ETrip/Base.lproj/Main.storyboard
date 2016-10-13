@@ -452,10 +452,10 @@
             </objects>
             <point key="canvasLocation" x="3237" y="197"/>
         </scene>
-        <!--Item-->
+        <!--Planner View-->
         <scene sceneID="Ds7-zJ-pna">
             <objects>
-                <viewController id="HTy-sV-NdB" customClass="PlannerViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Planner View" id="HTy-sV-NdB" customClass="PlannerViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ShW-IK-Wgb"/>
                         <viewControllerLayoutGuide type="bottom" id="lR7-dh-NFP"/>
