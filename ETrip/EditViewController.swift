@@ -456,7 +456,7 @@ extension EditViewController: FirebaseManagerDelegate {
     func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
         
         guard let postID = post?.postID else {
-            print("Cannot find the postID")
+            print("getTransportationManager: Cannot find the postID")
             return
         }
         
@@ -474,7 +474,7 @@ extension EditViewController: FirebaseManagerDelegate {
     func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
         
         guard let postID = post?.postID else {
-            print("Cannot find the postID")
+            print("getAttractionManager: Cannot find the postID")
             return
         }
         

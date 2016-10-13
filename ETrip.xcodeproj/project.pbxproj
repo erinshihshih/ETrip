@@ -13,8 +13,6 @@
 		95143BF61D9D127B00E389E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF51D9D127B00E389E1 /* ResultViewController.swift */; };
 		95143BF81D9D1ADB00E389E1 /* PlannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */; };
 		953FC3411DAF3CA70082DC0B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC3401DAF3CA70082DC0B /* FirebaseManager.swift */; };
-		953FC3431DAF4FEC0082DC0B /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC3421DAF4FEC0082DC0B /* TestTableViewController.swift */; };
-		953FC3451DAF51560082DC0B /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC3441DAF51560082DC0B /* TestTableViewCell.swift */; };
 		9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */; };
 		9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */; };
 		9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */; };
@@ -65,8 +63,6 @@
 		95143BF51D9D127B00E389E1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlannerViewController.swift; sourceTree = "<group>"; };
 		953FC3401DAF3CA70082DC0B /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		953FC3421DAF4FEC0082DC0B /* TestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewController.swift; sourceTree = "<group>"; };
-		953FC3441DAF51560082DC0B /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
 		9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionTableViewCell.xib; sourceTree = "<group>"; };
 		9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -220,8 +216,6 @@
 			children = (
 				95DB08711D98D01C009C404A /* AppDelegate.swift */,
 				953FC3401DAF3CA70082DC0B /* FirebaseManager.swift */,
-				953FC3421DAF4FEC0082DC0B /* TestTableViewController.swift */,
-				953FC3441DAF51560082DC0B /* TestTableViewCell.swift */,
 				95DB08751D98D01C009C404A /* Main.storyboard */,
 				95044D2A1DA345A100696DC8 /* Controller */,
 				9549ED8C1D991E290074E306 /* Model */,
@@ -442,14 +436,12 @@
 				95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */,
 				95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */,
 				959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */,
-				953FC3451DAF51560082DC0B /* TestTableViewCell.swift in Sources */,
 				95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */,
 				95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */,
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,
 				9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */,
 				953FC3411DAF3CA70082DC0B /* FirebaseManager.swift in Sources */,
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
-				953FC3431DAF4FEC0082DC0B /* TestTableViewController.swift in Sources */,
 				9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,
 				9549ED8E1D991E970074E306 /* Attraction.swift in Sources */,

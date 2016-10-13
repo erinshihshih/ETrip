@@ -130,7 +130,7 @@ class HomeTableViewController: UITableViewController {
                         let selectedPost = posts[indexPath.row]
                         detailViewController.post = selectedPost
         
-                        print("Editing post.")
+                        print("Show the trip result.")
                     }
                 }
                 else
