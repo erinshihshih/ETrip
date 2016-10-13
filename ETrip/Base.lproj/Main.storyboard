@@ -473,7 +473,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="xdr-h7-f4r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="zz0-Wc-sBp" kind="relationship" relationship="viewControllers" id="V4H-pJ-bRk"/>
@@ -493,7 +494,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lxL-Wl-SEX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
