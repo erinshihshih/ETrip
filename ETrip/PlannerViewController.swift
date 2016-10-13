@@ -8,24 +8,22 @@
 
 import UIKit
 
-class PlannerViewController: UITabBarController {
+class PlannerViewController: UIViewController {
   
-//    var post: Post?
-//    var posts: [Post] = []
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var countryLabel: UILabel!
-//    @IBOutlet weak var startDateLabel: UILabel!
-//    @IBOutlet weak var returnDateLabel: UILabel!
+    var post: Post?
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var returnDateLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Firebase Manager Delegate
-//        FirebaseManager.shared.delegate = self
-//        FirebaseManager.shared.fetchPosts()
-        
-//        self.titleLabel.text = posts.description
-        
+        self.titleLabel.text = post?.title
+        self.countryLabel.text = post?.country
+        self.startDateLabel.text = post?.startDate
+        self.returnDateLabel.text = post?.returnDate
         
         // Do any additional setup after loading the view.
     }
@@ -38,20 +36,3 @@ class PlannerViewController: UITabBarController {
 
 
 }
-//extension PlannerViewController: FirebaseManagerDelegate {
-//    
-//    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-//        
-////        self.posts.append(post)
-//    
-//    }
-//    
-//    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-//        
-//    }
-//    
-//    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-//        
-//    }
-//    
-//}
