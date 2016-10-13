@@ -19,7 +19,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var transportation: Transportation?
     var attraction: Attraction?
     
-    var posts = [Post]()
+    var posts: [Post] = []
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
     
@@ -64,11 +64,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.endUpdates()
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        // Firebase Manager Delegate
+        FirebaseManager.shared.delegate = self
+//        FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+        FirebaseManager.shared.fetchTransportations()
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -83,8 +89,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         setUpPickerViewUI()
-        getTransportationData()
-        getAttractionData()
+//        getAttractionData()
         
     }
     
@@ -164,7 +169,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             return cell
             
         case .attraction:
-
+            
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
@@ -175,7 +180,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-                let theAttraction = attractions[indexPath.row - 2]
+                let theAttraction = attractions[indexPath.row - transportations.count - 1]
                 
                 // Set up views if editing an existing data.
                 let attraction = theAttraction
@@ -184,11 +189,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.stayHourTextField.text = attraction.stayHour
                 cell.addressTextField.text = attraction.address
                 cell.noteTextView.text = attraction.note
-  
+                
             }
             
             return cell
-
+            
         }
         
     }
@@ -214,44 +219,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //    }
     
     // Get the data
-    func getTransportationData() {
-        
-        guard let postID = post?.postID else {
-            print("Cannot find the postID")
-            return
-        }
-        
-        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            guard let transportationDict = snapshot.value as? NSDictionary else {
-                fatalError()
-            }
-            
-            let transportationsPostID = snapshot.value!["postID"] as! String
-   
-            if transportationsPostID == postID {
-                
-                let postID = transportationDict["postID"] as! String
-                let type = transportationDict["type"] as! String
-                let airlineCom = transportationDict["airlineCom"] as! String
-                let flightNo = transportationDict["flightNo"] as! String
-                let bookingRef = transportationDict["bookingRef"] as! String
-                let departFrom = transportationDict["departFrom"] as! String
-                let arriveAt = transportationDict["arriveAt"] as! String
-                let departDate = transportationDict["departDate"] as! String
-                let arriveDate = transportationDict["arriveDate"] as! String
-                
-                
-                let transportationCard = Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
-                
-                self.transportations.append(transportationCard)
-                self.rows.append(.transportation)
-                self.tableView.reloadData()
-            }
-        })
-    }
-    
     func getAttractionData() {
         
         guard let postID = post?.postID else {
@@ -285,10 +252,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         })
     }
-
-    
-    
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -330,7 +293,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     databaseRef.child("posts").child(key).setValue(titleOnFire)
                     
                 case .transportation:
-                
+                    
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     
@@ -371,15 +334,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let note = cell.noteTextView.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": key,
-                                                                      "timestamp": timeStamp,
-                                                                      "name": name,
-                                                                      "stayHour": stayHour,
-                                                                      "address": address,
-                                                                      "note": note ]
+                                                                  "postID": key,
+                                                                  "timestamp": timeStamp,
+                                                                  "name": name,
+                                                                  "stayHour": stayHour,
+                                                                  "address": address,
+                                                                  "note": note ]
                     
                     databaseRef.child("attractions").childByAutoId().setValue(attractionOnFire)
-
+                    
                     
                 }
             }
@@ -517,3 +480,34 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     
 }
+
+extension EditViewController: FirebaseManagerDelegate {
+    
+    func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post]) {
+    
+    }
+    
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportations: Transportation) {
+        
+        guard let postID = post?.postID else {
+            print("Cannot find the postID")
+            return
+        }
+        
+        if transportations.postID == postID {
+            
+            self.transportations.append(transportations)
+            self.rows.append(.transportation)
+            
+        }
+
+        self.tableView.reloadData()
+    }
+}
+
+
+
+
+
+
+

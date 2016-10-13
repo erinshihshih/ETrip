@@ -86,11 +86,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if let user = FIRAuth.auth()?.currentUser {
                     
                     for profile in user.providerData {
-                        
+                        let providerUid = profile.uid
 //                        let providerID = profile.providerID
                         let name = profile.displayName
                         let email = profile.email
                         let profilePicURL = profile.photoURL
+                        
+                        print("ssssssssss \(providerUid)")
                         
                         let newUser: [String: AnyObject] = [
 //                            "providerID": providerID, // 管理不同的第三方登入
