@@ -25,7 +25,7 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         // sideMenu set up
         
         self.menuButton.target = self.revealViewController()
