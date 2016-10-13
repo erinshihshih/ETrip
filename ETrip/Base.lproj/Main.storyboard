@@ -137,7 +137,7 @@
                                     <outlet property="returnDateLabel" destination="Bka-Ap-lfL" id="Xog-67-L7A"/>
                                     <outlet property="startDateLabel" destination="ku0-UT-crE" id="h68-xi-Gip"/>
                                     <outlet property="titleLabel" destination="5VZ-F2-2cw" id="Nrc-rC-zJF"/>
-                                    <segue destination="Agl-cn-ojr" kind="show" identifier="showDetailSegue" id="UmO-gR-6b5"/>
+                                    <segue destination="HA2-SM-KdM" kind="show" identifier="showDetailSegue" id="fsf-C1-kIF"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -458,7 +458,7 @@
         <!--Planner View-->
         <scene sceneID="zfu-5J-xp9">
             <objects>
-                <viewController id="zz0-Wc-sBp" sceneMemberID="viewController">
+                <viewController id="zz0-Wc-sBp" customClass="PlannerViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2y1-0j-BF2"/>
                         <viewControllerLayoutGuide type="bottom" id="pzc-Lf-nhk"/>
@@ -477,8 +477,26 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9QV-d3-CTS">
                                 <rect key="frame" x="40" y="110" width="520" height="89"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-Kb-gMM">
-                                        <rect key="frame" x="229" y="8" width="63" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">
+                                        <rect key="frame" x="239" y="8" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P96-cx-vhq">
+                                        <rect key="frame" x="148" y="34" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-p6-S0w">
+                                        <rect key="frame" x="48" y="34" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XH-bI-TUl">
+                                        <rect key="frame" x="255" y="34" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -486,8 +504,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="IVH-Kb-gMM" firstAttribute="centerX" secondItem="9QV-d3-CTS" secondAttribute="centerX" id="cI4-Sf-IYd"/>
-                                    <constraint firstItem="IVH-Kb-gMM" firstAttribute="top" secondItem="9QV-d3-CTS" secondAttribute="top" constant="8" id="gkP-52-WkH"/>
+                                    <constraint firstItem="P96-cx-vhq" firstAttribute="baseline" secondItem="2XH-bI-TUl" secondAttribute="baseline" id="Fg2-Sv-7Da"/>
+                                    <constraint firstItem="P96-cx-vhq" firstAttribute="leading" secondItem="FZ4-p6-S0w" secondAttribute="trailing" constant="58" id="Kjf-yW-6tT"/>
+                                    <constraint firstItem="IIz-dV-1Ow" firstAttribute="centerX" secondItem="9QV-d3-CTS" secondAttribute="centerX" id="SoA-Aj-wm6"/>
+                                    <constraint firstItem="2XH-bI-TUl" firstAttribute="leading" secondItem="P96-cx-vhq" secondAttribute="trailing" constant="65" id="VAw-To-dzC"/>
+                                    <constraint firstItem="FZ4-p6-S0w" firstAttribute="centerY" secondItem="9QV-d3-CTS" secondAttribute="centerY" id="XUI-zY-qSR"/>
+                                    <constraint firstItem="FZ4-p6-S0w" firstAttribute="leading" secondItem="9QV-d3-CTS" secondAttribute="leading" constant="48" id="XsT-9T-5FD"/>
+                                    <constraint firstItem="FZ4-p6-S0w" firstAttribute="baseline" secondItem="P96-cx-vhq" secondAttribute="baseline" id="giL-ew-15D"/>
+                                    <constraint firstItem="IIz-dV-1Ow" firstAttribute="top" secondItem="9QV-d3-CTS" secondAttribute="topMargin" id="jzA-0i-Yca"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PLs-F8-9qL">
@@ -531,6 +555,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Planner View" image="notepad" id="Ir2-xe-2hl"/>
+                    <connections>
+                        <outlet property="countryLabel" destination="FZ4-p6-S0w" id="EaR-Ss-MDc"/>
+                        <outlet property="returnDateLabel" destination="2XH-bI-TUl" id="LRm-ih-sK5"/>
+                        <outlet property="startDateLabel" destination="P96-cx-vhq" id="4Vj-6F-J8a"/>
+                        <outlet property="titleLabel" destination="IIz-dV-1Ow" id="XZv-aO-T1l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTk-uD-bEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -653,6 +683,6 @@
         <image name="success" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d8h-pS-l2v"/>
+        <segue reference="WG7-Al-Law"/>
     </inferredMetricsTieBreakers>
 </document>

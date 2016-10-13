@@ -10,14 +10,23 @@ import UIKit
 
 class PlannerViewController: UITabBarController {
   
-     var post: Post?
-
+    var post: Post?
+    var posts: [Post] = []
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var returnDateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        // Firebase Manager Delegate
+        FirebaseManager.shared.delegate = self
+//        FirebaseManager.shared.fetchPosts()
+        
+//        self.titleLabel.text = posts.description
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,14 +36,22 @@ class PlannerViewController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+extension PlannerViewController: FirebaseManagerDelegate {
+    
+    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
+        
+//        self.posts.append(post)
+    
     }
-    */
-
+    
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
+        
+    }
+    
+    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+    }
+    
 }

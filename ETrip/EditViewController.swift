@@ -73,7 +73,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
-        //        FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+           // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
         FirebaseManager.shared.fetchTransportations()
         FirebaseManager.shared.fetchAttractions()
         
@@ -449,7 +449,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension EditViewController: FirebaseManagerDelegate {
     
-    func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post]) {
+    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
         
     }
     

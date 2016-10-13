@@ -174,8 +174,8 @@
 			children = (
 				95143BED1D9D0D9F00E389E1 /* Post.swift */,
 				9549ED881D9918260074E306 /* Transportation.swift */,
-				9549ED8A1D991C3D0074E306 /* Accommodation.swift */,
 				9549ED8D1D991E970074E306 /* Attraction.swift */,
+				9549ED8A1D991C3D0074E306 /* Accommodation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";

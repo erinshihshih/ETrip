@@ -52,9 +52,9 @@ class TestTableViewController: UITableViewController {
 
 extension TestTableViewController: FirebaseManagerDelegate {
     
-    func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post]) {
+    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
         
-        self.posts = posts
+        self.posts.append(post)
         self.tableView.reloadData()
         
     }

@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 protocol FirebaseManagerDelegate: class {
     
-    func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post])
+    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post)
     
     func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation)
     
@@ -43,11 +43,11 @@ class FirebaseManager {
             let country = posts["country"] as! String
             let startDate = posts["startDate"] as! String
             let returnDate = posts["returnDate"] as! String
+        
             
-            self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
-            
+            let post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
             dispatch_async(dispatch_get_main_queue()) {
-                self.delegate?.getPostManager(self, didGetData: self.posts)
+                self.delegate?.getPostManager(self, didGetData: post)
             }
             
         })
