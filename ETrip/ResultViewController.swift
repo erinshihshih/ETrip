@@ -14,8 +14,11 @@ class ResultViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Set up Planner View
+        let destController = self.viewControllers![0] as! PlannerViewController
+        destController.post = post
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,7 +26,6 @@ class ResultViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 

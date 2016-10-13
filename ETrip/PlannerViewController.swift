@@ -1,23 +1,30 @@
 //
 //  PlannerViewController.swift
 //  ETrip
-//
+//g
 //  Created by Erin Shih on 2016/9/29.
 //  Copyright © 2016年 Erin Shih. All rights reserved.
 //
 
 import UIKit
 
-class PlannerViewController: UITabBarController {
+class PlannerViewController: UIViewController {
   
-     var post: Post?
-
-    @IBOutlet weak var titleLabel: UILabel!
+    var post: Post?
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var returnDateLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        self.titleLabel.text = post?.title
+        self.countryLabel.text = post?.country
+        self.startDateLabel.text = post?.startDate
+        self.returnDateLabel.text = post?.returnDate
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,14 +34,5 @@ class PlannerViewController: UITabBarController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

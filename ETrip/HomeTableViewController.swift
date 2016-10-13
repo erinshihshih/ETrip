@@ -14,10 +14,7 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-    var transportations = [Transportation]()
-    
-    
-    
+//    var transportations = [Transportation]()
     //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -25,6 +22,10 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Firebase Manager Delegate
+        FirebaseManager.shared.delegate = self
+        FirebaseManager.shared.fetchPosts()
  
         // sideMenu set up
         
@@ -34,57 +35,7 @@ class HomeTableViewController: UITableViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.tableView.allowsMultipleSelectionDuringEditing = true
-        
-        // reload data from Firebase
-        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            //            print("snapShotValue: \(snapshot.value)")
-            //            if let postDict = snapshot.value as? [String:AnyObject] {
-            //                for each in postDict as [String: AnyObject] {
-            //                    let item = each.0
-            //                    print("autoID: \(item)")
-            //
-            //                }
-            //            }
-            
-            let posts = snapshot.value! as! [String : AnyObject]
-            
-            let postID = snapshot.key
-            let title = posts["title"] as! String
-            let country = posts["country"] as! String
-            let startDate = posts["startDate"] as! String
-            let returnDate = posts["returnDate"] as! String
-            
-            self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
-            
-            self.tableView.reloadData()
-            
-        })
-        
-//        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-//            snapshot in
-//            
-//            let posts = snapshot.value! as! [String : AnyObject]
-//            
-//            
-//            let postID = posts["postID"] as! String
-//            let type = posts["type"] as! String
-//            let departDate = posts["departDate"] as! String
-//            let arriveDate = posts["arriveDate"] as! String
-//            let departFrom = posts["departFrom"] as! String
-//            let arriveAt = posts["arriveAt"] as! String
-//            let airlineCom = posts["airlineCom"] as! String
-//            let flightNo = posts["flightNo"] as! String
-//            let bookingRef = posts["bookingRef"] as! String
-//            
-//            self.transportations.append(Transportation(postID: postID, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef))
-//            
-//            self.tableView.reloadData()
-//        })
-//        
-        
-        
+    
     }
     
     
@@ -170,7 +121,7 @@ class HomeTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
                 if segue.identifier == "showDetailSegue" {
-                    let detailViewController = segue.destinationViewController as! EditViewController
+                    let detailViewController = segue.destinationViewController as! ResultViewController
         
                     // Get the cell that generated this segue.
                     if let selectedCell = sender as? HomeTableViewCell {
@@ -226,5 +177,24 @@ class HomeTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
      }
      */
+    
+}
+
+extension HomeTableViewController: FirebaseManagerDelegate {
+    
+    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
+        
+        self.posts.append(post)
+        self.tableView.reloadData()
+        
+    }
+    
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
+
+    }
+    
+    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+    }
     
 }
