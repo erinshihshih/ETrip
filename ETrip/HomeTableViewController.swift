@@ -239,10 +239,12 @@ extension HomeTableViewController: FirebaseManagerDelegate {
         
     }
     
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportations: Transportation) {
-//        self.transportations = transportations
-//        self.tableView.reloadData()
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
+
     }
     
+    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+    }
     
 }

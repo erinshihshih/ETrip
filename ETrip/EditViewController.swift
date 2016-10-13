@@ -73,8 +73,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
-//        FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+        //        FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
         FirebaseManager.shared.fetchTransportations()
+        FirebaseManager.shared.fetchAttractions()
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -89,7 +90,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         setUpPickerViewUI()
-//        getAttractionData()
+        //        getAttractionData()
         
     }
     
@@ -217,41 +218,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
     //    }
-    
-    // Get the data
-    func getAttractionData() {
-        
-        guard let postID = post?.postID else {
-            print("Cannot find the postID")
-            return
-        }
-        
-        databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            guard let attractionDict = snapshot.value as? NSDictionary else {
-                fatalError()
-            }
-            
-            let attractionPostID = snapshot.value!["postID"] as! String
-            
-            if attractionPostID == postID {
-                
-                let postID = attractionDict["postID"] as! String
-                let name = attractionDict["name"] as! String
-                let stayHour = attractionDict["stayHour"] as! String
-                let address = attractionDict["address"] as! String
-                let note = attractionDict["note"] as! String
-                
-                let attractionCard = Attraction(postID: postID, name: name, stayHour: stayHour, address: address, note: note)
-                
-                self.attractions.append(attractionCard)
-                self.rows.append(.attraction)
-                self.tableView.reloadData()
-            }
-            
-        })
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -484,24 +450,43 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 extension EditViewController: FirebaseManagerDelegate {
     
     func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post]) {
-    
+        
     }
     
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportations: Transportation) {
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
         
         guard let postID = post?.postID else {
             print("Cannot find the postID")
             return
         }
         
-        if transportations.postID == postID {
+        if transportation.postID == postID {
             
-            self.transportations.append(transportations)
+            self.transportations.append(transportation)
             self.rows.append(.transportation)
             
         }
-
+        
         self.tableView.reloadData()
+    }
+    
+    
+    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+        guard let postID = post?.postID else {
+            print("Cannot find the postID")
+            return
+        }
+        
+        if attraction.postID == postID {
+            
+            self.attractions.append(attraction)
+            self.rows.append(.attraction)
+            
+        }
+        
+        self.tableView.reloadData()
+        
     }
 }
 

@@ -59,12 +59,16 @@ extension TestTableViewController: FirebaseManagerDelegate {
         
     }
     
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportations: Transportation) {
+    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
 //        self.transportations = transportations
 //        self.tableView.reloadData()
     }
-}
+    
+    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+    }
 
+}
 
 
 
