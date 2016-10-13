@@ -25,7 +25,7 @@ class PlannerViewController: UIViewController {
         self.startDateLabel.text = post?.startDate
         self.returnDateLabel.text = post?.returnDate
         
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading.
     }
 
     override func didReceiveMemoryWarning() {
