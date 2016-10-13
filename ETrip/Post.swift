@@ -10,9 +10,9 @@ import UIKit
 
 class Post {
     
-    var postID: String
-    var title: String
-    var country: String
+    let postID: String
+    let title: String
+    let country: String
     
     //type needs to be re-defined
     var startDate: String

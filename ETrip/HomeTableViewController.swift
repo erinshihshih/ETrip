@@ -14,10 +14,7 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-    var transportations = [Transportation]()
-    
-    
-    
+//    var transportations = [Transportation]()
     //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -25,6 +22,10 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Firebase Manager Delegate
+        FirebaseManager.shared.delegate = self
+        FirebaseManager.shared.fetchPosts()
  
         // sideMenu set up
         
@@ -36,31 +37,31 @@ class HomeTableViewController: UITableViewController {
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
         // reload data from Firebase
-        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-            snapshot in
-            
-            //            print("snapShotValue: \(snapshot.value)")
-            //            if let postDict = snapshot.value as? [String:AnyObject] {
-            //                for each in postDict as [String: AnyObject] {
-            //                    let item = each.0
-            //                    print("autoID: \(item)")
-            //
-            //                }
-            //            }
-            
-            let posts = snapshot.value! as! [String : AnyObject]
-            
-            let postID = snapshot.key
-            let title = posts["title"] as! String
-            let country = posts["country"] as! String
-            let startDate = posts["startDate"] as! String
-            let returnDate = posts["returnDate"] as! String
-            
-            self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
-            
-            self.tableView.reloadData()
-            
-        })
+//        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+//            snapshot in
+//            
+//            //            print("snapShotValue: \(snapshot.value)")
+//            //            if let postDict = snapshot.value as? [String:AnyObject] {
+//            //                for each in postDict as [String: AnyObject] {
+//            //                    let item = each.0
+//            //                    print("autoID: \(item)")
+//            //
+//            //                }
+//            //            }
+//            
+//            let posts = snapshot.value! as! [String : AnyObject]
+//            
+//            let postID = snapshot.key
+//            let title = posts["title"] as! String
+//            let country = posts["country"] as! String
+//            let startDate = posts["startDate"] as! String
+//            let returnDate = posts["returnDate"] as! String
+//            
+//            self.posts.append(Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate))
+//            
+//            self.tableView.reloadData()
+//            
+//        })
         
 //        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
 //            snapshot in
@@ -227,4 +228,14 @@ class HomeTableViewController: UITableViewController {
      }
      */
     
+}
+
+extension HomeTableViewController: FirebaseManagerDelegate {
+    
+    func getPostManager(getPostManager: FirebaseManager, didGetData posts: [Post]) {
+        
+        self.posts = posts
+        self.tableView.reloadData()
+        
+    }
 }
