@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
         FIRApp.configure()
-        
+        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().tintColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+//        UINavigationBar.appearance().title
         
    
         return true

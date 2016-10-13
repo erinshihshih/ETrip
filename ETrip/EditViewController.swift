@@ -67,6 +67,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
         

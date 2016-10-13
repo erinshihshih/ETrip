@@ -22,7 +22,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             
-            if let user = user {
+            if user != nil {
                 
                 // User is signed in and move to the home page
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

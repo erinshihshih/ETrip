@@ -97,16 +97,18 @@ class SideMenuTableViewController: UITableViewController {
                             
                             let uploadTask = profilePicRef.putData(imageData, metadata: nil) {
                                 metadata, error in
-                                
+                            
                                 if error == nil{
                                     let downloadUrl = metadata!.downloadURL
+                                    print("downloadUrl: \(downloadUrl)")
                                 }
                                     
                                 else {
+                                    
                                     print("Error in downloading image")
                                 }
                             }
-                            
+                            print("uploadTask: \(uploadTask)")
                             cell.profileImage.image = UIImage(data: imageData)
                         }
                     }
