@@ -548,3 +548,19 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      */
     
 }
+
+
+extension UITableView {
+    func indexPathForView(view : UIView) -> NSIndexPath? {
+        let location = view.convertPoint(CGPointZero, toView:self)
+        return indexPathForRowAtPoint(location)
+    }
+}
+
+@IBAction func pressedButton(sender: AnyObject) {
+    // For a button press
+    let button = sender as! UIButton
+    var indexPath = self.tableView.indexPathForView(button)!
+    
+    // Do thangs
+}

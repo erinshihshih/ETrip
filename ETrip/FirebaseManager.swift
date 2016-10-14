@@ -34,7 +34,7 @@ class FirebaseManager {
     
     func fetchPosts() {
         
-        databaseRef.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+        databaseRef.child("posts").queryOrderedByChild("timestamp").observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
             let posts = snapshot.value! as! [String : AnyObject]
@@ -44,7 +44,6 @@ class FirebaseManager {
             let startDate = posts["startDate"] as! String
             let returnDate = posts["returnDate"] as! String
         
-            
             let post = Post(postID: postID, title: title, country: country, startDate: startDate, returnDate: returnDate)
             dispatch_async(dispatch_get_main_queue()) {
                 self.delegate?.getPostManager(self, didGetData: post)

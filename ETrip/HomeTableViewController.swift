@@ -14,8 +14,7 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-    //    var transportations = [Transportation]()
-    //    var postDictionary = [String: Post]()
+
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let databaseRef = FIRDatabase.database().reference()
@@ -36,6 +35,13 @@ class HomeTableViewController: UITableViewController {
         
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
+        
+        
+        
+//        let a =  amyStartDate!.sortInPlace({$0 < $1})
+        
+     
+
     }
     
     
@@ -62,7 +68,10 @@ class HomeTableViewController: UITableViewController {
         let cellIdentifier = "HomeTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HomeTableViewCell
         
+        
         let post = posts[indexPath.row]
+        
+        
         
         cell.titleLabel.text = post.title
         cell.countryLabel.text = post.country
@@ -184,6 +193,9 @@ extension HomeTableViewController: FirebaseManagerDelegate {
     func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
         
         self.posts.append(post)
+    
+        posts.sortInPlace { $0.startDate.stringToDouble() > $1.startDate.stringToDouble() }
+
         self.tableView.reloadData()
         
     }
@@ -197,3 +209,16 @@ extension HomeTableViewController: FirebaseManagerDelegate {
     }
     
 }
+
+extension NSString {
+    func stringToDouble() -> Double {
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
+        
+        let date = dateFormatter.dateFromString(self as String)
+        return date!.timeIntervalSince1970
+    }
+}
+
+
