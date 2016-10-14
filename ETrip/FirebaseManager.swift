@@ -34,21 +34,65 @@ class FirebaseManager {
     
     func fetchPosts() {
         
-        databaseRef.child("posts").queryOrderedByChild("timestamp").observeEventType(.ChildAdded, withBlock: {
+        databaseRef.child("posts").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
             snapshot in
-            
-            let posts = snapshot.value! as! [String : AnyObject]
-            let postID = snapshot.key
-            let indexPathRow = posts["indexPathRow"] as! Int
-            let title = posts["title"] as! String
-            let country = posts["country"] as! String
-            let startDate = posts["startDate"] as! String
-            let returnDate = posts["returnDate"] as! String
-        
-            let post = Post(postID: postID, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
-            dispatch_async(dispatch_get_main_queue()) {
-                self.delegate?.getPostManager(self, didGetData: post)
+            if snapshot.exists() {
+                
+                self.posts = []
+                
+                for item in [snapshot.value] {
+                    
+                    guard let itemDictionary = item as? NSDictionary else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
+                        fatalError()
+                    }
+                    
+                    for (index, item) in firebaseItemValue.enumerate() {
+                        
+                        let postID = firebaseItemKey[index]
+                        
+                        let indexPathRow = item["indexPathRow"] as! Int
+                        let title = item["title"] as! String
+                        let country = item["country"] as! String
+                        let startDate = item["startDate"] as! String
+                        let returnDate = item["returnDate"] as! String
+                        
+                        let post = Post(postID: postID, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.delegate?.getPostManager(self, didGetData: post)
+                        }
+                        
+                    }
+                }
+                
             }
+            //
+            
+            //        databaseRef.child("posts").queryOrderedByChild("timestamp").observeEventType(.ChildAdded, withBlock: {
+            
+            
+            //            print(snapshot.value)
+            //
+            //            let posts = snapshot.value! as! [String : AnyObject]
+            //            let postID = snapshot.key
+            //            print(postID)
+            //            let indexPathRow = posts["indexPathRow"] as! Int
+            //            let title = posts["title"] as! String
+            //            let country = posts["country"] as! String
+            //            let startDate = posts["startDate"] as! String
+            //            let returnDate = posts["returnDate"] as! String
+            //
+            //            let post = Post(postID: postID, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+            //            dispatch_async(dispatch_get_main_queue()) {
+            //                self.delegate?.getPostManager(self, didGetData: post)
+            //            }
             
         })
     }
@@ -96,16 +140,16 @@ class FirebaseManager {
             let stayHour = attractionDict["stayHour"] as! String
             let address = attractionDict["address"] as! String
             let note = attractionDict["note"] as! String
-
+            
             
             let attraction = Attraction(postID: postID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
             
             self.delegate?.getAttractionManager(self, didGetData: attraction)
-        
+            
         })
         
     }
-
+    
     
     
     
