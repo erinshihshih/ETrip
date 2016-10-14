@@ -151,6 +151,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
+                    print(indexPath)
                 }
             }
         default:
@@ -547,20 +548,4 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      }
      */
     
-}
-
-
-extension UITableView {
-    func indexPathForView(view : UIView) -> NSIndexPath? {
-        let location = view.convertPoint(CGPointZero, toView:self)
-        return indexPathForRowAtPoint(location)
-    }
-}
-
-@IBAction func pressedButton(sender: AnyObject) {
-    // For a button press
-    let button = sender as! UIButton
-    var indexPath = self.tableView.indexPathForView(button)!
-    
-    // Do thangs
 }

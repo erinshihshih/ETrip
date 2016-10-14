@@ -26,4 +26,6 @@ class TransportationTableViewCell: UITableViewCell {
     @IBOutlet weak var departDateTextField: UITextField!
     
     @IBOutlet weak var arriveDateTextField: UITextField!
+    
+
 }

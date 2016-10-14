@@ -156,6 +156,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
+                    print(indexPath?.row)
+                    //////////////////////// save to firebase
                 }
             }
         default:
