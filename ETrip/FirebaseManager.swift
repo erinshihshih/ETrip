@@ -73,85 +73,97 @@ class FirebaseManager {
                 }
                 
             }
-            //
-            
-            //        databaseRef.child("posts").queryOrderedByChild("timestamp").observeEventType(.ChildAdded, withBlock: {
-            
-            
-            //            print(snapshot.value)
-            //
-            //            let posts = snapshot.value! as! [String : AnyObject]
-            //            let postID = snapshot.key
-            //            print(postID)
-            //            let indexPathRow = posts["indexPathRow"] as! Int
-            //            let title = posts["title"] as! String
-            //            let country = posts["country"] as! String
-            //            let startDate = posts["startDate"] as! String
-            //            let returnDate = posts["returnDate"] as! String
-            //
-            //            let post = Post(postID: postID, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
-            //            dispatch_async(dispatch_get_main_queue()) {
-            //                self.delegate?.getPostManager(self, didGetData: post)
-            //            }
             
         })
     }
     
     func fetchTransportations() {
-        
-        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+        databaseRef.child("transportations").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
             snapshot in
-            
-            guard let transportationDict = snapshot.value as? NSDictionary else {
-                fatalError()
+            if snapshot.exists() {
+                
+                self.transportations = []
+                
+                for item in [snapshot.value] {
+                    
+                    guard let itemDictionary = item as? NSDictionary else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
+                        fatalError()
+                    }
+                    
+                    for (index, item) in firebaseItemValue.enumerate() {
+                        
+                        let postID = item["postID"] as! String
+                        let indexPathRow = item["indexPathRow"] as! Int
+                        let type = item["type"] as! String
+                        let airlineCom = item["airlineCom"] as! String
+                        let flightNo = item["flightNo"] as! String
+                        let bookingRef = item["bookingRef"] as! String
+                        let departFrom = item["departFrom"] as! String
+                        let arriveAt = item["arriveAt"] as! String
+                        let departDate = item["departDate"] as! String
+                        let arriveDate = item["arriveDate"] as! String
+                        
+                        let transportation = Transportation(postID: postID, indexPathRow: indexPathRow, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
+                        
+                        self.delegate?.getTransportationManager(self, didGetData: transportation)
+                        
+                    }
+                }
             }
-            
-            let postID = transportationDict["postID"] as! String
-            let indexPathRow = transportationDict["indexPathRow"] as! Int
-            let type = transportationDict["type"] as! String
-            let airlineCom = transportationDict["airlineCom"] as! String
-            let flightNo = transportationDict["flightNo"] as! String
-            let bookingRef = transportationDict["bookingRef"] as! String
-            let departFrom = transportationDict["departFrom"] as! String
-            let arriveAt = transportationDict["arriveAt"] as! String
-            let departDate = transportationDict["departDate"] as! String
-            let arriveDate = transportationDict["arriveDate"] as! String
-            
-            let transportation = Transportation(postID: postID, indexPathRow: indexPathRow, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
-            
-            self.delegate?.getTransportationManager(self, didGetData: transportation)
-            
         })
         
     }
+    
     
     func fetchAttractions() {
-        
-        databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+        databaseRef.child("attractions").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
             snapshot in
-            
-            guard let attractionDict = snapshot.value as? NSDictionary else {
-                fatalError()
+            if snapshot.exists() {
+                
+                self.attractions = []
+                
+                for item in [snapshot.value] {
+                    
+                    guard let itemDictionary = item as? NSDictionary else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
+                        fatalError()
+                    }
+                    
+                    for (index, item) in firebaseItemValue.enumerate() {
+                        
+                        let postID = item["postID"] as! String
+                        let indexPathRow = item["indexPathRow"] as! Int
+                        let name = item["name"] as! String
+                        let stayHour = item["stayHour"] as! String
+                        let address = item["address"] as! String
+                        let note = item["note"] as! String
+                        
+                        let attraction = Attraction(postID: postID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
+                        
+                        self.delegate?.getAttractionManager(self, didGetData: attraction)
+
+                        
+                    }
+                }
             }
-            
-            let postID = attractionDict["postID"] as! String
-            let indexPathRow = attractionDict["indexPathRow"] as! Int
-            let name = attractionDict["name"] as! String
-            let stayHour = attractionDict["stayHour"] as! String
-            let address = attractionDict["address"] as! String
-            let note = attractionDict["note"] as! String
-            
-            
-            let attraction = Attraction(postID: postID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
-            
-            self.delegate?.getAttractionManager(self, didGetData: attraction)
-            
         })
         
     }
-    
-    
-    
     
     
     

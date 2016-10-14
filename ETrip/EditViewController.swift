@@ -12,6 +12,10 @@ import FirebaseDatabase
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    var isPostReceived = true
+    var isTransportationReceived = false
+    var isAttractionReceived = false
+    
     var post: Post?{
         didSet{
             allArray.append(post)
@@ -273,7 +277,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingTransportation  {
                 
-//                let theTransportation = transportations[indexPath.row - 1]
+                //                let theTransportation = transportations[indexPath.row - 1]
                 let theTransportation = allArray[indexPath.row] as! Transportation
                 
                 // Set up views if editing an existing data.
@@ -302,7 +306,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-//                let theAttraction = attractions[indexPath.row - transportations.count - 1]
+                //                let theAttraction = attractions[indexPath.row - transportations.count - 1]
                 
                 let theAttraction = allArray[indexPath.row] as! Attraction
                 
@@ -381,13 +385,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                             "returnDate": returnDate ]
                     
                     
-                    
-                    
                     let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
                     
                     databaseRef.updateChildValues(updatedTitleOnFire)
-                    
-                    
                     
                 case .transportation:
                     
@@ -613,7 +613,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     public func sortMyAyyar(arr: [Any]) {
         
+        if isPostReceived && isTransportationReceived && isAttractionReceived{
+            
+        }else{
+            return
+        }
+        
+        
         var allIndex:[Int] = []
+        rows = []
         
         for index in 0..<arr.count {
             if let card =  arr[index] as? Post{
@@ -629,15 +637,36 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         var newArray: [Any] = []
+        
+        var iii = 0
         for numberInx in allIndex{
             
             print(numberInx)
             
             newArray.append(allArray[numberInx])
+            
+            if newArray[iii] is Post{
+                //                    allIndex.append(0)
+                rows.append(.title)
+            }
+            
+            if newArray[iii] is Transportation{
+                //                    allIndex.append(0)
+                rows.append(.transportation)
+            }
+            
+            if newArray[iii] is Attraction{
+                //                    allIndex.append(0)
+                rows.append(.attraction)
+            }
+            
+            iii = iii + 1
         }
         allArray = newArray
+        self.tableView.reloadData()
         
     }
+    
     
 }
 
@@ -659,13 +688,13 @@ extension EditViewController: FirebaseManagerDelegate {
             self.transportations.append(transportation)
             allArray.append(transportation)
             print(allArray.count)
+            isTransportationReceived = true
             self.rows.append(.transportation)
             
         }
         
         //排序
-//        sortMyAyyar(allArray)
-        self.tableView.reloadData()
+        sortMyAyyar(allArray)
     }
     
     
@@ -681,18 +710,17 @@ extension EditViewController: FirebaseManagerDelegate {
             self.attractions.append(attraction)
             allArray.append(attraction)
             print(allArray.count)
-            
+            isAttractionReceived = true
             self.rows.append(.attraction)
             
         }
         
         //排序
-//        sortMyAyyar(allArray)
-        self.tableView.reloadData()
+        sortMyAyyar(allArray)
         
     }
     
-   
+    
 }
 
 
