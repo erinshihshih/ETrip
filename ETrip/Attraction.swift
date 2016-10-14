@@ -13,14 +13,16 @@ import Foundation
 class Attraction {
     
     let postID: String
+    let indexPathRow: Int
     let name: String
     let stayHour: String
     let address: String
     let note: String
     
-    init(postID: String, name: String, stayHour: String, address: String, note: String) {
+    init(postID: String, indexPathRow: Int, name: String, stayHour: String, address: String, note: String) {
         
         self.postID = postID
+        self.indexPathRow = indexPathRow
         self.name = name
         self.stayHour = stayHour
         self.address = address

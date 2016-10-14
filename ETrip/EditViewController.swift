@@ -273,7 +273,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingTransportation  {
                 
-                let theTransportation = transportations[indexPath.row - 1]
+//                let theTransportation = transportations[indexPath.row - 1]
+                let theTransportation = allArray[indexPath.row] as! Transportation
                 
                 // Set up views if editing an existing data.
                 let transportation = theTransportation
@@ -301,7 +302,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-                let theAttraction = attractions[indexPath.row - transportations.count - 1]
+//                let theAttraction = attractions[indexPath.row - transportations.count - 1]
+                
+                let theAttraction = allArray[indexPath.row] as! Attraction
                 
                 // Set up views if editing an existing data.
                 let attraction = theAttraction
@@ -608,23 +611,32 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
-    func sortMyAyyar(arr: [Any]) -> [Any]{
+    public func sortMyAyyar(arr: [Any]) {
         
         var allIndex:[Int] = []
         
-        for index in arr.count{
+        for index in 0..<arr.count {
             if let card =  arr[index] as? Post{
                 allIndex.append(0)
             }
             
             if let card =  arr[index] as? Transportation{
-                allIndex.append(0)
+                allIndex.append(card.indexPathRow)
             }
             
             if let card =  arr[index] as? Attraction{
-                allIndex.append(0)
+                allIndex.append(card.indexPathRow)
             }
         }
+        var newArray: [Any] = []
+        for numberInx in allIndex{
+            
+            print(numberInx)
+            
+            newArray.append(allArray[numberInx])
+        }
+        allArray = newArray
+        
     }
     
 }
@@ -652,7 +664,7 @@ extension EditViewController: FirebaseManagerDelegate {
         }
         
         //排序
-        
+//        sortMyAyyar(allArray)
         self.tableView.reloadData()
     }
     
@@ -669,12 +681,13 @@ extension EditViewController: FirebaseManagerDelegate {
             self.attractions.append(attraction)
             allArray.append(attraction)
             print(allArray.count)
+            
             self.rows.append(.attraction)
             
         }
         
         //排序
-        
+//        sortMyAyyar(allArray)
         self.tableView.reloadData()
         
     }

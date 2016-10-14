@@ -11,6 +11,7 @@ import UIKit
 class Post {
     
     let postID: String
+    let indexPathRow: Int
     let title: String
     let country: String
     
@@ -18,9 +19,10 @@ class Post {
     var startDate: String
     var returnDate: String
     
-    init(postID: String, title: String, country: String, startDate: String, returnDate: String) {
+    init(postID: String, indexPathRow: Int, title: String, country: String, startDate: String, returnDate: String) {
         
         self.postID = postID
+        self.indexPathRow = indexPathRow
         self.title = title
         self.country = country
         self.startDate = startDate
