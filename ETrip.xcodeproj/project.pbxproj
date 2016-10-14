@@ -145,8 +145,8 @@
 				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
-				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
+				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

@@ -65,6 +65,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func editButton(sender: UIBarButtonItem) {
+        
+        self.editing = !self.editing
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -420,20 +424,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
-    /*
+
      // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
+     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        let itemToMove = rows[fromIndexPath.row]
+        rows.removeAtIndex(fromIndexPath.row)
+        rows.insert(itemToMove, atIndex: toIndexPath.row)
      }
-     */
+ 
     
-    /*
+
      // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
+     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+  
+        return true
      }
-     */
+ 
     
     /*
      // MARK: - Navigation

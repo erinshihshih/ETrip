@@ -6,6 +6,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -61,7 +62,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbu-iw-zRN" id="aBb-tF-fEF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="179.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-F2-2cw">
@@ -182,7 +183,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="188.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="189"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
@@ -242,14 +243,6 @@
                                             <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="transportationCell" rowHeight="200" id="76y-GK-wZm" customClass="TransportationTableViewCell" customModule="ETrip" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="217" width="600" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="76y-GK-wZm" id="0GI-9a-cDH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Agl-cn-ojr" id="99x-oZ-wvg"/>
@@ -287,11 +280,18 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RfD-nQ-zS6">
-                        <barButtonItem key="rightBarButtonItem" image="success" id="aVa-YE-2jX">
-                            <connections>
-                                <segue destination="dzK-jg-B4c" kind="unwind" unwindAction="unwindToHomePage:" id="Kh8-lO-5W3"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="success" id="aVa-YE-2jX">
+                                <connections>
+                                    <segue destination="dzK-jg-B4c" kind="unwind" unwindAction="unwindToHomePage:" id="Kh8-lO-5W3"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="MWV-7p-Wyr">
+                                <connections>
+                                    <action selector="editButton:" destination="Agl-cn-ojr" id="z5T-ne-REc"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -450,6 +450,9 @@
                                     <constraint firstAttribute="width" constant="30" id="Vq1-O0-0HV"/>
                                 </constraints>
                                 <state key="normal" title="EDIT" image="edit"/>
+                                <connections>
+                                    <segue destination="Agl-cn-ojr" kind="show" identifier="editSegue" id="FDC-bw-X0S"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-Tv-AK9">
                                 <rect key="frame" x="285" y="316" width="30" height="30"/>
@@ -485,6 +488,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countryLabel" destination="FZ4-p6-S0w" id="0QH-OF-0Ie"/>
+                        <outlet property="editButton" destination="gjk-fi-TIK" id="NSa-7U-gaQ"/>
                         <outlet property="returnDateLabel" destination="2XH-bI-TUl" id="drj-sv-UX7"/>
                         <outlet property="startDateLabel" destination="P96-cx-vhq" id="tW5-ai-trE"/>
                         <outlet property="titleLabel" destination="IIz-dV-1Ow" id="c5r-jF-WWi"/>
@@ -530,7 +534,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyi-Cf-ov4" id="0ec-Of-mNQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3OM-tB-va6">
@@ -609,4 +613,7 @@
         <image name="share" width="22" height="22"/>
         <image name="success" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FDC-bw-X0S"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -9,14 +9,16 @@
 import UIKit
 
 class PlannerViewController: UIViewController {
-  
+    
     var post: Post?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var returnDateLabel: UILabel!
-
+    
+    @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,12 +29,28 @@ class PlannerViewController: UIViewController {
         
         // Do any additional setup after loading.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editSegue" {
+            let detailViewController = segue.destinationViewController as! EditViewController
+            
+            detailViewController.post = post
+            
+            print("Edit the trip.")
+        }
+            
+        else
+            if segue.identifier == "addPostSegue" {
+                print("Adding new post.")
+        }
+    }
+    
+    
+    
+    
 }
