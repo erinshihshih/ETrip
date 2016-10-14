@@ -70,7 +70,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
-           // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
         FirebaseManager.shared.fetchTransportations()
         FirebaseManager.shared.fetchAttractions()
         
@@ -94,7 +94,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.addGestureRecognizer(longpress)
         
     }
-
+    
     // Longpress to Reorder Cell
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
@@ -184,7 +184,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-
+    
     func snapshotOfCell(inputView: UIView) -> UIView {
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
         inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -354,7 +354,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let returnDate = cell.returnDateTextField.text ?? ""
                     
                     // Store tripTitle in Firebase
-                                       let TitleOnFire: [String: AnyObject] = ["uid": userID!,
+                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
                                                             "postID": postID,
                                                             "timestamp": timeStamp,
                                                             "title": title,
@@ -364,9 +364,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     
                     
-                  
-                    let updatedTitleOnFire = ["/posts/\(postID)": TitleOnFire]
-                   
+                    
+                    let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+                    
                     databaseRef.updateChildValues(updatedTitleOnFire)
                     
                     
@@ -386,7 +386,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let departDate = cell.departDateTextField.text ?? ""
                     let arriveDate = cell.arriveDateTextField.text ?? ""
                     
-                    
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": postID,
                                                                       "timestamp": timeStamp,
@@ -399,7 +398,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                       "departDate": departDate,
                                                                       "arriveDate": arriveDate ]
                     
-                    databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
+                    // To do: update the same data for same group: "transportations"
+                    databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                        snapshot in
+                        
+                        let transportationsPostID = snapshot.value!["postID"] as! String
+                        
+                        if transportationsPostID == postID {
+                            let transportationID = snapshot.key
+                            print("transportationsPostID: \(transportationsPostID)")
+                            print("transportationID: \(transportationID)")
+                            print("postID: \(postID)")
+                            
+                            let updatedTransportationOnFire = ["/transportations/\(transportationID)": transportationOnFire]
+                            
+                            databaseRef.updateChildValues(updatedTransportationOnFire)
+                        }
+                    })
+                    
                     
                 case .attraction:
                     
@@ -420,7 +436,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                   "address": address,
                                                                   "note": note ]
                     
-                    databaseRef.child("attractions").childByAutoId().setValue(attractionOnFire)
+                    // To do: update the same data for same group: "attractions"
+                    databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                        snapshot in
+                        
+                        let attractionsPostID = snapshot.value!["postID"] as! String
+                        let attractionID = snapshot.key
+                        if attractionsPostID == postID {
+                            let updatedAttractionOnFire = ["/attractions/\(attractionID)": attractionOnFire]
+                            
+                            databaseRef.updateChildValues(updatedAttractionOnFire)
+                        }
+                    })
+
+
                     
                     
                 }
@@ -532,24 +561,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
-
     
-
-     // Override to support rearranging the table view.
-//     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-//        let itemToMove = rows[fromIndexPath.row]
-//        rows.removeAtIndex(fromIndexPath.row)
-//        rows.insert(itemToMove, atIndex: toIndexPath.row)
-//     }
-// 
     
-
-     // Override to support conditional rearranging of the table view.
-//     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//  
-//        return true
-//     }
- 
+    
+    // Override to support rearranging the table view.
+    //     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    //        let itemToMove = rows[fromIndexPath.row]
+    //        rows.removeAtIndex(fromIndexPath.row)
+    //        rows.insert(itemToMove, atIndex: toIndexPath.row)
+    //     }
+    //
+    
+    
+    // Override to support conditional rearranging of the table view.
+    //     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    //
+    //        return true
+    //     }
+    
     
     /*
      // MARK: - Navigation
