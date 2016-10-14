@@ -12,13 +12,27 @@ import FirebaseDatabase
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var post: Post?
+    var post: Post?{
+        didSet{
+            allArray.append(post)
+        }
+    }
     var transportation: Transportation?
     var attraction: Attraction?
     
-    var posts: [Post] = []
+    var allArray: [Any] = [ ]
+    
+    //    var posts: [Post] = []{
+    //
+    //        didSet{
+    //            allArray.append(posts[0])
+    //        }
+    //    }
+    
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    
+    
     
     var isEditingTransportation = false
     var isEditingAttraction = false
@@ -156,8 +170,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
-                    print(indexPath?.row)
-                    //////////////////////// save to firebase
                 }
             }
         default:
@@ -358,6 +370,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     // Store tripTitle in Firebase
                     let titleOnFire: [String: AnyObject] = ["uid": userID!,
                                                             "postID": postID,
+                                                            "indexPathRow": indexPath.row,
                                                             "timestamp": timeStamp,
                                                             "title": title,
                                                             "country": country,
@@ -390,6 +403,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": postID,
+                                                                      "indexPathRow": indexPath.row,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
                                                                       "airlineCom": airlineCom,
@@ -400,24 +414,15 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                       "departDate": departDate,
                                                                       "arriveDate": arriveDate ]
                     
-               
-                    
-                    // To do: update the same data for same group: "transportations"
                     databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
                         
                         let transportationsPostID = snapshot.value!["postID"] as! String
+                        let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
                         
-                        if transportationsPostID == postID {
-                            
-                            print("======================")
-                            print(transportationOnFire["type"])
-                            print("======================")
+                        if transportationsPostID == postID && transportationsindexPathRow == indexPath.row {
                             
                             let transportationID = snapshot.key
-                            print("transportationsPostID: \(transportationsPostID)")
-                            print("transportationID: \(transportationID)")
-                            print("postID: \(postID)")
                             
                             let updatedTransportationOnFire = ["/transportations/\(transportationID)": transportationOnFire]
                             
@@ -439,26 +444,30 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": postID,
+                                                                  "indexPathRow": indexPath.row,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
                                                                   "stayHour": stayHour,
                                                                   "address": address,
                                                                   "note": note ]
                     
-                    // To do: update the same data for same group: "attractions"
                     databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
                         
                         let attractionsPostID = snapshot.value!["postID"] as! String
-                        let attractionID = snapshot.key
-                        if attractionsPostID == postID {
+                        let attractionsindexPathRow = snapshot.value!["indexPathRow"] as! Int
+                        
+                        if attractionsPostID == postID && attractionsindexPathRow == indexPath.row {
+                            
+                            let attractionID = snapshot.key
+                            
                             let updatedAttractionOnFire = ["/attractions/\(attractionID)": attractionOnFire]
                             
                             databaseRef.updateChildValues(updatedAttractionOnFire)
                         }
                     })
-
-
+                    
+                    
                     
                     
                 }
@@ -599,6 +608,25 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
+    func sortMyAyyar(arr: [Any]) -> [Any]{
+        
+        var allIndex:[Int] = []
+        
+        for index in arr.count{
+            if let card =  arr[index] as? Post{
+                allIndex.append(0)
+            }
+            
+            if let card =  arr[index] as? Transportation{
+                allIndex.append(0)
+            }
+            
+            if let card =  arr[index] as? Attraction{
+                allIndex.append(0)
+            }
+        }
+    }
+    
 }
 
 extension EditViewController: FirebaseManagerDelegate {
@@ -617,9 +645,13 @@ extension EditViewController: FirebaseManagerDelegate {
         if transportation.postID == postID {
             
             self.transportations.append(transportation)
+            allArray.append(transportation)
+            print(allArray.count)
             self.rows.append(.transportation)
             
         }
+        
+        //排序
         
         self.tableView.reloadData()
     }
@@ -635,13 +667,19 @@ extension EditViewController: FirebaseManagerDelegate {
         if attraction.postID == postID {
             
             self.attractions.append(attraction)
+            allArray.append(attraction)
+            print(allArray.count)
             self.rows.append(.attraction)
             
         }
         
+        //排序
+        
         self.tableView.reloadData()
         
     }
+    
+   
 }
 
 

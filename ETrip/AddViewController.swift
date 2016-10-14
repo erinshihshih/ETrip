@@ -151,7 +151,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
-                    print(indexPath)
+                    print(indexPath?.row)
                 }
             }
         default:
@@ -350,6 +350,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     // Store tripTitle in Firebase
                     let titleOnFire: [String: AnyObject] = ["uid": userID!,
                                                             "postID": key,
+                                                            "indexPathRow": indexPath.row,
                                                             "timestamp": timeStamp,
                                                             "title": title,
                                                             "country": country,
@@ -376,6 +377,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": key,
+                                                                      "indexPathRow": indexPath.row,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
                                                                       "airlineCom": airlineCom,
@@ -401,6 +403,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": key,
+                                                                  "indexPathRow": indexPath.row,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
                                                                   "stayHour": stayHour,
