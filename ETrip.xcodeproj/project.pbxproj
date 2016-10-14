@@ -15,6 +15,8 @@
 		953FC3411DAF3CA70082DC0B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953FC3401DAF3CA70082DC0B /* FirebaseManager.swift */; };
 		9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */; };
 		9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */; };
+		9547E7401DB089790023EE68 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547E73F1DB089790023EE68 /* AddViewController.swift */; };
+		9547E7421DB08A2C0023EE68 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547E7411DB08A2C0023EE68 /* AddTableViewCell.swift */; };
 		9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */; };
 		9549ED891D9918260074E306 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED881D9918260074E306 /* Transportation.swift */; };
 		9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8A1D991C3D0074E306 /* Accommodation.swift */; };
@@ -33,7 +35,7 @@
 		95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */; };
 		95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */; };
 		95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E9181D9E6513005BC373 /* EditViewController.swift */; };
-		95E3E91D1D9E65E3005BC373 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */; };
+		95E3E91D1D9E65E3005BC373 /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */; };
 		D93AC57FD5203932B78485C1 /* Pods_ETrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		953FC3401DAF3CA70082DC0B /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
 		9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionTableViewCell.xib; sourceTree = "<group>"; };
+		9547E73F1DB089790023EE68 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		9547E7411DB08A2C0023EE68 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
 		9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9549ED881D9918260074E306 /* Transportation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		9549ED8A1D991C3D0074E306 /* Accommodation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
@@ -91,7 +95,7 @@
 		95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationTableViewCell.swift; sourceTree = "<group>"; };
 		95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationTableViewCell.xib; sourceTree = "<group>"; };
 		95E3E9181D9E6513005BC373 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
-		95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
 		E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -143,6 +147,7 @@
 			children = (
 				95DB08731D98D01C009C404A /* LoginViewController.swift */,
 				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
+				9547E73F1DB089790023EE68 /* AddViewController.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
 				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
@@ -155,7 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */,
-				95E3E91C1D9E65E3005BC373 /* TitleTableViewCell.swift */,
+				95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */,
+				9547E7411DB08A2C0023EE68 /* AddTableViewCell.swift */,
 				95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */,
 				95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */,
 				95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */,
@@ -431,7 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95E3E91D1D9E65E3005BC373 /* TitleTableViewCell.swift in Sources */,
+				95E3E91D1D9E65E3005BC373 /* EditTableViewCell.swift in Sources */,
 				95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */,
 				95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */,
 				95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */,
@@ -440,7 +446,9 @@
 				95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */,
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,
 				9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */,
+				9547E7421DB08A2C0023EE68 /* AddTableViewCell.swift in Sources */,
 				953FC3411DAF3CA70082DC0B /* FirebaseManager.swift in Sources */,
+				9547E7401DB089790023EE68 /* AddViewController.swift in Sources */,
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
 				9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,

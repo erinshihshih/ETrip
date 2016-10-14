@@ -6,7 +6,6 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -151,7 +150,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="F5S-et-PKV"/>
                         <barButtonItem key="rightBarButtonItem" image="plus" id="72s-fy-jAS">
                             <connections>
-                                <segue destination="Agl-cn-ojr" kind="show" identifier="addPostSegue" id="d8h-pS-l2v"/>
+                                <segue destination="Agl-cn-ojr" kind="show" identifier="addPostSegue" id="PIV-dv-BR3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -163,10 +162,10 @@
             </objects>
             <point key="canvasLocation" x="1056" y="495"/>
         </scene>
-        <!--Edit View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="hA4-21-lO8">
             <objects>
-                <viewController id="Agl-cn-ojr" customClass="EditViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Agl-cn-ojr" customClass="AddViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EaU-7v-6GB"/>
                         <viewControllerLayoutGuide type="bottom" id="2fv-w3-tID"/>
@@ -179,7 +178,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="TitleTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="AddTableViewCell" customModule="ETrip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
@@ -237,10 +236,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="countryTextField" destination="5hl-ho-272" id="X4G-8c-o20"/>
-                                            <outlet property="returnDateTextField" destination="rJu-y9-iUW" id="vvt-o2-Nna"/>
-                                            <outlet property="startDateTextField" destination="YWS-kU-c6x" id="mM5-9k-xrQ"/>
-                                            <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="rWX-qu-QSp"/>
+                                            <outlet property="countryTextField" destination="5hl-ho-272" id="y4G-X6-vqy"/>
+                                            <outlet property="returnDateTextField" destination="rJu-y9-iUW" id="5Ai-bD-Jyw"/>
+                                            <outlet property="startDateTextField" destination="YWS-kU-c6x" id="nf6-Z0-bim"/>
+                                            <outlet property="titleTextField" destination="Hfc-Jm-FW5" id="RPa-hD-RLe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -254,12 +253,12 @@
                                 <items>
                                     <barButtonItem title="Transportation" id="B0l-7k-JI9">
                                         <connections>
-                                            <action selector="addTransportationButton:" destination="Agl-cn-ojr" id="6Fx-g9-QeI"/>
+                                            <action selector="addTransportationButton:" destination="Agl-cn-ojr" id="CzI-br-tW3"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Attraction" id="0hL-jB-7xn">
                                         <connections>
-                                            <action selector="addAttractionButton:" destination="Agl-cn-ojr" id="8D3-If-ubW"/>
+                                            <action selector="addAttractionButton:" destination="Agl-cn-ojr" id="7gR-H8-Wkf"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Accommodation" id="hf6-70-Tt4"/>
@@ -280,23 +279,16 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RfD-nQ-zS6">
-                        <rightBarButtonItems>
-                            <barButtonItem image="success" id="aVa-YE-2jX">
-                                <connections>
-                                    <segue destination="dzK-jg-B4c" kind="unwind" unwindAction="unwindToHomePage:" id="Kh8-lO-5W3"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="MWV-7p-Wyr">
-                                <connections>
-                                    <action selector="editButton:" destination="Agl-cn-ojr" id="z5T-ne-REc"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="success" id="aVa-YE-2jX">
+                            <connections>
+                                <segue destination="dzK-jg-B4c" kind="unwind" unwindAction="unwindToHomePage:" id="4RO-S5-fmi"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="saveButton" destination="aVa-YE-2jX" id="kYC-XR-vx8"/>
-                        <outlet property="tableView" destination="XZy-wa-uF0" id="Qvo-nb-OZk"/>
+                        <outlet property="saveButton" destination="aVa-YE-2jX" id="QOT-fh-zD0"/>
+                        <outlet property="tableView" destination="XZy-wa-uF0" id="X0f-82-pnz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEN-SE-VrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -451,7 +443,7 @@
                                 </constraints>
                                 <state key="normal" title="EDIT" image="edit"/>
                                 <connections>
-                                    <segue destination="Agl-cn-ojr" kind="show" identifier="editSegue" id="FDC-bw-X0S"/>
+                                    <segue destination="XdL-7b-cYU" kind="show" identifier="editSegue" id="X6Y-jN-eZb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-Tv-AK9">
@@ -603,6 +595,140 @@
             </objects>
             <point key="canvasLocation" x="1905" y="-100"/>
         </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="eHA-tt-jJl">
+            <objects>
+                <viewController id="XdL-7b-cYU" customClass="EditViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M7P-ts-0t4"/>
+                        <viewControllerLayoutGuide type="bottom" id="47K-35-AZm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Abk-31-wGp">
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qha-CR-ePr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="TBo-8W-TRd" customClass="EditTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="189"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBo-8W-TRd" id="271-TY-Axj">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="189"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-0r-KBP">
+                                                    <rect key="frame" x="8" y="51" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="584" id="uuH-5L-Rxo"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uQ-A0c">
+                                                    <rect key="frame" x="8" y="89" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="584" id="KJD-Fc-wco"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="return Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h14-a3-LAL">
+                                                    <rect key="frame" x="8" y="127" width="584" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="584" id="irh-oQ-n4v"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-bh-an0">
+                                                    <rect key="frame" x="8" y="13" width="584" height="30"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2F4-bh-an0" firstAttribute="trailing" secondItem="271-TY-Axj" secondAttribute="trailingMargin" id="CuM-mJ-TE0"/>
+                                                <constraint firstItem="h14-a3-LAL" firstAttribute="top" secondItem="yB6-uQ-A0c" secondAttribute="top" constant="38" id="NqX-JR-LS6"/>
+                                                <constraint firstItem="h14-a3-LAL" firstAttribute="leading" secondItem="yB6-uQ-A0c" secondAttribute="leading" id="T6J-1Y-x02"/>
+                                                <constraint firstItem="yB6-uQ-A0c" firstAttribute="top" secondItem="WRK-0r-KBP" secondAttribute="bottom" constant="8" id="XQZ-g7-Bbd"/>
+                                                <constraint firstItem="yB6-uQ-A0c" firstAttribute="trailing" secondItem="WRK-0r-KBP" secondAttribute="trailing" id="bFf-P1-Pxz"/>
+                                                <constraint firstItem="WRK-0r-KBP" firstAttribute="trailing" secondItem="2F4-bh-an0" secondAttribute="trailing" id="eSw-ye-YR8"/>
+                                                <constraint firstItem="2F4-bh-an0" firstAttribute="leading" secondItem="WRK-0r-KBP" secondAttribute="leading" id="gSH-DO-Ytc"/>
+                                                <constraint firstItem="WRK-0r-KBP" firstAttribute="top" secondItem="2F4-bh-an0" secondAttribute="bottom" constant="8" symbolic="YES" id="gvj-Up-pNn"/>
+                                                <constraint firstItem="h14-a3-LAL" firstAttribute="trailing" secondItem="yB6-uQ-A0c" secondAttribute="trailing" id="k0q-v5-IiD"/>
+                                                <constraint firstItem="yB6-uQ-A0c" firstAttribute="leading" secondItem="WRK-0r-KBP" secondAttribute="leading" id="mmI-WR-L2d"/>
+                                                <constraint firstItem="2F4-bh-an0" firstAttribute="leading" secondItem="271-TY-Axj" secondAttribute="leadingMargin" id="pR3-fF-npB"/>
+                                                <constraint firstItem="2F4-bh-an0" firstAttribute="top" secondItem="271-TY-Axj" secondAttribute="topMargin" constant="5" id="tdQ-bT-f4F"/>
+                                                <constraint firstItem="h14-a3-LAL" firstAttribute="leading" secondItem="yB6-uQ-A0c" secondAttribute="trailing" constant="-584" id="yye-9P-4Ld"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countryTextField" destination="WRK-0r-KBP" id="GMv-Wb-MjW"/>
+                                            <outlet property="returnDateTextField" destination="h14-a3-LAL" id="SyR-iw-a3Q"/>
+                                            <outlet property="startDateTextField" destination="yB6-uQ-A0c" id="Xsp-B2-Abl"/>
+                                            <outlet property="titleTextField" destination="2F4-bh-an0" id="gBy-1G-F7q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XdL-7b-cYU" id="lCb-3S-gjO"/>
+                                    <outlet property="delegate" destination="XdL-7b-cYU" id="4M7-EE-VQa"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOc-qg-24N">
+                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Transportation" id="4QB-ig-p4R">
+                                        <connections>
+                                            <action selector="addTransportationButton:" destination="XdL-7b-cYU" id="AEu-nR-PRJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Attraction" id="kmZ-IU-Mnb">
+                                        <connections>
+                                            <action selector="addAttractionButton:" destination="XdL-7b-cYU" id="7sv-7B-Old"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Accommodation" id="EJq-yb-AeG"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aOc-qg-24N" secondAttribute="bottom" id="9vN-A7-pnJ"/>
+                            <constraint firstAttribute="trailing" secondItem="aOc-qg-24N" secondAttribute="trailing" id="AaZ-9P-pTD"/>
+                            <constraint firstItem="aOc-qg-24N" firstAttribute="leading" secondItem="Abk-31-wGp" secondAttribute="leading" id="BaW-XB-5w2"/>
+                            <constraint firstItem="Qha-CR-ePr" firstAttribute="top" secondItem="M7P-ts-0t4" secondAttribute="bottom" id="Ysq-pU-myT"/>
+                            <constraint firstItem="47K-35-AZm" firstAttribute="top" secondItem="Qha-CR-ePr" secondAttribute="bottom" id="Zc3-W0-677"/>
+                            <constraint firstAttribute="trailing" secondItem="Qha-CR-ePr" secondAttribute="trailing" id="bGg-Li-CTW"/>
+                            <constraint firstItem="Qha-CR-ePr" firstAttribute="leading" secondItem="Abk-31-wGp" secondAttribute="leading" id="iDk-zy-G4H"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="yST-9T-g2F">
+                        <barButtonItem key="rightBarButtonItem" image="success" id="N2c-8v-6HJ">
+                            <connections>
+                                <segue destination="3xT-gJ-8n2" kind="unwind" unwindAction="unwindToHomePage:" id="PtA-5k-kna"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="saveButton" destination="N2c-8v-6HJ" id="ttT-co-Tox"/>
+                        <outlet property="tableView" destination="Qha-CR-ePr" id="mIC-17-pfp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ng3-jV-Es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3xT-gJ-8n2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2563" y="890"/>
+        </scene>
     </scenes>
     <resources>
         <image name="edit" width="22" height="22"/>
@@ -613,7 +739,4 @@
         <image name="share" width="22" height="22"/>
         <image name="success" width="22" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="FDC-bw-X0S"/>
-    </inferredMetricsTieBreakers>
 </document>

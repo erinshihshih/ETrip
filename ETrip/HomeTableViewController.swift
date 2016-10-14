@@ -14,7 +14,7 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-//    var transportations = [Transportation]()
+    //    var transportations = [Transportation]()
     //    var postDictionary = [String: Post]()
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -26,7 +26,7 @@ class HomeTableViewController: UITableViewController {
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
         FirebaseManager.shared.fetchPosts()
- 
+        
         // sideMenu set up
         
         self.menuButton.target = self.revealViewController()
@@ -35,7 +35,7 @@ class HomeTableViewController: UITableViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         self.tableView.allowsMultipleSelectionDuringEditing = true
-    
+        
     }
     
     
@@ -120,21 +120,20 @@ class HomeTableViewController: UITableViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-                if segue.identifier == "showDetailSegue" {
-                    let detailViewController = segue.destinationViewController as! ResultViewController
-        
-                    // Get the cell that generated this segue.
-                    if let selectedCell = sender as? HomeTableViewCell {
-                        let indexPath = tableView.indexPathForCell(selectedCell)!
-                        
-                        let selectedPost = posts[indexPath.row]
-                        detailViewController.post = selectedPost
-        
-                        print("Show the trip result.")
-                    }
-                }
-                else
-        if segue.identifier == "addPostSegue" {
+        if segue.identifier == "showDetailSegue" {
+            let detailViewController = segue.destinationViewController as! ResultViewController
+            
+            // Get the cell that generated this segue.
+            if let selectedCell = sender as? HomeTableViewCell {
+                let indexPath = tableView.indexPathForCell(selectedCell)!
+                
+                let selectedPost = posts[indexPath.row]
+                detailViewController.post = selectedPost
+                
+                print("Show the trip result.")
+            }
+        }
+        else if segue.identifier == "addPostSegue" {
             print("Adding new post.")
         }
     }
@@ -190,7 +189,7 @@ extension HomeTableViewController: FirebaseManagerDelegate {
     }
     
     func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-
+        
     }
     
     func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {

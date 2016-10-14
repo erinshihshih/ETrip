@@ -1,8 +1,8 @@
 //
-//  EditTableViewController.swift
+//  AddViewController.swift
 //  ETrip
 //
-//  Created by Erin Shih on 2016/9/30.
+//  Created by Erin Shih on 2016/10/14.
 //  Copyright © 2016年 Erin Shih. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post: Post?
     var transportation: Transportation?
@@ -67,12 +67,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        // Firebase Manager Delegate
-        FirebaseManager.shared.delegate = self
-           // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
-        FirebaseManager.shared.fetchTransportations()
-        FirebaseManager.shared.fetchAttractions()
+
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -90,11 +85,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         setUpPickerViewUI()
         
         // Longpress to Reorder Cell
-        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         
     }
-
+    
     // Longpress to Reorder Cell
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
@@ -184,7 +179,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
     }
-
+    
     func snapshotOfCell(inputView: UIView) -> UIView {
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
         inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -224,7 +219,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case .title:
             
             let cellIdentifier = "titleCell"
-            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
             cell.startDateTextField.delegate = self
@@ -341,7 +336,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .title:
                     
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
                     
                     // Trip Title Cell
                     let title = cell.titleTextField.text ?? ""
@@ -435,7 +430,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
         cell.countryTextField.text = countryArray[row]
     }
     
@@ -449,12 +444,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     // Date TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        if let cell = textField.superview?.superview as? EditTableViewCell {
+        if let cell = textField.superview?.superview as? AddTableViewCell {
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             //        startDatePicker.reloadInputViews()
-            startDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
-            returnDatePicker.addTarget(self, action: #selector(EditViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+            startDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
+            returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
         
         // 等新增完其他cell再做判斷
@@ -473,12 +468,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if sender == startDatePicker {
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
             cell.startDateTextField.text = formatter.stringFromDate(sender.date)
             
         } else if sender == returnDatePicker {
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
             cell.returnDateTextField.text = formatter.stringFromDate(sender.date)
             
         }
@@ -523,24 +518,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
-
     
-
-     // Override to support rearranging the table view.
-//     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-//        let itemToMove = rows[fromIndexPath.row]
-//        rows.removeAtIndex(fromIndexPath.row)
-//        rows.insert(itemToMove, atIndex: toIndexPath.row)
-//     }
-// 
     
-
-     // Override to support conditional rearranging of the table view.
-//     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//  
-//        return true
-//     }
- 
+    
+    // Override to support rearranging the table view.
+    //     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    //        let itemToMove = rows[fromIndexPath.row]
+    //        rows.removeAtIndex(fromIndexPath.row)
+    //        rows.insert(itemToMove, atIndex: toIndexPath.row)
+    //     }
+    //
+    
+    
+    // Override to support conditional rearranging of the table view.
+    //     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    //
+    //        return true
+    //     }
+    
     
     /*
      // MARK: - Navigation
@@ -553,53 +548,3 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     
 }
-
-extension EditViewController: FirebaseManagerDelegate {
-    
-    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-        
-    }
-    
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-        
-        guard let postID = post?.postID else {
-            print("getTransportationManager: Cannot find the postID")
-            return
-        }
-        
-        if transportation.postID == postID {
-            
-            self.transportations.append(transportation)
-            self.rows.append(.transportation)
-            
-        }
-        
-        self.tableView.reloadData()
-    }
-    
-    
-    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-        
-        guard let postID = post?.postID else {
-            print("getAttractionManager: Cannot find the postID")
-            return
-        }
-        
-        if attraction.postID == postID {
-            
-            self.attractions.append(attraction)
-            self.rows.append(.attraction)
-            
-        }
-        
-        self.tableView.reloadData()
-        
-    }
-}
-
-
-
-
-
-
-
