@@ -38,7 +38,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let databaseRef = FIRDatabase.database().reference()
     
-    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -325,11 +325,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if saveButton === sender {
+        if updateButton === sender {
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
-            let key = FIRDatabase.database().reference().childByAutoId().key
+            guard let postID = post?.postID else {
+                return
+            }
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
             for index in 0..<rows.count {
@@ -352,15 +354,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let returnDate = cell.returnDateTextField.text ?? ""
                     
                     // Store tripTitle in Firebase
-                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                                                            "postID": key,
+                                       let TitleOnFire: [String: AnyObject] = ["uid": userID!,
+                                                            "postID": postID,
                                                             "timestamp": timeStamp,
                                                             "title": title,
                                                             "country": country,
                                                             "startDate": startDate,
                                                             "returnDate": returnDate ]
                     
-                    databaseRef.child("posts").child(key).setValue(titleOnFire)
+                    
+                    
+                  
+                    let updatedTitleOnFire = ["/posts/\(postID)": TitleOnFire]
+                   
+                    databaseRef.updateChildValues(updatedTitleOnFire)
+                    
+                    
                     
                 case .transportation:
                     
@@ -379,7 +388,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": key,
+                                                                      "postID": postID,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
                                                                       "airlineCom": airlineCom,
@@ -404,7 +413,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let note = cell.noteTextView.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                  "postID": key,
+                                                                  "postID": postID,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
                                                                   "stayHour": stayHour,

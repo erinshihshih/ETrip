@@ -372,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237" y="197"/>
+            <point key="canvasLocation" x="2749" y="-763"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="Ds7-zJ-pna">
@@ -488,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZp-Uf-189" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237" y="-493"/>
+            <point key="canvasLocation" x="2749" y="-61"/>
         </scene>
         <!--Trips-->
         <scene sceneID="R2U-0c-wLE">
@@ -720,14 +720,14 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="saveButton" destination="N2c-8v-6HJ" id="ttT-co-Tox"/>
                         <outlet property="tableView" destination="Qha-CR-ePr" id="mIC-17-pfp"/>
+                        <outlet property="updateButton" destination="N2c-8v-6HJ" id="Jm1-UU-h2w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ng3-jV-Es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3xT-gJ-8n2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2563" y="890"/>
+            <point key="canvasLocation" x="2749" y="910"/>
         </scene>
     </scenes>
     <resources>
