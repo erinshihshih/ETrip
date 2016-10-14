@@ -400,6 +400,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                       "departDate": departDate,
                                                                       "arriveDate": arriveDate ]
                     
+               
+                    
                     // To do: update the same data for same group: "transportations"
                     databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
@@ -407,6 +409,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let transportationsPostID = snapshot.value!["postID"] as! String
                         
                         if transportationsPostID == postID {
+                            
+                            print("======================")
+                            print(transportationOnFire["type"])
+                            print("======================")
+                            
                             let transportationID = snapshot.key
                             print("transportationsPostID: \(transportationsPostID)")
                             print("transportationID: \(transportationID)")
