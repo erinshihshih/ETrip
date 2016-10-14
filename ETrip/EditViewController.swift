@@ -638,29 +638,24 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         var newArray: [Any] = []
         
-        var iii = 0
-        for numberInx in allIndex{
+        for index in 0..<allIndex.count{
             
-            print(numberInx)
+            let numberInx = allIndex[index]
             
             newArray.append(allArray[numberInx])
             
-            if newArray[iii] is Post{
-                //                    allIndex.append(0)
+            if newArray[index] is Post{
                 rows.append(.title)
             }
             
-            if newArray[iii] is Transportation{
-                //                    allIndex.append(0)
+            if newArray[index] is Transportation{
                 rows.append(.transportation)
             }
             
-            if newArray[iii] is Attraction{
-                //                    allIndex.append(0)
+            if newArray[index] is Attraction{
                 rows.append(.attraction)
             }
-            
-            iii = iii + 1
+        
         }
         allArray = newArray
         self.tableView.reloadData()
