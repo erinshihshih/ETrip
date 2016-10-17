@@ -10,8 +10,6 @@ import UIKit
 
 class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var theArray: [Card] = []
-    
     var transportation: Transportation?
     var attraction: Attraction?
     
@@ -22,12 +20,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     var rows: [ Row ] = [  ]
     
     var post: Post?
-    //    {
-    
-    //        didSet{
-    //            allArray.append(post)
-    //        }
-    //    }
+
     var allArray: [Any] = [ ]
     
     var transportations: [Transportation] = []
@@ -92,7 +85,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let transportation = allArray[indexPath.row] as! Transportation
             
-            //            if !isEditingTransportation  {
+          
             // Set up views if editing an existing data.
             cell.typeLabel.text = transportation.type
             cell.airlineComLabel.text = transportation.airlineCom
@@ -102,14 +95,12 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.arriveAtLabel.text = transportation.arriveAt
             cell.departDateLabel.text = transportation.departDate
             cell.arriveDateLabel.text = transportation.arriveDate
-            //        }
+ 
             return cell
             
         case .attraction:
             
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionPlannerViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionPlannerViewCell
-            
-            //            if !isEditingAttraction  {
             
             let attraction = allArray[indexPath.row] as! Attraction
             
@@ -118,11 +109,8 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.stayHourLabel.text = attraction.stayHour
             cell.addressLabel.text = attraction.address
             cell.noteLabel.text = attraction.note
-            
-            //            }
-            
+
             return cell
-            
             
         }
         
@@ -143,138 +131,35 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    
-    
-    
-    func sortMyArray3(arr: [Any]) {
-        
-        
-        if isTransportationReceived && isAttractionReceived {
-            
-        }else{
-            return
-        }
-        
-        
-        var allIndex:[Int] = []
-        rows = []
-        
-        for index in 0..<arr.count {
-//            if let card =  arr[index] as? Post{
-//                allIndex.append(0)
-//            }
-            
-            if let card =  arr[index] as? Transportation{
-                allIndex.append(card.indexPathRow)
-            }
-            
-            if let card =  arr[index] as? Attraction{
-                allIndex.append(card.indexPathRow)
-            }
-        }
-        var newArray: [Any] = []
-        
-        for index in 0..<allIndex.count{
-            
-            let numberInx = allIndex[index]
-            
-            for aaa in allArray{
-            
-                if index + 1 == numberInx{
-                    newArray.append(allArray[numberInx])
-                }
-                
-            }
-            
-            
-            
-            newArray.append(allArray[numberInx - 1])
-            
-//            if newArray[index] is Post{
-//                rows.append(.title)
-//            }
-            
-            if newArray[index] is Transportation{
-                rows.append(.transportation)
-            }
-            
-            if newArray[index] is Attraction{
-                rows.append(.attraction)
-            }
-            
-        }
-        allArray = newArray
-        self.tableView.reloadData()
-        
-    }
-    
-    
-    
-    
-    
     func sortMyArray(arr: [Any]) {
         
         if isTransportationReceived && isAttractionReceived {
             
-        }else{
+        } else {
             return
         }
-        
-        
-//       var animals = ["0": 3, "1": 1, "1": 2]
-        
-//        let b = animals.sortedKeysByValue(<)
-        
-        
-        
-
-        
-        //====================================
         
         var allIndex: [String:Int] = [ : ]
         rows = []
         
         for index in 0..<arr.count {
             
-//            if let card =  arr[index] as? Post {
-//                allIndex.append(0)
-//            }
-            
             if let card =  arr[index] as? Transportation {
-                
-//                let item = NSDictionary(dictionary: [String(index) : card.indexPathRow])
                 
                 allIndex[String(index)] = card.indexPathRow
                 
-//                let a = Card()
-//                a.index = card.indexPathRow
-//                a.cardName = allArray[card.indexPathRow - 1]
-//                theArray.append(a)
-                
-//                allIndex.append(item)
             }
             
             if let card =  arr[index] as? Attraction {
-//                allIndex.append(card.indexPathRow)
-//                let item = NSDictionary(dictionary: [String(index) : card.indexPathRow])
-                
-//                allIndex.append(item)
                 
                 allIndex[String(index)] = card.indexPathRow
                 
-//                let a = Card()
-//                a.index = card.indexPathRow
-//                a.cardName = allArray[card.indexPathRow - 1]
-//                theArray.append(a)
-//                
             }
         }
         
-        
-        
         typealias DictSorter = ((String,Int),(String,Int)) -> Bool
         
-        let sizeSmallToLarge: DictSorter = { $0.1 < $1.1 }
+        let indexSmallToLarge: DictSorter = { $0.1 < $1.1 }
         
         // selector
         let listSelector: (String,Int)->String = { $0.0 }
@@ -282,17 +167,15 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Usage
         let dict = allIndex
         
-        let folderListBySizeSmallToLarge = dict.sort(sizeSmallToLarge).map(listSelector)
-        
+        let newArrayByIndexSmallToLarge = dict.sort(indexSmallToLarge).map(listSelector)
         
         var newArray: [Any] = []
         
-        for index in 0..<folderListBySizeSmallToLarge.count {
+        for index in 0..<newArrayByIndexSmallToLarge.count {
             
-            let item = folderListBySizeSmallToLarge[index]
+            let item = newArrayByIndexSmallToLarge[index]
             
             newArray.append(allArray[Int(item)!])
-            
             
             if newArray[index] is Transportation{
                 rows.append(.transportation)
@@ -302,7 +185,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 rows.append(.attraction)
             }
             
-     
         }
         
         allArray = newArray
@@ -311,40 +193,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 }
-
-
-class Card: NSObject {
-    var index : Int?
-    var cardName : Any?
-}
-
-extension Dictionary {
-    func sortedKeys(isOrderedBefore:(Key,Key) -> Bool) -> [Key] {
-        return Array(self.keys).sort(isOrderedBefore)
-    }
-    
-    // Slower because of a lot of lookups, but probably takes less memory (this is equivalent to Pascals answer in an generic extension)
-    func sortedKeysByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
-        return sortedKeys {
-            isOrderedBefore(self[$0]!, self[$1]!)
-        }
-    }
-    
-    // Faster because of no lookups, may take more memory because of duplicating contents
-    func keysSortedByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
-        return Array(self)
-            .sort() {
-                let (_, lv) = $0
-                let (_, rv) = $1
-                return isOrderedBefore(lv, rv)
-            }
-            .map {
-                let (k, _) = $0
-                return k
-        }
-    }
-}
-
 
 
 extension PlannerViewController: FirebaseManagerDelegate {
@@ -394,7 +242,6 @@ extension PlannerViewController: FirebaseManagerDelegate {
         
         //排序
         sortMyArray(allArray)
-        
         
     }
     
