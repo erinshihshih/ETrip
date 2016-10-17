@@ -26,17 +26,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var allArray: [Any] = [ ]
     
-    //    var posts: [Post] = []{
-    //
-    //        didSet{
-    //            allArray.append(posts[0])
-    //        }
-    //    }
-    
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
-    
-    
     
     var isEditingTransportation = false
     var isEditingAttraction = false
@@ -107,10 +98,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Picker View UI
         setUpPickerViewUI()
         
-//        // Longpress to Reorder Cell
-//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
-//        tableView.addGestureRecognizer(longpress)
+        //        // Longpress to Reorder Cell
+        //        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
+        //        tableView.addGestureRecognizer(longpress)
         
+        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     
@@ -135,6 +127,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch rows[indexPath.row] {
+            
         case .title:
             
             let cellIdentifier = "titleCell"
@@ -173,12 +166,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingTransportation  {
                 
-                //                let theTransportation = transportations[indexPath.row - 1]
-                let theTransportation = allArray[indexPath.row] as! Transportation
+                let transportation = allArray[indexPath.row] as! Transportation
                 
                 // Set up views if editing an existing data.
-                let transportation = theTransportation
-                
                 cell.typeTextField.text = transportation.type
                 cell.airlineComTextField.text = transportation.airlineCom
                 cell.flightNoTextField.text = transportation.flightNo
@@ -202,13 +192,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-                //                let theAttraction = attractions[indexPath.row - transportations.count - 1]
-                
-                let theAttraction = allArray[indexPath.row] as! Attraction
+                let attraction = allArray[indexPath.row] as! Attraction
                 
                 // Set up views if editing an existing data.
-                let attraction = theAttraction
-                
                 cell.nameTextField.text = attraction.name
                 cell.stayHourTextField.text = attraction.stayHour
                 cell.addressTextField.text = attraction.address
@@ -222,15 +208,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if editingStyle == .Delete{
-            
-            self.rows.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
-            
-        }
-    }
     
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
@@ -246,9 +223,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
+            
             guard let postID = post?.postID else {
                 return
             }
+            
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
             for index in 0..<rows.count {
@@ -259,8 +238,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                 case .title:
                     
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+                    let indexPathRow = indexPath.row
                     
                     // Trip Title Cell
                     let title = cell.titleTextField.text ?? ""
@@ -273,22 +253,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     // Store tripTitle in Firebase
                     let titleOnFire: [String: AnyObject] = ["uid": userID!,
                                                             "postID": postID,
-                                                            "indexPathRow": indexPath.row,
+                                                            "indexPathRow": indexPathRow,
                                                             "timestamp": timeStamp,
                                                             "title": title,
                                                             "country": country,
                                                             "startDate": startDate,
                                                             "returnDate": returnDate ]
                     
-                    
                     let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
-                    
-                    databaseRef.updateChildValues(updatedTitleOnFire)
                     
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    let indexPathRow = indexPath.row
                     
                     // Transportation Cell
                     let type = cell.typeTextField.text ?? ""
@@ -302,7 +280,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": postID,
-                                                                      "indexPathRow": indexPath.row,
+                                                                      "indexPathRow": indexPathRow,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
                                                                       "airlineCom": airlineCom,
@@ -334,7 +312,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
-                    
+                    let indexPathRow = indexPath.row
                     // Attraction Cell
                     let name = cell.nameTextField.text ?? ""
                     let stayHour = cell.stayHourTextField.text ?? ""
@@ -343,7 +321,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": postID,
-                                                                  "indexPathRow": indexPath.row,
+                                                                  "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
                                                                   "stayHour": stayHour,
@@ -470,31 +448,43 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      }
      */
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            
+            
+            self.rows.removeAtIndex(indexPath.row)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            self.tableView.reloadData()
+            
+        } else if editingStyle == .Insert {
+            
+        }
+    }
     
     
-    
+    // Override to support conditional editing of the table view.
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+
     
     // Override to support rearranging the table view.
-    //     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    //        let itemToMove = rows[fromIndexPath.row]
-    //        rows.removeAtIndex(fromIndexPath.row)
-    //        rows.insert(itemToMove, atIndex: toIndexPath.row)
-    //     }
-    //
+         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+            let itemToMove = rows[fromIndexPath.row]
+            rows.removeAtIndex(fromIndexPath.row)
+            rows.insert(itemToMove, atIndex: toIndexPath.row)
+         }
+    
     
     
     // Override to support conditional rearranging of the table view.
-    //     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    //
-    //        return true
-    //     }
+         func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    
+            return true
+         }
     
     
     /*
@@ -551,7 +541,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             if newArray[index] is Attraction{
                 rows.append(.attraction)
             }
-        
+            
         }
         allArray = newArray
         self.tableView.reloadData()

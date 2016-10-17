@@ -16,8 +16,12 @@ class ResultViewController: UITabBarController {
         super.viewDidLoad()
         
         // Set up Planner View
-        let destController = self.viewControllers![0] as! PlannerViewController
-        destController.post = post
+        let planViewController = self.viewControllers![0] as! PlannerViewController
+        planViewController.post = post
+        
+        // Set up Map View
+        let mapViewController = self.viewControllers![1] as! MapViewController
+        mapViewController.post = post
         
     }
 
@@ -26,14 +30,5 @@ class ResultViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewControll
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

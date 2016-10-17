@@ -1,14 +1,14 @@
 //
-//  PlannerViewController.swift
+//  MapViewController.swift
 //  ETrip
-//g
-//  Created by Erin Shih on 2016/9/29.
+//
+//  Created by Erin Shih on 2016/10/17.
 //  Copyright © 2016年 Erin Shih. All rights reserved.
 //
 
 import UIKit
 
-class PlannerViewController: UIViewController {
+class MapViewController: UIViewController {
     
     var post: Post?
     
@@ -26,8 +26,7 @@ class PlannerViewController: UIViewController {
         self.countryLabel.text = post?.country
         self.startDateLabel.text = post?.startDate
         self.returnDateLabel.text = post?.returnDate
-        
-        // Do any additional setup after loading.
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +42,6 @@ class PlannerViewController: UIViewController {
             
             print("Edit the trip.")
         }
-        
     }
-    
+
 }

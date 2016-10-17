@@ -67,7 +67,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -84,9 +84,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Picker View UI
         setUpPickerViewUI()
         
-        //        // Longpress to Reorder Cell
-        //        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-        //        tableView.addGestureRecognizer(longpress)
+//        // Longpress to Reorder Cell
+//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+//        tableView.addGestureRecognizer(longpress)
         
     }
     
@@ -427,13 +427,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     
-    // Override to support rearranging the table view.
-    //     func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    //        let itemToMove = rows[fromIndexPath.row]
-    //        rows.removeAtIndex(fromIndexPath.row)
-    //        rows.insert(itemToMove, atIndex: toIndexPath.row)
-    //     }
-    //
+//     Override to support rearranging the table view.
+         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+            let itemToMove = rows[fromIndexPath.row]
+            rows.removeAtIndex(fromIndexPath.row)
+            rows.insert(itemToMove, atIndex: toIndexPath.row)
+         }
+    
     
     
     // Override to support conditional rearranging of the table view.
