@@ -11,6 +11,8 @@ import UIKit
 class MapViewController: UIViewController {
     
     var post: Post?
+    var transportation: Transportation?
+    var attraction: Attraction?
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!

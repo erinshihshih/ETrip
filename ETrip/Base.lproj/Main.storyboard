@@ -495,6 +495,20 @@
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="166" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jpz-ZS-9Yd">
+                                <rect key="frame" x="0.0" y="268" width="600" height="283"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="166" id="AVf-mg-9WE">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="166"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVf-mg-9WE" id="7pr-yi-Tqp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -506,6 +520,7 @@
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="leading" secondItem="P96-cx-vhq" secondAttribute="leading" id="LLW-iB-Xir"/>
                             <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="gjk-fi-TIK" secondAttribute="trailing" constant="8" id="Lhd-Gs-LAB"/>
                             <constraint firstItem="IIz-dV-1Ow" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="20" id="O2a-PC-FE9"/>
+                            <constraint firstAttribute="trailing" secondItem="jpz-ZS-9Yd" secondAttribute="trailing" id="RWZ-KI-v9A"/>
                             <constraint firstItem="PLs-F8-9qL" firstAttribute="centerX" secondItem="MYA-89-w7n" secondAttribute="centerX" id="TZE-JT-7DD"/>
                             <constraint firstItem="FZ4-p6-S0w" firstAttribute="leading" secondItem="k0S-LF-sEC" secondAttribute="trailing" constant="15" id="TzK-0L-zOa"/>
                             <constraint firstItem="k0S-LF-sEC" firstAttribute="top" secondItem="IIz-dV-1Ow" secondAttribute="bottom" constant="12" id="VZL-xx-qOt"/>
@@ -513,8 +528,11 @@
                             <constraint firstItem="TFz-e1-xAi" firstAttribute="trailing" secondItem="k0S-LF-sEC" secondAttribute="trailing" id="ZcB-Xm-Evh"/>
                             <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="8" id="cIR-Zq-ccq"/>
                             <constraint firstItem="FZ4-p6-S0w" firstAttribute="centerY" secondItem="k0S-LF-sEC" secondAttribute="centerY" id="cx3-bv-cbb"/>
+                            <constraint firstItem="lR7-dh-NFP" firstAttribute="top" secondItem="jpz-ZS-9Yd" secondAttribute="bottom" id="hRZ-e2-hUC"/>
+                            <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="PLs-F8-9qL" secondAttribute="bottom" constant="8" id="kYJ-c5-5qR"/>
                             <constraint firstItem="GEG-CE-0Rc" firstAttribute="top" secondItem="TFz-e1-xAi" secondAttribute="bottom" constant="15" id="lb1-bN-RhU"/>
                             <constraint firstItem="k0S-LF-sEC" firstAttribute="leading" secondItem="IIz-dV-1Ow" secondAttribute="leading" id="nX4-2x-wo7"/>
+                            <constraint firstItem="jpz-ZS-9Yd" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" id="p7r-ne-893"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="centerY" secondItem="GEG-CE-0Rc" secondAttribute="centerY" id="pmB-JA-Sxt"/>
                             <constraint firstItem="IIz-dV-1Ow" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" constant="20" id="vRr-Rl-mD2"/>
                             <constraint firstItem="PLs-F8-9qL" firstAttribute="top" secondItem="GEG-CE-0Rc" secondAttribute="bottom" constant="20" id="yfc-zk-s8r"/>
@@ -533,6 +551,7 @@
                         <outlet property="editButton" destination="gjk-fi-TIK" id="NSa-7U-gaQ"/>
                         <outlet property="returnDateLabel" destination="2XH-bI-TUl" id="drj-sv-UX7"/>
                         <outlet property="startDateLabel" destination="P96-cx-vhq" id="tW5-ai-trE"/>
+                        <outlet property="tableView" destination="jpz-ZS-9Yd" id="Xq8-aF-898"/>
                         <outlet property="titleLabel" destination="IIz-dV-1Ow" id="c5r-jF-WWi"/>
                     </connections>
                 </viewController>

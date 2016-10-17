@@ -77,11 +77,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        // Firebase Manager Delegate
-        FirebaseManager.shared.delegate = self
-        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
-        FirebaseManager.shared.fetchTransportations()
-        FirebaseManager.shared.fetchAttractions()
+//        // Firebase Manager Delegate
+//        FirebaseManager.shared.delegate = self
+//        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+//        FirebaseManager.shared.fetchTransportations()
+//        FirebaseManager.shared.fetchAttractions()
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -98,11 +98,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Picker View UI
         setUpPickerViewUI()
         
-        //        // Longpress to Reorder Cell
-        //        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
-        //        tableView.addGestureRecognizer(longpress)
-        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//                // Longpress to Reorder Cell
+//                let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
+//                tableView.addGestureRecognizer(longpress)
+
+//        self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     
@@ -261,6 +261,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                             "returnDate": returnDate ]
                     
                     let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+                    databaseRef.updateChildValues(updatedTitleOnFire)
                     
                 case .transportation:
                     
@@ -453,38 +454,41 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if editingStyle == .Delete {
             
-            
             self.rows.removeAtIndex(indexPath.row)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             self.tableView.reloadData()
-            
-        } else if editingStyle == .Insert {
             
         }
     }
     
     
-    // Override to support conditional editing of the table view.
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    
-    // Override to support rearranging the table view.
-         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-            let itemToMove = rows[fromIndexPath.row]
-            rows.removeAtIndex(fromIndexPath.row)
-            rows.insert(itemToMove, atIndex: toIndexPath.row)
-         }
-    
-    
-    
-    // Override to support conditional rearranging of the table view.
-         func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    
-            return true
-         }
+//    // Override to support conditional editing of the table view.
+//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        // Return false if you do not want the specified item to be editable.
+//        return true
+//    }
+//
+//    
+//    // Override to support rearranging the table view.
+//         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+//            let itemToMove = rows[fromIndexPath.row]
+//            rows.removeAtIndex(fromIndexPath.row)
+//            rows.insert(itemToMove, atIndex: toIndexPath.row)
+//         }
+//    
+//    
+//    
+//    // Override to support conditional rearranging of the table view.
+//         func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+//    
+//            return true
+//         }
+//    
+//    override func setEditing(editing: Bool, animated: Bool) {
+//        
+//        super.setEditing(editing, animated: animated)
+//        tableView.setEditing(editing, animated: animated)
+//    }
     
     
     /*
@@ -547,62 +551,62 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         
     }
-    
+
     
 }
 
-extension EditViewController: FirebaseManagerDelegate {
-    
-    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-        
-    }
-    
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-        
-        guard let postID = post?.postID else {
-            print("getTransportationManager: Cannot find the postID")
-            return
-        }
-        
-        if transportation.postID == postID {
-            
-            self.transportations.append(transportation)
-            allArray.append(transportation)
-            print(allArray.count)
-            isTransportationReceived = true
-            self.rows.append(.transportation)
-            
-        }
-        
-        //排序
-        sortMyArray(allArray)
-    }
-    
-    
-    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-        
-        guard let postID = post?.postID else {
-            print("getAttractionManager: Cannot find the postID")
-            return
-        }
-        
-        if attraction.postID == postID {
-            
-            self.attractions.append(attraction)
-            allArray.append(attraction)
-            print(allArray.count)
-            isAttractionReceived = true
-            self.rows.append(.attraction)
-            
-        }
-        
-        //排序
-        sortMyArray(allArray)
-        
-    }
-    
-    
-}
+//extension EditViewController: FirebaseManagerDelegate {
+//    
+//    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
+//        
+//    }
+//    
+//    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
+//        
+//        guard let postID = post?.postID else {
+//            print("getTransportationManager: Cannot find the postID")
+//            return
+//        }
+//        
+//        if transportation.postID == postID {
+//            
+//            self.transportations.append(transportation)
+//            allArray.append(transportation)
+//            print(allArray.count)
+//            isTransportationReceived = true
+//            self.rows.append(.transportation)
+//            
+//        }
+//        
+//        //排序
+//        sortMyArray(allArray)
+//    }
+//    
+//    
+//    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+//        
+//        guard let postID = post?.postID else {
+//            print("getAttractionManager: Cannot find the postID")
+//            return
+//        }
+//        
+//        if attraction.postID == postID {
+//            
+//            self.attractions.append(attraction)
+//            allArray.append(attraction)
+//            print(allArray.count)
+//            isAttractionReceived = true
+//            self.rows.append(.attraction)
+//            
+//        }
+//        
+//        //排序
+//        sortMyArray(allArray)
+//        
+//    }
+//    
+//    
+//}
 
 //    // Longpress to Reorder Cell
 //    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {

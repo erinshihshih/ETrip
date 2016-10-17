@@ -22,6 +22,10 @@
 		9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8A1D991C3D0074E306 /* Accommodation.swift */; };
 		9549ED8E1D991E970074E306 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8D1D991E970074E306 /* Attraction.swift */; };
 		956CF6811DB4A32C006AD9B1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CF6801DB4A32C006AD9B1 /* MapViewController.swift */; };
+		956CF6841DB4B760006AD9B1 /* TransportationPlannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CF6821DB4B760006AD9B1 /* TransportationPlannerViewCell.swift */; };
+		956CF6851DB4B760006AD9B1 /* TransportationPlannerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */; };
+		956CF6881DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */; };
+		956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956CF6871DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib */; };
 		959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959002341DA2354700EB5C76 /* SWRevealViewController.m */; };
 		959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */; };
 		9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */; };
@@ -75,6 +79,10 @@
 		9549ED8A1D991C3D0074E306 /* Accommodation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
 		9549ED8D1D991E970074E306 /* Attraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
 		956CF6801DB4A32C006AD9B1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		956CF6821DB4B760006AD9B1 /* TransportationPlannerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationPlannerViewCell.swift; sourceTree = "<group>"; };
+		956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationPlannerViewCell.xib; sourceTree = "<group>"; };
+		956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionPlannerViewCell.swift; sourceTree = "<group>"; };
+		956CF6871DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionPlannerViewCell.xib; sourceTree = "<group>"; };
 		959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ETrip-Bridging-Header.h"; sourceTree = "<group>"; };
 		959002331DA2354700EB5C76 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		959002341DA2354700EB5C76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -150,11 +158,11 @@
 				95DB08731D98D01C009C404A /* LoginViewController.swift */,
 				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
 				9547E73F1DB089790023EE68 /* AddViewController.swift */,
-				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
 				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
 				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 				956CF6801DB4A32C006AD9B1 /* MapViewController.swift */,
+				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -170,6 +178,10 @@
 				95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */,
 				9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */,
 				9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */,
+				956CF6821DB4B760006AD9B1 /* TransportationPlannerViewCell.swift */,
+				956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */,
+				956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */,
+				956CF6871DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -364,7 +376,9 @@
 			files = (
 				9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */,
 				95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */,
+				956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */,
 				9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */,
+				956CF6851DB4B760006AD9B1 /* TransportationPlannerViewCell.xib in Resources */,
 				95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */,
 				95DB08771D98D01C009C404A /* Main.storyboard in Resources */,
 				95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */,
@@ -447,12 +461,14 @@
 				959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */,
 				95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */,
 				95DB087A1D98D01C009C404A /* ETrip.xcdatamodeld in Sources */,
+				956CF6841DB4B760006AD9B1 /* TransportationPlannerViewCell.swift in Sources */,
 				95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */,
 				9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */,
 				9547E7421DB08A2C0023EE68 /* AddTableViewCell.swift in Sources */,
 				953FC3411DAF3CA70082DC0B /* FirebaseManager.swift in Sources */,
 				956CF6811DB4A32C006AD9B1 /* MapViewController.swift in Sources */,
 				9547E7401DB089790023EE68 /* AddViewController.swift in Sources */,
+				956CF6881DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift in Sources */,
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
 				9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,

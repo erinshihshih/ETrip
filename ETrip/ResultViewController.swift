@@ -11,6 +11,8 @@ import UIKit
 class ResultViewController: UITabBarController {
     
     var post: Post?
+    var transportation: Transportation?
+    var attraction: Attraction?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +20,14 @@ class ResultViewController: UITabBarController {
         // Set up Planner View
         let planViewController = self.viewControllers![0] as! PlannerViewController
         planViewController.post = post
+        planViewController.transportation = transportation
+        planViewController.attraction = attraction
         
         // Set up Map View
         let mapViewController = self.viewControllers![1] as! MapViewController
         mapViewController.post = post
+        mapViewController.transportation = transportation
+        mapViewController.attraction = attraction
         
     }
 
