@@ -14,7 +14,8 @@ import FBSDKCoreKit
 class HomeTableViewController: UITableViewController {
     
     var posts = [Post]()
-
+    var deletePostIndexPath: NSIndexPath? = nil
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     let databaseRef = FIRDatabase.database().reference()
@@ -35,13 +36,10 @@ class HomeTableViewController: UITableViewController {
         
         self.tableView.allowsMultipleSelectionDuringEditing = true
         
+        //        let a =  amyStartDate!.sortInPlace({$0 < $1})
         
         
         
-//        let a =  amyStartDate!.sortInPlace({$0 < $1})
-        
-     
-
     }
     
     
@@ -68,10 +66,7 @@ class HomeTableViewController: UITableViewController {
         let cellIdentifier = "HomeTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HomeTableViewCell
         
-        
         let post = posts[indexPath.row]
-        
-        
         
         cell.titleLabel.text = post.title
         cell.countryLabel.text = post.country
@@ -92,42 +87,13 @@ class HomeTableViewController: UITableViewController {
         
         if editingStyle == .Delete {
             
-            let postID = posts[indexPath.row].postID
-            
-            // Delete Post
-            databaseRef.child("posts").child(postID).removeValue()
-            
-            // Delete Transportations
-            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                snapshot in
-                
-                let transportationsPostID = snapshot.value!["postID"] as! String
-                let transportationID = snapshot.key
-                if transportationsPostID == postID {
-                    self.databaseRef.child("transportations").child(transportationID).removeValue()
-                }
-            })
-            
-            // Delete Attractions
-            databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                snapshot in
-                
-                let attractionsPostID = snapshot.value!["postID"] as! String
-                let attractionID = snapshot.key
-                if attractionsPostID == postID {
-                    self.databaseRef.child("attractions").child(attractionID).removeValue()
-                }
-            })
-            
-            // Remove From Table View
-            self.posts.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
+            deletePostIndexPath = indexPath
+            let postTitle = posts[indexPath.row].title
+            confirmDelete(postTitle)
             
         }
     }
-    
-    
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetailSegue" {
             let detailViewController = segue.destinationViewController as! ResultViewController
@@ -147,7 +113,18 @@ class HomeTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToHomePage(sender: UIStoryboardSegue) { }
+    @IBAction func unwindToHomePage(sender: UIStoryboardSegue) {
+        
+        if let sourceViewController = sender.sourceViewController as? AddViewController, post = sourceViewController.post {
+            
+            // Add a new meal.
+            posts.append(post)
+            posts.sortInPlace { $0.startDate.stringToDouble() > $1.startDate.stringToDouble() }
+            tableView.reloadData()
+            
+        }
+    
+    }
     
     /*
      // Override to support editing the table view.
@@ -161,12 +138,78 @@ class HomeTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-     
-     }
-     */
+    
+    // Override to support rearranging the table view.
+    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+        
+    }
+    
+    // Delete post and show alert
+    func confirmDelete(post: String) {
+        let alert = UIAlertController(title: "Delete Post", message: "Are you sure you want to permanently delete \(post)?", preferredStyle: .Alert)
+        
+        let DeleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: handleDeletePost)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: cancelDeletePost)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        // Support display in iPad
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRectMake(self.view.bounds.size.width / 2.0, self.view.bounds.size.height / 2.0, 1.0, 1.0)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func handleDeletePost(alertAction: UIAlertAction!) -> Void {
+        if let indexPath = deletePostIndexPath {
+            
+            tableView.beginUpdates()
+            
+            let postID = posts[indexPath.row].postID
+            
+            // Delete Post from Firebase
+            databaseRef.child("posts").child(postID).removeValue()
+            
+            // Delete Transportations from Firebase
+            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                snapshot in
+                
+                let transportationsPostID = snapshot.value!["postID"] as! String
+                let transportationID = snapshot.key
+                if transportationsPostID == postID {
+                    self.databaseRef.child("transportations").child(transportationID).removeValue()
+                }
+            })
+            
+            // Delete Attractions from Firebase
+            databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                snapshot in
+                
+                let attractionsPostID = snapshot.value!["postID"] as! String
+                let attractionID = snapshot.key
+                if attractionsPostID == postID {
+                    self.databaseRef.child("attractions").child(attractionID).removeValue()
+                }
+            })
+            
+            // Remove From Table View
+            self.posts.removeAtIndex(indexPath.row)
+            //            self.tableView.reloadData()
+            
+            // indexPath is wrapped in an array: [indexPath]
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            deletePostIndexPath = nil
+            
+            tableView.endUpdates()
+        }
+    }
+    
+    func cancelDeletePost(alertAction: UIAlertAction!) {
+        deletePostIndexPath = nil
+    }
+    
     
     /*
      // Override to support conditional rearranging of the table view.
@@ -193,9 +236,9 @@ extension HomeTableViewController: FirebaseManagerDelegate {
     func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
         
         self.posts.append(post)
-    
+        
         posts.sortInPlace { $0.startDate.stringToDouble() > $1.startDate.stringToDouble() }
-
+        
         self.tableView.reloadData()
         
     }

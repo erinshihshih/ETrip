@@ -67,7 +67,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
+        
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -84,117 +84,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Picker View UI
         setUpPickerViewUI()
         
-        // Longpress to Reorder Cell
-        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-        tableView.addGestureRecognizer(longpress)
+        //        // Longpress to Reorder Cell
+        //        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+        //        tableView.addGestureRecognizer(longpress)
         
     }
     
-    // Longpress to Reorder Cell
-    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
-        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
-        let state = longPress.state
-        let locationInView = longPress.locationInView(tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(locationInView)
-        
-        struct My {
-            static var cellSnapshot : UIView? = nil
-            static var cellIsAnimating : Bool = false
-            static var cellNeedToShow : Bool = false
-        }
-        
-        struct Path {
-            static var initialIndexPath : NSIndexPath? = nil
-        }
-        
-        switch state {
-        case UIGestureRecognizerState.Began:
-            if indexPath != nil {
-                Path.initialIndexPath = indexPath
-                let cell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
-                My.cellSnapshot  = snapshotOfCell(cell)
-                
-                var center = cell.center
-                My.cellSnapshot!.center = center
-                My.cellSnapshot!.alpha = 0.0
-                tableView.addSubview(My.cellSnapshot!)
-                
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    center.y = locationInView.y
-                    My.cellIsAnimating = true
-                    My.cellSnapshot!.center = center
-                    My.cellSnapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
-                    My.cellSnapshot!.alpha = 0.98
-                    cell.alpha = 0.0
-                    }, completion: { (finished) -> Void in
-                        if finished {
-                            My.cellIsAnimating = false
-                            if My.cellNeedToShow {
-                                My.cellNeedToShow = false
-                                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                                    cell.alpha = 1
-                                })
-                            } else {
-                                cell.hidden = true
-                            }
-                        }
-                })
-            }
-            
-        case UIGestureRecognizerState.Changed:
-            if My.cellSnapshot != nil {
-                var center = My.cellSnapshot!.center
-                center.y = locationInView.y
-                My.cellSnapshot!.center = center
-                
-                if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
-                    rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
-                    tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
-                    Path.initialIndexPath = indexPath
-                    print(indexPath?.row)
-                }
-            }
-        default:
-            if Path.initialIndexPath != nil {
-                let cell = tableView.cellForRowAtIndexPath(Path.initialIndexPath!) as UITableViewCell!
-                if My.cellIsAnimating {
-                    My.cellNeedToShow = true
-                } else {
-                    cell.hidden = false
-                    cell.alpha = 0.0
-                }
-                
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    My.cellSnapshot!.center = cell.center
-                    My.cellSnapshot!.transform = CGAffineTransformIdentity
-                    My.cellSnapshot!.alpha = 0.0
-                    cell.alpha = 1.0
-                    
-                    }, completion: { (finished) -> Void in
-                        if finished {
-                            Path.initialIndexPath = nil
-                            My.cellSnapshot!.removeFromSuperview()
-                            My.cellSnapshot = nil
-                        }
-                })
-            }
-        }
-    }
-    
-    func snapshotOfCell(inputView: UIView) -> UIView {
-        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
-        inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext() as UIImage
-        UIGraphicsEndImageContext()
-        
-        let cellSnapshot : UIView = UIImageView(image: image)
-        cellSnapshot.layer.masksToBounds = false
-        cellSnapshot.layer.cornerRadius = 0.0
-        cellSnapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
-        cellSnapshot.layer.shadowRadius = 5.0
-        cellSnapshot.layer.shadowOpacity = 0.4
-        return cellSnapshot
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -328,6 +223,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let key = FIRDatabase.database().reference().childByAutoId().key
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
+            
             for index in 0..<rows.count {
                 
                 let row = rows[index]
@@ -337,6 +233,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 case .title:
                     
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    let indexPathRow = indexPath.row
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
                     
                     // Trip Title Cell
@@ -350,7 +247,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     // Store tripTitle in Firebase
                     let titleOnFire: [String: AnyObject] = ["uid": userID!,
                                                             "postID": key,
-                                                            "indexPathRow": indexPath.row,
+                                                            "indexPathRow": indexPathRow,
                                                             "timestamp": timeStamp,
                                                             "title": title,
                                                             "country": country,
@@ -359,9 +256,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     databaseRef.child("posts").child(key).setValue(titleOnFire)
                     
+                    // Set the post to be passed to HomeTableViewController after the unwind segue.
+                    post = Post(postID: key, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+                    
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    let indexPathRow = indexPath.row
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     
                     // Transportation Cell
@@ -377,7 +278,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": key,
-                                                                      "indexPathRow": indexPath.row,
+                                                                      "indexPathRow": indexPathRow,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
                                                                       "airlineCom": airlineCom,
@@ -393,6 +294,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 case .attraction:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    let indexPathRow = indexPath.row
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                     
                     // Attraction Cell
@@ -403,7 +305,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": key,
-                                                                  "indexPathRow": indexPath.row,
+                                                                  "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
                                                                   "stayHour": stayHour,
@@ -552,3 +454,110 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      */
     
 }
+
+//    // Longpress to Reorder Cell
+//    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
+//        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+//        let state = longPress.state
+//        let locationInView = longPress.locationInView(tableView)
+//        let indexPath = tableView.indexPathForRowAtPoint(locationInView)
+//
+//        struct My {
+//            static var cellSnapshot : UIView? = nil
+//            static var cellIsAnimating : Bool = false
+//            static var cellNeedToShow : Bool = false
+//        }
+//
+//        struct Path {
+//            static var initialIndexPath : NSIndexPath? = nil
+//        }
+//
+//        switch state {
+//        case UIGestureRecognizerState.Began:
+//            if indexPath != nil {
+//                Path.initialIndexPath = indexPath
+//                let cell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
+//                My.cellSnapshot  = snapshotOfCell(cell)
+//
+//                var center = cell.center
+//                My.cellSnapshot!.center = center
+//                My.cellSnapshot!.alpha = 0.0
+//                tableView.addSubview(My.cellSnapshot!)
+//
+//                UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                    center.y = locationInView.y
+//                    My.cellIsAnimating = true
+//                    My.cellSnapshot!.center = center
+//                    My.cellSnapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
+//                    My.cellSnapshot!.alpha = 0.98
+//                    cell.alpha = 0.0
+//                    }, completion: { (finished) -> Void in
+//                        if finished {
+//                            My.cellIsAnimating = false
+//                            if My.cellNeedToShow {
+//                                My.cellNeedToShow = false
+//                                UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                                    cell.alpha = 1
+//                                })
+//                            } else {
+//                                cell.hidden = true
+//                            }
+//                        }
+//                })
+//            }
+//
+//        case UIGestureRecognizerState.Changed:
+//            if My.cellSnapshot != nil {
+//                var center = My.cellSnapshot!.center
+//                center.y = locationInView.y
+//                My.cellSnapshot!.center = center
+//
+//                if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
+//                    rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
+//                    tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
+//                    Path.initialIndexPath = indexPath
+//                    print(indexPath?.row)
+//                }
+//            }
+//        default:
+//            if Path.initialIndexPath != nil {
+//                let cell = tableView.cellForRowAtIndexPath(Path.initialIndexPath!) as UITableViewCell!
+//                if My.cellIsAnimating {
+//                    My.cellNeedToShow = true
+//                } else {
+//                    cell.hidden = false
+//                    cell.alpha = 0.0
+//                }
+//
+//                UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                    My.cellSnapshot!.center = cell.center
+//                    My.cellSnapshot!.transform = CGAffineTransformIdentity
+//                    My.cellSnapshot!.alpha = 0.0
+//                    cell.alpha = 1.0
+//
+//                    }, completion: { (finished) -> Void in
+//                        if finished {
+//                            Path.initialIndexPath = nil
+//                            My.cellSnapshot!.removeFromSuperview()
+//                            My.cellSnapshot = nil
+//                        }
+//                })
+//            }
+//        }
+//    }
+//
+//    func snapshotOfCell(inputView: UIView) -> UIView {
+//        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
+//        inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext() as UIImage
+//        UIGraphicsEndImageContext()
+//
+//        let cellSnapshot : UIView = UIImageView(image: image)
+//        cellSnapshot.layer.masksToBounds = false
+//        cellSnapshot.layer.cornerRadius = 0.0
+//        cellSnapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
+//        cellSnapshot.layer.shadowRadius = 5.0
+//        cellSnapshot.layer.shadowOpacity = 0.4
+//        return cellSnapshot
+//    }
+
