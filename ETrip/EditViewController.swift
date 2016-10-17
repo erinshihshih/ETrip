@@ -73,11 +73,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-//        // Firebase Manager Delegate
-//        FirebaseManager.shared.delegate = self
-//        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
-//        FirebaseManager.shared.fetchTransportations()
-//        FirebaseManager.shared.fetchAttractions()
+        //        // Firebase Manager Delegate
+        //        FirebaseManager.shared.delegate = self
+        //        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
+        //        FirebaseManager.shared.fetchTransportations()
+        //        FirebaseManager.shared.fetchAttractions()
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -94,10 +94,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Picker View UI
         setUpPickerViewUI()
         
-//                // Longpress to Reorder Cell
-//                let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
-//                tableView.addGestureRecognizer(longpress)
-
+//        // Longpress to Reorder Cell
+//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
+//        tableView.addGestureRecognizer(longpress)
+        
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         
@@ -462,33 +462,33 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-//    // Override to support conditional editing of the table view.
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        // Return false if you do not want the specified item to be editable.
-//        return true
-//    }
-//
-//    
-//    // Override to support rearranging the table view.
-//         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-//            let itemToMove = rows[fromIndexPath.row]
-//            rows.removeAtIndex(fromIndexPath.row)
-//            rows.insert(itemToMove, atIndex: toIndexPath.row)
-//         }
-//    
-//    
-//    
-//    // Override to support conditional rearranging of the table view.
-//         func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//    
-//            return true
-//         }
-//    
-//    override func setEditing(editing: Bool, animated: Bool) {
-//        
-//        super.setEditing(editing, animated: animated)
-//        tableView.setEditing(editing, animated: animated)
-//    }
+    //    // Override to support conditional editing of the table view.
+    //    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    //        // Return false if you do not want the specified item to be editable.
+    //        return true
+    //    }
+    //
+    //
+    //    // Override to support rearranging the table view.
+    //         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    //            let itemToMove = rows[fromIndexPath.row]
+    //            rows.removeAtIndex(fromIndexPath.row)
+    //            rows.insert(itemToMove, atIndex: toIndexPath.row)
+    //         }
+    //
+    //
+    //
+    //    // Override to support conditional rearranging of the table view.
+    //         func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    //
+    //            return true
+    //         }
+    //
+    //    override func setEditing(editing: Bool, animated: Bool) {
+    //
+    //        super.setEditing(editing, animated: animated)
+    //        tableView.setEditing(editing, animated: animated)
+    //    }
     
     
     /*
@@ -502,13 +502,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
      */
     
     func sortMyArray(arr: [Any]) {
-        
-//        if isPostReceived && isTransportationReceived && isAttractionReceived{
-//            
-//        }else{
-//            return
-//        }
-        
         
         var allIndex:[Int] = []
         rows = []
@@ -551,167 +544,119 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         
     }
-
+    
+    
+    
     
 }
 
-//extension EditViewController: FirebaseManagerDelegate {
+//// Longpress to Reorder Cell
+//func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
+//    let longPress = gestureRecognizer as! UILongPressGestureRecognizer
+//    let state = longPress.state
+//    let locationInView = longPress.locationInView(tableView)
+//    let indexPath = tableView.indexPathForRowAtPoint(locationInView)
 //    
-//    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-//        
+//    struct My {
+//        static var cellSnapshot : UIView? = nil
+//        static var cellIsAnimating : Bool = false
+//        static var cellNeedToShow : Bool = false
 //    }
 //    
-//    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-//        
-//        guard let postID = post?.postID else {
-//            print("getTransportationManager: Cannot find the postID")
-//            return
-//        }
-//        
-//        if transportation.postID == postID {
-//            
-//            self.transportations.append(transportation)
-//            allArray.append(transportation)
-//            print(allArray.count)
-//            isTransportationReceived = true
-//            self.rows.append(.transportation)
-//            
-//        }
-//        
-//        //排序
-//        sortMyArray(allArray)
+//    struct Path {
+//        static var initialIndexPath : NSIndexPath? = nil
 //    }
 //    
-//    
-//    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-//        
-//        guard let postID = post?.postID else {
-//            print("getAttractionManager: Cannot find the postID")
-//            return
-//        }
-//        
-//        if attraction.postID == postID {
+//    switch state {
+//    case UIGestureRecognizerState.Began:
+//        if indexPath != nil {
+//            Path.initialIndexPath = indexPath
+//            let cell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
+//            My.cellSnapshot  = snapshotOfCell(cell)
 //            
-//            self.attractions.append(attraction)
-//            allArray.append(attraction)
-//            print(allArray.count)
-//            isAttractionReceived = true
-//            self.rows.append(.attraction)
+//            var center = cell.center
+//            My.cellSnapshot!.center = center
+//            My.cellSnapshot!.alpha = 0.0
+//            tableView.addSubview(My.cellSnapshot!)
 //            
-//        }
-//        
-//        //排序
-//        sortMyArray(allArray)
-//        
-//    }
-//    
-//    
-//}
-
-//    // Longpress to Reorder Cell
-//    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
-//        let longPress = gestureRecognizer as! UILongPressGestureRecognizer
-//        let state = longPress.state
-//        let locationInView = longPress.locationInView(tableView)
-//        let indexPath = tableView.indexPathForRowAtPoint(locationInView)
-//
-//        struct My {
-//            static var cellSnapshot : UIView? = nil
-//            static var cellIsAnimating : Bool = false
-//            static var cellNeedToShow : Bool = false
-//        }
-//
-//        struct Path {
-//            static var initialIndexPath : NSIndexPath? = nil
-//        }
-//
-//        switch state {
-//        case UIGestureRecognizerState.Began:
-//            if indexPath != nil {
-//                Path.initialIndexPath = indexPath
-//                let cell = tableView.cellForRowAtIndexPath(indexPath!) as UITableViewCell!
-//                My.cellSnapshot  = snapshotOfCell(cell)
-//
-//                var center = cell.center
-//                My.cellSnapshot!.center = center
-//                My.cellSnapshot!.alpha = 0.0
-//                tableView.addSubview(My.cellSnapshot!)
-//
-//                UIView.animateWithDuration(0.25, animations: { () -> Void in
-//                    center.y = locationInView.y
-//                    My.cellIsAnimating = true
-//                    My.cellSnapshot!.center = center
-//                    My.cellSnapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
-//                    My.cellSnapshot!.alpha = 0.98
-//                    cell.alpha = 0.0
-//                    }, completion: { (finished) -> Void in
-//                        if finished {
-//                            My.cellIsAnimating = false
-//                            if My.cellNeedToShow {
-//                                My.cellNeedToShow = false
-//                                UIView.animateWithDuration(0.25, animations: { () -> Void in
-//                                    cell.alpha = 1
-//                                })
-//                            } else {
-//                                cell.hidden = true
-//                            }
-//                        }
-//                })
-//            }
-//
-//        case UIGestureRecognizerState.Changed:
-//            if My.cellSnapshot != nil {
-//                var center = My.cellSnapshot!.center
+//            UIView.animateWithDuration(0.25, animations: { () -> Void in
 //                center.y = locationInView.y
+//                My.cellIsAnimating = true
 //                My.cellSnapshot!.center = center
-//
-//                if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
-//                    rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
-//                    tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
-//                    Path.initialIndexPath = indexPath
-//                }
-//            }
-//        default:
-//            if Path.initialIndexPath != nil {
-//                let cell = tableView.cellForRowAtIndexPath(Path.initialIndexPath!) as UITableViewCell!
-//                if My.cellIsAnimating {
-//                    My.cellNeedToShow = true
-//                } else {
-//                    cell.hidden = false
-//                    cell.alpha = 0.0
-//                }
-//
-//                UIView.animateWithDuration(0.25, animations: { () -> Void in
-//                    My.cellSnapshot!.center = cell.center
-//                    My.cellSnapshot!.transform = CGAffineTransformIdentity
-//                    My.cellSnapshot!.alpha = 0.0
-//                    cell.alpha = 1.0
-//
-//                    }, completion: { (finished) -> Void in
-//                        if finished {
-//                            Path.initialIndexPath = nil
-//                            My.cellSnapshot!.removeFromSuperview()
-//                            My.cellSnapshot = nil
+//                My.cellSnapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
+//                My.cellSnapshot!.alpha = 0.98
+//                cell.alpha = 0.0
+//                }, completion: { (finished) -> Void in
+//                    if finished {
+//                        My.cellIsAnimating = false
+//                        if My.cellNeedToShow {
+//                            My.cellNeedToShow = false
+//                            UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                                cell.alpha = 1
+//                            })
+//                        } else {
+//                            cell.hidden = true
 //                        }
-//                })
+//                    }
+//            })
+//        }
+//        
+//    case UIGestureRecognizerState.Changed:
+//        if My.cellSnapshot != nil {
+//            var center = My.cellSnapshot!.center
+//            center.y = locationInView.y
+//            My.cellSnapshot!.center = center
+//            
+//            if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
+//                rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
+//                tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
+//                Path.initialIndexPath = indexPath
 //            }
 //        }
+//    default:
+//        if Path.initialIndexPath != nil {
+//            let cell = tableView.cellForRowAtIndexPath(Path.initialIndexPath!) as UITableViewCell!
+//            if My.cellIsAnimating {
+//                My.cellNeedToShow = true
+//            } else {
+//                cell.hidden = false
+//                cell.alpha = 0.0
+//            }
+//            
+//            UIView.animateWithDuration(0.25, animations: { () -> Void in
+//                My.cellSnapshot!.center = cell.center
+//                My.cellSnapshot!.transform = CGAffineTransformIdentity
+//                My.cellSnapshot!.alpha = 0.0
+//                cell.alpha = 1.0
+//                
+//                }, completion: { (finished) -> Void in
+//                    if finished {
+//                        Path.initialIndexPath = nil
+//                        My.cellSnapshot!.removeFromSuperview()
+//                        My.cellSnapshot = nil
+//                    }
+//            })
+//        }
 //    }
+//}
 //
-//    func snapshotOfCell(inputView: UIView) -> UIView {
-//        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
-//        inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        let image = UIGraphicsGetImageFromCurrentImageContext() as UIImage
-//        UIGraphicsEndImageContext()
+//func snapshotOfCell(inputView: UIView) -> UIView {
+//    UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0.0)
+//    inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//    let image = UIGraphicsGetImageFromCurrentImageContext() as UIImage
+//    UIGraphicsEndImageContext()
+//    
+//    let cellSnapshot : UIView = UIImageView(image: image)
+//    cellSnapshot.layer.masksToBounds = false
+//    cellSnapshot.layer.cornerRadius = 0.0
+//    cellSnapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
+//    cellSnapshot.layer.shadowRadius = 5.0
+//    cellSnapshot.layer.shadowOpacity = 0.4
+//    return cellSnapshot
+//}
 //
-//        let cellSnapshot : UIView = UIImageView(image: image)
-//        cellSnapshot.layer.masksToBounds = false
-//        cellSnapshot.layer.cornerRadius = 0.0
-//        cellSnapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
-//        cellSnapshot.layer.shadowRadius = 5.0
-//        cellSnapshot.layer.shadowOpacity = 0.4
-//        return cellSnapshot
-//    }
+
+
 
 
 

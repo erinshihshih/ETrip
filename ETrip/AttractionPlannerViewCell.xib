@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gn9-nm-s4P">
@@ -23,38 +23,39 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Se-QD-d37">
-                        <rect key="frame" x="8" y="37" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="8" y="37" width="176" height="19"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqm-Ai-wPL">
-                        <rect key="frame" x="8" y="66" width="365" height="21"/>
+                        <rect key="frame" x="8" y="64" width="365" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ptt-ua-aVe"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stayHour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-ia-lV1">
-                        <rect key="frame" x="192" y="37" width="42" height="21"/>
+                        <rect key="frame" x="192" y="37" width="181" height="19"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="42" id="AKo-Wn-flU"/>
+                            <constraint firstAttribute="width" constant="181" id="AKo-Wn-flU"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywm-Ih-Hub">
-                        <rect key="frame" x="8" y="95" width="365" height="97"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <rect key="frame" x="8" y="93" width="365" height="99"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fqm-Ai-wPL" firstAttribute="top" secondItem="6Se-QD-d37" secondAttribute="bottom" constant="8" symbolic="YES" id="0Sk-nc-PAx"/>
+                    <constraint firstItem="1nh-ia-lV1" firstAttribute="leading" secondItem="6Se-QD-d37" secondAttribute="trailing" constant="8" id="0oZ-98-wxJ"/>
                     <constraint firstItem="6Se-QD-d37" firstAttribute="leading" secondItem="fqm-Ai-wPL" secondAttribute="leading" id="26w-3T-WDq"/>
                     <constraint firstItem="fqm-Ai-wPL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="MWA-jw-6QS"/>
                     <constraint firstItem="6Se-QD-d37" firstAttribute="top" secondItem="Gn9-nm-s4P" secondAttribute="bottom" constant="8" symbolic="YES" id="OYt-PD-2IG"/>
@@ -62,7 +63,7 @@
                     <constraint firstItem="1nh-ia-lV1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="29" id="T5Y-u4-1ch"/>
                     <constraint firstItem="Gn9-nm-s4P" firstAttribute="leading" secondItem="6Se-QD-d37" secondAttribute="leading" id="dC9-VL-Vbb"/>
                     <constraint firstItem="fqm-Ai-wPL" firstAttribute="leading" secondItem="ywm-Ih-Hub" secondAttribute="leading" id="eA0-LX-zhc"/>
-                    <constraint firstAttribute="trailing" secondItem="1nh-ia-lV1" secondAttribute="trailing" constant="147" id="heY-Qt-soD"/>
+                    <constraint firstAttribute="trailing" secondItem="1nh-ia-lV1" secondAttribute="trailing" constant="8" id="heY-Qt-soD"/>
                     <constraint firstItem="6Se-QD-d37" firstAttribute="baseline" secondItem="1nh-ia-lV1" secondAttribute="baseline" id="lSj-52-dCe"/>
                     <constraint firstItem="6Se-QD-d37" firstAttribute="firstBaseline" secondItem="1nh-ia-lV1" secondAttribute="firstBaseline" id="lfm-RX-Dzd"/>
                     <constraint firstItem="Gn9-nm-s4P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="py9-Sg-ccX"/>
@@ -76,7 +77,7 @@
                 <outlet property="noteLabel" destination="ywm-Ih-Hub" id="B5p-5O-uzz"/>
                 <outlet property="stayHourLabel" destination="1nh-ia-lV1" id="5Jd-yl-zqb"/>
             </connections>
-            <point key="canvasLocation" x="78.5" y="446"/>
+            <point key="canvasLocation" x="-3.5" y="432"/>
         </tableViewCell>
     </objects>
 </document>
