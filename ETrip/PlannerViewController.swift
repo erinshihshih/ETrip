@@ -132,6 +132,9 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             let detailViewController = segue.destinationViewController as! EditViewController
             
             detailViewController.post = post
+            var destAllarray = allArray
+            destAllarray.insert(post!, atIndex: 0)
+            detailViewController.allArray = destAllarray
             
             print("Edit the trip.")
         }
@@ -147,10 +150,14 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         
+        
+        //====================================
+        
         var allIndex: [Int] = []
         rows = []
         
         for index in 0..<arr.count {
+            
             if let card =  arr[index] as? Post {
                 allIndex.append(0)
             }
@@ -165,9 +172,22 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         var newArray: [Any] = []
         
+        let tmpIndex = allIndex.sort(<)
+        var gap = 0
+        
+        if tmpIndex.count > 0{
+            let miniIndex = tmpIndex[0]
+            gap = miniIndex
+        }else{
+            return
+        }
+        
+
+        
         for index in 0..<allIndex.count{
             
-            let numberInx = allIndex[index]
+            var numberInx = allIndex[index]
+            numberInx = numberInx - gap
             
             newArray.append(allArray[numberInx])
 //            

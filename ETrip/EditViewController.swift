@@ -16,11 +16,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isTransportationReceived = false
     var isAttractionReceived = false
     
-    var post: Post?{
-        didSet{
-            allArray.append(post)
-        }
-    }
+    var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
     
@@ -103,6 +99,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
 //                tableView.addGestureRecognizer(longpress)
 
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        sortMyArray(allArray)
+        
     }
     
     
@@ -503,11 +503,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func sortMyArray(arr: [Any]) {
         
-        if isPostReceived && isTransportationReceived && isAttractionReceived{
-            
-        }else{
-            return
-        }
+//        if isPostReceived && isTransportationReceived && isAttractionReceived{
+//            
+//        }else{
+//            return
+//        }
         
         
         var allIndex:[Int] = []
