@@ -486,7 +486,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jpz-ZS-9Yd">
-                                <rect key="frame" x="0.0" y="220" width="600" height="331"/>
+                                <rect key="frame" x="0.0" y="227" width="600" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AVf-mg-9WE">
@@ -509,7 +509,7 @@
                             <constraint firstItem="P96-cx-vhq" firstAttribute="centerY" secondItem="TFz-e1-xAi" secondAttribute="centerY" id="4HE-rQ-UmR"/>
                             <constraint firstItem="TFz-e1-xAi" firstAttribute="top" secondItem="k0S-LF-sEC" secondAttribute="bottom" constant="15" id="6Wx-lj-6Jm"/>
                             <constraint firstItem="P96-cx-vhq" firstAttribute="leading" secondItem="FZ4-p6-S0w" secondAttribute="leading" id="9Hf-aX-xPO"/>
-                            <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="GEG-CE-0Rc" secondAttribute="bottom" constant="8" id="AsG-cG-QOM"/>
+                            <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="GEG-CE-0Rc" secondAttribute="bottom" constant="15" id="AsG-cG-QOM"/>
                             <constraint firstAttribute="trailing" secondItem="8R9-Tv-AK9" secondAttribute="trailing" constant="20" id="CEd-u9-5c7"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="leading" secondItem="P96-cx-vhq" secondAttribute="leading" id="LLW-iB-Xir"/>
                             <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="gjk-fi-TIK" secondAttribute="trailing" constant="8" id="Lhd-Gs-LAB"/>

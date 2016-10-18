@@ -14,6 +14,7 @@ class TransportationPlannerViewCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     
     @IBOutlet weak var airlineComLabel: UILabel!
+    
     @IBOutlet weak var flightNoLabel: UILabel!
     
     @IBOutlet weak var bookingRefLabel: UILabel!

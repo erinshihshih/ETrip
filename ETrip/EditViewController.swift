@@ -279,7 +279,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let type = cell.typeTextField.text ?? ""
                     let airlineCom = cell.airlineComTextField.text ?? ""
                     let flightNo = cell.flightNoTextField.text ?? ""
-                    let bookingRef = cell.departFromTextField.text ?? ""
+                    let bookingRef = cell.bookingRefTextField.text ?? ""
                     let departFrom = cell.departFromTextField.text ?? ""
                     let arriveAt = cell.arriveAtTextField.text ?? ""
                     let departDate = cell.departDateTextField.text ?? ""
