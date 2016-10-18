@@ -13,17 +13,20 @@ class ResultViewController: UITabBarController {
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
+    var accommodation: Accommodation?
     
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    var accommodations: [Accommodation] = []
     
     var allArray: [Any] = [ ]
     
     var isTransportationReceived = false
     var isAttractionReceived = false
+    var isAccommodationReceived = false
     
     enum Row {
-        case transportation, attraction
+        case transportation, attraction, accommodation
     }
     
     var rows: [Row] = []
@@ -37,6 +40,7 @@ class ResultViewController: UITabBarController {
         FirebaseManager.shared.delegate = self
         FirebaseManager.shared.fetchTransportations()
         FirebaseManager.shared.fetchAttractions()
+        FirebaseManager.shared.fetchAccommodations()
         
         // Set up Planner View
         planViewController = self.viewControllers![0] as! PlannerViewController
@@ -48,9 +52,8 @@ class ResultViewController: UITabBarController {
         mapViewController.post = post
         mapViewController.transportation = transportation
         mapViewController.attraction = attraction
-//        mapViewController.tableView.reloadData()
         
-//        sortMyArray(allArray)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,9 +63,10 @@ class ResultViewController: UITabBarController {
     
     func sortMyArray(arr: [Any]) {
         
-        if isTransportationReceived && isAttractionReceived {
+        if isTransportationReceived && isAttractionReceived && isTransportationReceived {
             
         } else {
+            
             return
         }
         
@@ -78,6 +82,12 @@ class ResultViewController: UITabBarController {
             }
             
             if let card =  arr[index] as? Attraction {
+                
+                allIndex[String(index)] = card.indexPathRow
+                
+            }
+            
+            if let card =  arr[index] as? Accommodation {
                 
                 allIndex[String(index)] = card.indexPathRow
                 
@@ -112,6 +122,9 @@ class ResultViewController: UITabBarController {
                 rows.append(.attraction)
             }
             
+            if newArray[index] is Accommodation{
+                rows.append(.accommodation)
+            }
         }
         
         allArray = newArray
@@ -172,6 +185,30 @@ extension ResultViewController: FirebaseManagerDelegate {
         
         //排序
         sortMyArray(allArray)
+        
+    }
+    
+    func getAccommodationManager(getAccommodationManager: FirebaseManager, didGetData accommodation: Accommodation) {
+        
+        guard let postID = post?.postID else {
+            print("getAccommodationManager: Cannot find the postID")
+            return
+        }
+        
+        if accommodation.postID == postID {
+            
+            self.accommodations.append(accommodation)
+            allArray.append(accommodation)
+            print(allArray.count)
+            isAccommodationReceived = true
+            self.rows.append(.accommodation)
+            planViewController.accommodation = accommodation
+            
+        }
+        
+        //排序
+        sortMyArray(allArray)
+
         
     }
     

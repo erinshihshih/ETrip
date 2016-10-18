@@ -10,11 +10,8 @@ import UIKit
 
 class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var transportation: Transportation?
-    var attraction: Attraction?
-    
     enum Row {
-        case transportation, attraction
+        case transportation, attraction, accommodation
     }
     
     var rows: [Row] = []
@@ -23,8 +20,13 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var allArray: [Any] = [ ]
     
+    var transportation: Transportation?
+    var attraction: Attraction?
+    var accommodation: Accommodation?
+    
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    var accommodations: [Accommodation] = []
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
@@ -100,7 +102,23 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
             return cell
             
+        case .accommodation:
+            
+            let cell = NSBundle.mainBundle().loadNibNamed("AccommodationPlannerViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationPlannerViewCell
+            
+            let accommodation = allArray[indexPath.row] as! Accommodation
+            
+            // Set up views if editing an existing data.
+            cell.nameLabel.text = accommodation.name
+            cell.addressLabel.text = accommodation.address
+            cell.bookingRefLabel.text = accommodation.bookingRef
+            cell.checkinDateLabel.text = accommodation.checkinDate
+            cell.checkoutDateLabel.text = accommodation.checkoutDate
+            cell.noteLabel.text = accommodation.note
+
+            return cell
         }
+        
         
     }
     
@@ -146,6 +164,12 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 allIndex[String(index)] = card.indexPathRow
                 
             }
+            
+            if let card =  arr[index] as? Accommodation {
+                
+                allIndex[String(index)] = card.indexPathRow
+                
+            }
         }
         
         typealias DictSorter = ((String,Int),(String,Int)) -> Bool
@@ -176,6 +200,10 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 rows.append(.attraction)
             }
             
+            if newArray[index] is Accommodation{
+                rows.append(.accommodation)
+            }
+            
         }
         
         allArray = newArray
@@ -184,58 +212,4 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
 }
-
-
-//extension PlannerViewController: FirebaseManagerDelegate {
-//    
-//    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-//        
-//    }
-//    
-//    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-//        
-//        guard let postID = post?.postID else {
-//            print("getTransportationManager: Cannot find the postID")
-//            return
-//        }
-//        
-//        if transportation.postID == postID {
-//            
-//            self.transportations.append(transportation)
-//            allArray.append(transportation)
-//            print(allArray.count)
-//            isTransportationReceived = true
-//            self.rows.append(.transportation)
-//            
-//        }
-//        //排序
-//        sortMyArray(allArray)
-//        
-//    }
-//    
-//    
-//    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-//        
-//        guard let postID = post?.postID else {
-//            print("getAttractionManager: Cannot find the postID")
-//            return
-//        }
-//        
-//        if attraction.postID == postID {
-//            
-//            self.attractions.append(attraction)
-//            allArray.append(attraction)
-//            print(allArray.count)
-//            isAttractionReceived = true
-//            self.rows.append(.attraction)
-//            
-//        }
-//        
-//        //排序
-//        sortMyArray(allArray)
-//        
-//    }
-//    
-//    
-//}
 

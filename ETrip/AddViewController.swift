@@ -313,7 +313,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let type = cell.typeTextField.text ?? ""
                     let airlineCom = cell.airlineComTextField.text ?? ""
                     let flightNo = cell.flightNoTextField.text ?? ""
-                    let bookingRef = cell.departFromTextField.text ?? ""
+                    let bookingRef = cell.bookingRefTextField.text ?? ""
                     let departFrom = cell.departFromTextField.text ?? ""
                     let arriveAt = cell.arriveAtTextField.text ?? ""
                     let departDate = cell.departDateTextField.text ?? ""
@@ -373,6 +373,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let address = cell.addressTextField.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                    let bookingRef = cell.bookingRefTextField.text ?? ""
                     let note = cell.noteTextView.text ?? ""
                     
                     let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
@@ -384,6 +385,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                   "address": address,
                                                                   "checkinDate": checkinDate,
                                                                   "checkoutDate": checkoutDate,
+                                                                  "bookingRef": bookingRef,
                                                                   "note": note ]
                     
                     databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)

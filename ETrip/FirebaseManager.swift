@@ -18,6 +18,7 @@ protocol FirebaseManagerDelegate: class {
     
     func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction)
     
+    func getAccommodationManager(getAccommodationManager: FirebaseManager, didGetData accommodation: Accommodation)
 }
 
 class FirebaseManager {
@@ -31,6 +32,7 @@ class FirebaseManager {
     var posts: [Post] = []
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    var accommodations: [Accommodation] = []
     
     func fetchPosts() {
         
@@ -159,6 +161,51 @@ class FirebaseManager {
                         
                         self.delegate?.getAttractionManager(self, didGetData: attraction)
 
+                        
+                    }
+                }
+            }
+        })
+        
+    }
+    
+    func fetchAccommodations() {
+        databaseRef.child("accommodations").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
+            snapshot in
+            if snapshot.exists() {
+                
+                self.accommodations = []
+                
+                for item in [snapshot.value] {
+                    
+                    guard let itemDictionary = item as? NSDictionary else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
+                        fatalError()
+                    }
+                    
+                    guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
+                        fatalError()
+                    }
+                    
+                    for (index, item) in firebaseItemValue.enumerate() {
+                        
+                        let postID = item["postID"] as! String
+                        let accommodationID = item["accommodationID"] as! String
+                        let indexPathRow = item["indexPathRow"] as! Int
+                        let name = item["name"] as! String
+                        let address = item["address"] as! String
+                        let checkinDate = item["checkinDate"] as! String
+                        let checkoutDate = item["checkoutDate"] as! String
+                        let bookingRef = item["bookingRef"] as! String
+                        let note = item["note"] as! String
+                        
+                        let accommodation = Accommodation(postID: postID, accommodationID: accommodationID, indexPathRow: indexPathRow, name: name, address: address, checkinDate: checkinDate, checkoutDate: checkoutDate, bookingRef: bookingRef, note: note)
+                        
+                        self.delegate?.getAccommodationManager(self, didGetData: accommodation)
+                        
                         
                     }
                 }

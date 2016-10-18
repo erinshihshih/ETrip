@@ -193,6 +193,18 @@ class HomeTableViewController: UITableViewController {
                 }
             })
             
+            // Delete Accommodations from Firebase
+            databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                snapshot in
+                
+                let accommodationsPostID = snapshot.value!["postID"] as! String
+                let accommodationID = snapshot.key
+                if accommodationsPostID == postID {
+                    self.databaseRef.child("accommodations").child(accommodationID).removeValue()
+                }
+            })
+
+            
             // Remove From Table View
             self.posts.removeAtIndex(indexPath.row)
             //            self.tableView.reloadData()
@@ -248,6 +260,10 @@ extension HomeTableViewController: FirebaseManagerDelegate {
     }
     
     func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+        
+    }
+    
+    func getAccommodationManager(getAccommodationManager: FirebaseManager, didGetData attraction: Accommodation) {
         
     }
     
