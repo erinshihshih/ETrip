@@ -60,7 +60,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("aaaaaaaaaaahhhhhhhhh \(rows.count)")
         return rows.count
     }
     

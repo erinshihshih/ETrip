@@ -166,17 +166,17 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingTransportation  {
                 
-                let transportation = allArray[indexPath.row] as! Transportation
+                transportation = allArray[indexPath.row] as? Transportation
                 
                 // Set up views if editing an existing data.
-                cell.typeTextField.text = transportation.type
-                cell.airlineComTextField.text = transportation.airlineCom
-                cell.flightNoTextField.text = transportation.flightNo
-                cell.bookingRefTextField.text = transportation.bookingRef
-                cell.departFromTextField.text = transportation.departFrom
-                cell.arriveAtTextField.text = transportation.arriveAt
-                cell.departDateTextField.text = transportation.departDate
-                cell.arriveDateTextField.text = transportation.arriveDate
+                cell.typeTextField.text = transportation!.type
+                cell.airlineComTextField.text = transportation!.airlineCom
+                cell.flightNoTextField.text = transportation!.flightNo
+                cell.bookingRefTextField.text = transportation!.bookingRef
+                cell.departFromTextField.text = transportation!.departFrom
+                cell.arriveAtTextField.text = transportation!.arriveAt
+                cell.departDateTextField.text = transportation!.departDate
+                cell.arriveDateTextField.text = transportation!.arriveDate
             }
             return cell
             
@@ -192,13 +192,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             if !isEditingAttraction  {
                 
-                let attraction = allArray[indexPath.row] as! Attraction
+                attraction = allArray[indexPath.row] as? Attraction
                 
                 // Set up views if editing an existing data.
-                cell.nameTextField.text = attraction.name
-                cell.stayHourTextField.text = attraction.stayHour
-                cell.addressTextField.text = attraction.address
-                cell.noteTextView.text = attraction.note
+                cell.nameTextField.text = attraction!.name
+                cell.stayHourTextField.text = attraction!.stayHour
+                cell.addressTextField.text = attraction!.address
+                cell.noteTextView.text = attraction!.note
                 
             }
             
@@ -269,9 +269,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     let indexPathRow = indexPath.row
                     
-                    guard let transportationID = transportation?.transportationID else {
-                        return
+                    guard let selectedTransportation = allArray[indexPathRow] as? Transportation else {
+                        fatalError()
                     }
+                    let transportationID = selectedTransportation.transportationID
+                    
                     
                     // Transportation Cell
                     let type = cell.typeTextField.text ?? ""
@@ -301,13 +303,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         snapshot in
                         
                         let transportationsPostID = snapshot.value!["postID"] as! String
-                        let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
+//                       let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
+//                        let transportationID = self.transportation?.transportationID
+                        let transportationKeyID = snapshot.key
                         
-                        if transportationsPostID == postID && transportationsindexPathRow == indexPath.row {
+                        if transportationsPostID == postID && transportationKeyID == transportationID {
                             
-                            let transportationID = snapshot.key
-                            
-                            let updatedTransportationOnFire = ["/transportations/\(transportationID)": transportationOnFire]
+                            let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
                             
                             databaseRef.updateChildValues(updatedTransportationOnFire)
                         }
@@ -319,8 +321,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                     let indexPathRow = indexPath.row
-                    let attractionID = attraction?.attractionID
                     
+                    guard let selectedAttraction = allArray[indexPathRow] as? Attraction else {
+                        fatalError()
+                    }
+                    
+                    let attractionID = selectedAttraction.attractionID
+                 
                     // Attraction Cell
                     let name = cell.nameTextField.text ?? ""
                     let stayHour = cell.stayHourTextField.text ?? ""
@@ -329,7 +336,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": postID,
-                                                                  "attractionID": attractionID!,
+                                                                  "attractionID": attractionID,
                                                                   "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
@@ -343,13 +350,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         print(snapshot)
                         
                         let attractionsPostID = snapshot.value!["postID"] as! String
-                        let attractionsindexPathRow = snapshot.value!["indexPathRow"] as! Int
+                        let attractionKeyID = snapshot.key
                         
-                        if attractionsPostID == postID && attractionsindexPathRow == indexPath.row {
+                        if attractionsPostID == postID && attractionID == attractionKeyID {
                             
-                            let attractionID = snapshot.key
-                            
-                            let updatedAttractionOnFire = ["/attractions/\(attractionID)": attractionOnFire]
+                            let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
                             
                             databaseRef.updateChildValues(updatedAttractionOnFire)
                         }

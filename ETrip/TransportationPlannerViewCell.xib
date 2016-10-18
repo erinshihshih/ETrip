@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,22 +14,16 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="259"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="259"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="258.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCQ-dp-qs7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCQ-dp-qs7">
                         <rect key="frame" x="20" y="20" width="127" height="21"/>
                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-cs-ceu">
-                        <rect key="frame" x="67" y="50" width="41" height="19"/>
-                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="airlineCom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZC-rn-slG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="airlineCom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZC-rn-slG">
                         <rect key="frame" x="258" y="76" width="103" height="20"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,7 +35,7 @@
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bookingRef" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg6-Bb-pWG">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bookingRef" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg6-Bb-pWG">
                         <rect key="frame" x="258" y="50" width="103" height="20"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +65,7 @@
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-e8-2py">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-e8-2py">
                         <rect key="frame" x="20" y="50" width="39" height="19"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -86,14 +83,14 @@
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ua-AV-EH9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ua-AV-EH9">
                         <rect key="frame" x="30" y="77" width="29" height="19"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ref." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqZ-6h-uy1">
-                        <rect key="frame" x="211" y="48" width="39" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ref." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqZ-6h-uy1">
+                        <rect key="frame" x="211" y="51" width="39" height="18"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -116,7 +113,32 @@
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fx-cs-ceu">
+                        <rect key="frame" x="67" y="50" width="136" height="19"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Xg6-Bb-pWG" firstAttribute="leading" secondItem="iqZ-6h-uy1" secondAttribute="trailing" constant="8" id="1TP-ah-LO8"/>
+                    <constraint firstItem="2ZC-rn-slG" firstAttribute="top" secondItem="Xg6-Bb-pWG" secondAttribute="bottom" constant="6" id="2Dt-le-I07"/>
+                    <constraint firstItem="Xg6-Bb-pWG" firstAttribute="leading" secondItem="2ZC-rn-slG" secondAttribute="leading" id="EcT-IF-pIE"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="top" secondItem="uCQ-dp-qs7" secondAttribute="bottom" constant="9" id="FZe-K6-GJQ"/>
+                    <constraint firstItem="Xg6-Bb-pWG" firstAttribute="trailing" secondItem="2ZC-rn-slG" secondAttribute="trailing" id="KWF-7h-Gvn"/>
+                    <constraint firstItem="7fx-cs-ceu" firstAttribute="centerY" secondItem="ghv-e8-2py" secondAttribute="centerY" id="LgI-CE-1xK"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="NMb-l3-I5p"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="Sbx-J2-1Hc"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="leading" secondItem="uCQ-dp-qs7" secondAttribute="leading" id="YSC-Ic-HQA"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="baseline" secondItem="Xg6-Bb-pWG" secondAttribute="firstBaseline" id="ZyB-rH-Bkh"/>
+                    <constraint firstItem="iqZ-6h-uy1" firstAttribute="leading" secondItem="7fx-cs-ceu" secondAttribute="trailing" constant="8" id="bja-gv-uV0"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="centerY" secondItem="iqZ-6h-uy1" secondAttribute="centerY" id="bnX-Cc-nd1"/>
+                    <constraint firstItem="ghv-e8-2py" firstAttribute="trailing" secondItem="9Ua-AV-EH9" secondAttribute="trailing" id="dtK-qV-c4W"/>
+                    <constraint firstItem="Xg6-Bb-pWG" firstAttribute="leading" secondItem="iqZ-6h-uy1" secondAttribute="trailing" constant="8" symbolic="YES" id="gIw-s7-HZx"/>
+                    <constraint firstItem="9Ua-AV-EH9" firstAttribute="top" secondItem="ghv-e8-2py" secondAttribute="bottom" constant="8" symbolic="YES" id="hVe-Dt-LXV"/>
+                    <constraint firstItem="7fx-cs-ceu" firstAttribute="leading" secondItem="ghv-e8-2py" secondAttribute="trailing" constant="8" symbolic="YES" id="mJ7-Sw-Lcu"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Xg6-Bb-pWG" secondAttribute="trailing" constant="12" id="sba-Qe-CLw"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="airlineComLabel" destination="2ZC-rn-slG" id="TBm-It-Qfv"/>
