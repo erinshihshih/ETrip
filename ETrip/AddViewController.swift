@@ -80,7 +80,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-
+        
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -97,9 +97,11 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Picker View UI
         setUpPickerViewUI()
         
-//        // Longpress to Reorder Cell
-//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-//        tableView.addGestureRecognizer(longpress)
+        saveButton.enabled = false
+        
+        //        // Longpress to Reorder Cell
+        //        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+        //        tableView.addGestureRecognizer(longpress)
         
     }
     
@@ -233,7 +235,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             
             return cell
-
+            
             
         }
         
@@ -277,7 +279,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                     let indexPathRow = indexPath.row
-                                        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
                     
                     // Trip Title Cell
                     let title = cell.titleTextField.text ?? ""
@@ -377,19 +379,19 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let note = cell.noteTextView.text ?? ""
                     
                     let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                  "postID": postIDKey,
-                                                                  "accommodationID": accommodationIDKey,
-                                                                  "indexPathRow": indexPathRow,
-                                                                  "timestamp": timeStamp,
-                                                                  "name": name,
-                                                                  "address": address,
-                                                                  "checkinDate": checkinDate,
-                                                                  "checkoutDate": checkoutDate,
-                                                                  "bookingRef": bookingRef,
-                                                                  "note": note ]
+                                                                     "postID": postIDKey,
+                                                                     "accommodationID": accommodationIDKey,
+                                                                     "indexPathRow": indexPathRow,
+                                                                     "timestamp": timeStamp,
+                                                                     "name": name,
+                                                                     "address": address,
+                                                                     "checkinDate": checkinDate,
+                                                                     "checkoutDate": checkoutDate,
+                                                                     "bookingRef": bookingRef,
+                                                                     "note": note ]
                     
                     databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
-
+                    
                     
                     
                 }
@@ -428,6 +430,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func textFieldDidBeginEditing(textField: UITextField) {
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
+            
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             //        startDatePicker.reloadInputViews()
@@ -440,9 +443,23 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //            print("it's transportation Cell!")
         //        }
         
-        
-        
     }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        if let cell = textField.superview?.superview as? AddTableViewCell {
+            
+            if cell.startDateTextField.text != nil {
+                
+                saveButton.enabled = true
+                
+            } else {
+                
+                saveButton.enabled = false
+            }
+        }
+    }
+    
     
     func updateDateField(sender: UIDatePicker) {
         
@@ -504,13 +521,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     
-//     Override to support rearranging the table view.
-         func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-            let itemToMove = rows[fromIndexPath.row]
-            rows.removeAtIndex(fromIndexPath.row)
-            rows.insert(itemToMove, atIndex: toIndexPath.row)
-         }
-    
+    //     Override to support rearranging the table view.
+    //    func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+    //        let itemToMove = rows[fromIndexPath.row]
+    //        rows.removeAtIndex(fromIndexPath.row)
+    //        rows.insert(itemToMove, atIndex: toIndexPath.row)
+    //    }
+    //
     
     
     // Override to support conditional rearranging of the table view.
