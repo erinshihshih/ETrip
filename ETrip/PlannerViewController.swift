@@ -17,7 +17,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         case transportation, attraction
     }
     
-    var rows: [ Row ] = [  ]
+    var rows: [Row] = []
     
     var post: Post?
 
@@ -25,9 +25,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
-    
-    var isTransportationReceived = false
-    var isAttractionReceived = false
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
@@ -41,21 +38,13 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        
         self.titleLabel.text = post?.title
         self.countryLabel.text = post?.country
         self.startDateLabel.text = post?.startDate
         self.returnDateLabel.text = post?.returnDate
-        
-        // Firebase Manager Delegate
-        FirebaseManager.shared.delegate = self
-        FirebaseManager.shared.fetchTransportations()
-        FirebaseManager.shared.fetchAttractions()
-        
-        
+
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,6 +60,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("aaaaaaaaaaahhhhhhhhh \(rows.count)")
         return rows.count
     }
     
@@ -84,7 +74,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             let cell = NSBundle.mainBundle().loadNibNamed("TransportationPlannerViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationPlannerViewCell
             
             let transportation = allArray[indexPath.row] as! Transportation
-            
           
             // Set up views if editing an existing data.
             cell.typeLabel.text = transportation.type
@@ -141,11 +130,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 //    
     func sortMyArray(arr: [Any]) {
         
-        if isTransportationReceived && isAttractionReceived {
-            
-        } else {
-            return
-        }
         
         var allIndex: [String:Int] = [ : ]
         rows = []
@@ -203,56 +187,56 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 
 
-extension PlannerViewController: FirebaseManagerDelegate {
-    
-    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
-        
-    }
-    
-    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
-        
-        guard let postID = post?.postID else {
-            print("getTransportationManager: Cannot find the postID")
-            return
-        }
-        
-        if transportation.postID == postID {
-            
-            self.transportations.append(transportation)
-            allArray.append(transportation)
-            print(allArray.count)
-            isTransportationReceived = true
-            self.rows.append(.transportation)
-            
-        }
-        //排序
-        sortMyArray(allArray)
-        
-    }
-    
-    
-    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
-        
-        guard let postID = post?.postID else {
-            print("getAttractionManager: Cannot find the postID")
-            return
-        }
-        
-        if attraction.postID == postID {
-            
-            self.attractions.append(attraction)
-            allArray.append(attraction)
-            print(allArray.count)
-            isAttractionReceived = true
-            self.rows.append(.attraction)
-            
-        }
-        
-        //排序
-        sortMyArray(allArray)
-        
-    }
-    
-    
-}
+//extension PlannerViewController: FirebaseManagerDelegate {
+//    
+//    func getPostManager(getPostManager: FirebaseManager, didGetData post: Post) {
+//        
+//    }
+//    
+//    func getTransportationManager(getTransportationManager: FirebaseManager, didGetData transportation: Transportation) {
+//        
+//        guard let postID = post?.postID else {
+//            print("getTransportationManager: Cannot find the postID")
+//            return
+//        }
+//        
+//        if transportation.postID == postID {
+//            
+//            self.transportations.append(transportation)
+//            allArray.append(transportation)
+//            print(allArray.count)
+//            isTransportationReceived = true
+//            self.rows.append(.transportation)
+//            
+//        }
+//        //排序
+//        sortMyArray(allArray)
+//        
+//    }
+//    
+//    
+//    func getAttractionManager(getAttractionManager: FirebaseManager, didGetData attraction: Attraction) {
+//        
+//        guard let postID = post?.postID else {
+//            print("getAttractionManager: Cannot find the postID")
+//            return
+//        }
+//        
+//        if attraction.postID == postID {
+//            
+//            self.attractions.append(attraction)
+//            allArray.append(attraction)
+//            print(allArray.count)
+//            isAttractionReceived = true
+//            self.rows.append(.attraction)
+//            
+//        }
+//        
+//        //排序
+//        sortMyArray(allArray)
+//        
+//    }
+//    
+//    
+//}
 
