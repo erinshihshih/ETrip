@@ -29,6 +29,8 @@
 		959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959002341DA2354700EB5C76 /* SWRevealViewController.m */; };
 		959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */; };
 		9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */; };
+		95C2AB3A1DB60D4900884360 /* AccommodationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C2AB381DB60D4900884360 /* AccommodationTableViewCell.swift */; };
+		95C2AB3B1DB60D4900884360 /* AccommodationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95C2AB391DB60D4900884360 /* AccommodationTableViewCell.xib */; };
 		95DB08721D98D01C009C404A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08711D98D01C009C404A /* AppDelegate.swift */; };
 		95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08731D98D01C009C404A /* LoginViewController.swift */; };
 		95DB08771D98D01C009C404A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95DB08751D98D01C009C404A /* Main.storyboard */; };
@@ -88,6 +90,8 @@
 		959002341DA2354700EB5C76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		95C2AB381DB60D4900884360 /* AccommodationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccommodationTableViewCell.swift; sourceTree = "<group>"; };
+		95C2AB391DB60D4900884360 /* AccommodationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccommodationTableViewCell.xib; sourceTree = "<group>"; };
 		95DB086E1D98D01C009C404A /* ETrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08711D98D01C009C404A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DB08731D98D01C009C404A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */,
 				9541A58E1DAE445500F108A3 /* AttractionTableViewCell.swift */,
 				9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */,
+				95C2AB381DB60D4900884360 /* AccommodationTableViewCell.swift */,
+				95C2AB391DB60D4900884360 /* AccommodationTableViewCell.xib */,
 				956CF6821DB4B760006AD9B1 /* TransportationPlannerViewCell.swift */,
 				956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */,
 				956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */,
@@ -375,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */,
+				95C2AB3B1DB60D4900884360 /* AccommodationTableViewCell.xib in Resources */,
 				95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */,
 				956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */,
 				9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */,
@@ -469,6 +476,7 @@
 				956CF6811DB4A32C006AD9B1 /* MapViewController.swift in Sources */,
 				9547E7401DB089790023EE68 /* AddViewController.swift in Sources */,
 				956CF6881DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift in Sources */,
+				95C2AB3A1DB60D4900884360 /* AccommodationTableViewCell.swift in Sources */,
 				9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */,
 				9541A5901DAE445500F108A3 /* AttractionTableViewCell.swift in Sources */,
 				95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */,

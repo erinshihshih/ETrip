@@ -260,7 +260,11 @@
                                             <action selector="addAttractionButton:" destination="Agl-cn-ojr" id="7gR-H8-Wkf"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Accommodation" id="hf6-70-Tt4"/>
+                                    <barButtonItem title="Accommodation" id="hf6-70-Tt4">
+                                        <connections>
+                                            <action selector="addAccommodationButton:" destination="Agl-cn-ojr" id="76b-6o-CsD"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

@@ -15,13 +15,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
+    var accommodation: Accommodation?
     
     var posts: [Post] = []
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    var accommodations: [Accommodation] = []
     
     var isEditingTransportation = false
     var isEditingAttraction = false
+    var isEditingAccommodation = false
     
     var countryArray = [String]()
     
@@ -31,7 +34,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var returnDatePicker = UIDatePicker()
     
     enum Row {
-        case title, transportation, attraction
+        case title, transportation, attraction, accommodation
     }
     
     var rows: [ Row ] = [ .title ]
@@ -56,6 +59,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         isEditingAttraction = true
         rows.append(.attraction)
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+        tableView.endUpdates()
+        
+    }
+    
+    @IBAction func addAccommodationButton(sender: UIBarButtonItem) {
+        
+        isEditingAccommodation = true
+        rows.append(.accommodation)
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
         tableView.endUpdates()
@@ -192,6 +205,36 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             return cell
             
+        case .accommodation:
+            
+            let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.nameTextField.delegate = self
+            cell.addressTextField.delegate = self
+            cell.checkinDateTextField.delegate = self
+            cell.checkoutDateTextField.delegate = self
+            cell.noteTextView.delegate = self
+            
+            if !isEditingAccommodation  {
+                
+                let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
+                
+                // Set up views if editing an existing data.
+                let accommodation = theAccommodation
+                
+                cell.nameTextField.text = accommodation.name
+                cell.addressTextField.text = accommodation.address
+                cell.checkinDateTextField.text = accommodation.checkinDate
+                cell.checkoutDateTextField.text = accommodation.checkoutDate
+                cell.noteTextView.text = accommodation.note
+                
+                
+            }
+            
+            return cell
+
+            
         }
         
     }
@@ -317,6 +360,34 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                   "note": note ]
                     
                     databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                    
+                case .accommodation:
+                    
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    let indexPathRow = indexPath.row
+                    let accommodationIDKey = FIRDatabase.database().reference().childByAutoId().key
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
+                    
+                    // Accommodation Cell
+                    let name = cell.nameTextField.text ?? ""
+                    let address = cell.addressTextField.text ?? ""
+                    let checkinDate = cell.checkinDateTextField.text ?? ""
+                    let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                    let note = cell.noteTextView.text ?? ""
+                    
+                    let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                  "postID": postIDKey,
+                                                                  "accommodationID": accommodationIDKey,
+                                                                  "indexPathRow": indexPathRow,
+                                                                  "timestamp": timeStamp,
+                                                                  "name": name,
+                                                                  "address": address,
+                                                                  "checkinDate": checkinDate,
+                                                                  "checkoutDate": checkoutDate,
+                                                                  "note": note ]
+                    
+                    databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+
                     
                     
                 }
