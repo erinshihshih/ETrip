@@ -103,7 +103,7 @@
                 <outlet property="noteLabel" destination="ywm-Ih-Hub" id="B5p-5O-uzz"/>
                 <outlet property="stayHourLabel" destination="1nh-ia-lV1" id="5Jd-yl-zqb"/>
             </connections>
-            <point key="canvasLocation" x="173.5" y="472.5"/>
+            <point key="canvasLocation" x="409.5" y="449.5"/>
         </tableViewCell>
     </objects>
 </document>

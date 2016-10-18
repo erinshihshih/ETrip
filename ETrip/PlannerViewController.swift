@@ -131,6 +131,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             var destAllarray = allArray
             destAllarray.insert(post!, atIndex: 0)
             detailViewController.allArray = destAllarray
+//            detailViewController.sortMyArray(allArray)
             
             print("Edit the trip.")
         }

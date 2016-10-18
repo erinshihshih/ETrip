@@ -15,18 +15,22 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isPostReceived = true
     var isTransportationReceived = false
     var isAttractionReceived = false
+    var isAccommodationReceived = false
     
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
+    var accommodation: Accommodation?
     
     var allArray: [Any] = [ ]
     
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
+    var accommodations: [Accommodation] = []
     
     var isEditingTransportation = false
     var isEditingAttraction = false
+    var isEditingAccommodation = false
     
     var countryArray = [String]()
     
@@ -36,7 +40,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var returnDatePicker = UIDatePicker()
     
     enum Row {
-        case title, transportation, attraction
+        case title, transportation, attraction, accommodation
     }
     
     var rows: [ Row ] = [ .title ]
@@ -54,7 +58,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
         tableView.endUpdates()
-        
+//        
     }
     
     @IBAction func addAttractionButton(sender: UIBarButtonItem) {
@@ -67,17 +71,21 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    @IBAction func addAccommodationButton(sender: UIBarButtonItem) {
+        
+        isEditingAccommodation = true
+        rows.append(.accommodation)
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+        tableView.endUpdates()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        //        // Firebase Manager Delegate
-        //        FirebaseManager.shared.delegate = self
-        //        // FirebaseManager.shared.fetchPosts() 因為HomeTableViewController已經拿過一次了 所以直接pass Post Data
-        //        FirebaseManager.shared.fetchTransportations()
-        //        FirebaseManager.shared.fetchAttractions()
         
         // Country Picker
         for code in NSLocale.ISOCountryCodes() as [String] {
@@ -100,8 +108,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 //        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        
         sortMyArray(allArray)
+
         
     }
     
@@ -203,6 +211,35 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             return cell
+            
+        case .accommodation:
+            
+            let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.nameTextField.delegate = self
+            cell.addressTextField.delegate = self
+            cell.checkinDateTextField.delegate = self
+            cell.checkoutDateTextField.delegate = self
+            cell.bookingRefTextField.delegate = self
+            cell.noteTextView.delegate = self
+            
+            if !isEditingAccommodation  {
+                
+                accommodation = allArray[indexPath.row] as? Accommodation
+                
+                // Set up views if editing an existing data.
+                cell.nameTextField.text = accommodation!.name
+                cell.addressTextField.text = accommodation!.address
+                cell.checkinDateTextField.text = accommodation!.checkinDate
+                cell.checkoutDateTextField.text = accommodation!.checkoutDate
+                cell.bookingRefTextField.text = accommodation!.bookingRef
+                cell.noteTextView.text = accommodation!.note
+                
+            }
+            
+            return cell
+
             
         }
         
@@ -360,8 +397,53 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     })
                     
+                case .accommodation:
                     
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
+                    let indexPathRow = indexPath.row
                     
+                    guard let selectedAccommodation = allArray[indexPathRow] as? Accommodation else {
+                        fatalError()
+                    }
+                    
+                    let accommodationID = selectedAccommodation.accommodationID
+                    
+                    // Accommodation Cell
+                    let name = cell.nameTextField.text ?? ""
+                    let address = cell.addressTextField.text ?? ""
+                    let checkinDate = cell.checkinDateTextField.text ?? ""
+                    let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                    let bookingRef = cell.bookingRefTextField.text ?? ""
+                    let note = cell.noteTextView.text ?? ""
+                    
+                    let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                     "postID": postID,
+                                                                     "accommodationID": accommodationID,
+                                                                     "indexPathRow": indexPathRow,
+                                                                     "timestamp": timeStamp,
+                                                                     "name": name,
+                                                                     "address": address,
+                                                                     "checkinDate": checkinDate,
+                                                                     "checkoutDate": checkoutDate,
+                                                                     "bookingRef": bookingRef,
+                                                                     "note": note ]
+                    
+                    databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                        snapshot in
+                        
+                        print(snapshot)
+                        
+                        let accommodationsPostID = snapshot.value!["postID"] as! String
+                        let accommodationKeyID = snapshot.key
+                        
+                        if accommodationsPostID == postID && accommodationID == accommodationKeyID {
+                            
+                            let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
+                            
+                            databaseRef.updateChildValues(updatedAccommodationOnFire)
+                        }
+                    })
                     
                 }
             }
@@ -477,6 +559,71 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    func sortMyArray(arr: [Any]) {
+        
+        var allIndex:[Int] = []
+        rows = []
+        
+        for index in 0..<arr.count {
+            if let card =  arr[index] as? Post {
+                allIndex.append(0)
+            }
+            
+            if let card =  arr[index] as? Transportation {
+                allIndex.append(card.indexPathRow)
+            }
+            
+            if let card =  arr[index] as? Attraction {
+                allIndex.append(card.indexPathRow)
+            }
+            
+            if let card =  arr[index] as? Accommodation {
+                allIndex.append(card.indexPathRow)
+            }
+        }
+        
+        var newArray: [Any] = []
+        
+        for index in 0..<allIndex.count{
+            
+            let numberInx = allIndex[index]
+            
+            newArray.append(allArray[numberInx])
+            
+            if newArray[index] is Post{
+                rows.append(.title)
+            }
+            
+            if newArray[index] is Transportation {
+                rows.append(.transportation)
+            }
+            
+            if newArray[index] is Attraction {
+                rows.append(.attraction)
+            }
+            
+            if newArray[index] is Accommodation {
+                rows.append(.accommodation)
+            }
+            
+        }
+        allArray = newArray
+        self.tableView.reloadData()
+        
+    }
     //    // Override to support conditional editing of the table view.
     //    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     //        // Return false if you do not want the specified item to be editable.
@@ -504,61 +651,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     //        super.setEditing(editing, animated: animated)
     //        tableView.setEditing(editing, animated: animated)
     //    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    func sortMyArray(arr: [Any]) {
-        
-        var allIndex:[Int] = []
-        rows = []
-        
-        for index in 0..<arr.count {
-            if let card =  arr[index] as? Post{
-                allIndex.append(0)
-            }
-            
-            if let card =  arr[index] as? Transportation{
-                allIndex.append(card.indexPathRow)
-            }
-            
-            if let card =  arr[index] as? Attraction{
-                allIndex.append(card.indexPathRow)
-            }
-        }
-        var newArray: [Any] = []
-        
-        for index in 0..<allIndex.count{
-            
-            let numberInx = allIndex[index]
-            
-            newArray.append(allArray[numberInx])
-            
-            if newArray[index] is Post{
-                rows.append(.title)
-            }
-            
-            if newArray[index] is Transportation{
-                rows.append(.transportation)
-            }
-            
-            if newArray[index] is Attraction{
-                rows.append(.attraction)
-            }
-            
-        }
-        allArray = newArray
-        self.tableView.reloadData()
-        
-    }
     
     // Longpress to Reorder Cell
     func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
@@ -664,11 +756,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
     }
-    
-
-    
-    
-    
     
 }
 
