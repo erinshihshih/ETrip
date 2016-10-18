@@ -22,12 +22,13 @@ class ResultViewController: UITabBarController {
         planViewController.post = post
         planViewController.transportation = transportation
         planViewController.attraction = attraction
+        planViewController.tableView.reloadData()
         
         // Set up Map View
         let mapViewController = self.viewControllers![1] as! MapViewController
         mapViewController.post = post
-        mapViewController.transportation = transportation
-        mapViewController.attraction = attraction
+//        mapViewController.transportation = transportation
+//        mapViewController.attraction = attraction
         
     }
 

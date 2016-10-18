@@ -220,7 +220,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             let databaseRef = FIRDatabase.database().reference()
             let userID = FIRAuth.auth()?.currentUser?.uid
-            let key = FIRDatabase.database().reference().childByAutoId().key
+            let postIDKey = FIRDatabase.database().reference().childByAutoId().key
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
             
@@ -234,7 +234,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                     let indexPathRow = indexPath.row
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
+                                        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
                     
                     // Trip Title Cell
                     let title = cell.titleTextField.text ?? ""
@@ -246,7 +246,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     // Store tripTitle in Firebase
                     let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                                                            "postID": key,
+                                                            "postID": postIDKey,
                                                             "indexPathRow": indexPathRow,
                                                             "timestamp": timeStamp,
                                                             "title": title,
@@ -254,15 +254,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                             "startDate": startDate,
                                                             "returnDate": returnDate ]
                     
-                    databaseRef.child("posts").child(key).setValue(titleOnFire)
+                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
                     
                     // Set the post to be passed to HomeTableViewController after the unwind segue.
-                    post = Post(postID: key, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                     
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
+                    let transportationIDKey = FIRDatabase.database().reference().childByAutoId().key
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     
                     // Transportation Cell
@@ -277,7 +278,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": key,
+                                                                      "postID": postIDKey,
+                                                                      "transportationID": transportationIDKey,
                                                                       "indexPathRow": indexPathRow,
                                                                       "timestamp": timeStamp,
                                                                       "type": type,
@@ -289,12 +291,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                       "departDate": departDate,
                                                                       "arriveDate": arriveDate ]
                     
-                    databaseRef.child("transportations").childByAutoId().setValue(transportationOnFire)
+                    databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
                     
                 case .attraction:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
+                    let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                     
                     // Attraction Cell
@@ -304,7 +307,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let note = cell.noteTextView.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                  "postID": key,
+                                                                  "postID": postIDKey,
+                                                                  "attractionID": attractionIDKey,
                                                                   "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
@@ -312,7 +316,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                   "address": address,
                                                                   "note": note ]
                     
-                    databaseRef.child("attractions").childByAutoId().setValue(attractionOnFire)
+                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                     
                     
                 }

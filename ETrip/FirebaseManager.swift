@@ -101,6 +101,7 @@ class FirebaseManager {
                     for (index, item) in firebaseItemValue.enumerate() {
                         
                         let postID = item["postID"] as! String
+                        let transportationID = item["transportationID"] as! String
                         let indexPathRow = item["indexPathRow"] as! Int
                         let type = item["type"] as! String
                         let airlineCom = item["airlineCom"] as! String
@@ -111,7 +112,7 @@ class FirebaseManager {
                         let departDate = item["departDate"] as! String
                         let arriveDate = item["arriveDate"] as! String
                         
-                        let transportation = Transportation(postID: postID, indexPathRow: indexPathRow, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
+                        let transportation = Transportation(postID: postID, transportationID: transportationID, indexPathRow: indexPathRow, type: type, departDate: departDate, arriveDate: arriveDate, departFrom: departFrom, arriveAt: arriveAt, airlineCom: airlineCom, flightNo: flightNo, bookingRef: bookingRef)
                         
                         self.delegate?.getTransportationManager(self, didGetData: transportation)
                         
@@ -147,13 +148,14 @@ class FirebaseManager {
                     for (index, item) in firebaseItemValue.enumerate() {
                         
                         let postID = item["postID"] as! String
+                        let attractionID = item["attractionID"] as! String
                         let indexPathRow = item["indexPathRow"] as! Int
                         let name = item["name"] as! String
                         let stayHour = item["stayHour"] as! String
                         let address = item["address"] as! String
                         let note = item["note"] as! String
                         
-                        let attraction = Attraction(postID: postID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
+                        let attraction = Attraction(postID: postID, attractionID: attractionID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
                         
                         self.delegate?.getAttractionManager(self, didGetData: attraction)
 

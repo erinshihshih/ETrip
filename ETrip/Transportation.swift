@@ -13,6 +13,7 @@ import Foundation
 class Transportation {
     
     let postID: String
+    let transportationID: String
     let indexPathRow: Int
     let type: String
     let departDate: String
@@ -23,9 +24,10 @@ class Transportation {
     let flightNo: String
     let bookingRef: String
     
-    init(postID: String, indexPathRow: Int, type: String, departDate: String, arriveDate: String, departFrom: String, arriveAt: String, airlineCom: String, flightNo: String, bookingRef: String) {
+    init(postID: String, transportationID: String, indexPathRow: Int, type: String, departDate: String, arriveDate: String, departFrom: String, arriveAt: String, airlineCom: String, flightNo: String, bookingRef: String) {
         
         self.postID = postID
+        self.transportationID = transportationID
         self.indexPathRow = indexPathRow
         self.type = type
         self.departDate = departDate
