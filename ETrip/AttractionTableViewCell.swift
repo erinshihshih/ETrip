@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
+import GooglePlacePicker
 
 class AttractionTableViewCell: UITableViewCell {
 
@@ -18,4 +20,7 @@ class AttractionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var noteTextView: UITextView!
     
+    @IBOutlet weak var searchButton: UIButton!
+    
+  
 }

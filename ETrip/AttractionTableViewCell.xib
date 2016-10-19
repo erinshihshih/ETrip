@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a1z-Mq-q9c" id="Ii8-eV-aN4">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-1f-dTc">
@@ -47,17 +47,30 @@
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9T-YX-Wul">
+                        <rect key="frame" x="101" y="8" width="47" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="dWP-PH-h77"/>
+                            <constraint firstAttribute="width" constant="47" id="sDn-Fv-mK4"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="search:" destination="a1z-Mq-q9c" eventType="touchUpInside" id="sUx-Qp-6Yk"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PYh-1f-dTc" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="topMargin" id="0c8-Na-pjX"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="bottom" constant="8" id="DQe-tN-Z6J"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" constant="185" id="FLA-0e-C2c"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="PYh-1f-dTc" secondAttribute="trailing" constant="8" symbolic="YES" id="Huu-0m-HZQ"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" id="MiM-K3-iao"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="top" id="Rsz-lZ-84n"/>
                     <constraint firstItem="BY6-ds-oVH" firstAttribute="leading" secondItem="PYh-1f-dTc" secondAttribute="leading" id="WKL-VZ-kaS"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="trailing" constant="5" id="YLD-Nu-25l"/>
                     <constraint firstItem="PYh-1f-dTc" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leadingMargin" id="h3x-wg-5Y4"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="n1L-9S-BFZ"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="PYh-1f-dTc" secondAttribute="top" id="nnt-RK-evD"/>
                     <constraint firstItem="BY6-ds-oVH" firstAttribute="top" secondItem="PYh-1f-dTc" secondAttribute="bottom" constant="8" id="s5O-a0-ckO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="We4-PT-r0C" secondAttribute="trailing" id="tNL-dZ-E5Z"/>
                 </constraints>
@@ -66,6 +79,7 @@
                 <outlet property="addressTextField" destination="QSi-mt-4zI" id="ZZp-wa-NNJ"/>
                 <outlet property="nameTextField" destination="BY6-ds-oVH" id="N2N-55-anD"/>
                 <outlet property="noteTextView" destination="xlI-xK-L8O" id="qQx-Zb-jEl"/>
+                <outlet property="searchButton" destination="s9T-YX-Wul" id="xoz-g5-RLA"/>
                 <outlet property="stayHourTextField" destination="We4-PT-r0C" id="Uv2-lK-BTv"/>
             </connections>
             <point key="canvasLocation" x="306.5" y="459"/>
