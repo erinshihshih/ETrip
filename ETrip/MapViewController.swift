@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class MapViewController: UIViewController {
     
@@ -21,8 +22,26 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIButton!
     
+  
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    
+    
+    var placePicker: GMSPlacePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(25.042789, longitude: 121.564869, zoom: 18)
+        mapView.myLocationEnabled = true
+        mapView.camera = camera
+        
+        let currentLocation = CLLocationCoordinate2DMake(25.042789, 121.564869)
+        let marker = GMSMarker(position: currentLocation)
+        marker.title = "AppWorks"
+        marker.snippet = "Taipei"
+        marker.map = mapView
+        
         
         self.titleLabel.text = post?.title
         self.countryLabel.text = post?.country

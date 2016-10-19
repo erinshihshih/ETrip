@@ -311,16 +311,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tdd-c4-hpi">
-                                <rect key="frame" x="157" y="232" width="287" height="29"/>
-                                <segments>
-                                    <segment title="Day1"/>
-                                    <segment title="Day2"/>
-                                    <segment title="Day3"/>
-                                    <segment title="Overview"/>
-                                </segments>
-                                <color key="tintColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g8-a8-TPW">
                                 <rect key="frame" x="512" y="72" width="30" height="30"/>
                                 <constraints>
@@ -379,34 +369,47 @@
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-4r-wy0" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="220" width="600" height="331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="upB-Ki-diE" secondAttribute="trailing" constant="-107" id="2QR-zv-Fhy"/>
                             <constraint firstItem="uBi-1U-7yX" firstAttribute="leading" secondItem="n3C-p9-oly" secondAttribute="trailing" constant="15" id="4LB-aV-pjF"/>
                             <constraint firstItem="cOR-TK-RWk" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="8" id="ARZ-IT-wsc"/>
                             <constraint firstItem="upB-Ki-diE" firstAttribute="trailing" secondItem="0EC-0P-vrM" secondAttribute="trailing" id="Byh-M7-R3Q"/>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="upB-Ki-diE" secondAttribute="bottom" constant="8" id="HHF-8c-mdz"/>
                             <constraint firstItem="uBi-1U-7yX" firstAttribute="leading" secondItem="wcA-0S-YaY" secondAttribute="leading" id="HLT-wM-tah"/>
                             <constraint firstItem="wcA-0S-YaY" firstAttribute="centerY" secondItem="0EC-0P-vrM" secondAttribute="centerY" id="Nlv-jl-lPe"/>
                             <constraint firstItem="VIb-PT-jTV" firstAttribute="centerY" secondItem="upB-Ki-diE" secondAttribute="centerY" id="Owi-6g-BPa"/>
-                            <constraint firstItem="Tdd-c4-hpi" firstAttribute="centerX" secondItem="tih-hk-ZUw" secondAttribute="centerX" id="PAU-oU-x57"/>
                             <constraint firstItem="uBi-1U-7yX" firstAttribute="centerY" secondItem="n3C-p9-oly" secondAttribute="centerY" id="RfF-Kf-9Dr"/>
                             <constraint firstItem="8gU-Gb-0yN" firstAttribute="leading" secondItem="n3C-p9-oly" secondAttribute="leading" id="U0C-Vl-8kB"/>
                             <constraint firstItem="upB-Ki-diE" firstAttribute="top" secondItem="0EC-0P-vrM" secondAttribute="bottom" constant="15" id="V33-6h-9xC"/>
                             <constraint firstItem="0EC-0P-vrM" firstAttribute="trailing" secondItem="n3C-p9-oly" secondAttribute="trailing" id="YDQ-7C-aDC"/>
                             <constraint firstItem="VIb-PT-jTV" firstAttribute="leading" secondItem="wcA-0S-YaY" secondAttribute="leading" id="YVr-W8-nZx"/>
                             <constraint firstItem="0EC-0P-vrM" firstAttribute="top" secondItem="n3C-p9-oly" secondAttribute="bottom" constant="15" id="b3f-ow-CFw"/>
-                            <constraint firstItem="Tdd-c4-hpi" firstAttribute="top" secondItem="upB-Ki-diE" secondAttribute="bottom" constant="20" id="bSF-3A-Uv8"/>
+                            <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="AQZ-4r-wy0" secondAttribute="bottom" id="duL-tt-7dc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AQZ-4r-wy0" secondAttribute="trailing" constant="-20" id="eSR-sd-rsS"/>
                             <constraint firstItem="4g8-a8-TPW" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="8" id="fqN-6y-a0d"/>
                             <constraint firstItem="cOR-TK-RWk" firstAttribute="leading" secondItem="4g8-a8-TPW" secondAttribute="trailing" constant="8" id="ghs-YS-pxf"/>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leadingMargin" constant="-20" id="nmX-dj-cQv"/>
                             <constraint firstAttribute="trailing" secondItem="cOR-TK-RWk" secondAttribute="trailing" constant="20" id="nsl-FN-cs1"/>
                             <constraint firstItem="n3C-p9-oly" firstAttribute="top" secondItem="8gU-Gb-0yN" secondAttribute="bottom" constant="12" id="pZS-f6-PGa"/>
                             <constraint firstItem="8gU-Gb-0yN" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leading" constant="20" id="rfB-OG-xjV"/>
                             <constraint firstItem="8gU-Gb-0yN" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="20" id="uzQ-mo-oir"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2QR-zv-Fhy"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map View" image="route" selectedImage="route" id="UeP-b1-QSN"/>
                     <connections>
                         <outlet property="countryLabel" destination="uBi-1U-7yX" id="KZo-1Y-qr0"/>
+                        <outlet property="mapView" destination="AQZ-4r-wy0" id="fMw-ER-txe"/>
                         <outlet property="returnDateLabel" destination="VIb-PT-jTV" id="plN-Re-TZQ"/>
                         <outlet property="startDateLabel" destination="wcA-0S-YaY" id="hqX-a1-9Ku"/>
                         <outlet property="titleLabel" destination="8gU-Gb-0yN" id="Q0f-Um-8iu"/>

@@ -11,6 +11,7 @@ pod 'Firebase/Storage'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
+pod 'GoogleMaps'
 
 pod 'ENSwiftSideMenu', '~> 0.1.1'
 
