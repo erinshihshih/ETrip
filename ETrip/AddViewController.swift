@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleMaps
+import GooglePlacePicker
 
 class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -79,6 +81,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    @IBAction func onLaunchClicked(sender: AnyObject) {
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        self.presentViewController(acController, animated: true, completion: nil)
+    }
+    
+ 
+
+
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +121,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         //        tableView.addGestureRecognizer(longpress)
         
     }
+    
+
     
     
     override func didReceiveMemoryWarning() {
@@ -442,6 +456,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             
+            
             //        startDatePicker.reloadInputViews()
             startDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
             returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
@@ -557,6 +572,31 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      */
     
 }
+extension AddViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(viewController: GMSAutocompleteViewController!, didAutocompleteWithPlace place: GMSPlace!) {
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        print("Place coordinate: \(place.coordinate)")
+        print("Place coordinate: \(place)")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func viewController(viewController: GMSAutocompleteViewController!, didFailAutocompleteWithError error: NSError!) {
+        // TODO: handle the error.
+        print("Error: \(error.description)")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(viewController: GMSAutocompleteViewController!) {
+        print("Autocomplete was cancelled.")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
 
 //    // Longpress to Reorder Cell
 //    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
