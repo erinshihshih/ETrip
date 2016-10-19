@@ -384,8 +384,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
                         
-                        print(snapshot)
-                        
                         let attractionsPostID = snapshot.value!["postID"] as! String
                         let attractionKeyID = snapshot.key
                         
@@ -431,8 +429,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
-                        
-                        print(snapshot)
                         
                         let accommodationsPostID = snapshot.value!["postID"] as! String
                         let accommodationKeyID = snapshot.key

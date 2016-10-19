@@ -12,6 +12,12 @@ import FirebaseDatabase
 
 class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    enum Row {
+        case title, transportation, attraction, accommodation
+    }
+    
+    // MARK: Property
+    
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
@@ -28,18 +34,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var countryArray = [String]()
     
+    var rows: [ Row ] = [ .title ]
+    
     // title pickerView
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
-    enum Row {
-        case title, transportation, attraction, accommodation
-    }
-    
-    var rows: [ Row ] = [ .title ]
-    
     let databaseRef = FIRDatabase.database().reference()
+    
+    // MARK: IBOutlet
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -75,6 +79,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,7 +116,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -123,7 +128,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return rows.count
     }
     
-    /////// Set up Table View ////////
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch rows[indexPath.row] {
@@ -258,6 +262,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     //    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
     //    }
+    
+    // MARK: PrepareForSegue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -399,7 +405,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    // Country Picker Delegate
+    // MARK: Country Picker Delegate
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -426,13 +433,15 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    // Date TextField Delegate
+    // MARK: TextField Delegate
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
+            
             //        startDatePicker.reloadInputViews()
             startDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
             returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
@@ -479,7 +488,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    // Set Up PickerView UI
+    // MARK: Set Up PickerView UI
     func setUpPickerViewUI() {
         
         // Country Picker

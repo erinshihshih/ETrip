@@ -153,7 +153,6 @@ extension ResultViewController: FirebaseManagerDelegate {
             
             self.transportations.append(transportation)
             allArray.append(transportation)
-            print(allArray.count)
             isTransportationReceived = true
             self.rows.append(.transportation)
             planViewController.transportation = transportation
@@ -176,7 +175,6 @@ extension ResultViewController: FirebaseManagerDelegate {
             
             self.attractions.append(attraction)
             allArray.append(attraction)
-            print(allArray.count)
             isAttractionReceived = true
             self.rows.append(.attraction)
             planViewController.attraction = attraction
@@ -199,7 +197,6 @@ extension ResultViewController: FirebaseManagerDelegate {
             
             self.accommodations.append(accommodation)
             allArray.append(accommodation)
-            print(allArray.count)
             isAccommodationReceived = true
             self.rows.append(.accommodation)
             planViewController.accommodation = accommodation
