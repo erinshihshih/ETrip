@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UISearchBarDelegate {
     
     var post: Post?
     var transportation: Transportation?
@@ -25,12 +25,29 @@ class MapViewController: UIViewController {
   
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBAction func searchWithAddress(sender: AnyObject) {
+        let serchController = UISearchController(searchResultsController: nil)
+        serchController.searchBar.delegate = self
+        self.presentViewController(serchController, animated: true, completion: nil)
+        
+    }
     
-    
-    var placePicker: GMSPlacePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        
+        
+        self.titleLabel.text = post?.title
+        self.countryLabel.text = post?.country
+        self.startDateLabel.text = post?.startDate
+        self.returnDateLabel.text = post?.returnDate
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
         
         let camera = GMSCameraPosition.cameraWithLatitude(25.042789, longitude: 121.564869, zoom: 18)
         mapView.myLocationEnabled = true
@@ -42,12 +59,6 @@ class MapViewController: UIViewController {
         marker.snippet = "Taipei"
         marker.map = mapView
         
-        
-        self.titleLabel.text = post?.title
-        self.countryLabel.text = post?.country
-        self.startDateLabel.text = post?.startDate
-        self.returnDateLabel.text = post?.returnDate
-
     }
     
     override func didReceiveMemoryWarning() {

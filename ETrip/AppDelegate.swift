@@ -12,6 +12,8 @@ import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
 import GoogleMaps
+import GooglePlaces
+import GooglePlacePicker
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         
         GMSServices.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
+        GMSPlacesClient.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
    
         return true
     }
