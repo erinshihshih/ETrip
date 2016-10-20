@@ -16,19 +16,19 @@ class Attraction {
     let attractionID: String
     let indexPathRow: Int
     let name: String
-    let stayHour: String
+    let phone: String
     let address: String
-    let note: String
+    let website: String
     
-    init(postID: String, attractionID: String, indexPathRow: Int, name: String, stayHour: String, address: String, note: String) {
+    init(postID: String, attractionID: String, indexPathRow: Int, name: String, phone: String, address: String, website: String) {
         
         self.postID = postID
         self.attractionID = attractionID
         self.indexPathRow = indexPathRow
         self.name = name
-        self.stayHour = stayHour
+        self.phone = phone
         self.address = address
-        self.note = note
+        self.website = website
         
     }
     

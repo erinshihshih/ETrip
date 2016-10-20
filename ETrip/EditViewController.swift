@@ -192,23 +192,18 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
-            // Handle the text field’s user input via delegate callbacks.
-//            cell.nameTextField.delegate = self
-//            cell.stayHourTextField.delegate = self
-//            cell.addressTextField.delegate = self
-            cell.noteTextView.delegate = self
+            cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
             
             if !isEditingAttraction  {
                 
                 attraction = allArray[indexPath.row] as? Attraction
                 
-                // Set up views if editing an existing data.
-//                cell.nameTextField.text = attraction!.name
-//                cell.stayHourTextField.text = attraction!.stayHour
-//                cell.addressTextField.text = attraction!.address
-                cell.noteTextView.text = attraction!.note
-                
+                cell.nameLabel.text = attraction!.name
+                cell.phoneLabel.text = attraction!.phone
+                cell.addressLabel.text = attraction!.address
+                cell.websiteLabel.text = attraction!.website
             }
+
             
             return cell
             
@@ -370,7 +365,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let address = cell.addressLabel.text ?? ""
                     let phone = cell.phoneLabel.text ?? ""
                     let website = cell.websiteLabel.text ?? ""
-                    let note = cell.noteTextView.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": postID,
@@ -378,11 +372,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                   "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
-//                                                                  "stayHour": stayHour,
                                                                   "address": address,
                                                                   "phone": phone,
-                                                                  "website": website,
-                                                                  "note": note ]
+                                                                  "website": website ]
                     
                     databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in

@@ -153,11 +153,11 @@ class FirebaseManager {
                         let attractionID = item["attractionID"] as! String
                         let indexPathRow = item["indexPathRow"] as! Int
                         let name = item["name"] as! String
-                        let stayHour = item["stayHour"] as! String
+                        let phone = item["phone"] as! String
                         let address = item["address"] as! String
-                        let note = item["note"] as! String
+                        let website = item["website"] as! String
                         
-                        let attraction = Attraction(postID: postID, attractionID: attractionID, indexPathRow: indexPathRow, name: name, stayHour: stayHour, address: address, note: note)
+                        let attraction = Attraction(postID: postID, attractionID: attractionID, indexPathRow: indexPathRow, name: name, phone: phone, address: address, website: website)
                         
                         self.delegate?.getAttractionManager(self, didGetData: attraction)
 

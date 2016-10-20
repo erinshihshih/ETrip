@@ -18,7 +18,7 @@ class AttractionTableViewCell: UITableViewCell {
 //    
 //    @IBOutlet weak var addressTextField: UITextField!
     
-    @IBOutlet weak var noteTextView: UITextView!
+//    @IBOutlet weak var noteTextView: UITextView!
     
     @IBOutlet weak var searchButton: UIButton!
     

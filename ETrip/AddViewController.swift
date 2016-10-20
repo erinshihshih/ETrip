@@ -40,11 +40,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var rows: [ Row ] = [ .title ]
     
     var attractionCell = AttractionTableViewCell()
-    var selectedName: [String] = []
     
     // title pickerView
     var pickerView = UIPickerView()
-    var transportationPickerView = UIPickerView()
+//    var transportationPickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
@@ -215,7 +214,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.arriveDateTextField.text = transportation.arriveDate
             }
             
-            cell.typeTextField.inputView = transportationPickerView
+//            cell.typeTextField.inputView = transportationPickerView
             return cell
             
         case .attraction:
@@ -223,25 +222,20 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-//            cell.nameTextField.delegate = self
-//            cell.stayHourTextField.delegate = self
-//            cell.addressTextField.delegate = self
-//            cell.noteTextView.delegate = self
             
             cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
 
-            
             if !isEditingAttraction  {
                 
                 let theAttraction = attractions[indexPath.row - transportations.count - 1]
                 
                 // Set up views if editing an existing data.
                 let attraction = theAttraction
-//                
-//                cell.nameTextField.text = attraction.name
-//                cell.stayHourTextField.text = attraction.stayHour
-//                cell.addressTextField.text = attraction.address
-//                cell.noteTextView.text = attraction.note
+                
+                cell.nameLabel.text = attraction.name
+                cell.phoneLabel.text = attraction.phone
+                cell.addressLabel.text = attraction.address
+                cell.websiteLabel.text = attraction.website
                 
             }
             
@@ -721,6 +715,7 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         attractionCell.addressLabel.text = place.formattedAddress
         attractionCell.phoneLabel.text = place.phoneNumber
         attractionCell.websiteLabel.text = "\(place.website!)"
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
