@@ -18,21 +18,17 @@
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkin Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-0v-jnp">
                         <rect key="frame" x="70" y="57" width="150" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="Zwi-MT-yMa"/>
-                            <constraint firstAttribute="width" constant="150" id="dap-zH-ynU"/>
+                            <constraint firstAttribute="height" constant="30" id="8tQ-fS-1No"/>
                         </constraints>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Booking Ref." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BUr-Ar-SVJ">
-                        <rect key="frame" x="218" y="95" width="154" height="30"/>
-                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkout Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VtC-WX-DnC">
-                        <rect key="frame" x="218" y="57" width="154" height="30"/>
+                        <rect key="frame" x="227" y="75" width="145" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="145" id="Tow-gx-UlE"/>
+                        </constraints>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
@@ -40,33 +36,21 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accommodation" translatesAutoresizingMaskIntoConstraints="NO" id="oRO-D9-5OY">
                         <rect key="frame" x="15" y="83" width="35" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="LpA-k6-IUP"/>
-                            <constraint firstAttribute="width" constant="35" id="tGa-q9-14H"/>
-                            <constraint firstAttribute="height" constant="35" id="vqi-Sy-6V4"/>
+                            <constraint firstAttribute="height" constant="35" id="QwL-at-BY6"/>
+                            <constraint firstAttribute="width" constant="35" id="wGN-Gk-ktO"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="LpA-k6-IUP"/>
-                            </mask>
-                        </variation>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZr-I6-lW6">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZr-I6-lW6">
                         <rect key="frame" x="103" y="18" width="269" height="31"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKQ-dw-dah">
-                        <rect key="frame" x="70" y="95" width="150" height="30"/>
-                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="djO-di-sYr">
                         <rect key="frame" x="70" y="20" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="25" id="Jaf-zq-slb"/>
-                            <constraint firstAttribute="height" constant="25" id="fhU-nE-1nO"/>
+                            <constraint firstAttribute="height" constant="25" id="3YW-8M-Pnw"/>
+                            <constraint firstAttribute="width" constant="25" id="XhF-bK-rIB"/>
                         </constraints>
                         <state key="normal" image="search"/>
                     </button>
@@ -76,42 +60,38 @@
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkout Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VtC-WX-DnC">
+                        <rect key="frame" x="70" y="95" width="150" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="BSb-sn-d8F"/>
+                        </constraints>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="baseline" secondItem="VtC-WX-DnC" secondAttribute="baseline" id="9US-Lb-HCN"/>
-                    <constraint firstItem="djO-di-sYr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="9oP-c5-S4t"/>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="VKQ-dw-dah" secondAttribute="leading" id="APC-8m-ceR"/>
-                    <constraint firstItem="KZr-I6-lW6" firstAttribute="leading" secondItem="djO-di-sYr" secondAttribute="trailing" constant="8" symbolic="YES" id="AfI-64-7jX"/>
-                    <constraint firstItem="VKQ-dw-dah" firstAttribute="top" secondItem="BUr-Ar-SVJ" secondAttribute="top" id="BEQ-1z-KIy"/>
-                    <constraint firstItem="VtC-WX-DnC" firstAttribute="trailing" secondItem="BUr-Ar-SVJ" secondAttribute="trailing" id="Dln-tx-HHe"/>
-                    <constraint firstItem="4o0-Fi-4yN" firstAttribute="top" secondItem="VKQ-dw-dah" secondAttribute="bottom" constant="8" symbolic="YES" id="ELs-Xn-XGc"/>
-                    <constraint firstItem="KZr-I6-lW6" firstAttribute="baseline" secondItem="djO-di-sYr" secondAttribute="baseline" id="I2u-Lk-3Qe"/>
-                    <constraint firstItem="oRO-D9-5OY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Lvc-pZ-JAF"/>
-                    <constraint firstItem="KZr-I6-lW6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="N1T-2F-pr6"/>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="trailing" secondItem="VKQ-dw-dah" secondAttribute="trailing" id="OzM-3G-ZR8"/>
-                    <constraint firstItem="VtC-WX-DnC" firstAttribute="leading" secondItem="BUr-Ar-SVJ" secondAttribute="leading" id="V8m-4T-aFF"/>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="djO-di-sYr" secondAttribute="leading" id="Wt0-Gg-h1a"/>
-                    <constraint firstItem="djO-di-sYr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="70" id="Xbb-JC-c6h"/>
-                    <constraint firstItem="VKQ-dw-dah" firstAttribute="top" secondItem="5Ax-0v-jnp" secondAttribute="bottom" constant="8" symbolic="YES" id="Xm7-KE-bHv"/>
-                    <constraint firstItem="4o0-Fi-4yN" firstAttribute="top" secondItem="BUr-Ar-SVJ" secondAttribute="bottom" constant="8" symbolic="YES" id="bOt-7Y-bhK"/>
-                    <constraint firstItem="KZr-I6-lW6" firstAttribute="trailing" secondItem="VtC-WX-DnC" secondAttribute="trailing" id="eFD-Ah-62f"/>
-                    <constraint firstItem="KZr-I6-lW6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="jsK-cB-mJX"/>
-                    <constraint firstItem="oRO-D9-5OY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lOe-gI-xpn"/>
-                    <constraint firstItem="BUr-Ar-SVJ" firstAttribute="top" secondItem="oRO-D9-5OY" secondAttribute="bottom" constant="37" id="lnr-eB-cG5"/>
-                    <constraint firstItem="oRO-D9-5OY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="miG-XY-zwO"/>
-                    <constraint firstItem="oRO-D9-5OY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pD7-Kp-pe9"/>
-                    <constraint firstItem="VKQ-dw-dah" firstAttribute="leading" secondItem="4o0-Fi-4yN" secondAttribute="leading" id="q0c-Vl-5qq"/>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="top" secondItem="KZr-I6-lW6" secondAttribute="bottom" constant="8" symbolic="YES" id="uUn-0a-6E5"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4o0-Fi-4yN" secondAttribute="bottom" constant="-0.5" id="xSu-1d-vsf"/>
-                    <constraint firstItem="BUr-Ar-SVJ" firstAttribute="trailing" secondItem="4o0-Fi-4yN" secondAttribute="trailing" id="yOv-7U-xB9"/>
+                    <constraint firstItem="KZr-I6-lW6" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="1Lb-Q2-A3w"/>
+                    <constraint firstItem="djO-di-sYr" firstAttribute="leading" secondItem="5Ax-0v-jnp" secondAttribute="leading" id="AII-LG-vfj"/>
+                    <constraint firstItem="oRO-D9-5OY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Ajv-hL-fvx"/>
+                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="VtC-WX-DnC" secondAttribute="leading" id="BKB-ts-3Zc"/>
+                    <constraint firstItem="4o0-Fi-4yN" firstAttribute="top" secondItem="VtC-WX-DnC" secondAttribute="bottom" constant="8" symbolic="YES" id="JHU-5S-5an"/>
+                    <constraint firstItem="KZr-I6-lW6" firstAttribute="trailing" secondItem="BUr-Ar-SVJ" secondAttribute="trailing" id="MMI-Jd-nlZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4o0-Fi-4yN" secondAttribute="bottom" constant="-0.5" id="ajK-Jy-RuS"/>
+                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="top" secondItem="KZr-I6-lW6" secondAttribute="bottom" constant="8" symbolic="YES" id="bdz-Qe-6wO"/>
+                    <constraint firstItem="BUr-Ar-SVJ" firstAttribute="top" secondItem="KZr-I6-lW6" secondAttribute="bottom" constant="26" id="d1K-ld-MK5"/>
+                    <constraint firstItem="oRO-D9-5OY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="epN-Dz-lvn"/>
+                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="trailing" secondItem="VtC-WX-DnC" secondAttribute="trailing" id="f4w-vi-poT"/>
+                    <constraint firstItem="VtC-WX-DnC" firstAttribute="top" secondItem="5Ax-0v-jnp" secondAttribute="bottom" constant="8" symbolic="YES" id="hf9-tK-LZt"/>
+                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="oRO-D9-5OY" secondAttribute="trailing" constant="20" id="iWC-qD-LZw"/>
+                    <constraint firstItem="BUr-Ar-SVJ" firstAttribute="trailing" secondItem="4o0-Fi-4yN" secondAttribute="trailing" id="mfA-Cx-4LF"/>
+                    <constraint firstItem="djO-di-sYr" firstAttribute="baseline" secondItem="KZr-I6-lW6" secondAttribute="baseline" id="ofE-k3-jbo"/>
+                    <constraint firstItem="KZr-I6-lW6" firstAttribute="leading" secondItem="djO-di-sYr" secondAttribute="trailing" constant="8" symbolic="YES" id="p2N-Vu-CYP"/>
+                    <constraint firstItem="BUr-Ar-SVJ" firstAttribute="leading" secondItem="VtC-WX-DnC" secondAttribute="trailing" constant="7" id="q95-cU-1l1"/>
+                    <constraint firstItem="djO-di-sYr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="ugV-5D-4z5"/>
+                    <constraint firstItem="KZr-I6-lW6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="w3Y-WA-C96"/>
+                    <constraint firstItem="VtC-WX-DnC" firstAttribute="leading" secondItem="4o0-Fi-4yN" secondAttribute="leading" id="ysa-lR-Py9"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="lOe-gI-xpn"/>
-                        <exclude reference="miG-XY-zwO"/>
-                        <exclude reference="lnr-eB-cG5"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="4o0-Fi-4yN" id="RiW-4k-k6L"/>
@@ -119,7 +99,6 @@
                 <outlet property="checkinDateTextField" destination="5Ax-0v-jnp" id="jp9-Gu-En7"/>
                 <outlet property="checkoutDateTextField" destination="VtC-WX-DnC" id="5LO-PC-37Z"/>
                 <outlet property="nameLabel" destination="KZr-I6-lW6" id="Vk6-F6-w4I"/>
-                <outlet property="phoneLabel" destination="VKQ-dw-dah" id="8ke-FL-7xB"/>
                 <outlet property="searchButton" destination="djO-di-sYr" id="OM6-xa-xoP"/>
             </connections>
             <point key="canvasLocation" x="368" y="436"/>

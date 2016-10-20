@@ -12,94 +12,92 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="201"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="200.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="201"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depart Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHu-gP-P3R">
-                        <rect key="frame" x="193" y="124" width="180" height="30"/>
+                        <rect key="frame" x="214" y="105" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Booking Ref." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kj2-6N-kGT">
-                        <rect key="frame" x="193" y="86" width="180" height="30"/>
+                        <rect key="frame" x="214" y="67" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depart From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7H-54-Lx3">
-                        <rect key="frame" x="8" y="124" width="180" height="30"/>
+                        <rect key="frame" x="46" y="105" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Flight No." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yg9-3r-lAX">
-                        <rect key="frame" x="8" y="86" width="180" height="30"/>
+                        <rect key="frame" x="46" y="67" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Arrive Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHk-4g-p4G">
-                        <rect key="frame" x="193" y="162" width="180" height="30"/>
+                        <rect key="frame" x="214" y="143" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Arrive At" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tuf-yI-uQ0">
-                        <rect key="frame" x="8" y="162" width="180" height="30"/>
+                        <rect key="frame" x="46" y="143" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tranportation type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-yu-gIk">
-                        <rect key="frame" x="8" y="48" width="180" height="30"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-yu-gIk">
+                        <rect key="frame" x="46" y="29" width="160" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="160" id="ZhJ-R0-Crq"/>
+                        </constraints>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-6f-myW">
-                        <rect key="frame" x="193" y="48" width="180" height="30"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Com." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-6f-myW">
+                        <rect key="frame" x="214" y="29" width="160" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transportation" translatesAutoresizingMaskIntoConstraints="NO" id="RhV-Zs-Q33">
-                        <rect key="frame" x="8" y="8" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="eGz-Dn-pxh"/>
-                        </constraints>
+                        <rect key="frame" x="8" y="83" width="35" height="35"/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="27M-RE-PyP"/>
-                    <constraint firstItem="N7H-54-Lx3" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="53b-PS-wlB"/>
-                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="98B-My-ZT0"/>
-                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="top" secondItem="VOX-yu-gIk" secondAttribute="bottom" constant="8" id="Aar-aL-gyu"/>
-                    <constraint firstItem="Kj2-6N-kGT" firstAttribute="leading" secondItem="h4D-6f-myW" secondAttribute="leading" id="CEh-7k-BAh"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="h4D-6f-myW" secondAttribute="trailing" id="E4J-J4-23i"/>
-                    <constraint firstItem="h4D-6f-myW" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="FBG-Vk-vqO"/>
-                    <constraint firstItem="Kj2-6N-kGT" firstAttribute="top" secondItem="h4D-6f-myW" secondAttribute="bottom" constant="8" id="Pxj-Z6-aC3"/>
-                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="VVE-83-ryb"/>
-                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aTb-I5-zrJ"/>
-                    <constraint firstItem="MHk-4g-p4G" firstAttribute="top" secondItem="LHu-gP-P3R" secondAttribute="bottom" constant="8" id="cRH-V7-sLO"/>
-                    <constraint firstItem="LHu-gP-P3R" firstAttribute="width" secondItem="Kj2-6N-kGT" secondAttribute="width" id="cyY-tU-7gI"/>
-                    <constraint firstItem="h4D-6f-myW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="40" id="dhF-Ud-LTb"/>
-                    <constraint firstItem="tuf-yI-uQ0" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="fKz-4W-BpE"/>
-                    <constraint firstItem="VOX-yu-gIk" firstAttribute="top" secondItem="RhV-Zs-Q33" secondAttribute="bottom" constant="10" id="fSd-Ju-Bz5"/>
-                    <constraint firstItem="LHu-gP-P3R" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="g6e-4b-qmG"/>
-                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="igb-Ut-HQQ"/>
-                    <constraint firstItem="tuf-yI-uQ0" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="mhg-MP-6Aa"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Kj2-6N-kGT" secondAttribute="trailing" id="nAd-pB-neZ"/>
-                    <constraint firstItem="h4D-6f-myW" firstAttribute="top" secondItem="VOX-yu-gIk" secondAttribute="top" id="nTz-dH-Xhd"/>
-                    <constraint firstItem="LHu-gP-P3R" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="o1a-3X-D8N"/>
-                    <constraint firstItem="h4D-6f-myW" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="trailing" constant="5" id="oRf-kj-fhs"/>
-                    <constraint firstItem="LHu-gP-P3R" firstAttribute="top" secondItem="Kj2-6N-kGT" secondAttribute="bottom" constant="8" id="tHY-UT-0wO"/>
-                    <constraint firstItem="MHk-4g-p4G" firstAttribute="leading" secondItem="LHu-gP-P3R" secondAttribute="leading" id="tV3-Nr-aMt"/>
-                    <constraint firstItem="N7H-54-Lx3" firstAttribute="top" secondItem="Yg9-3r-lAX" secondAttribute="bottom" constant="8" id="tqb-R8-DHx"/>
-                    <constraint firstItem="MHk-4g-p4G" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="tvw-WN-DGb"/>
-                    <constraint firstItem="tuf-yI-uQ0" firstAttribute="top" secondItem="N7H-54-Lx3" secondAttribute="bottom" constant="8" id="v6y-px-1Gf"/>
-                    <constraint firstItem="MHk-4g-p4G" firstAttribute="width" secondItem="Kj2-6N-kGT" secondAttribute="width" id="vyu-gk-U0m"/>
-                    <constraint firstItem="N7H-54-Lx3" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="yjh-HK-4AP"/>
+                    <constraint firstItem="N7H-54-Lx3" firstAttribute="baseline" secondItem="LHu-gP-P3R" secondAttribute="baseline" id="0IO-y3-J21"/>
+                    <constraint firstItem="LHu-gP-P3R" firstAttribute="leading" secondItem="MHk-4g-p4G" secondAttribute="leading" id="487-ps-DPT"/>
+                    <constraint firstItem="tuf-yI-uQ0" firstAttribute="baseline" secondItem="MHk-4g-p4G" secondAttribute="baseline" id="D8R-rl-T21"/>
+                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="baseline" secondItem="Kj2-6N-kGT" secondAttribute="baseline" id="E35-59-yt9"/>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="75" id="EuW-v6-kjC"/>
+                    <constraint firstItem="LHu-gP-P3R" firstAttribute="leading" secondItem="N7H-54-Lx3" secondAttribute="trailing" constant="8" symbolic="YES" id="Fue-vK-hJc"/>
+                    <constraint firstItem="VOX-yu-gIk" firstAttribute="baseline" secondItem="h4D-6f-myW" secondAttribute="baseline" id="HrW-ni-11l"/>
+                    <constraint firstItem="Kj2-6N-kGT" firstAttribute="trailing" secondItem="LHu-gP-P3R" secondAttribute="trailing" id="JcU-22-weJ"/>
+                    <constraint firstItem="VOX-yu-gIk" firstAttribute="leading" secondItem="Yg9-3r-lAX" secondAttribute="leading" id="K6J-5f-qwW"/>
+                    <constraint firstItem="LHu-gP-P3R" firstAttribute="trailing" secondItem="MHk-4g-p4G" secondAttribute="trailing" id="My1-Fo-izO"/>
+                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="leading" secondItem="N7H-54-Lx3" secondAttribute="leading" id="SLS-xH-yhy"/>
+                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="leading" secondItem="RhV-Zs-Q33" secondAttribute="trailing" constant="3" id="SlU-zC-WaN"/>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Vxs-UN-Syn"/>
+                    <constraint firstItem="VOX-yu-gIk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="38" id="XvG-J8-Y96"/>
+                    <constraint firstItem="N7H-54-Lx3" firstAttribute="top" secondItem="Yg9-3r-lAX" secondAttribute="bottom" constant="8" symbolic="YES" id="Xz9-md-fCz"/>
+                    <constraint firstItem="tuf-yI-uQ0" firstAttribute="top" secondItem="N7H-54-Lx3" secondAttribute="bottom" constant="8" symbolic="YES" id="dTo-2x-a5I"/>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ega-XN-rxo"/>
+                    <constraint firstItem="Kj2-6N-kGT" firstAttribute="leading" secondItem="Yg9-3r-lAX" secondAttribute="trailing" constant="8" symbolic="YES" id="gV1-1H-8zM"/>
+                    <constraint firstItem="VOX-yu-gIk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="21" id="iEf-aY-LE6"/>
+                    <constraint firstItem="MHk-4g-p4G" firstAttribute="leading" secondItem="tuf-yI-uQ0" secondAttribute="trailing" constant="8" symbolic="YES" id="jrv-d0-5mK"/>
+                    <constraint firstItem="Kj2-6N-kGT" firstAttribute="leading" secondItem="LHu-gP-P3R" secondAttribute="leading" id="k0g-wL-2ct"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="h4D-6f-myW" secondAttribute="trailing" constant="-1" id="rPp-Cf-Jrn"/>
+                    <constraint firstItem="N7H-54-Lx3" firstAttribute="leading" secondItem="tuf-yI-uQ0" secondAttribute="leading" id="s19-E8-vWI"/>
+                    <constraint firstItem="h4D-6f-myW" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="snn-vp-Aid"/>
+                    <constraint firstItem="h4D-6f-myW" firstAttribute="trailing" secondItem="Kj2-6N-kGT" secondAttribute="trailing" id="uVb-Ns-cCy"/>
+                    <constraint firstItem="Yg9-3r-lAX" firstAttribute="top" secondItem="VOX-yu-gIk" secondAttribute="bottom" constant="8" symbolic="YES" id="vZ7-rG-KwB"/>
+                    <constraint firstItem="h4D-6f-myW" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="trailing" constant="8" symbolic="YES" id="yfD-xj-xde"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

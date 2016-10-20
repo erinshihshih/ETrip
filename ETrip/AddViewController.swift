@@ -272,7 +272,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 let accommodation = theAccommodation
                 
                 cell.nameLabel.text = accommodation.name
-                cell.phoneLabel.text = accommodation.phone
+//                cell.phoneLabel.text = accommodation.phone
                 cell.addressLabel.text = accommodation.address
                 cell.checkinDateTextField.text = accommodation.checkinDate
                 cell.checkoutDateTextField.text = accommodation.checkoutDate
@@ -421,7 +421,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     // Accommodation Cell
                     let name = cell.nameLabel.text ?? ""
-                    let phone = cell.phoneLabel.text ?? ""
+//                    let phone = cell.phoneLabel.text ?? ""
                     let address = cell.addressLabel.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
@@ -434,7 +434,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                      "indexPathRow": indexPathRow,
                                                                      "timestamp": timeStamp,
                                                                      "name": name,
-                                                                     "phone": phone,
+//                                                                     "phone": phone,
                                                                      "address": address,
                                                                      "checkinDate": checkinDate,
                                                                      "checkoutDate": checkoutDate,
@@ -730,15 +730,18 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
             attractionCell!.phoneLabel.text = place.phoneNumber
             
             if place.website == nil {
+                
                 attractionCell!.websiteLabel.text = "No website info found!"
+            
             } else {
+            
                 attractionCell!.websiteLabel.text = "\(place.website!)"
+            
             }
             
         } else if accommodationCell != nil{ 
             
             accommodationCell!.nameLabel.text = place.name
-            accommodationCell!.phoneLabel.text = place.phoneNumber
             accommodationCell!.addressLabel.text = place.formattedAddress
             
         }

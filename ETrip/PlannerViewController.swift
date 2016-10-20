@@ -111,7 +111,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Set up views if editing an existing data.
             cell.nameLabel.text = accommodation.name
             cell.addressLabel.text = accommodation.address
-            cell.phoneLabel.text = accommodation.phone
+//            cell.phoneLabel.text = accommodation.phone
             cell.bookingRefLabel.text = accommodation.bookingRef
             cell.checkinDateLabel.text = accommodation.checkinDate
             cell.checkoutDateLabel.text = accommodation.checkoutDate

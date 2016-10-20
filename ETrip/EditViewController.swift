@@ -36,8 +36,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var countryArray = [String]()
     
-    var attractionCell = AttractionTableViewCell()
-    
     // title pickerView
     var pickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
@@ -48,6 +46,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     var rows: [ Row ] = [ .title ]
+    
+    var attractionCell: AttractionTableViewCell?
+    var accommodationCell: AccommodationTableViewCell?
     
     let databaseRef = FIRDatabase.database().reference()
     
@@ -84,6 +85,27 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.endUpdates()
         
     }
+    
+    func onLaunchClicked(sender: UIButton) {
+        
+        if let sender = sender.superview?.superview as? AttractionTableViewCell{
+            
+            attractionCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
+        if let sender = sender.superview?.superview as? AccommodationTableViewCell{
+            
+            accommodationCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -216,12 +238,12 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-//            cell.nameTextField.delegate = self
-//            cell.addressTextField.delegate = self
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
             cell.bookingRefTextField.delegate = self
-//            cell.noteTextView.delegate = self
+
+            
+            cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
             
             if !isEditingAccommodation  {
                 
@@ -229,7 +251,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 // Set up views if editing an existing data.
                 cell.nameLabel.text = accommodation!.name
-                cell.phoneLabel.text = accommodation!.phone
                 cell.addressLabel.text = accommodation!.address
                 cell.checkinDateTextField.text = accommodation!.checkinDate
                 cell.checkoutDateTextField.text = accommodation!.checkoutDate
@@ -409,7 +430,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     // Accommodation Cell
                     let name = cell.nameLabel.text ?? ""
-                    let phone = cell.phoneLabel.text ?? ""
+//                    let phone = cell.phoneLabel.text ?? ""
                     let address = cell.addressLabel.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
@@ -422,7 +443,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                      "indexPathRow": indexPathRow,
                                                                      "timestamp": timeStamp,
                                                                      "name": name,
-                                                                     "phone": phone,
+//                                                                     "phone": phone,
                                                                      "address": address,
                                                                      "checkinDate": checkinDate,
                                                                      "checkoutDate": checkoutDate,
@@ -555,15 +576,6 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func onLaunchClicked(sender: UIButton) {
-        
-        attractionCell = sender.superview?.superview as! AttractionTableViewCell
-        
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        self.presentViewController(acController, animated: true, completion: nil)
-        
-    }
     
     
 
@@ -675,15 +687,32 @@ extension EditViewController: GMSAutocompleteViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         print("Place coordinate: \(place.coordinate)")
         
-        attractionCell.nameLabel.text = place.name
-        attractionCell.addressLabel.text = place.formattedAddress
-        attractionCell.phoneLabel.text = place.phoneNumber
-        
-        if place.website == nil {
-            attractionCell.websiteLabel.text = "No website info found!"
-        } else {
-            attractionCell.websiteLabel.text = "\(place.website!)"
+        if attractionCell != nil {
+            
+            attractionCell!.nameLabel.text = place.name
+            attractionCell!.addressLabel.text = place.formattedAddress
+            attractionCell!.phoneLabel.text = place.phoneNumber
+            
+            if place.website == nil {
+                
+                attractionCell!.websiteLabel.text = "No website info found!"
+            
+            } else {
+              
+                attractionCell!.websiteLabel.text = "\(place.website!)"
+            
+            }
+            
+        } else if accommodationCell != nil{
+            
+            accommodationCell!.nameLabel.text = place.name
+            accommodationCell!.addressLabel.text = place.formattedAddress
+            
         }
+        
+        
+        attractionCell = nil
+        accommodationCell = nil
         
         
         self.dismissViewControllerAnimated(true, completion: nil)

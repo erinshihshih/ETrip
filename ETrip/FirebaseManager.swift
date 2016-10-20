@@ -196,14 +196,14 @@ class FirebaseManager {
                         let accommodationID = item["accommodationID"] as! String
                         let indexPathRow = item["indexPathRow"] as! Int
                         let name = item["name"] as! String
-                        let phone = item["phone"] as! String
+//                        let phone = item["phone"] as! String
                         let address = item["address"] as! String
                         let checkinDate = item["checkinDate"] as! String
                         let checkoutDate = item["checkoutDate"] as! String
                         let bookingRef = item["bookingRef"] as! String
                         
                         
-                        let accommodation = Accommodation(postID: postID, accommodationID: accommodationID, indexPathRow: indexPathRow, name: name, phone: phone, address: address, checkinDate: checkinDate, checkoutDate: checkoutDate, bookingRef: bookingRef)
+                        let accommodation = Accommodation(postID: postID, accommodationID: accommodationID, indexPathRow: indexPathRow, name: name, address: address, checkinDate: checkinDate, checkoutDate: checkoutDate, bookingRef: bookingRef)
                         
                         self.delegate?.getAccommodationManager(self, didGetData: accommodation)
                         
