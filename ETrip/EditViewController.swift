@@ -193,9 +193,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-            cell.nameTextField.delegate = self
-            cell.stayHourTextField.delegate = self
-            cell.addressTextField.delegate = self
+//            cell.nameTextField.delegate = self
+//            cell.stayHourTextField.delegate = self
+//            cell.addressTextField.delegate = self
             cell.noteTextView.delegate = self
             
             if !isEditingAttraction  {
@@ -203,9 +203,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 attraction = allArray[indexPath.row] as? Attraction
                 
                 // Set up views if editing an existing data.
-                cell.nameTextField.text = attraction!.name
-                cell.stayHourTextField.text = attraction!.stayHour
-                cell.addressTextField.text = attraction!.address
+//                cell.nameTextField.text = attraction!.name
+//                cell.stayHourTextField.text = attraction!.stayHour
+//                cell.addressTextField.text = attraction!.address
                 cell.noteTextView.text = attraction!.note
                 
             }
@@ -366,9 +366,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let attractionID = selectedAttraction.attractionID
                  
                     // Attraction Cell
-                    let name = cell.nameTextField.text ?? ""
-                    let stayHour = cell.stayHourTextField.text ?? ""
-                    let address = cell.addressTextField.text ?? ""
+                    let name = cell.nameLabel.text ?? ""
+                    let address = cell.addressLabel.text ?? ""
+                    let phone = cell.phoneLabel.text ?? ""
+                    let website = cell.websiteLabel.text ?? ""
                     let note = cell.noteTextView.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
@@ -377,8 +378,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                   "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
-                                                                  "stayHour": stayHour,
+//                                                                  "stayHour": stayHour,
                                                                   "address": address,
+                                                                  "phone": phone,
+                                                                  "website": website,
                                                                   "note": note ]
                     
                     databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {

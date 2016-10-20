@@ -35,9 +35,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var isEditingAccommodation = false
     
     var countryArray = [String]()
-    var transportationArray = ["Airplane", "Train", "Bus"]
+//    var transportationArray = ["Airplane", "Train", "Bus"]
     
     var rows: [ Row ] = [ .title ]
+    
+    var attractionCell = AttractionTableViewCell()
+    var selectedName: [String] = []
     
     // title pickerView
     var pickerView = UIPickerView()
@@ -83,17 +86,21 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    @IBAction func onLaunchClicked(sender: AnyObject) {
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        self.presentViewController(acController, animated: true, completion: nil)
-    }
-    
-//    func onLaunchClicked(sender: UIButton) {
+//    @IBAction func onLaunchClicked(sender: AnyObject) {
 //        let acController = GMSAutocompleteViewController()
 //        acController.delegate = self
 //        self.presentViewController(acController, animated: true, completion: nil)
 //    }
+    
+    func onLaunchClicked(sender: UIButton) {
+        
+        attractionCell = sender.superview?.superview as! AttractionTableViewCell
+        
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        self.presentViewController(acController, animated: true, completion: nil)
+        
+    }
 
  
 
@@ -216,13 +223,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-            cell.nameTextField.delegate = self
-            cell.stayHourTextField.delegate = self
-            cell.addressTextField.delegate = self
-            cell.noteTextView.delegate = self
+//            cell.nameTextField.delegate = self
+//            cell.stayHourTextField.delegate = self
+//            cell.addressTextField.delegate = self
+//            cell.noteTextView.delegate = self
             
-//            cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-//            cell.searchButton.tag = indexPath.row
+            cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+
             
             if !isEditingAttraction  {
                 
@@ -230,11 +237,11 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 // Set up views if editing an existing data.
                 let attraction = theAttraction
-                
-                cell.nameTextField.text = attraction.name
-                cell.stayHourTextField.text = attraction.stayHour
-                cell.addressTextField.text = attraction.address
-                cell.noteTextView.text = attraction.note
+//                
+//                cell.nameTextField.text = attraction.name
+//                cell.stayHourTextField.text = attraction.stayHour
+//                cell.addressTextField.text = attraction.address
+//                cell.noteTextView.text = attraction.note
                 
             }
             
@@ -359,7 +366,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let departDate = cell.departDateTextField.text ?? ""
                     let arriveDate = cell.arriveDateTextField.text ?? ""
                     
-                    
                     let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                       "postID": postIDKey,
                                                                       "transportationID": transportationIDKey,
@@ -384,10 +390,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                 
                     // Attraction Cell
-                    let name = cell.nameTextField.text ?? ""
-                    let stayHour = cell.stayHourTextField.text ?? ""
-                    let address = cell.addressTextField.text ?? ""
-                    let note = cell.noteTextView.text ?? ""
+                    let name = cell.nameLabel.text ?? ""
+                    let address = cell.addressLabel.text ?? ""
+                    let phone = cell.phoneLabel.text ?? ""
+                    let website = cell.websiteLabel.text ?? ""
                     
                     let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                   "postID": postIDKey,
@@ -395,9 +401,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                   "indexPathRow": indexPathRow,
                                                                   "timestamp": timeStamp,
                                                                   "name": name,
-                                                                  "stayHour": stayHour,
                                                                   "address": address,
-                                                                  "note": note ]
+                                                                  "phone": phone,
+                                                                  "website": website ]
                     
                     databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                     
@@ -711,6 +717,10 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         print("Place coordinate: \(place.coordinate)")
         
+        attractionCell.nameLabel.text = place.name
+        attractionCell.addressLabel.text = place.formattedAddress
+        attractionCell.phoneLabel.text = place.phoneNumber
+        attractionCell.websiteLabel.text = "\(place.website!)"
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
