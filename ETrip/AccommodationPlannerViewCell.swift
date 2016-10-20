@@ -12,13 +12,16 @@ class AccommodationPlannerViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var bookingRefLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBOutlet weak var bookingRefLabel: UILabel!
 
     @IBOutlet weak var checkinDateLabel: UILabel!
     
     @IBOutlet weak var checkoutDateLabel: UILabel!
 
-    @IBOutlet weak var noteLabel: UILabel!
+
+
 }
