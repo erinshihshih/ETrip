@@ -216,24 +216,25 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-            cell.nameTextField.delegate = self
-            cell.addressTextField.delegate = self
+//            cell.nameTextField.delegate = self
+//            cell.addressTextField.delegate = self
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
             cell.bookingRefTextField.delegate = self
-            cell.noteTextView.delegate = self
+//            cell.noteTextView.delegate = self
             
             if !isEditingAccommodation  {
                 
                 accommodation = allArray[indexPath.row] as? Accommodation
                 
                 // Set up views if editing an existing data.
-                cell.nameTextField.text = accommodation!.name
-                cell.addressTextField.text = accommodation!.address
+                cell.nameLabel.text = accommodation!.name
+                cell.phoneLabel.text = accommodation!.phone
+                cell.addressLabel.text = accommodation!.address
                 cell.checkinDateTextField.text = accommodation!.checkinDate
                 cell.checkoutDateTextField.text = accommodation!.checkoutDate
                 cell.bookingRefTextField.text = accommodation!.bookingRef
-                cell.noteTextView.text = accommodation!.note
+                
                 
             }
             
@@ -407,12 +408,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let accommodationID = selectedAccommodation.accommodationID
                     
                     // Accommodation Cell
-                    let name = cell.nameTextField.text ?? ""
-                    let address = cell.addressTextField.text ?? ""
+                    let name = cell.nameLabel.text ?? ""
+                    let phone = cell.phoneLabel.text ?? ""
+                    let address = cell.addressLabel.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
                     let bookingRef = cell.bookingRefTextField.text ?? ""
-                    let note = cell.noteTextView.text ?? ""
+                    
                     
                     let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                      "postID": postID,
@@ -420,11 +422,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                      "indexPathRow": indexPathRow,
                                                                      "timestamp": timeStamp,
                                                                      "name": name,
+                                                                     "phone": phone,
                                                                      "address": address,
                                                                      "checkinDate": checkinDate,
                                                                      "checkoutDate": checkoutDate,
-                                                                     "bookingRef": bookingRef,
-                                                                     "note": note ]
+                                                                     "bookingRef": bookingRef ]
                     
                     databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in

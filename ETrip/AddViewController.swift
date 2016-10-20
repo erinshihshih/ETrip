@@ -40,7 +40,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var rows: [ Row ] = [ .title ]
     
     var attractionCell = AttractionTableViewCell()
-    var transportationCell = TransportationTableViewCell()
+    var accommodationCell = AccommodationTableViewCell()
     
     // title pickerView
     var pickerView = UIPickerView()
@@ -93,16 +93,25 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //    }
     
     func onLaunchClicked(sender: UIButton) {
-        if let sender = sender.superview?.superview as? AttractionTableViewCell {
-            attractionCell = sender
+        
+//        if
+        let sender = sender.superview?.superview as? AttractionTableViewCell
+//        {
+        
+            attractionCell = sender!
             let acController = GMSAutocompleteViewController()
             acController.delegate = self
             self.presentViewController(acController, animated: true, completion: nil)
+            
+//        } else
+//            if let sender = sender.superview?.superview as? AccommodationTableViewCell {
+//                
+//                accommodationCell = sender
+//                let acController = GMSAutocompleteViewController()
+//                acController.delegate = self
+//                self.presentViewController(acController, animated: true, completion: nil)
+//        }
 
-        } else {
-            return
-        }
-        
     }
 
  
@@ -250,10 +259,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-            cell.nameTextField.delegate = self
-            cell.addressTextField.delegate = self
+//            cell.nameTextField.delegate = self
+//            cell.addressTextField.delegate = self
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
+            
+            cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
             
             if !isEditingAccommodation  {
                 
@@ -267,8 +278,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.addressLabel.text = accommodation.address
                 cell.checkinDateTextField.text = accommodation.checkinDate
                 cell.checkoutDateTextField.text = accommodation.checkoutDate
-                
-                
                 
             }
             
@@ -716,12 +725,21 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         print("Place coordinate: \(place.coordinate)")
         
+       
         attractionCell.nameLabel.text = place.name
         attractionCell.addressLabel.text = place.formattedAddress
         attractionCell.phoneLabel.text = place.phoneNumber
-        attractionCell.websiteLabel.text = "\(place.website!)"
+        if place.website == nil {
+            attractionCell.websiteLabel.text = "No website info found!"
+        } else {
+            attractionCell.websiteLabel.text = "\(place.website!)"
+        }
         
-//        transportationCell.nameLabel.text = place
+
+        
+//        accommodationCell.nameLabel.text = place.name
+//        accommodationCell.phoneLabel.text = place.phoneNumber
+//        accommodationCell.addressLabel.text = place.formattedAddress
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

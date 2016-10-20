@@ -29,4 +29,7 @@ class AccommodationTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBOutlet weak var searchButton: UIButton!
+    
 }

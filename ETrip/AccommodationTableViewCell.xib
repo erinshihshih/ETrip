@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="380" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="380" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Checkin Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-0v-jnp">
@@ -120,6 +120,7 @@
                 <outlet property="checkoutDateTextField" destination="VtC-WX-DnC" id="5LO-PC-37Z"/>
                 <outlet property="nameLabel" destination="KZr-I6-lW6" id="Vk6-F6-w4I"/>
                 <outlet property="phoneLabel" destination="VKQ-dw-dah" id="8ke-FL-7xB"/>
+                <outlet property="searchButton" destination="djO-di-sYr" id="OM6-xa-xoP"/>
             </connections>
             <point key="canvasLocation" x="368" y="436"/>
         </tableViewCell>
