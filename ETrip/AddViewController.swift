@@ -40,7 +40,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var rows: [ Row ] = [ .title ]
     
     // title pickerView
-    var countryPickerView = UIPickerView()
+    var pickerView = UIPickerView()
     var transportationPickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
@@ -173,7 +173,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.returnDateTextField.text = post.returnDate
             }
             
-            cell.countryTextField.inputView = countryPickerView
+            cell.countryTextField.inputView = pickerView
             return cell
             
             

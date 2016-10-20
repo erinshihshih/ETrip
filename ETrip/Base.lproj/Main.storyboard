@@ -64,73 +64,89 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VZ-F2-2cw">
-                                            <rect key="frame" x="8" y="8" width="36" height="23"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                            <rect key="frame" x="18" y="18" width="61" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="17" id="gXg-lp-H2a"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                             <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-PK-D87">
                                             <rect key="frame" x="114" y="37" width="0.0" height="0.0"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="countryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw0-SB-Xru">
-                                            <rect key="frame" x="95" y="46" width="92" height="19"/>
-                                            <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                            <rect key="frame" x="105" y="50" width="130" height="20"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku0-UT-crE">
-                                            <rect key="frame" x="95" y="80" width="114" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0t-ii-9IL">
-                                            <rect key="frame" x="17" y="46" width="62" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gNo-wg-aUZ">
-                                            <rect key="frame" x="39" y="80" width="40" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="49" y="85" width="41" height="20"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-zg-15q">
+                                            <rect key="frame" x="18" y="50" width="72" height="20"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDZ-tc-ms3">
-                                            <rect key="frame" x="28" y="115" width="51" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="28" y="120" width="62" height="20"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="returnDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bka-Ap-lfL">
-                                            <rect key="frame" x="95" y="115" width="124" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="105" y="120" width="154" height="20"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="startDateLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ku0-UT-crE">
+                                            <rect key="frame" x="105" y="86" width="143" height="19"/>
+                                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leadingMargin" id="1b9-Dn-s84"/>
-                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="top" secondItem="j0t-ii-9IL" secondAttribute="bottom" constant="13" id="9hZ-xh-WCb"/>
-                                        <constraint firstItem="aDZ-tc-ms3" firstAttribute="top" secondItem="gNo-wg-aUZ" secondAttribute="bottom" constant="14" id="CHQ-A4-sNZ"/>
-                                        <constraint firstItem="j0t-ii-9IL" firstAttribute="top" secondItem="5VZ-F2-2cw" secondAttribute="bottom" constant="15" id="E18-4c-Z5X"/>
-                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="top" secondItem="j0t-ii-9IL" secondAttribute="top" id="FIy-Fg-0DS"/>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" id="FxS-h3-MEM"/>
-                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="leading" secondItem="j0t-ii-9IL" secondAttribute="trailing" constant="16" id="Gb0-N4-bJv"/>
+                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leadingMargin" constant="10" id="1b9-Dn-s84"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="centerY" secondItem="ku0-UT-crE" secondAttribute="centerY" id="4aP-uP-PJM"/>
+                                        <constraint firstItem="ku0-UT-crE" firstAttribute="top" secondItem="Gw0-SB-Xru" secondAttribute="bottom" constant="9" id="BhX-QQ-DdL"/>
+                                        <constraint firstItem="aDZ-tc-ms3" firstAttribute="top" secondItem="gNo-wg-aUZ" secondAttribute="bottom" constant="15" id="CHQ-A4-sNZ"/>
+                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" constant="10" id="FxS-h3-MEM"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="top" secondItem="XD2-zg-15q" secondAttribute="bottom" constant="15" id="Huh-xN-BDJ"/>
                                         <constraint firstItem="gNo-wg-aUZ" firstAttribute="baseline" secondItem="ku0-UT-crE" secondAttribute="baseline" id="KTZ-Px-g4b"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aDZ-tc-ms3" secondAttribute="bottom" constant="36" id="OwM-dM-egX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aDZ-tc-ms3" secondAttribute="bottom" id="OwM-dM-egX"/>
                                         <constraint firstItem="ku0-UT-crE" firstAttribute="leading" secondItem="Bka-Ap-lfL" secondAttribute="leading" id="PhG-D7-Rjw"/>
-                                        <constraint firstItem="5VZ-F2-2cw" firstAttribute="leading" secondItem="j0t-ii-9IL" secondAttribute="leading" constant="-9" id="S2Z-24-NJe"/>
                                         <constraint firstItem="gSR-PK-D87" firstAttribute="leading" secondItem="aBb-tF-fEF" secondAttribute="leading" constant="114" id="V36-H6-egi"/>
+                                        <constraint firstItem="Bka-Ap-lfL" firstAttribute="baseline" secondItem="aDZ-tc-ms3" secondAttribute="baseline" id="YFc-b2-1Tz"/>
                                         <constraint firstItem="gNo-wg-aUZ" firstAttribute="trailing" secondItem="aDZ-tc-ms3" secondAttribute="trailing" id="f4v-zh-7CT"/>
+                                        <constraint firstItem="XD2-zg-15q" firstAttribute="top" secondItem="5VZ-F2-2cw" secondAttribute="bottom" constant="15" id="itk-nn-L2R"/>
+                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="baseline" secondItem="XD2-zg-15q" secondAttribute="baseline" id="kj2-xl-d5T"/>
                                         <constraint firstItem="aDZ-tc-ms3" firstAttribute="baseline" secondItem="Bka-Ap-lfL" secondAttribute="baseline" id="nuY-XV-MEo"/>
-                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="trailing" secondItem="j0t-ii-9IL" secondAttribute="trailing" id="rJf-U8-B9g"/>
                                         <constraint firstItem="Gw0-SB-Xru" firstAttribute="leading" secondItem="ku0-UT-crE" secondAttribute="leading" id="rZi-qv-DNd"/>
+                                        <constraint firstItem="Gw0-SB-Xru" firstAttribute="leading" secondItem="XD2-zg-15q" secondAttribute="trailing" constant="15" id="sfh-61-hN3"/>
+                                        <constraint firstItem="gNo-wg-aUZ" firstAttribute="centerY" secondItem="aBb-tF-fEF" secondAttribute="centerY" id="uR6-CS-RkN"/>
+                                        <constraint firstItem="XD2-zg-15q" firstAttribute="trailing" secondItem="gNo-wg-aUZ" secondAttribute="trailing" id="ubj-HX-v2z"/>
+                                        <constraint firstItem="XD2-zg-15q" firstAttribute="leading" secondItem="5VZ-F2-2cw" secondAttribute="leading" id="vM9-Ij-0nS"/>
+                                        <constraint firstItem="ku0-UT-crE" firstAttribute="baseline" secondItem="gNo-wg-aUZ" secondAttribute="baseline" id="y7a-uI-PdY"/>
                                         <constraint firstItem="gSR-PK-D87" firstAttribute="top" secondItem="aBb-tF-fEF" secondAttribute="topMargin" constant="29" id="zAH-2l-qzk"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="4aP-uP-PJM"/>
+                                            <exclude reference="uR6-CS-RkN"/>
+                                            <exclude reference="OwM-dM-egX"/>
+                                            <exclude reference="BhX-QQ-DdL"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="countryLabel" destination="Gw0-SB-Xru" id="yMo-E2-W9t"/>
@@ -185,37 +201,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5hl-ho-272">
                                                     <rect key="frame" x="8" y="51" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="hnD-iN-FDg"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-kU-c6x">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-kU-c6x">
                                                     <rect key="frame" x="8" y="89" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="pU3-qT-fTr"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="return Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-y9-iUW">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
+                                                    <rect key="frame" x="8" y="13" width="584" height="30"/>
+                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Return Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rJu-y9-iUW">
                                                     <rect key="frame" x="8" y="127" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="MrG-2h-vmK"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfc-Jm-FW5">
-                                                    <rect key="frame" x="8" y="13" width="584" height="30"/>
-                                                    <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -251,17 +267,22 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-ko-G6r">
                                 <rect key="frame" x="0.0" y="492" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Transportation" id="B0l-7k-JI9">
+                                    <barButtonItem image="transportation" id="B0l-7k-JI9">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addTransportationButton:" destination="Agl-cn-ojr" id="CzI-br-tW3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Attraction" id="0hL-jB-7xn">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="A9v-tV-eXz"/>
+                                    <barButtonItem image="attraction" id="0hL-jB-7xn">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addAttractionButton:" destination="Agl-cn-ojr" id="7gR-H8-Wkf"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Accommodation" id="hf6-70-Tt4">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZpZ-Yf-dV1"/>
+                                    <barButtonItem image="accommodation" id="hf6-70-Tt4">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addAccommodationButton:" destination="Agl-cn-ojr" id="76b-6o-CsD"/>
                                         </connections>
@@ -336,53 +357,56 @@
                                 <state key="normal" title="Share" image="share"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-Gb-0yN">
-                                <rect key="frame" x="20" y="84" width="99" height="23"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <rect key="frame" x="20" y="84" width="133" height="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EC-0P-vrM">
-                                <rect key="frame" x="67" y="155" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="51" y="154" width="41" height="19"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-Ki-diE">
-                                <rect key="frame" x="56" y="191" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="30" y="188" width="62" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBi-1U-7yX">
-                                <rect key="frame" x="122" y="119" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="119" width="140" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-PT-jTV">
-                                <rect key="frame" x="122" y="191" width="138" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="188" width="173" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcA-0S-YaY">
-                                <rect key="frame" x="122" y="155" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="154" width="163" height="19"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-p9-oly">
-                                <rect key="frame" x="20" y="119" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-p9-oly">
+                                <rect key="frame" x="20" y="119" width="72" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-4r-wy0" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="220" width="600" height="331"/>
+                                <rect key="frame" x="0.0" y="216" width="600" height="335"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-Z0-exc">
-                                <rect key="frame" x="294" y="115" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-Z0-exc">
+                                <rect key="frame" x="449" y="72" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="fyF-3b-S1s"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="searchWithAddress:" destination="DAs-TF-3wK" eventType="touchUpInside" id="X8F-H3-S2X"/>
@@ -413,7 +437,9 @@
                             <constraint firstAttribute="trailing" secondItem="cOR-TK-RWk" secondAttribute="trailing" constant="20" id="nsl-FN-cs1"/>
                             <constraint firstItem="n3C-p9-oly" firstAttribute="top" secondItem="8gU-Gb-0yN" secondAttribute="bottom" constant="12" id="pZS-f6-PGa"/>
                             <constraint firstItem="8gU-Gb-0yN" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leading" constant="20" id="rfB-OG-xjV"/>
+                            <constraint firstItem="3lA-Z0-exc" firstAttribute="top" secondItem="4g8-a8-TPW" secondAttribute="top" id="sNc-7G-sgC"/>
                             <constraint firstItem="8gU-Gb-0yN" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="20" id="uzQ-mo-oir"/>
+                            <constraint firstItem="4g8-a8-TPW" firstAttribute="leading" secondItem="3lA-Z0-exc" secondAttribute="trailing" constant="10" id="wQt-hg-K9s"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -432,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2749" y="-539"/>
+            <point key="canvasLocation" x="2805" y="-514"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="Ds7-zJ-pna">
@@ -452,6 +478,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Xun-W3-ADc"/>
                                     <constraint firstAttribute="width" constant="30" id="jPj-9Z-caA"/>
                                 </constraints>
+                                <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="EDIT" image="edit"/>
                                 <connections>
                                     <segue destination="XdL-7b-cYU" kind="show" identifier="editSegue" id="X6Y-jN-eZb"/>
@@ -466,49 +493,43 @@
                                 <state key="normal" title="Share" image="share"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">
-                                <rect key="frame" x="20" y="84" width="99" height="23"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <rect key="frame" x="20" y="84" width="133" height="23"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFz-e1-xAi">
-                                <rect key="frame" x="67" y="155" width="40" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="51" y="154" width="41" height="19"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEG-CE-0Rc">
-                                <rect key="frame" x="56" y="191" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="30" y="188" width="62" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ4-p6-S0w">
-                                <rect key="frame" x="122" y="119" width="108" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="118" width="140" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XH-bI-TUl">
-                                <rect key="frame" x="122" y="191" width="138" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="187" width="184" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P96-cx-vhq">
-                                <rect key="frame" x="122" y="155" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="107" y="152" width="173" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0S-LF-sEC">
-                                <rect key="frame" x="20" y="119" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="250" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jpz-ZS-9Yd">
-                                <rect key="frame" x="0.0" y="227" width="600" height="324"/>
+                                <rect key="frame" x="0.0" y="223" width="600" height="328"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AVf-mg-9WE">
@@ -525,6 +546,12 @@
                                     <outlet property="delegate" destination="HTy-sV-NdB" id="MlQ-BW-ZSw"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0S-LF-sEC">
+                                <rect key="frame" x="20" y="119" width="72" height="20"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -532,6 +559,7 @@
                             <constraint firstItem="TFz-e1-xAi" firstAttribute="top" secondItem="k0S-LF-sEC" secondAttribute="bottom" constant="15" id="6Wx-lj-6Jm"/>
                             <constraint firstItem="P96-cx-vhq" firstAttribute="leading" secondItem="FZ4-p6-S0w" secondAttribute="leading" id="9Hf-aX-xPO"/>
                             <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="GEG-CE-0Rc" secondAttribute="bottom" constant="15" id="AsG-cG-QOM"/>
+                            <constraint firstItem="P96-cx-vhq" firstAttribute="baseline" secondItem="TFz-e1-xAi" secondAttribute="baseline" id="BAP-64-R1x"/>
                             <constraint firstAttribute="trailing" secondItem="8R9-Tv-AK9" secondAttribute="trailing" constant="20" id="CEd-u9-5c7"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="leading" secondItem="P96-cx-vhq" secondAttribute="leading" id="LLW-iB-Xir"/>
                             <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="gjk-fi-TIK" secondAttribute="trailing" constant="8" id="Lhd-Gs-LAB"/>
@@ -548,9 +576,18 @@
                             <constraint firstItem="k0S-LF-sEC" firstAttribute="leading" secondItem="IIz-dV-1Ow" secondAttribute="leading" id="nX4-2x-wo7"/>
                             <constraint firstItem="jpz-ZS-9Yd" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" id="p7r-ne-893"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="centerY" secondItem="GEG-CE-0Rc" secondAttribute="centerY" id="pmB-JA-Sxt"/>
+                            <constraint firstItem="2XH-bI-TUl" firstAttribute="baseline" secondItem="GEG-CE-0Rc" secondAttribute="baseline" id="q81-QL-5FJ"/>
+                            <constraint firstItem="FZ4-p6-S0w" firstAttribute="baseline" secondItem="k0S-LF-sEC" secondAttribute="baseline" id="uBU-Qb-YDp"/>
                             <constraint firstItem="IIz-dV-1Ow" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" constant="20" id="vRr-Rl-mD2"/>
                             <constraint firstItem="GEG-CE-0Rc" firstAttribute="trailing" secondItem="TFz-e1-xAi" secondAttribute="trailing" id="yyw-1S-O71"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cx3-bv-cbb"/>
+                                <exclude reference="4HE-rQ-UmR"/>
+                                <exclude reference="pmB-JA-Sxt"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="notepad" id="Qd4-9e-ASe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -695,37 +732,37 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="188.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-0r-KBP">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-0r-KBP">
                                                     <rect key="frame" x="8" y="51" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="uuH-5L-Rxo"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uQ-A0c">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uQ-A0c">
                                                     <rect key="frame" x="8" y="89" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="KJD-Fc-wco"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="return Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h14-a3-LAL">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* Return Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h14-a3-LAL">
                                                     <rect key="frame" x="8" y="127" width="584" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="584" id="irh-oQ-n4v"/>
                                                     </constraints>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-bh-an0">
                                                     <rect key="frame" x="8" y="13" width="584" height="30"/>
                                                     <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -761,17 +798,22 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOc-qg-24N">
                                 <rect key="frame" x="0.0" y="492" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Transportation" id="4QB-ig-p4R">
+                                    <barButtonItem image="transportation" id="4QB-ig-p4R">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addTransportationButton:" destination="XdL-7b-cYU" id="AEu-nR-PRJ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Attraction" id="kmZ-IU-Mnb">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2EW-me-QXI"/>
+                                    <barButtonItem image="attraction" id="kmZ-IU-Mnb">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addAttractionButton:" destination="XdL-7b-cYU" id="7sv-7B-Old"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Accommodation" id="EJq-yb-AeG">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="swU-0L-gXm"/>
+                                    <barButtonItem image="accommodation" id="EJq-yb-AeG">
+                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="addAccommodationButton:" destination="XdL-7b-cYU" id="Yph-zO-bBq"/>
                                         </connections>
@@ -808,10 +850,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ng3-jV-Es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3xT-gJ-8n2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2749" y="910"/>
+            <point key="canvasLocation" x="2749" y="890"/>
         </scene>
     </scenes>
     <resources>
+        <image name="accommodation" width="22" height="22"/>
+        <image name="attraction" width="22" height="22"/>
         <image name="edit" width="22" height="22"/>
         <image name="menu" width="22" height="22"/>
         <image name="notepad" width="22" height="22"/>
@@ -819,5 +863,6 @@
         <image name="route" width="22" height="22"/>
         <image name="share" width="22" height="22"/>
         <image name="success" width="22" height="22"/>
+        <image name="transportation" width="22" height="22"/>
     </resources>
 </document>

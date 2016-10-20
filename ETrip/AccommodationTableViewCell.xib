@@ -22,11 +22,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yeZ-IP-l66">
-                        <rect key="frame" x="8" y="37" width="165" height="30"/>
+                        <rect key="frame" x="8" y="37" width="176" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="165" id="2Ui-h3-Gny"/>
+                            <constraint firstAttribute="width" constant="176" id="2Ui-h3-Gny"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YBX-z5-4Xe">
@@ -35,13 +36,15 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Check In Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ax-0v-jnp">
-                        <rect key="frame" x="207" y="37" width="165" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="192" y="37" width="180" height="30"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Booking Ref." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BUr-Ar-SVJ">
-                        <rect key="frame" x="8" y="75" width="165" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="8" y="75" width="176" height="30"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MqS-hs-oDh">
@@ -52,8 +55,9 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Check Out Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VtC-WX-DnC">
-                        <rect key="frame" x="207" y="75" width="165" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="192" y="75" width="180" height="30"/>
+                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
@@ -69,7 +73,7 @@
                     <constraint firstItem="YBX-z5-4Xe" firstAttribute="leading" secondItem="MqS-hs-oDh" secondAttribute="leading" id="Xcy-8y-vlX"/>
                     <constraint firstItem="BUr-Ar-SVJ" firstAttribute="leading" secondItem="YBX-z5-4Xe" secondAttribute="leading" id="blQ-uh-j2j"/>
                     <constraint firstItem="YBX-z5-4Xe" firstAttribute="top" secondItem="BUr-Ar-SVJ" secondAttribute="bottom" constant="8" symbolic="YES" id="c6H-bp-HEI"/>
-                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="yeZ-IP-l66" secondAttribute="trailing" constant="34" id="ewd-dy-lpK"/>
+                    <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="yeZ-IP-l66" secondAttribute="trailing" constant="8" id="ewd-dy-lpK"/>
                     <constraint firstItem="VDj-eE-bFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ezN-7V-1Ka"/>
                     <constraint firstItem="YBX-z5-4Xe" firstAttribute="trailing" secondItem="MqS-hs-oDh" secondAttribute="trailing" id="iBY-Gp-PFT"/>
                     <constraint firstItem="5Ax-0v-jnp" firstAttribute="leading" secondItem="VtC-WX-DnC" secondAttribute="leading" id="nTZ-BH-C9w"/>
