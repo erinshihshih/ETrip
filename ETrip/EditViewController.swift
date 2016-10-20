@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleMaps
+import GooglePlacePicker
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -33,6 +35,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var isEditingAccommodation = false
     
     var countryArray = [String]()
+    
+    var attractionCell = AttractionTableViewCell()
     
     // title pickerView
     var pickerView = UIPickerView()
@@ -192,7 +196,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
             
-            cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+            cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
             
             if !isEditingAttraction  {
                 
@@ -549,6 +553,16 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func onLaunchClicked(sender: UIButton) {
+        
+        attractionCell = sender.superview?.superview as! AttractionTableViewCell
+        
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        self.presentViewController(acController, animated: true, completion: nil)
+        
+    }
+    
     
 
     
@@ -645,6 +659,47 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
 }
+
+// MARK: GMSAutocompleteViewControllerDelegate
+
+extension EditViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
+        
+        print("Place: \(place)")
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        print("Place coordinate: \(place.coordinate)")
+        
+        attractionCell.nameLabel.text = place.name
+        attractionCell.addressLabel.text = place.formattedAddress
+        attractionCell.phoneLabel.text = place.phoneNumber
+        
+        if place.website == nil {
+            attractionCell.websiteLabel.text = "No website info found!"
+        } else {
+            attractionCell.websiteLabel.text = "\(place.website!)"
+        }
+        
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
+        // TODO: handle the error.
+        print("Error: \(error.description)")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(viewController: GMSAutocompleteViewController) {
+        print("Autocomplete was cancelled.")
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
 
 //    // Longpress to Reorder Cell
 //    func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
