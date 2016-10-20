@@ -40,6 +40,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var rows: [ Row ] = [ .title ]
     
     var attractionCell = AttractionTableViewCell()
+    var transportationCell = TransportationTableViewCell()
     
     // title pickerView
     var pickerView = UIPickerView()
@@ -92,12 +93,15 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 //    }
     
     func onLaunchClicked(sender: UIButton) {
-        
-        attractionCell = sender.superview?.superview as! AttractionTableViewCell
-        
-        let acController = GMSAutocompleteViewController()
-        acController.delegate = self
-        self.presentViewController(acController, animated: true, completion: nil)
+        if let sender = sender.superview?.superview as? AttractionTableViewCell {
+            attractionCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+
+        } else {
+            return
+        }
         
     }
 
@@ -250,7 +254,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.addressTextField.delegate = self
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
-            cell.noteTextView.delegate = self
             
             if !isEditingAccommodation  {
                 
@@ -259,11 +262,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 // Set up views if editing an existing data.
                 let accommodation = theAccommodation
                 
-                cell.nameTextField.text = accommodation.name
-                cell.addressTextField.text = accommodation.address
+                cell.nameLabel.text = accommodation.name
+                cell.phoneLabel.text = accommodation.phone
+                cell.addressLabel.text = accommodation.address
                 cell.checkinDateTextField.text = accommodation.checkinDate
                 cell.checkoutDateTextField.text = accommodation.checkoutDate
-                cell.noteTextView.text = accommodation.note
+                
                 
                 
             }
@@ -409,12 +413,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
                     
                     // Accommodation Cell
-                    let name = cell.nameTextField.text ?? ""
-                    let address = cell.addressTextField.text ?? ""
+                    let name = cell.nameLabel.text ?? ""
+                    let phone = cell.phoneLabel.text ?? ""
+                    let address = cell.addressLabel.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
                     let bookingRef = cell.bookingRefTextField.text ?? ""
-                    let note = cell.noteTextView.text ?? ""
+                    
                     
                     let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
                                                                      "postID": postIDKey,
@@ -422,11 +427,11 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                      "indexPathRow": indexPathRow,
                                                                      "timestamp": timeStamp,
                                                                      "name": name,
+                                                                     "phone": phone,
                                                                      "address": address,
                                                                      "checkinDate": checkinDate,
                                                                      "checkoutDate": checkoutDate,
-                                                                     "bookingRef": bookingRef,
-                                                                     "note": note ]
+                                                                     "bookingRef": bookingRef ]
                     
                     databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
                     
@@ -715,6 +720,8 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         attractionCell.addressLabel.text = place.formattedAddress
         attractionCell.phoneLabel.text = place.phoneNumber
         attractionCell.websiteLabel.text = "\(place.website!)"
+        
+//        transportationCell.nameLabel.text = place
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }

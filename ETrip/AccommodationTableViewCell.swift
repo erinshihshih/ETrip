@@ -10,17 +10,23 @@ import UIKit
 
 class AccommodationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var nameTextField: UITextField!
+//    @IBOutlet weak var nameTextField: UITextField!
  
     @IBOutlet weak var bookingRefTextField: UITextField!
 
-    @IBOutlet weak var addressTextField: UITextField!
+//    @IBOutlet weak var addressTextField: UITextField!
     
     @IBOutlet weak var checkinDateTextField: UITextField!
     
     
     @IBOutlet weak var checkoutDateTextField: UITextField!
     
-    @IBOutlet weak var noteTextView: UITextView!
+//    @IBOutlet weak var noteTextView: UITextView!
     
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var phoneLabel: UILabel!
+    
+    @IBOutlet weak var addressLabel: UILabel!
 }

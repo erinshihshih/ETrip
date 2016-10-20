@@ -16,23 +16,25 @@ class Accommodation {
     let accommodationID: String
     let indexPathRow: Int
     let name: String
+    let phone: String
     let address: String
     let checkinDate: String
     let checkoutDate: String
     let bookingRef: String
-    let note: String
     
-    init(postID: String, accommodationID: String, indexPathRow: Int, name: String, address: String, checkinDate: String, checkoutDate: String, bookingRef: String, note: String) {
+    
+    init(postID: String, accommodationID: String, indexPathRow: Int, name: String, phone: String, address: String, checkinDate: String, checkoutDate: String, bookingRef: String) {
         
         self.postID = postID
         self.accommodationID = accommodationID
         self.indexPathRow = indexPathRow
         self.name = name
+        self.phone = phone
         self.checkinDate = checkinDate
         self.checkoutDate = checkoutDate
         self.address = address
         self.bookingRef = bookingRef
-        self.note = note
+        
         
     }
     

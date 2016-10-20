@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -25,78 +23,76 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v50-zY-Gxl">
-                        <rect key="frame" x="105" y="22" width="267" height="21"/>
+                        <rect key="frame" x="103" y="22" width="269" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="3nS-LJ-Ien"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you want yo go?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zj-vA-pAC">
-                        <rect key="frame" x="72" y="51" width="300" height="75"/>
+                        <rect key="frame" x="70" y="51" width="302" height="75"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="75" id="FOq-ew-she"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="ycb-0T-6T5">
-                        <rect key="frame" x="72" y="134" width="300" height="21"/>
+                        <rect key="frame" x="70" y="134" width="302" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="RNr-Z5-gEQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="WxT-79-wgJ">
-                        <rect key="frame" x="72" y="163" width="300" height="21"/>
+                        <rect key="frame" x="70" y="163" width="302" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="n9b-JW-cm0"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9T-YX-Wul">
-                        <rect key="frame" x="72" y="20" width="25" height="25"/>
+                        <rect key="frame" x="70" y="20" width="25" height="25"/>
                         <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="9TP-c4-zJC"/>
                             <constraint firstAttribute="height" constant="25" id="UFG-in-btW"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="lwl-io-5Jw"/>
                             <constraint firstAttribute="width" constant="25" id="tsj-He-qrE"/>
                         </constraints>
                         <state key="normal" image="search"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9TP-c4-zJC"/>
+                                <exclude reference="lwl-io-5Jw"/>
+                            </mask>
+                        </variation>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WxT-79-wgJ" firstAttribute="top" secondItem="ycb-0T-6T5" secondAttribute="bottom" constant="8" symbolic="YES" id="1Pg-b0-XGK"/>
-                    <constraint firstItem="2Zj-vA-pAC" firstAttribute="baseline" secondItem="s9T-YX-Wul" secondAttribute="firstBaseline" constant="99" id="5eb-DF-THQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="v50-zY-Gxl" secondAttribute="trailing" id="6cX-mJ-r7c"/>
+                    <constraint firstItem="2Zj-vA-pAC" firstAttribute="leading" secondItem="s9T-YX-Wul" secondAttribute="leading" id="6kU-iZ-B7R"/>
                     <constraint firstItem="v50-zY-Gxl" firstAttribute="trailing" secondItem="2Zj-vA-pAC" secondAttribute="trailing" id="6xq-w8-4PW"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="leading" secondItem="WxT-79-wgJ" secondAttribute="leading" id="C67-9S-bzc"/>
                     <constraint firstItem="v50-zY-Gxl" firstAttribute="leading" secondItem="2Zj-vA-pAC" secondAttribute="leading" constant="33" id="DPH-2h-yWM"/>
-                    <constraint firstItem="S9T-df-3ZQ" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="top" constant="82" id="H9O-hu-v2c"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="trailing" secondItem="WxT-79-wgJ" secondAttribute="trailing" id="KgN-A5-CG8"/>
                     <constraint firstItem="S9T-df-3ZQ" firstAttribute="centerY" secondItem="Ii8-eV-aN4" secondAttribute="centerY" id="PXk-6Y-caV"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="top" constant="20" id="RWH-Kr-lVM"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="leading" secondItem="2Zj-vA-pAC" secondAttribute="leading" id="bUq-RD-ii9"/>
-                    <constraint firstItem="v50-zY-Gxl" firstAttribute="firstBaseline" secondItem="s9T-YX-Wul" secondAttribute="firstBaseline" id="hM2-6n-fbF"/>
-                    <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="S9T-df-3ZQ" secondAttribute="bottom" constant="20" id="iPQ-h4-3Yf"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="trailing" secondItem="2Zj-vA-pAC" secondAttribute="trailing" id="iVv-KG-Xg5"/>
-                    <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="72" id="lrb-5E-poq"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="70" id="lrb-5E-poq"/>
                     <constraint firstItem="2Zj-vA-pAC" firstAttribute="top" secondItem="v50-zY-Gxl" secondAttribute="bottom" constant="8" id="mnD-wr-nTo"/>
-                    <constraint firstItem="s9T-YX-Wul" firstAttribute="centerY" secondItem="Ii8-eV-aN4" secondAttribute="centerY" constant="-67.5" id="srM-TL-7cV"/>
-                    <constraint firstItem="2Zj-vA-pAC" firstAttribute="leading" secondItem="s9T-YX-Wul" secondAttribute="trailing" constant="-25" id="tZg-aK-SRW"/>
+                    <constraint firstItem="v50-zY-Gxl" firstAttribute="centerY" secondItem="s9T-YX-Wul" secondAttribute="centerY" id="oap-F6-lex"/>
                     <constraint firstItem="S9T-df-3ZQ" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="15" id="v3R-vQ-lgr"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="top" secondItem="2Zj-vA-pAC" secondAttribute="bottom" constant="8" symbolic="YES" id="vTY-pM-hLu"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="iPQ-h4-3Yf"/>
-                        <exclude reference="hM2-6n-fbF"/>
-                        <exclude reference="H9O-hu-v2c"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="2Zj-vA-pAC" id="U0Z-Dp-8Y7"/>
