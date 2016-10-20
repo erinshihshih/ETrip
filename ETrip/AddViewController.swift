@@ -35,16 +35,16 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var isEditingAccommodation = false
     
     var countryArray = [String]()
-//    var transportationArray = ["Airplane", "Train", "Bus"]
+    //    var transportationArray = ["Airplane", "Train", "Bus"]
     
     var rows: [ Row ] = [ .title ]
     
-    var attractionCell = AttractionTableViewCell()
-    var accommodationCell = AccommodationTableViewCell()
+    var attractionCell: AttractionTableViewCell?
+    var accommodationCell: AccommodationTableViewCell?
     
     // title pickerView
     var pickerView = UIPickerView()
-//    var transportationPickerView = UIPickerView()
+    //    var transportationPickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
@@ -86,37 +86,35 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-//    @IBAction func onLaunchClicked(sender: AnyObject) {
-//        let acController = GMSAutocompleteViewController()
-//        acController.delegate = self
-//        self.presentViewController(acController, animated: true, completion: nil)
-//    }
+    //    @IBAction func onLaunchClicked(sender: AnyObject) {
+    //        let acController = GMSAutocompleteViewController()
+    //        acController.delegate = self
+    //        self.presentViewController(acController, animated: true, completion: nil)
+    //    }
     
     func onLaunchClicked(sender: UIButton) {
         
-//        if
-        let sender = sender.superview?.superview as? AttractionTableViewCell
-//        {
-        
-            attractionCell = sender!
+        if let sender = sender.superview?.superview as? AttractionTableViewCell{
+            
+            attractionCell = sender
             let acController = GMSAutocompleteViewController()
             acController.delegate = self
             self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
+        if let sender = sender.superview?.superview as? AccommodationTableViewCell{
             
-//        } else
-//            if let sender = sender.superview?.superview as? AccommodationTableViewCell {
-//                
-//                accommodationCell = sender
-//                let acController = GMSAutocompleteViewController()
-//                acController.delegate = self
-//                self.presentViewController(acController, animated: true, completion: nil)
-//        }
-
+            accommodationCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
     }
-
- 
-
-
+    
+    
+    
+    
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -138,20 +136,20 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
         
-    
+        
         
         // Picker View UI
         setUpPickerViewUI()
         
         saveButton.enabled = false
         
-                // Longpress to Reorder Cell
-                let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-                tableView.addGestureRecognizer(longpress)
+        // Longpress to Reorder Cell
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+        tableView.addGestureRecognizer(longpress)
         
     }
     
-
+    
     
     
     override func didReceiveMemoryWarning() {
@@ -227,7 +225,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.arriveDateTextField.text = transportation.arriveDate
             }
             
-//            cell.typeTextField.inputView = transportationPickerView
+            //            cell.typeTextField.inputView = transportationPickerView
             return cell
             
         case .attraction:
@@ -237,7 +235,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             // Handle the text field’s user input via delegate callbacks.
             
             cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-
+            
             if !isEditingAttraction  {
                 
                 let theAttraction = attractions[indexPath.row - transportations.count - 1]
@@ -259,8 +257,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
             // Handle the text field’s user input via delegate callbacks.
-//            cell.nameTextField.delegate = self
-//            cell.addressTextField.delegate = self
+            //            cell.nameTextField.delegate = self
+            //            cell.addressTextField.delegate = self
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
             
@@ -288,8 +286,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-
-
+    
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -395,7 +393,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let indexPathRow = indexPath.row
                     let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
                     let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
-                
+                    
                     // Attraction Cell
                     let name = cell.nameLabel.text ?? ""
                     let address = cell.addressLabel.text ?? ""
@@ -708,7 +706,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
     }
-
+    
     
 }
 
@@ -725,21 +723,31 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         print("Place attributions: \(place.attributions)")
         print("Place coordinate: \(place.coordinate)")
         
-       
-        attractionCell.nameLabel.text = place.name
-        attractionCell.addressLabel.text = place.formattedAddress
-        attractionCell.phoneLabel.text = place.phoneNumber
-        if place.website == nil {
-            attractionCell.websiteLabel.text = "No website info found!"
-        } else {
-            attractionCell.websiteLabel.text = "\(place.website!)"
+        if attractionCell != nil {
+            
+            attractionCell!.nameLabel.text = place.name
+            attractionCell!.addressLabel.text = place.formattedAddress
+            attractionCell!.phoneLabel.text = place.phoneNumber
+            
+            if place.website == nil {
+                attractionCell!.websiteLabel.text = "No website info found!"
+            } else {
+                attractionCell!.websiteLabel.text = "\(place.website!)"
+            }
+            
+        } else if accommodationCell != nil{ 
+            
+            accommodationCell!.nameLabel.text = place.name
+            accommodationCell!.phoneLabel.text = place.phoneNumber
+            accommodationCell!.addressLabel.text = place.formattedAddress
+            
         }
         
-
         
-//        accommodationCell.nameLabel.text = place.name
-//        accommodationCell.phoneLabel.text = place.phoneNumber
-//        accommodationCell.addressLabel.text = place.formattedAddress
+        attractionCell = nil
+        accommodationCell = nil
+        
+
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
