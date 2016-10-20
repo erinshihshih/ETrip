@@ -15,75 +15,77 @@
                 <rect key="frame" x="0.0" y="0.0" width="381" height="201"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transportation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-3Z-nbr">
-                        <rect key="frame" x="8" y="8" width="127" height="21"/>
-                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depart Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHu-gP-P3R">
-                        <rect key="frame" x="193" y="113" width="180" height="30"/>
+                        <rect key="frame" x="193" y="124" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Booking Ref." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kj2-6N-kGT">
-                        <rect key="frame" x="193" y="75" width="180" height="30"/>
+                        <rect key="frame" x="193" y="86" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Depart From" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7H-54-Lx3">
-                        <rect key="frame" x="8" y="113" width="180" height="30"/>
+                        <rect key="frame" x="8" y="124" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Flight No." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yg9-3r-lAX">
-                        <rect key="frame" x="8" y="75" width="180" height="30"/>
+                        <rect key="frame" x="8" y="86" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Arrive Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHk-4g-p4G">
-                        <rect key="frame" x="193" y="151" width="180" height="30"/>
+                        <rect key="frame" x="193" y="162" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Arrive At" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tuf-yI-uQ0">
-                        <rect key="frame" x="8" y="151" width="180" height="30"/>
+                        <rect key="frame" x="8" y="162" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tranportation type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOX-yu-gIk">
-                        <rect key="frame" x="8" y="37" width="180" height="30"/>
+                        <rect key="frame" x="8" y="48" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Airline Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4D-6f-myW">
-                        <rect key="frame" x="193" y="37" width="180" height="30"/>
+                        <rect key="frame" x="193" y="48" width="180" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transportation" translatesAutoresizingMaskIntoConstraints="NO" id="RhV-Zs-Q33">
+                        <rect key="frame" x="8" y="8" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="eGz-Dn-pxh"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="27M-RE-PyP"/>
                     <constraint firstItem="N7H-54-Lx3" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="53b-PS-wlB"/>
                     <constraint firstItem="Yg9-3r-lAX" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="98B-My-ZT0"/>
                     <constraint firstItem="Yg9-3r-lAX" firstAttribute="top" secondItem="VOX-yu-gIk" secondAttribute="bottom" constant="8" id="Aar-aL-gyu"/>
-                    <constraint firstItem="VOX-yu-gIk" firstAttribute="leading" secondItem="FQq-3Z-nbr" secondAttribute="leading" id="Afn-F7-N9r"/>
                     <constraint firstItem="Kj2-6N-kGT" firstAttribute="leading" secondItem="h4D-6f-myW" secondAttribute="leading" id="CEh-7k-BAh"/>
-                    <constraint firstItem="VOX-yu-gIk" firstAttribute="top" secondItem="FQq-3Z-nbr" secondAttribute="bottom" constant="8" id="CN8-Ev-x64"/>
                     <constraint firstAttribute="trailingMargin" secondItem="h4D-6f-myW" secondAttribute="trailing" id="E4J-J4-23i"/>
                     <constraint firstItem="h4D-6f-myW" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="FBG-Vk-vqO"/>
                     <constraint firstItem="Kj2-6N-kGT" firstAttribute="top" secondItem="h4D-6f-myW" secondAttribute="bottom" constant="8" id="Pxj-Z6-aC3"/>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="VVE-83-ryb"/>
+                    <constraint firstItem="RhV-Zs-Q33" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aTb-I5-zrJ"/>
                     <constraint firstItem="MHk-4g-p4G" firstAttribute="top" secondItem="LHu-gP-P3R" secondAttribute="bottom" constant="8" id="cRH-V7-sLO"/>
                     <constraint firstItem="LHu-gP-P3R" firstAttribute="width" secondItem="Kj2-6N-kGT" secondAttribute="width" id="cyY-tU-7gI"/>
-                    <constraint firstItem="FQq-3Z-nbr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="eIb-TU-hwA"/>
+                    <constraint firstItem="h4D-6f-myW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="40" id="dhF-Ud-LTb"/>
                     <constraint firstItem="tuf-yI-uQ0" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="fKz-4W-BpE"/>
+                    <constraint firstItem="VOX-yu-gIk" firstAttribute="top" secondItem="RhV-Zs-Q33" secondAttribute="bottom" constant="10" id="fSd-Ju-Bz5"/>
                     <constraint firstItem="LHu-gP-P3R" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="g6e-4b-qmG"/>
                     <constraint firstItem="Yg9-3r-lAX" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="igb-Ut-HQQ"/>
                     <constraint firstItem="tuf-yI-uQ0" firstAttribute="leading" secondItem="VOX-yu-gIk" secondAttribute="leading" id="mhg-MP-6Aa"/>
@@ -97,7 +99,6 @@
                     <constraint firstItem="MHk-4g-p4G" firstAttribute="leading" secondItem="Kj2-6N-kGT" secondAttribute="leading" id="tvw-WN-DGb"/>
                     <constraint firstItem="tuf-yI-uQ0" firstAttribute="top" secondItem="N7H-54-Lx3" secondAttribute="bottom" constant="8" id="v6y-px-1Gf"/>
                     <constraint firstItem="MHk-4g-p4G" firstAttribute="width" secondItem="Kj2-6N-kGT" secondAttribute="width" id="vyu-gk-U0m"/>
-                    <constraint firstItem="FQq-3Z-nbr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="xlv-W9-qMY"/>
                     <constraint firstItem="N7H-54-Lx3" firstAttribute="width" secondItem="VOX-yu-gIk" secondAttribute="width" id="yjh-HK-4AP"/>
                 </constraints>
             </tableViewCellContentView>
@@ -114,4 +115,7 @@
             <point key="canvasLocation" x="563.5" y="328.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="transportation" width="22" height="22"/>
+    </resources>
 </document>

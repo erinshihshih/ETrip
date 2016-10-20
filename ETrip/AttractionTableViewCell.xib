@@ -12,15 +12,9 @@
             <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a1z-Mq-q9c" id="Ii8-eV-aN4">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYh-1f-dTc">
-                        <rect key="frame" x="8" y="8" width="85" height="21"/>
-                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                        <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-mt-4zI">
                         <rect key="frame" x="8" y="75" width="365" height="30"/>
                         <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,7 +33,7 @@
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xlI-xK-L8O">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xlI-xK-L8O">
                         <rect key="frame" x="8" y="113" width="365" height="79"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -58,21 +52,32 @@
                             <action selector="search:" destination="a1z-Mq-q9c" eventType="touchUpInside" id="sUx-Qp-6Yk"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attraction" translatesAutoresizingMaskIntoConstraints="NO" id="S9T-df-3ZQ">
+                        <rect key="frame" x="8" y="4" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="exk-8g-dnh"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="PYh-1f-dTc" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="topMargin" id="0c8-Na-pjX"/>
+                    <constraint firstItem="S9T-df-3ZQ" firstAttribute="centerY" secondItem="s9T-YX-Wul" secondAttribute="centerY" id="4Ha-eq-cwd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="xlI-xK-L8O" secondAttribute="bottom" constant="-0.5" id="BQ9-vS-pcQ"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="bottom" constant="8" id="DQe-tN-Z6J"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" constant="185" id="FLA-0e-C2c"/>
-                    <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="PYh-1f-dTc" secondAttribute="trailing" constant="8" symbolic="YES" id="Huu-0m-HZQ"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="S9T-df-3ZQ" secondAttribute="trailing" constant="63" id="FY2-Db-zZu"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="width" secondItem="BY6-ds-oVH" secondAttribute="width" id="MiM-K3-iao"/>
+                    <constraint firstItem="BY6-ds-oVH" firstAttribute="top" secondItem="s9T-YX-Wul" secondAttribute="bottom" constant="8" symbolic="YES" id="NG1-YX-hvk"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="top" secondItem="BY6-ds-oVH" secondAttribute="top" id="Rsz-lZ-84n"/>
-                    <constraint firstItem="BY6-ds-oVH" firstAttribute="leading" secondItem="PYh-1f-dTc" secondAttribute="leading" id="WKL-VZ-kaS"/>
                     <constraint firstItem="We4-PT-r0C" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="trailing" constant="5" id="YLD-Nu-25l"/>
-                    <constraint firstItem="PYh-1f-dTc" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leadingMargin" id="h3x-wg-5Y4"/>
+                    <constraint firstItem="xlI-xK-L8O" firstAttribute="top" secondItem="QSi-mt-4zI" secondAttribute="bottom" constant="8" symbolic="YES" id="caJ-vI-RAw"/>
+                    <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="topMargin" id="dZY-04-wpP"/>
+                    <constraint firstItem="S9T-df-3ZQ" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="msu-rh-RuA"/>
                     <constraint firstItem="QSi-mt-4zI" firstAttribute="leading" secondItem="BY6-ds-oVH" secondAttribute="leading" id="n1L-9S-BFZ"/>
-                    <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="PYh-1f-dTc" secondAttribute="top" id="nnt-RK-evD"/>
-                    <constraint firstItem="BY6-ds-oVH" firstAttribute="top" secondItem="PYh-1f-dTc" secondAttribute="bottom" constant="8" id="s5O-a0-ckO"/>
+                    <constraint firstItem="QSi-mt-4zI" firstAttribute="leading" secondItem="xlI-xK-L8O" secondAttribute="leading" id="rBF-iH-c6N"/>
+                    <constraint firstItem="We4-PT-r0C" firstAttribute="trailing" secondItem="QSi-mt-4zI" secondAttribute="trailing" id="sRZ-Up-iyx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="We4-PT-r0C" secondAttribute="trailing" id="tNL-dZ-E5Z"/>
+                    <constraint firstItem="BY6-ds-oVH" firstAttribute="top" secondItem="S9T-df-3ZQ" secondAttribute="bottom" constant="3" id="tTN-ZI-gOz"/>
+                    <constraint firstItem="QSi-mt-4zI" firstAttribute="trailing" secondItem="xlI-xK-L8O" secondAttribute="trailing" id="wVC-3L-TNr"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -85,4 +90,7 @@
             <point key="canvasLocation" x="306.5" y="459"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="attraction" width="22" height="22"/>
+    </resources>
 </document>
