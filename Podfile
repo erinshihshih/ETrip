@@ -14,6 +14,8 @@ pod 'FBSDKShareKit'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'GooglePlacePicker'
+
 pod 'ENSwiftSideMenu', '~> 0.1.1'
+pod 'PDFGenerator', '~> 1.4.3'
 
 end
