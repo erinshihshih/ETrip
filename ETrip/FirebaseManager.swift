@@ -28,6 +28,7 @@ class FirebaseManager {
     weak var delegate: FirebaseManagerDelegate?
     
     let databaseRef = FIRDatabase.database().reference()
+    let currentUid = FIRAuth.auth()?.currentUser?.uid
     
     var posts: [Post] = []
     var transportations: [Transportation] = []
@@ -58,10 +59,13 @@ class FirebaseManager {
                     
                     for (index, item) in firebaseItemValue.enumerate() {
                         
+                        let uid = item["uid"] as! String
+                        guard uid == self.currentUid else { return }
+                        
                         let postID = firebaseItemKey[index]
                         
-                        let indexPathRow = item["indexPathRow"] as! Int
                         let title = item["title"] as! String
+                        let indexPathRow = item["indexPathRow"] as! Int
                         let country = item["country"] as! String
                         let startDate = item["startDate"] as! String
                         let returnDate = item["returnDate"] as! String
@@ -74,6 +78,11 @@ class FirebaseManager {
                     }
                 }
                 
+            }
+            
+            else {
+                print("no post")
+                return
             }
             
         })
@@ -102,7 +111,8 @@ class FirebaseManager {
                     
                     for (index, item) in firebaseItemValue.enumerate() {
                         
-                        let postID = item["postID"] as! String
+                        guard let postID = item["postID"] as? String else { return }
+                        
                         let transportationID = item["transportationID"] as! String
                         let indexPathRow = item["indexPathRow"] as! Int
                         let type = item["type"] as! String

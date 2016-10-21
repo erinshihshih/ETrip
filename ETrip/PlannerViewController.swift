@@ -13,12 +13,23 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     enum Row {
         case transportation, attraction, accommodation
     }
-    
+  
     var rows: [Row] = []
     
     var post: Post?
 
     var allArray: [Any] = [ ]
+    
+    
+    @IBAction func shareButton(sender: UIButton) {
+        
+        let myShare = "\(allArray)"
+        
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
     
     var transportation: Transportation?
     var attraction: Attraction?

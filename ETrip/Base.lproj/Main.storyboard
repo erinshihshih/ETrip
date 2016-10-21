@@ -483,6 +483,9 @@
                                     <constraint firstAttribute="width" constant="30" id="qf8-Gb-2UV"/>
                                 </constraints>
                                 <state key="normal" title="Share" image="share"/>
+                                <connections>
+                                    <action selector="shareButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="UXs-RD-Q5a"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">
                                 <rect key="frame" x="20" y="99" width="133" height="23"/>
