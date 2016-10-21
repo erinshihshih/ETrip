@@ -17,4 +17,7 @@ class AttractionPlannerViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     
     @IBOutlet weak var websiteLabel: UILabel!
+    
+   
+
 }

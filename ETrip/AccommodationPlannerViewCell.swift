@@ -21,6 +21,8 @@ class AccommodationPlannerViewCell: UITableViewCell {
     @IBOutlet weak var checkinDateLabel: UILabel!
     
     @IBOutlet weak var checkoutDateLabel: UILabel!
+    
+    
 
 
 

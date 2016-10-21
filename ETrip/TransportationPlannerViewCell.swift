@@ -26,4 +26,6 @@ class TransportationPlannerViewCell: UITableViewCell {
     @IBOutlet weak var departDateLabel: UILabel!
     
     @IBOutlet weak var arriveDateLabel: UILabel!
+    
+    
 }
