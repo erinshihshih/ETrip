@@ -23,6 +23,10 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        // 狀態列顯示為白色
+//        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
+
+        
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
         FirebaseManager.shared.fetchPosts()

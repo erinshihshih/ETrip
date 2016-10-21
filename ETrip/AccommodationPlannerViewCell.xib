@@ -46,31 +46,31 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kI-rh-sds">
-                        <rect key="frame" x="181" y="80" width="192" height="43.5"/>
+                        <rect key="frame" x="181" y="80" width="192" height="44"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkin Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDc-M4-lGN">
-                        <rect key="frame" x="181" y="131.5" width="192" height="20"/>
+                        <rect key="frame" x="181" y="132" width="192" height="20"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAE-2n-OGu">
-                        <rect key="frame" x="181" y="160.5" width="192" height="20"/>
+                        <rect key="frame" x="181" y="161" width="192" height="20"/>
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-Cy-xmE">
-                        <rect key="frame" x="80" y="130.5" width="77" height="21"/>
+                        <rect key="frame" x="80" y="131" width="77" height="21"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RE7-1f-pgx">
-                        <rect key="frame" x="80" y="159.5" width="87" height="21"/>
+                        <rect key="frame" x="80" y="160" width="87" height="21"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHM-1l-mlU">
-                        <rect key="frame" x="80" y="90" width="68" height="18.5"/>
+                        <rect key="frame" x="80" y="90" width="68" height="19"/>
                         <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
