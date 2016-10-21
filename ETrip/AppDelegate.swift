@@ -33,8 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().translucent = true
         UINavigationBar.appearance().tintColor = UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1)
+
         UITabBar.appearance().tintColor = UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1)
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1)]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1), NSFontAttributeName : UIFont(name: "CourierNewPS-BoldMT", size: 25)!]
+        
+        
         
         GMSServices.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
         GMSPlacesClient.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
