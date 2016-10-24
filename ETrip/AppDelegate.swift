@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
         
         // MARK: Set up Crashlytics
-        Fabric.with([Crashlytics.self])
+//        Fabric.with([Crashlytics.self])
    
         return true
     }

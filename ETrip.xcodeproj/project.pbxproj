@@ -192,12 +192,12 @@
 			isa = PBXGroup;
 			children = (
 				95DB08731D98D01C009C404A /* LoginViewController.swift */,
-				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
-				9547E73F1DB089790023EE68 /* AddViewController.swift */,
 				959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */,
+				9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */,
 				95143BF51D9D127B00E389E1 /* ResultViewController.swift */,
 				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 				956CF6801DB4A32C006AD9B1 /* MapViewController.swift */,
+				9547E73F1DB089790023EE68 /* AddViewController.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 			);

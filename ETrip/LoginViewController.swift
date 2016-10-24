@@ -52,10 +52,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
         }
         
-        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterContentType: "cont",
-            kFIRParameterItemID: "1"
-            ])
+     
     }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {

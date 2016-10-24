@@ -46,7 +46,10 @@ class HomeTableViewController: UITableViewController {
         backButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "CourierNewPS-BoldMT", size: 20)!], forState: UIControlState.Normal)
         navigationItem.backBarButtonItem = backButton
         
-       
+        FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
+            kFIRParameterContentType: "cont",
+            kFIRParameterItemID: "1"
+            ])
         
         
         
@@ -131,8 +134,6 @@ class HomeTableViewController: UITableViewController {
             posts.append(post)
             posts.sortInPlace { $0.startDate.stringToDouble() > $1.startDate.stringToDouble() }
             tableView.reloadData()
-            
-            
 
             
         }

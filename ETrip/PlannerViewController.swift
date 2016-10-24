@@ -8,6 +8,7 @@
 
 import UIKit
 import PDFGenerator
+
 //import Crashlytics
 
 class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -22,25 +23,40 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var allArray: [Any] = [ ]
     
-    @IBAction func shareButton(sender: UIButton) {
-        
-        let myShare = "\(allArray)"
-        
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
-        
-        self.presentViewController(activityViewController, animated: true, completion: nil)
-        
-      
-//        Crashlytics.sharedInstance().crash()
-        
-    }
-    
     
     @IBAction func pdfButton(sender: UIButton) {
-      
+        
+//        let view : UIView = self.view //Any view can be here!
+//        let snapshotImage = view.getSnapshotImage()
+//        print(snapshotImage)
+//        
+//        imageView.image = snapshotImage
+//
+    }
+    
+    @IBAction func shareButton(sender: UIButton) {
+        
+        let view : UIView = self.view //Any view can be here!
+        let snapshotImage = view.getSnapshotImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
+        
+//        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+        
+        //Moved cast for as! UIView outside the perantheses of sender so
+        //that the as! can be used more efficiently. But most importantly
+        // I changed the as! to a as? instead thinking that might catch an error and it did... so this works.
+        
+        activityViewController.popoverPresentationController?.sourceView = sender
+        self.self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+        //        Crashlytics.sharedInstance().crash()
+        
     }
 
 
+//    @IBOutlet weak var imageView: UIImageView!
 
     var transportation: Transportation?
     var attraction: Attraction?
@@ -64,8 +80,8 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.countryLabel.text = post?.country
         self.startDateLabel.text = post?.startDate
         self.returnDateLabel.text = post?.returnDate
-        
-   
+
+     
 
     }
 
@@ -236,5 +252,16 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+}
+
+
+extension UIView {
+    func getSnapshotImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0)
+        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
+        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshotImage
+    }
 }
 
