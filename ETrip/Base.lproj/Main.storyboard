@@ -557,20 +557,12 @@
                                     <action selector="shareButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="nDL-m6-eZq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSc-dQ-OKR">
-                                <rect key="frame" x="451" y="69" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="pdfButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="tmp-qX-E4E"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8R9-Tv-AK9" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="5" id="0ZM-wk-drg"/>
                             <constraint firstItem="lR7-dh-NFP" firstAttribute="top" secondItem="jpz-ZS-9Yd" secondAttribute="bottom" id="3HA-w4-YQM"/>
                             <constraint firstItem="P96-cx-vhq" firstAttribute="centerY" secondItem="TFz-e1-xAi" secondAttribute="centerY" id="4HE-rQ-UmR"/>
-                            <constraint firstItem="gjk-fi-TIK" firstAttribute="leading" secondItem="aSc-dQ-OKR" secondAttribute="trailing" constant="15" id="6Qh-w5-a7C"/>
                             <constraint firstItem="TFz-e1-xAi" firstAttribute="top" secondItem="k0S-LF-sEC" secondAttribute="bottom" constant="15" id="6Wx-lj-6Jm"/>
                             <constraint firstItem="P96-cx-vhq" firstAttribute="leading" secondItem="FZ4-p6-S0w" secondAttribute="leading" id="9Hf-aX-xPO"/>
                             <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="GEG-CE-0Rc" secondAttribute="bottom" constant="8" id="AsG-cG-QOM"/>
@@ -590,7 +582,6 @@
                             <constraint firstItem="FZ4-p6-S0w" firstAttribute="centerY" secondItem="k0S-LF-sEC" secondAttribute="centerY" id="cx3-bv-cbb"/>
                             <constraint firstItem="GEG-CE-0Rc" firstAttribute="top" secondItem="TFz-e1-xAi" secondAttribute="bottom" constant="15" id="lb1-bN-RhU"/>
                             <constraint firstAttribute="trailing" secondItem="bH1-yI-dse" secondAttribute="trailing" constant="15" id="mJh-O9-4cS"/>
-                            <constraint firstItem="aSc-dQ-OKR" firstAttribute="centerY" secondItem="gjk-fi-TIK" secondAttribute="centerY" id="n4i-Md-7bo"/>
                             <constraint firstItem="k0S-LF-sEC" firstAttribute="leading" secondItem="IIz-dV-1Ow" secondAttribute="leading" id="nX4-2x-wo7"/>
                             <constraint firstItem="jpz-ZS-9Yd" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" id="p7r-ne-893"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="centerY" secondItem="GEG-CE-0Rc" secondAttribute="centerY" id="pmB-JA-Sxt"/>

@@ -17,47 +17,14 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         case transportation, attraction, accommodation
     }
   
+    // MARK: - Property
+    
     var rows: [Row] = []
     
     var post: Post?
 
     var allArray: [Any] = [ ]
     
-    
-    @IBAction func pdfButton(sender: UIButton) {
-        
-//        let view : UIView = self.view //Any view can be here!
-//        let snapshotImage = view.getSnapshotImage()
-//        print(snapshotImage)
-//        
-//        imageView.image = snapshotImage
-//
-    }
-    
-    @IBAction func shareButton(sender: UIButton) {
-        
-        let view : UIView = self.view //Any view can be here!
-        let snapshotImage = view.getSnapshotImage()
-        
-        let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
-        
-//        self.presentViewController(activityViewController, animated: true, completion: nil)
-        
-        
-        //Moved cast for as! UIView outside the perantheses of sender so
-        //that the as! can be used more efficiently. But most importantly
-        // I changed the as! to a as? instead thinking that might catch an error and it did... so this works.
-        
-        activityViewController.popoverPresentationController?.sourceView = sender
-        self.self.presentViewController(activityViewController, animated: true, completion: nil)
-        
-        //        Crashlytics.sharedInstance().crash()
-        
-    }
-
-
-//    @IBOutlet weak var imageView: UIImageView!
-
     var transportation: Transportation?
     var attraction: Attraction?
     var accommodation: Accommodation?
@@ -73,6 +40,23 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func shareButton(sender: UIButton) {
+        
+        let view : UIView = self.view //Any view can be here!
+        
+        let snapshotImage = view.getSnapshotImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
+        
+        activityViewController.popoverPresentationController?.sourceView = sender
+        self.self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+        //        Crashlytics.sharedInstance().crash()
+        
+    }
+    
+    // MARK: - Set up View
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,9 +64,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.countryLabel.text = post?.country
         self.startDateLabel.text = post?.startDate
         self.returnDateLabel.text = post?.returnDate
-
-     
-
     }
 
     
@@ -91,7 +72,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    // MARK: - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -103,7 +84,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         return rows.count
     }
     
-    /////// Set up Table View ////////
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         switch rows[indexPath.row] {
@@ -149,13 +129,10 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Set up views if editing an existing data.
             cell.nameLabel.text = accommodation.name
             cell.addressLabel.text = accommodation.address
-//            cell.phoneLabel.text = accommodation.phone
             cell.bookingRefLabel.text = accommodation.bookingRef
             cell.checkinDateLabel.text = accommodation.checkinDate
             cell.checkoutDateLabel.text = accommodation.checkoutDate
-            
-            
-
+        
             return cell
         }
         
@@ -233,15 +210,15 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             newArray.append(allArray[Int(item)!])
             
-            if newArray[index] is Transportation{
+            if newArray[index] is Transportation {
                 rows.append(.transportation)
             }
             
-            if newArray[index] is Attraction{
+            if newArray[index] is Attraction {
                 rows.append(.attraction)
             }
             
-            if newArray[index] is Accommodation{
+            if newArray[index] is Accommodation {
                 rows.append(.accommodation)
             }
             
@@ -256,12 +233,59 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 
 extension UIView {
+    
     func getSnapshotImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0)
-        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
-        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+//        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0)
+//        
+//        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
+//        
+//        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+//        
+//        UIGraphicsEndImageContext()
+//        
+//        return snapshotImage
+        
+        
+        
+        ////////////
+        var imageSize = CGSizeZero
+        
+        let orientation = UIApplication.sharedApplication().statusBarOrientation
+        if UIInterfaceOrientationIsPortrait(orientation) {
+            imageSize = UIScreen.mainScreen().bounds.size
+        } else {
+            imageSize = CGSize(width: UIScreen.mainScreen().bounds.size.height, height: UIScreen.mainScreen().bounds.size.width)
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+        let context = UIGraphicsGetCurrentContext()
+        for window in UIApplication.sharedApplication().windows {
+            CGContextSaveGState(context)
+            CGContextTranslateCTM(context, window.center.x, window.center.y)
+            CGContextConcatCTM(context, window.transform)
+            CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y)
+            if orientation == .LandscapeLeft {
+                CGContextRotateCTM(context, CGFloat(M_PI_2))
+                CGContextTranslateCTM(context, 0, -imageSize.width)
+            } else if orientation == .LandscapeRight {
+                CGContextRotateCTM(context, -CGFloat(M_PI_2))
+                CGContextTranslateCTM(context, -imageSize.height, 0)
+            } else if orientation == .PortraitUpsideDown {
+                CGContextRotateCTM(context, CGFloat(M_PI))
+                CGContextTranslateCTM(context, -imageSize.width, -imageSize.height)
+            }
+            if window.respondsToSelector("drawViewHierarchyInRect:afterScreenUpdates:") {
+                window.drawViewHierarchyInRect(window.bounds, afterScreenUpdates: true)
+            } else if let context = context {
+                window.layer.renderInContext(context)
+            }
+            CGContextRestoreGState(context)
+        }
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return snapshotImage
+        return image
     }
 }
 
