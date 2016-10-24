@@ -8,6 +8,7 @@
 
 import UIKit
 import PDFGenerator
+//import Crashlytics
 
 class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -21,7 +22,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var allArray: [Any] = [ ]
     
-    
     @IBAction func shareButton(sender: UIButton) {
         
         let myShare = "\(allArray)"
@@ -29,6 +29,9 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [myShare], applicationActivities: nil)
         
         self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+      
+//        Crashlytics.sharedInstance().crash()
         
     }
     
@@ -51,8 +54,6 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var returnDateLabel: UILabel!
-    
-    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
     

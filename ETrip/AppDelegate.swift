@@ -14,6 +14,8 @@ import FBSDKLoginKit
 import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,8 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
                 
-        // NavigationBar
-        
+        // MARK: Set up NavigationBar
         UINavigationBar.appearance().translucent = true
         UINavigationBar.appearance().tintColor = UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1)
 
@@ -38,9 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1), NSFontAttributeName : UIFont(name: "CourierNewPS-BoldMT", size: 25)!]
         
         
-        
+        // MARK: Google Places
         GMSServices.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
         GMSPlacesClient.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
+        
+        // MARK: Set up Crashlytics
+        Fabric.with([Crashlytics.self])
    
         return true
     }

@@ -5,7 +5,10 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
   - ENSwiftSideMenu (0.1.1)
+  - Fabric (1.6.8)
   - FBSDKCoreKit (4.15.1):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.15.1):
@@ -62,7 +65,9 @@ PODS:
   - PDFGenerator (1.4.3)
 
 DEPENDENCIES:
+  - Crashlytics
   - ENSwiftSideMenu (~> 0.1.1)
+  - Fabric
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -77,7 +82,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
   ENSwiftSideMenu: a934caefbe811e4925f172009349da4a49901307
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
   FBSDKCoreKit: fc7fa53d16b095ee3fd53f0cd59f1df8bcbb634d
   FBSDKLoginKit: 073f79b3b2e762fc6f54a283fe15f45372d59f5f
   FBSDKShareKit: 11cbb5a4d7b5fda8143cc95b76188147e6725736
@@ -96,6 +103,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   PDFGenerator: 8e28213b0b36e41f667b474e24ab7c84c8cee303
 
-PODFILE CHECKSUM: 6897eea5296fd67f94906ef72138958ed6bf704d
+PODFILE CHECKSUM: e8c6e64458a1aa47c36acb423d8eb55b7a6aa534
 
 COCOAPODS: 1.1.0.beta.1

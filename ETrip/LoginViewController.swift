@@ -28,10 +28,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 
                 // HomeNavigationController
-//                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
-//                
-//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                appDelegate.window?.rootViewController = homeNavigationController
+                //                let homeNavigationController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as! UINavigationController
+                //
+                //                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                //                appDelegate.window?.rootViewController = homeNavigationController
                 
                 // RevealViewController
                 let revealViewController = storyboard.instantiateViewControllerWithIdentifier("RevealViewController")
@@ -87,14 +87,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     for profile in user.providerData {
                         
-//                        let providerUid = profile.uid
-//                        let providerID = profile.providerID
+                        //                        let providerUid = profile.uid
+                        //                        let providerID = profile.providerID
                         let name = profile.displayName
                         let email = profile.email
                         let profilePicURL = profile.photoURL
                         
                         let newUser: [String: AnyObject] = [
-//                            "providerID": providerID, // 管理不同的第三方登入
+                            //                            "providerID": providerID, // 管理不同的第三方登入
                             "name": name!,
                             "email": email!,
                             "profilePicURL": "\(profilePicURL!)"]
@@ -106,7 +106,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 } else {
                     
                     print("No user is signed in.")
-                
+                    
                 }
             }
         }

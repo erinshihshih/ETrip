@@ -318,7 +318,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEN-SE-VrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dzK-jg-B4c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="890"/>
+            <point key="canvasLocation" x="1905" y="1066"/>
         </scene>
         <!--Map View-->
         <scene sceneID="RYo-hl-aYF">
@@ -450,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805" y="-514"/>
+            <point key="canvasLocation" x="2805" y="-474"/>
         </scene>
         <!--Planner View-->
         <scene sceneID="Ds7-zJ-pna">
@@ -473,18 +473,7 @@
                                 <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="EDIT" image="edit"/>
                                 <connections>
-                                    <segue destination="XdL-7b-cYU" kind="show" identifier="editSegue" id="X6Y-jN-eZb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-Tv-AK9">
-                                <rect key="frame" x="550" y="69" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bT7-us-Upk"/>
-                                    <constraint firstAttribute="width" constant="30" id="qf8-Gb-2UV"/>
-                                </constraints>
-                                <state key="normal" title="Share" image="share"/>
-                                <connections>
-                                    <action selector="shareButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="UXs-RD-Q5a"/>
+                                    <segue destination="XdL-7b-cYU" kind="show" identifier="editSegue" id="jzJ-m9-dEf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">
@@ -557,11 +546,15 @@
                                 <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZ4-Ga-STG">
-                                <rect key="frame" x="458" y="69" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-Tv-AK9">
+                                <rect key="frame" x="550" y="69" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bT7-us-Upk"/>
+                                    <constraint firstAttribute="width" constant="30" id="qf8-Gb-2UV"/>
+                                </constraints>
+                                <state key="normal" title="Share" image="share"/>
                                 <connections>
-                                    <action selector="pdfButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="tk0-9J-e2H"/>
+                                    <action selector="shareButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="eId-0g-4ZQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -607,10 +600,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Planner View" image="notepad" id="Qd4-9e-ASe"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="rTj-Ia-lNM"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countryLabel" destination="FZ4-p6-S0w" id="0QH-OF-0Ie"/>
-                        <outlet property="editButton" destination="gjk-fi-TIK" id="NSa-7U-gaQ"/>
                         <outlet property="returnDateLabel" destination="2XH-bI-TUl" id="drj-sv-UX7"/>
                         <outlet property="startDateLabel" destination="P96-cx-vhq" id="tW5-ai-trE"/>
                         <outlet property="tableView" destination="jpz-ZS-9Yd" id="Xq8-aF-898"/>
@@ -619,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zZp-Uf-189" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805" y="179"/>
+            <point key="canvasLocation" x="2805" y="239"/>
         </scene>
         <!--Trips-->
         <scene sceneID="R2U-0c-wLE">
@@ -867,7 +860,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ng3-jV-Es8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3xT-gJ-8n2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2749" y="890"/>
+            <point key="canvasLocation" x="2805" y="1066"/>
         </scene>
     </scenes>
     <resources>

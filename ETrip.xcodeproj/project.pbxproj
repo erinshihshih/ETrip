@@ -320,6 +320,7 @@
 				95DB086C1D98D01C009C404A /* Resources */,
 				86A640DB7B8E8B6089D805D8 /* [CP] Embed Pods Frameworks */,
 				491B4C0B214E65A1EFA69BC8 /* [CP] Copy Pods Resources */,
+				950B49B91DBD9A4C0023B6BF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -489,6 +490,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETrip/Pods-ETrip-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		950B49B91DBD9A4C0023B6BF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run fee693e8e3ab0e0837d8e07297d4138a62e23c6d 5d461cb023691d287e44f49104b27af55ef5a7b554f5492ec6617b7c54a20bed";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -672,6 +686,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts\"",
