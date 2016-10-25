@@ -38,6 +38,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     //    var transportationArray = ["Airplane", "Train", "Bus"]
     
     var rows: [ Row ] = [ .title ]
+    var allArray: NSMutableArray = []
     
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
@@ -171,7 +172,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+     
+        
         switch rows[indexPath.row] {
+            
         case .title:
             
             let cellIdentifier = "titleCell"
@@ -191,6 +195,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             
             cell.countryTextField.inputView = pickerView
+            if allArray.count - 1 >= indexPath.row{
+                allArray[indexPath.row] = cell
+            }else{
+                allArray.addObject(cell)
+            }
+            
             return cell
             
             
@@ -225,7 +235,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.arriveDateTextField.text = transportation.arriveDate
             }
             
-            //            cell.typeTextField.inputView = transportationPickerView
+            if allArray.count - 1 >= indexPath.row{
+                allArray[indexPath.row] = cell
+            }else{
+                allArray.addObject(cell)
+            }
+            
             return cell
             
         case .attraction:
@@ -248,6 +263,15 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.addressLabel.text = attraction.address
                 cell.websiteLabel.text = attraction.website
                 
+            }
+            
+            if allArray.count - 1 >= indexPath.row {
+                
+                allArray[indexPath.row] = cell
+                
+            } else {
+                
+                allArray.addObject(cell)
             }
             
             return cell
@@ -277,6 +301,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.checkinDateTextField.text = accommodation.checkinDate
                 cell.checkoutDateTextField.text = accommodation.checkoutDate
                 
+            }
+
+            if allArray.count - 1 >= indexPath.row{
+                allArray[indexPath.row] = cell
+            }else{
+                allArray.addObject(cell)
             }
             
             return cell
@@ -328,10 +358,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                 case .title:
                     
-                    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                    let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     
-                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddTableViewCell {
+                    if let cell = allArray[indexPathRow] as? AddTableViewCell {
                         
                         // Trip Title Cell
                         let title = cell.titleTextField.text ?? ""
@@ -386,7 +416,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     let transportationIDKey = FIRDatabase.database().reference().childByAutoId().key
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
                     
                     // Transportation Cell
                     let type = cell.typeTextField.text ?? ""
@@ -420,7 +450,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let indexPathRow = indexPath.row
                     let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
                     
-                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AttractionTableViewCell {
+                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
+                        
                         print("It's AttractionTableViewCell")
                         let name = cell.nameLabel.text ?? ""
                         let address = cell.addressLabel.text ?? ""
@@ -464,7 +495,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     let accommodationIDKey = FIRDatabase.database().reference().childByAutoId().key
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
+                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     
                     // Accommodation Cell
                     let name = cell.nameLabel.text ?? ""
