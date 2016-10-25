@@ -87,36 +87,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    //    @IBAction func onLaunchClicked(sender: AnyObject) {
-    //        let acController = GMSAutocompleteViewController()
-    //        acController.delegate = self
-    //        self.presentViewController(acController, animated: true, completion: nil)
-    //    }
-    
-    func onLaunchClicked(sender: UIButton) {
-        
-        if let sender = sender.superview?.superview as? AttractionTableViewCell{
-            
-            attractionCell = sender
-            let acController = GMSAutocompleteViewController()
-            acController.delegate = self
-            self.presentViewController(acController, animated: true, completion: nil)
-        }
-        
-        if let sender = sender.superview?.superview as? AccommodationTableViewCell{
-            
-            accommodationCell = sender
-            let acController = GMSAutocompleteViewController()
-            acController.delegate = self
-            self.presentViewController(acController, animated: true, completion: nil)
-        }
-        
-    }
-    
-    
-    
-    
-    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +120,26 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    // MARK: Function
+    func onLaunchClicked(sender: UIButton) {
+        
+        if let sender = sender.superview?.superview as? AttractionTableViewCell{
+            
+            attractionCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
+        if let sender = sender.superview?.superview as? AccommodationTableViewCell{
+            
+            accommodationCell = sender
+            let acController = GMSAutocompleteViewController()
+            acController.delegate = self
+            self.presentViewController(acController, animated: true, completion: nil)
+        }
+        
+    }
     
     
     
@@ -171,37 +161,36 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    
+        
         
         switch rows[indexPath.row] {
             
         case .title:
             
             
-            if allArray.count - 1 >= indexPath.row{
-
+            if allArray.count - 1 >= indexPath.row {
+                
                 let cell = allArray[indexPath.row] as! AddTableViewCell
                 
                 // Handle the text field’s user input via delegate callbacks.
                 cell.startDateTextField.delegate = self
                 cell.returnDateTextField.delegate = self
                 
-//                // Set up views if editing an existing data.
-//                if let post = post {
-//                    
-//                    cell.titleTextField.text = post.title
-//                    cell.countryTextField.text = post.country
-//                    cell.startDateTextField.text = post.startDate
-//                    cell.returnDateTextField.text = post.returnDate
-//                }
+                //                // Set up views if editing an existing data.
+                //                if let post = post {
+                //
+                //                    cell.titleTextField.text = post.title
+                //                    cell.countryTextField.text = post.country
+                //                    cell.startDateTextField.text = post.startDate
+                //                    cell.returnDateTextField.text = post.returnDate
+                //                }
                 
                 cell.countryTextField.inputView = pickerView
+                
                 allArray[indexPath.row] = cell
                 return cell
                 
-            }else{
-                
-                
+            } else {
                 
                 let cellIdentifier = "titleCell"
                 let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddTableViewCell
@@ -221,17 +210,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 cell.countryTextField.inputView = pickerView
                 
-                
-                
                 allArray.addObject(cell)
                 return cell
             }
-
-            
             
         case .transportation:
             
-            if allArray.count - 1 >= indexPath.row{
+            if allArray.count - 1 >= indexPath.row {
                 
                 let cell = allArray[indexPath.row] as! TransportationTableViewCell
                 
@@ -244,6 +229,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.arriveAtTextField.delegate = self
                 cell.departDateTextField.delegate = self
                 cell.arriveDateTextField.delegate = self
+                
                 allArray[indexPath.row] = cell
                 return cell
                 
@@ -261,7 +247,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.departDateTextField.delegate = self
                 cell.arriveDateTextField.delegate = self
                 
-                if !isEditingTransportation  {
+                if !isEditingTransportation {
                     
                     let theTransportation = transportations[indexPath.row - 1]
                     
@@ -281,7 +267,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 allArray.addObject(cell)
                 return cell
             }
-
             
         case .attraction:
             
@@ -304,7 +289,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
-                if !isEditingAttraction  {
+                if !isEditingAttraction {
                     
                     let theAttraction = attractions[indexPath.row - transportations.count - 1]
                     
@@ -322,13 +307,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 return cell
             }
             
-
-            
         case .accommodation:
             
-
-
-            if allArray.count - 1 >= indexPath.row{
+            if allArray.count - 1 >= indexPath.row {
                 
                 let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
                 cell.checkinDateTextField.delegate = self
@@ -336,7 +317,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
-                if !isEditingAccommodation  {
+                if !isEditingAccommodation {
                     
                     let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
                     
@@ -344,7 +325,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let accommodation = theAccommodation
                     
                     cell.nameLabel.text = accommodation.name
-                    //                cell.phoneLabel.text = accommodation.phone
                     cell.addressLabel.text = accommodation.address
                     cell.checkinDateTextField.text = accommodation.checkinDate
                     cell.checkoutDateTextField.text = accommodation.checkoutDate
@@ -353,8 +333,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 allArray[indexPath.row] = cell
                 return cell
-            }else{
                 
+            } else {
                 
                 let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
                 cell.checkinDateTextField.delegate = self
@@ -362,7 +342,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
-                if !isEditingAccommodation  {
+                if !isEditingAccommodation {
                     
                     let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
                     
@@ -370,7 +350,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let accommodation = theAccommodation
                     
                     cell.nameLabel.text = accommodation.name
-                    //                cell.phoneLabel.text = accommodation.phone
                     cell.addressLabel.text = accommodation.address
                     cell.checkinDateTextField.text = accommodation.checkinDate
                     cell.checkoutDateTextField.text = accommodation.checkoutDate
@@ -381,19 +360,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 return cell
             }
             
-            
-            
-            
         }
         
     }
     
-    
-    
-    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        if editingStyle == .Delete{
+        if editingStyle == .Delete {
             
             self.rows.removeAtIndex(indexPath.row)
             self.allArray.removeObjectAtIndex(indexPath.row)
@@ -458,64 +431,74 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         
                         // Set the post to be passed to HomeTableViewController after the unwind segue.
                         post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
-
-                    } else { return }
+                        
+                    } else {
+                        print("prepareForSegue: title cast wrong")
+                        return
+                    }
                     
-//                    // Trip Title Cell
-//                    let title = cell.titleTextField.text ?? ""
-//                    let country = cell.countryTextField.text ?? ""
-//                    
-//                    // needs to be re-designed > Date Picker
-//                    let startDate = cell.startDateTextField.text ?? ""
-//                    let returnDate = cell.returnDateTextField.text ?? ""
-//                    
-//                    // Store tripTitle in Firebase
-//                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
-//                                                            "postID": postIDKey,
-//                                                            "indexPathRow": indexPathRow,
-//                                                            "timestamp": timeStamp,
-//                                                            "title": title,
-//                                                            "country": country,
-//                                                            "startDate": startDate,
-//                                                            "returnDate": returnDate ]
-//                    
-//                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-//                    
-//                    // Set the post to be passed to HomeTableViewController after the unwind segue.
-//                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+                    //                    // Trip Title Cell
+                    //                    let title = cell.titleTextField.text ?? ""
+                    //                    let country = cell.countryTextField.text ?? ""
+                    //
+                    //                    // needs to be re-designed > Date Picker
+                    //                    let startDate = cell.startDateTextField.text ?? ""
+                    //                    let returnDate = cell.returnDateTextField.text ?? ""
+                    //
+                    //                    // Store tripTitle in Firebase
+                    //                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
+                    //                                                            "postID": postIDKey,
+                    //                                                            "indexPathRow": indexPathRow,
+                    //                                                            "timestamp": timeStamp,
+                    //                                                            "title": title,
+                    //                                                            "country": country,
+                    //                                                            "startDate": startDate,
+                    //                                                            "returnDate": returnDate ]
+                    //
+                    //                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+                    //
+                    //                    // Set the post to be passed to HomeTableViewController after the unwind segue.
+                    //                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                     
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     let transportationIDKey = FIRDatabase.database().reference().childByAutoId().key
-                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
                     
-                    // Transportation Cell
-                    let type = cell.typeTextField.text ?? ""
-                    let airlineCom = cell.airlineComTextField.text ?? ""
-                    let flightNo = cell.flightNoTextField.text ?? ""
-                    let bookingRef = cell.bookingRefTextField.text ?? ""
-                    let departFrom = cell.departFromTextField.text ?? ""
-                    let arriveAt = cell.arriveAtTextField.text ?? ""
-                    let departDate = cell.departDateTextField.text ?? ""
-                    let arriveDate = cell.arriveDateTextField.text ?? ""
-                    
-                    let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": postIDKey,
-                                                                      "transportationID": transportationIDKey,
-                                                                      "indexPathRow": indexPathRow,
-                                                                      "timestamp": timeStamp,
-                                                                      "type": type,
-                                                                      "airlineCom": airlineCom,
-                                                                      "flightNo": flightNo,
-                                                                      "bookingRef": bookingRef,
-                                                                      "departFrom": departFrom,
-                                                                      "arriveAt": arriveAt,
-                                                                      "departDate": departDate,
-                                                                      "arriveDate": arriveDate ]
-                    
-                    databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
+                    if let cell = allArray[indexPathRow] as? TransportationTableViewCell {
+                        
+                        // Transportation Cell
+                        let type = cell.typeTextField.text ?? ""
+                        let airlineCom = cell.airlineComTextField.text ?? ""
+                        let flightNo = cell.flightNoTextField.text ?? ""
+                        let bookingRef = cell.bookingRefTextField.text ?? ""
+                        let departFrom = cell.departFromTextField.text ?? ""
+                        let arriveAt = cell.arriveAtTextField.text ?? ""
+                        let departDate = cell.departDateTextField.text ?? ""
+                        let arriveDate = cell.arriveDateTextField.text ?? ""
+                        
+                        let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                          "postID": postIDKey,
+                                                                          "transportationID": transportationIDKey,
+                                                                          "indexPathRow": indexPathRow,
+                                                                          "timestamp": timeStamp,
+                                                                          "type": type,
+                                                                          "airlineCom": airlineCom,
+                                                                          "flightNo": flightNo,
+                                                                          "bookingRef": bookingRef,
+                                                                          "departFrom": departFrom,
+                                                                          "arriveAt": arriveAt,
+                                                                          "departDate": departDate,
+                                                                          "arriveDate": arriveDate ]
+                        
+                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
+                        
+                    } else {
+                        
+                        print("prepareForSegue: TransportationTableViewCell cast wrong")
+                        return
+                    }
                     
                 case .attraction:
                     
@@ -532,69 +515,74 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         let website = cell.websiteLabel.text ?? ""
                         
                         let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                        "postID": postIDKey,
-                        "attractionID": attractionIDKey,
-                        "indexPathRow": indexPathRow,
-                        "timestamp": timeStamp,
-                        "name": name,
-                        "address": address,
-                        "phone": phone,
-                        "website": website ]
+                                                                      "postID": postIDKey,
+                                                                      "attractionID": attractionIDKey,
+                                                                      "indexPathRow": indexPathRow,
+                                                                      "timestamp": timeStamp,
+                                                                      "name": name,
+                                                                      "address": address,
+                                                                      "phone": phone,
+                                                                      "website": website ]
                         
                         databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                         
-                    } else { return }
+                    } else {
+                        
+                        print("prepareForSegue: AttractionTableViewCell cast wrong")
+                        return
+                    }
                     
                     // Attraction Cell
-//                    let name = cell.nameLabel.text ?? ""
-//                    let address = cell.addressLabel.text ?? ""
-//                    let phone = cell.phoneLabel.text ?? ""
-//                    let website = cell.websiteLabel.text ?? ""
+                    //                    let name = cell.nameLabel.text ?? ""
+                    //                    let address = cell.addressLabel.text ?? ""
+                    //                    let phone = cell.phoneLabel.text ?? ""
+                    //                    let website = cell.websiteLabel.text ?? ""
                     
-//                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-//                                                                  "postID": postIDKey,
-//                                                                  "attractionID": attractionIDKey,
-//                                                                  "indexPathRow": indexPathRow,
-//                                                                  "timestamp": timeStamp,
-//                                                                  "name": name,
-//                                                                  "address": address,
-//                                                                  "phone": phone,
-//                                                                  "website": website ]
-//                    
-//                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                    //                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+                    //                                                                  "postID": postIDKey,
+                    //                                                                  "attractionID": attractionIDKey,
+                    //                                                                  "indexPathRow": indexPathRow,
+                    //                                                                  "timestamp": timeStamp,
+                    //                                                                  "name": name,
+                    //                                                                  "address": address,
+                    //                                                                  "phone": phone,
+                    //                                                                  "website": website ]
+                    //
+                    //                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                     
                 case .accommodation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     let accommodationIDKey = FIRDatabase.database().reference().childByAutoId().key
-                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     
-                    // Accommodation Cell
-                    let name = cell.nameLabel.text ?? ""
-//                    let phone = cell.phoneLabel.text ?? ""
-                    let address = cell.addressLabel.text ?? ""
-                    let checkinDate = cell.checkinDateTextField.text ?? ""
-                    let checkoutDate = cell.checkoutDateTextField.text ?? ""
-                    let bookingRef = cell.bookingRefTextField.text ?? ""
-                    
-                    
-                    let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                     "postID": postIDKey,
-                                                                     "accommodationID": accommodationIDKey,
-                                                                     "indexPathRow": indexPathRow,
-                                                                     "timestamp": timeStamp,
-                                                                     "name": name,
-//                                                                     "phone": phone,
-                                                                     "address": address,
-                                                                     "checkinDate": checkinDate,
-                                                                     "checkoutDate": checkoutDate,
-                                                                     "bookingRef": bookingRef ]
-                    
-                    databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
-                    
-                    
-                    
+                    if let cell = allArray[indexPathRow] as? AccommodationTableViewCell {
+                        // Accommodation Cell
+                        let name = cell.nameLabel.text ?? ""
+                        let address = cell.addressLabel.text ?? ""
+                        let checkinDate = cell.checkinDateTextField.text ?? ""
+                        let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                        let bookingRef = cell.bookingRefTextField.text ?? ""
+                        
+                        
+                        let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                         "postID": postIDKey,
+                                                                         "accommodationID": accommodationIDKey,
+                                                                         "indexPathRow": indexPathRow,
+                                                                         "timestamp": timeStamp,
+                                                                         "name": name,
+                                                                         "address": address,
+                                                                         "checkinDate": checkinDate,
+                                                                         "checkoutDate": checkoutDate,
+                                                                         "bookingRef": bookingRef ]
+                        
+                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+                        
+                    } else {
+                        
+                        print("prepareForSegue: AccommodationTableViewCell cast wrong")
+                        return
+                    }
                 }
             }
         }
@@ -890,14 +878,14 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
             if place.website == nil {
                 
                 attractionCell!.websiteLabel.text = "No website info found!"
-            
+                
             } else {
-            
+                
                 attractionCell!.websiteLabel.text = "\(place.website!)"
-            
+                
             }
             
-        } else if accommodationCell != nil{ 
+        } else if accommodationCell != nil{
             
             accommodationCell!.nameLabel.text = place.name
             accommodationCell!.addressLabel.text = place.formattedAddress
@@ -908,7 +896,7 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         attractionCell = nil
         accommodationCell = nil
         
-
+        
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
