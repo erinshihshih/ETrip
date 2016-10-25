@@ -814,14 +814,12 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     
+                    // Edited
                     var swiftArray = allArray as NSArray as [AnyObject]
-                    
-                     swiftArray.insert(swiftArray.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
-                    
+                    swiftArray.insert(swiftArray.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     allArray.removeAllObjects()
                     allArray.addObjectsFromArray(swiftArray)
                     
-//                    allArray.insertObject(allArray.removeObjectAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
                     print(indexPath?.row)
