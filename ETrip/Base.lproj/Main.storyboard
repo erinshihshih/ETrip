@@ -471,7 +471,7 @@
                                     <constraint firstAttribute="width" constant="30" id="jPj-9Z-caA"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="EDIT" image="edit"/>
+                                <state key="normal" image="edit"/>
                                 <connections>
                                     <segue destination="XdL-7b-cYU" kind="show" identifier="editSegue" id="jzJ-m9-dEf"/>
                                 </connections>
@@ -552,7 +552,7 @@
                                     <constraint firstAttribute="height" constant="30" id="bT7-us-Upk"/>
                                     <constraint firstAttribute="width" constant="30" id="qf8-Gb-2UV"/>
                                 </constraints>
-                                <state key="normal" title="Share" image="share"/>
+                                <state key="normal" image="share"/>
                                 <connections>
                                     <action selector="shareButton:" destination="HTy-sV-NdB" eventType="touchUpInside" id="nDL-m6-eZq"/>
                                 </connections>

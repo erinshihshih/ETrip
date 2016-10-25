@@ -318,7 +318,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             let postIDKey = FIRDatabase.database().reference().childByAutoId().key
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
             
-            FIRAnalytics.logEventWithName("press_saveButton", parameters: nil)
+            FIRAnalytics.logEventWithName("press_saveButton", parameters: ["name": userID!])
             
             for index in 0..<rows.count {
                 

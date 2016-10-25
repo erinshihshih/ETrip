@@ -40,11 +40,13 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBAction func shareButton(sender: UIButton) {
         
-        let view : UIView = self.view //Any view can be here!
+//        let view : UIView = self.view //Any view can be here!
         
-        let snapshotImage = view.getSnapshotImage()
+        let snapshotImage = getSnapshotImageFunc()
         
         let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
         
@@ -54,6 +56,35 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         //        Crashlytics.sharedInstance().crash()
         
     }
+    
+    // Snapshot function
+    func captureView(view:UIView , size: CGSize ) -> UIImage{
+        
+        UIGraphicsBeginImageContext(size)
+        let viewSize: CGSize = view.frame.size
+        let context: CGContextRef = UIGraphicsGetCurrentContext()!
+        CGContextScaleCTM(context, size.width/viewSize.width, size.height/viewSize.height)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let viewImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return viewImage
+        
+    }
+    
+    func getSnapshotImageFunc() -> UIImage {
+    
+        UIGraphicsBeginImageContextWithOptions(tableView.contentSize, view.opaque, 0)
+        
+        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
+        
+        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return snapshotImage
+
+    }
+
     
     // MARK: - Set up View
 
@@ -227,6 +258,8 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         allArray = newArray
         self.tableView.reloadData()
         
+    
+        
     }
     
 }
@@ -234,58 +267,56 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 extension UIView {
     
-    func getSnapshotImage() -> UIImage {
+    func getSnapshotImage(view: UIView) -> UIImage {
         
-//        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0)
-//        
-//        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
-//        
-//        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-//        
-//        UIGraphicsEndImageContext()
-//        
-//        return snapshotImage
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, 0)
         
+        self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: false)
         
+        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return snapshotImage
         
         ////////////
-        var imageSize = CGSizeZero
-        
-        let orientation = UIApplication.sharedApplication().statusBarOrientation
-        if UIInterfaceOrientationIsPortrait(orientation) {
-            imageSize = UIScreen.mainScreen().bounds.size
-        } else {
-            imageSize = CGSize(width: UIScreen.mainScreen().bounds.size.height, height: UIScreen.mainScreen().bounds.size.width)
-        }
-        
-        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
-        let context = UIGraphicsGetCurrentContext()
-        for window in UIApplication.sharedApplication().windows {
-            CGContextSaveGState(context)
-            CGContextTranslateCTM(context, window.center.x, window.center.y)
-            CGContextConcatCTM(context, window.transform)
-            CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y)
-            if orientation == .LandscapeLeft {
-                CGContextRotateCTM(context, CGFloat(M_PI_2))
-                CGContextTranslateCTM(context, 0, -imageSize.width)
-            } else if orientation == .LandscapeRight {
-                CGContextRotateCTM(context, -CGFloat(M_PI_2))
-                CGContextTranslateCTM(context, -imageSize.height, 0)
-            } else if orientation == .PortraitUpsideDown {
-                CGContextRotateCTM(context, CGFloat(M_PI))
-                CGContextTranslateCTM(context, -imageSize.width, -imageSize.height)
-            }
-            if window.respondsToSelector("drawViewHierarchyInRect:afterScreenUpdates:") {
-                window.drawViewHierarchyInRect(window.bounds, afterScreenUpdates: true)
-            } else if let context = context {
-                window.layer.renderInContext(context)
-            }
-            CGContextRestoreGState(context)
-        }
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+//        var imageSize = CGSizeZero
+//        
+//        let orientation = UIApplication.sharedApplication().statusBarOrientation
+//        if UIInterfaceOrientationIsPortrait(orientation) {
+//            imageSize = UIScreen.mainScreen().bounds.size
+//        } else {
+//            imageSize = CGSize(width: UIScreen.mainScreen().bounds.size.height, height: UIScreen.mainScreen().bounds.size.width)
+//        }
+//        
+//        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+//        let context = UIGraphicsGetCurrentContext()
+//        for window in UIApplication.sharedApplication().windows {
+//            CGContextSaveGState(context)
+//            CGContextTranslateCTM(context, window.center.x, window.center.y)
+//            CGContextConcatCTM(context, window.transform)
+//            CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y)
+//            if orientation == .LandscapeLeft {
+//                CGContextRotateCTM(context, CGFloat(M_PI_2))
+//                CGContextTranslateCTM(context, 0, -imageSize.width)
+//            } else if orientation == .LandscapeRight {
+//                CGContextRotateCTM(context, -CGFloat(M_PI_2))
+//                CGContextTranslateCTM(context, -imageSize.height, 0)
+//            } else if orientation == .PortraitUpsideDown {
+//                CGContextRotateCTM(context, CGFloat(M_PI))
+//                CGContextTranslateCTM(context, -imageSize.width, -imageSize.height)
+//            }
+//            if window.respondsToSelector("drawViewHierarchyInRect:afterScreenUpdates:") {
+//                window.drawViewHierarchyInRect(window.bounds, afterScreenUpdates: true)
+//            } else if let context = context {
+//                window.layer.renderInContext(context)
+//            }
+//            CGContextRestoreGState(context)
+//        }
+//        
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return image
     }
 }
 
