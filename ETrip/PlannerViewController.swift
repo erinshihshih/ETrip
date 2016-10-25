@@ -46,7 +46,7 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
 //        let view : UIView = self.view //Any view can be here!
         
-        let snapshotImage = getSnapshotImageFunc()
+        let snapshotImage = pdfFile()
         
         let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
         
@@ -55,36 +55,55 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //        Crashlytics.sharedInstance().crash()
         
-    }
-    
-    // Snapshot function
-    func captureView(view:UIView , size: CGSize ) -> UIImage{
         
-        UIGraphicsBeginImageContext(size)
-        let viewSize: CGSize = view.frame.size
-        let context: CGContextRef = UIGraphicsGetCurrentContext()!
-        CGContextScaleCTM(context, size.width/viewSize.width, size.height/viewSize.height)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let viewImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return viewImage
         
     }
     
-    func getSnapshotImageFunc() -> UIImage {
-    
-        UIGraphicsBeginImageContextWithOptions(tableView.contentSize, view.opaque, 0)
-        
-        view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: false)
-        
-        let snapshotImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        return snapshotImage
 
-    }
+    
+    // UITableView -> PDF
+    func pdfFile() -> NSMutableData {
+        
+        let paperA4 = CGRect(x: -25, y: 25, width: 612, height: 892);
+        let pageWithMargin = CGRect(x: 0, y: 0, width: paperA4.width-50, height: paperA4.height-50);
+        
+        let fittedSize: CGSize = self.tableView.sizeThatFits(CGSizeMake(pageWithMargin.width, self.tableView.contentSize.height))
+        self.tableView.bounds = CGRectMake(0, 0, fittedSize.width, fittedSize.height)
+        
+        let pdfData = NSMutableData()
+        
+        
+        UIGraphicsBeginPDFContextToData(pdfData, paperA4, nil)
+        
+        for var pageOriginY:CGFloat = 0; pageOriginY < fittedSize.height; pageOriginY += paperA4.size.height {
+            
+            UIGraphicsBeginPDFPageWithInfo(paperA4, nil);
+            
+            CGContextSaveGState(UIGraphicsGetCurrentContext());
+            
+            CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -pageOriginY)
+            
+            self.tableView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        }
+        
+        UIGraphicsEndPDFContext()
+        
+        self.tableView.bounds = pageWithMargin // Reset the tableView
+        
+        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let pdfFileName = path.stringByAppendingPathComponent("testfilewnew.pdf")
+        
+        return pdfData
+//        
+//        pdfData.writeToFile(pdfFileName, atomically: true)
+//        
+//        print(path)
 
+        
+    }
+    
+    
+    
     
     // MARK: - Set up View
 

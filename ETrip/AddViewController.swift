@@ -330,30 +330,56 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                     let indexPathRow = indexPath.row
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
                     
-                    // Trip Title Cell
-                    let title = cell.titleTextField.text ?? ""
-                    let country = cell.countryTextField.text ?? ""
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AddTableViewCell {
+                        
+                        // Trip Title Cell
+                        let title = cell.titleTextField.text ?? ""
+                        let country = cell.countryTextField.text ?? ""
+                        
+                        // needs to be re-designed > Date Picker
+                        let startDate = cell.startDateTextField.text ?? ""
+                        let returnDate = cell.returnDateTextField.text ?? ""
+                        
+                        // Store tripTitle in Firebase
+                        let titleOnFire: [String: AnyObject] = ["uid": userID!,
+                                                                "postID": postIDKey,
+                                                                "indexPathRow": indexPathRow,
+                                                                "timestamp": timeStamp,
+                                                                "title": title,
+                                                                "country": country,
+                                                                "startDate": startDate,
+                                                                "returnDate": returnDate ]
+                        
+                        databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+                        
+                        // Set the post to be passed to HomeTableViewController after the unwind segue.
+                        post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+
+                    } else { return }
                     
-                    // needs to be re-designed > Date Picker
-                    let startDate = cell.startDateTextField.text ?? ""
-                    let returnDate = cell.returnDateTextField.text ?? ""
-                    
-                    // Store tripTitle in Firebase
-                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                                                            "postID": postIDKey,
-                                                            "indexPathRow": indexPathRow,
-                                                            "timestamp": timeStamp,
-                                                            "title": title,
-                                                            "country": country,
-                                                            "startDate": startDate,
-                                                            "returnDate": returnDate ]
-                    
-                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-                    
-                    // Set the post to be passed to HomeTableViewController after the unwind segue.
-                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
+//                    // Trip Title Cell
+//                    let title = cell.titleTextField.text ?? ""
+//                    let country = cell.countryTextField.text ?? ""
+//                    
+//                    // needs to be re-designed > Date Picker
+//                    let startDate = cell.startDateTextField.text ?? ""
+//                    let returnDate = cell.returnDateTextField.text ?? ""
+//                    
+//                    // Store tripTitle in Firebase
+//                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
+//                                                            "postID": postIDKey,
+//                                                            "indexPathRow": indexPathRow,
+//                                                            "timestamp": timeStamp,
+//                                                            "title": title,
+//                                                            "country": country,
+//                                                            "startDate": startDate,
+//                                                            "returnDate": returnDate ]
+//                    
+//                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+//                    
+//                    // Set the post to be passed to HomeTableViewController after the unwind segue.
+//                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                     
                 case .transportation:
                     
@@ -393,25 +419,45 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
                     let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
+                    
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AttractionTableViewCell {
+                        print("It's AttractionTableViewCell")
+                        let name = cell.nameLabel.text ?? ""
+                        let address = cell.addressLabel.text ?? ""
+                        let phone = cell.phoneLabel.text ?? ""
+                        let website = cell.websiteLabel.text ?? ""
+                        
+                        let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+                        "postID": postIDKey,
+                        "attractionID": attractionIDKey,
+                        "indexPathRow": indexPathRow,
+                        "timestamp": timeStamp,
+                        "name": name,
+                        "address": address,
+                        "phone": phone,
+                        "website": website ]
+                        
+                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                        
+                    } else { return }
                     
                     // Attraction Cell
-                    let name = cell.nameLabel.text ?? ""
-                    let address = cell.addressLabel.text ?? ""
-                    let phone = cell.phoneLabel.text ?? ""
-                    let website = cell.websiteLabel.text ?? ""
+//                    let name = cell.nameLabel.text ?? ""
+//                    let address = cell.addressLabel.text ?? ""
+//                    let phone = cell.phoneLabel.text ?? ""
+//                    let website = cell.websiteLabel.text ?? ""
                     
-                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                  "postID": postIDKey,
-                                                                  "attractionID": attractionIDKey,
-                                                                  "indexPathRow": indexPathRow,
-                                                                  "timestamp": timeStamp,
-                                                                  "name": name,
-                                                                  "address": address,
-                                                                  "phone": phone,
-                                                                  "website": website ]
-                    
-                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+//                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+//                                                                  "postID": postIDKey,
+//                                                                  "attractionID": attractionIDKey,
+//                                                                  "indexPathRow": indexPathRow,
+//                                                                  "timestamp": timeStamp,
+//                                                                  "name": name,
+//                                                                  "address": address,
+//                                                                  "phone": phone,
+//                                                                  "website": website ]
+//                    
+//                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                     
                 case .accommodation:
                     
