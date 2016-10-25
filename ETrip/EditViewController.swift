@@ -63,7 +63,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.beginUpdates()
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
         tableView.endUpdates()
-//        
+        //
     }
     
     @IBAction func addAttractionButton(sender: UIBarButtonItem) {
@@ -105,7 +105,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,10 +132,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(EditViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        //        self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         sortMyArray(allArray)
-
+        
         
     }
     
@@ -229,7 +229,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.addressLabel.text = attraction!.address
                 cell.websiteLabel.text = attraction!.website
             }
-
+            
             
             return cell
             
@@ -241,7 +241,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.checkinDateTextField.delegate = self
             cell.checkoutDateTextField.delegate = self
             cell.bookingRefTextField.delegate = self
-
+            
             
             cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
             
@@ -260,20 +260,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             return cell
-
+            
             
         }
         
     }
     
     
-//        func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//            return UITableViewAutomaticDimension
-//        }
-//    
-//        func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//            return UITableViewAutomaticDimension
-//        }
+    //        func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //            return UITableViewAutomaticDimension
+    //        }
+    //
+    //        func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    //            return UITableViewAutomaticDimension
+    //        }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -297,41 +297,48 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .title:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
                     let indexPathRow = indexPath.row
                     
-                    // Trip Title Cell
-                    let title = cell.titleTextField.text ?? ""
-                    let country = cell.countryTextField.text ?? ""
-                    
-                    // needs to be re-designed > Date Picker
-                    let startDate = cell.startDateTextField.text ?? ""
-                    let returnDate = cell.returnDateTextField.text ?? ""
-                    
-                    // Store tripTitle in Firebase
-                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                                                            "postID": postID,
-                                                            "indexPathRow": indexPathRow,
-                                                            "timestamp": timeStamp,
-                                                            "title": title,
-                                                            "country": country,
-                                                            "startDate": startDate,
-                                                            "returnDate": returnDate ]
-                    
-                    let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
-                    databaseRef.updateChildValues(updatedTitleOnFire)
+                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
+                        
+                        // Trip Title Cell
+                        let title = cell.titleTextField.text ?? ""
+                        let country = cell.countryTextField.text ?? ""
+                        
+                        // needs to be re-designed > Date Picker
+                        let startDate = cell.startDateTextField.text ?? ""
+                        let returnDate = cell.returnDateTextField.text ?? ""
+                        
+                        // Store tripTitle in Firebase
+                        let titleOnFire: [String: AnyObject] = ["uid": userID!,
+                                                                "postID": postID,
+                                                                "indexPathRow": indexPathRow,
+                                                                "timestamp": timeStamp,
+                                                                "title": title,
+                                                                "country": country,
+                                                                "startDate": startDate,
+                                                                "returnDate": returnDate ]
+                        
+                        let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+                        databaseRef.updateChildValues(updatedTitleOnFire)
+                        
+                        
+                    } else { return }
                     
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
                     let indexPathRow = indexPath.row
                     
                     guard let selectedTransportation = allArray[indexPathRow] as? Transportation else {
                         fatalError()
                     }
-                    let transportationID = selectedTransportation.transportationID
                     
+                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
+                    
+                    let transportationID = selectedTransportation.transportationID
                     
                     // Transportation Cell
                     let type = cell.typeTextField.text ?? ""
@@ -361,8 +368,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         snapshot in
                         
                         let transportationsPostID = snapshot.value!["postID"] as! String
-//                       let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
-//                        let transportationID = self.transportation?.transportationID
+                        //                       let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
+                        //                        let transportationID = self.transportation?.transportationID
                         let transportationKeyID = snapshot.key
                         
                         if transportationsPostID == postID && transportationKeyID == transportationID {
@@ -377,7 +384,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .attraction:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
+//                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAttraction = allArray[indexPathRow] as? Attraction else {
@@ -385,52 +392,56 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     }
                     
                     let attractionID = selectedAttraction.attractionID
-                 
-                    // Attraction Cell
-                    let name = cell.nameLabel.text ?? ""
-                    let address = cell.addressLabel.text ?? ""
-                    let phone = cell.phoneLabel.text ?? ""
-                    let website = cell.websiteLabel.text ?? ""
                     
-                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                  "postID": postID,
-                                                                  "attractionID": attractionID,
-                                                                  "indexPathRow": indexPathRow,
-                                                                  "timestamp": timeStamp,
-                                                                  "name": name,
-                                                                  "address": address,
-                                                                  "phone": phone,
-                                                                  "website": website ]
-                    
-                    databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                        snapshot in
+                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
                         
-                        let attractionsPostID = snapshot.value!["postID"] as! String
-                        let attractionKeyID = snapshot.key
+                        // Attraction Cell
+                        let name = cell.nameLabel.text ?? ""
+                        let address = cell.addressLabel.text ?? ""
+                        let phone = cell.phoneLabel.text ?? ""
+                        let website = cell.websiteLabel.text ?? ""
                         
-                        if attractionsPostID == postID && attractionID == attractionKeyID {
+                        let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                      "postID": postID,
+                                                                      "attractionID": attractionID,
+                                                                      "indexPathRow": indexPathRow,
+                                                                      "timestamp": timeStamp,
+                                                                      "name": name,
+                                                                      "address": address,
+                                                                      "phone": phone,
+                                                                      "website": website ]
+                        
+                        databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                            snapshot in
                             
-                            let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
+                            let attractionsPostID = snapshot.value!["postID"] as! String
+                            let attractionKeyID = snapshot.key
                             
-                            databaseRef.updateChildValues(updatedAttractionOnFire)
-                        }
-                    })
+                            if attractionsPostID == postID && attractionID == attractionKeyID {
+                                
+                                let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
+                                
+                                databaseRef.updateChildValues(updatedAttractionOnFire)
+                            }
+                        })
+                    } else { return }
                     
                 case .accommodation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
+                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAccommodation = allArray[indexPathRow] as? Accommodation else {
                         fatalError()
                     }
+                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     
                     let accommodationID = selectedAccommodation.accommodationID
                     
                     // Accommodation Cell
                     let name = cell.nameLabel.text ?? ""
-//                    let phone = cell.phoneLabel.text ?? ""
+                    //                    let phone = cell.phoneLabel.text ?? ""
                     let address = cell.addressLabel.text ?? ""
                     let checkinDate = cell.checkinDateTextField.text ?? ""
                     let checkoutDate = cell.checkoutDateTextField.text ?? ""
@@ -443,11 +454,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                                      "indexPathRow": indexPathRow,
                                                                      "timestamp": timeStamp,
                                                                      "name": name,
-//                                                                     "phone": phone,
-                                                                     "address": address,
-                                                                     "checkinDate": checkinDate,
-                                                                     "checkoutDate": checkoutDate,
-                                                                     "bookingRef": bookingRef ]
+                                                                     //                                                                     "phone": phone,
+                        "address": address,
+                        "checkinDate": checkinDate,
+                        "checkoutDate": checkoutDate,
+                        "bookingRef": bookingRef ]
                     
                     databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                         snapshot in
@@ -578,7 +589,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     
-
+    
     
     
     /*
@@ -703,11 +714,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if ((indexPath != nil) && (indexPath != Path.initialIndexPath)) {
                     rows.insert(rows.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
                     
-//                    // Edited
-//                    var swiftArray = allArray as NSArray as [AnyObject]
-//                    swiftArray.insert(swiftArray.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
-//                    allArray.removeAllObjects()
-//                    allArray.addObjectsFromArray(swiftArray)
+                    //                    // Edited
+                    //                    var swiftArray = allArray as NSArray as [AnyObject]
+                    //                    swiftArray.insert(swiftArray.removeAtIndex(Path.initialIndexPath!.row), atIndex: indexPath!.row)
+                    //                    allArray.removeAllObjects()
+                    //                    allArray.addObjectsFromArray(swiftArray)
                     
                     tableView.moveRowAtIndexPath(Path.initialIndexPath!, toIndexPath: indexPath!)
                     Path.initialIndexPath = indexPath
@@ -755,7 +766,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         cellSnapshot.layer.shadowOpacity = 0.4
         return cellSnapshot
     }
-
+    
     
     
 }
@@ -782,11 +793,11 @@ extension EditViewController: GMSAutocompleteViewControllerDelegate {
             if place.website == nil {
                 
                 attractionCell!.websiteLabel.text = "No website info found!"
-            
+                
             } else {
-              
+                
                 attractionCell!.websiteLabel.text = "\(place.website!)"
-            
+                
             }
             
         } else if accommodationCell != nil{

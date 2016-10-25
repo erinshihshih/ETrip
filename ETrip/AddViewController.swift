@@ -231,8 +231,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         case .transportation:
             
-
-            
             if allArray.count - 1 >= indexPath.row{
                 
                 let cell = allArray[indexPath.row] as! TransportationTableViewCell
@@ -249,7 +247,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 allArray[indexPath.row] = cell
                 return cell
                 
-            }else{
+            } else {
                 
                 let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
                 
