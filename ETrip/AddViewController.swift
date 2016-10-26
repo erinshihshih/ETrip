@@ -32,6 +32,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     var rows: [ Row ] = [ .title ]
     var allArray: NSMutableArray = []
+    var allArrayTest: [Any] = []
     
     var isEditingTransportation = false
     var isEditingAttraction = false
@@ -40,10 +41,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     // Set up Google Places
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
-   
+    
     var countryArray = [String]()
     //    var transportationArray = ["Airplane", "Train", "Bus"]
-
+    
     // title pickerView
     var pickerView = UIPickerView()
     //    var transportationPickerView = UIPickerView()
@@ -87,6 +88,137 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.endUpdates()
         
     }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if allArrayTest.count < 1 {
+            return
+        }
+        
+        ////        allArray = []
+        //
+        ////        rows = []
+        //        allArray.addObject(AddTableViewCell())
+        //        rows.append(.title)
+        
+        for card in allArrayTest {
+            
+            if let item = card as? Transportation {
+                
+//                transportations.append(Transportation(postID: item.postID, transportationID: item.transportationID, indexPathRow: item.indexPathRow, type: item.type, departDate: item.departDate, arriveDate: item.arriveDate, departFrom: item.departFrom, arriveAt: item.arriveAt, airlineCom: item.airlineCom, flightNo: item.flightNo, bookingRef: item.bookingRef))
+                
+                isEditingTransportation = true
+                rows.append(.transportation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+                
+                //                let cell = TransportationTableViewCell()
+                ////                cell.typeTextField.text = item.type
+                ////                cell.airlineComTextField.text = item.airlineCom
+                ////                cell.flightNoTextField.text = item.flightNo
+                ////                cell.bookingRefTextField.text = item.bookingRef
+                ////                cell.departFromTextField.text = item.departFrom
+                ////                cell.arriveAtTextField.text = item.arriveAt
+                ////                cell.departDateTextField.text = item.departDate
+                ////                cell.arriveDateTextField.text = item.arriveDate
+                //                allArray.addObject(cell)
+                
+                //                rows.append(.transportation)
+            }
+            
+            if let item = card as? Attraction {
+                
+                
+                isEditingAttraction = true
+                rows.append(.attraction)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+                //                let cell = AttractionTableViewCell()
+                //                    cell.nameLabel.text = item.name
+                //                    cell.phoneLabel.text = item.phone
+                //                    cell.addressLabel.text = item.address
+                //                    cell.websiteLabel.text = item.website
+                //                allArray.addObject(cell)
+                
+                //                rows.append(.attraction)
+            }
+            
+            
+            if let item = card as? Accommodation {
+                
+                isEditingAccommodation = true
+                rows.append(.accommodation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+                //                let cell = AccommodationTableViewCell()
+                
+                //                    cell.nameLabel.text = item.name
+                //                    cell.addressLabel.text = item.address
+                //                    cell.checkinDateTextField.text = item.checkinDate
+                //                    cell.checkoutDateTextField.text = item.checkoutDate
+                
+                //                allArray.addObject(cell)
+                
+                //                rows.append(.accommodation)
+                
+                //                tableView.reloadData()
+            }
+        }
+        
+        for (index, card) in allArray.enumerate() {
+            
+            if index > 0 {
+                if let item = allArrayTest[index - 1] as? Transportation {
+                    
+                    
+                    let cell = allArray[index] as! TransportationTableViewCell
+                    cell.typeTextField.text = item.type
+                    cell.airlineComTextField.text = item.airlineCom
+                    cell.flightNoTextField.text = item.flightNo
+                    cell.bookingRefTextField.text = item.bookingRef
+                    cell.departFromTextField.text = item.departFrom
+                    cell.arriveAtTextField.text = item.arriveAt
+                    cell.departDateTextField.text = item.departDate
+                    cell.arriveDateTextField.text = item.arriveDate
+                    
+                }
+                
+                if let item = allArrayTest[index - 1] as? Attraction {
+                    
+        
+                    let cell = allArray[index] as! AttractionTableViewCell
+                    cell.nameLabel.text = item.name
+                    cell.phoneLabel.text = item.phone
+                    cell.addressLabel.text = item.address
+                    cell.websiteLabel.text = item.website
+                }
+                
+                
+                if let item = allArrayTest[index - 1] as? Accommodation {
+            
+                    let cell = allArray[index] as! AccommodationTableViewCell
+                    
+                    cell.nameLabel.text = item.name
+                    cell.addressLabel.text = item.address
+                    cell.checkinDateTextField.text = item.checkinDate
+                    cell.checkoutDateTextField.text = item.checkoutDate
+                    
+                }
+            }
+            
+        }
+        
+        
+    }
+    
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -212,6 +344,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.countryTextField.inputView = pickerView
                 
                 allArray.addObject(cell)
+ 
                 
                 return cell
             }
