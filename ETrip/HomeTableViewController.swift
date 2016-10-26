@@ -135,7 +135,6 @@ class HomeTableViewController: UITableViewController {
             posts.sortInPlace { $0.startDate.stringToDouble() > $1.startDate.stringToDouble() }
             tableView.reloadData()
 
-            
         }
     
     }
