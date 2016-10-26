@@ -439,11 +439,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .title:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+                    
                     let indexPathRow = indexPath.row
                     
 //                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
-                    
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? EditTableViewCell {
                         // Trip Title Cell
                         let title = cell.titleTextField.text ?? ""
                         let country = cell.countryTextField.text ?? ""
@@ -466,20 +466,20 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         databaseRef.updateChildValues(updatedTitleOnFire)
                         
                         
-//                    } else { return }
+                    } else { return }
                     
                 case .transportation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! TransportationTableViewCell
+                    
                     let indexPathRow = indexPath.row
                     
                     guard let selectedTransportation = allArray[indexPathRow] as? Transportation else {
                         fatalError()
                     }
                     
-                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
-                    
+//                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TransportationTableViewCell {
                     let transportationID = selectedTransportation.transportationID
                     
                     // Transportation Cell
@@ -521,12 +521,13 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                             databaseRef.updateChildValues(updatedTransportationOnFire)
                         }
                     })
+                    } else { return }
                     
                     
                 case .attraction:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AttractionTableViewCell
+                    
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAttraction = allArray[indexPathRow] as? Attraction else {
@@ -535,8 +536,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let attractionID = selectedAttraction.attractionID
                     
-                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
-                        
+//                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AttractionTableViewCell {
                         // Attraction Cell
                         let name = cell.nameLabel.text ?? ""
                         let address = cell.addressLabel.text ?? ""
@@ -567,20 +568,21 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                             }
                         })
                     } else { return }
-                    
+                
                 case .accommodation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! AccommodationTableViewCell
+                    
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAccommodation = allArray[indexPathRow] as? Accommodation else {
                         fatalError()
                     }
-                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
+//                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     
                     let accommodationID = selectedAccommodation.accommodationID
                     
+                    if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AccommodationTableViewCell {
                     // Accommodation Cell
                     let name = cell.nameLabel.text ?? ""
                     //                    let phone = cell.phoneLabel.text ?? ""
@@ -615,6 +617,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                             databaseRef.updateChildValues(updatedAccommodationOnFire)
                         }
                     })
+                        
+                    } else { return }
                     
                 }
             }
