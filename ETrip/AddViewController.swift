@@ -314,6 +314,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             if allArray.count - 1 >= indexPath.row {
                 
                 let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+                
                 cell.checkinDateTextField.delegate = self
                 cell.checkoutDateTextField.delegate = self
                 
