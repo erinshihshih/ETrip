@@ -30,19 +30,20 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var attractions: [Attraction] = []
     var accommodations: [Accommodation] = []
     
+    var rows: [ Row ] = [ .title ]
+    var allArray: NSMutableArray = []
+    
     var isEditingTransportation = false
     var isEditingAttraction = false
     var isEditingAccommodation = false
     
-    var countryArray = [String]()
-    //    var transportationArray = ["Airplane", "Train", "Bus"]
-    
-    var rows: [ Row ] = [ .title ]
-    var allArray: NSMutableArray = []
-    
+    // Set up Google Places
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
-    
+   
+    var countryArray = [String]()
+    //    var transportationArray = ["Airplane", "Train", "Bus"]
+
     // title pickerView
     var pickerView = UIPickerView()
     //    var transportationPickerView = UIPickerView()

@@ -8,6 +8,7 @@
 
 import UIKit
 import PDFGenerator
+import Firebase
 
 //import Crashlytics
 
@@ -54,6 +55,9 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.self.presentViewController(activityViewController, animated: true, completion: nil)
         
         //        Crashlytics.sharedInstance().crash()
+        
+        FIRAnalytics.logEventWithName("SharePdf", parameters: ["name": (FIRAuth.auth()?.currentUser?.uid)!])
+
         
     }
     

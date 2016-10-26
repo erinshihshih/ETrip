@@ -103,6 +103,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         databaseRef.child("users").child(user.uid).setValue(newUser)
                         
+                        FIRAnalytics.logEventWithName("newUserLogin", parameters: ["name": user.uid])
+                        
                     }
                     
                 } else {

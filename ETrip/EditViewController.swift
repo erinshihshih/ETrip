@@ -14,25 +14,36 @@ import GooglePlacePicker
 
 class EditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    var isPostReceived = true
-    var isTransportationReceived = false
-    var isAttractionReceived = false
-    var isAccommodationReceived = false
+    enum Row {
+        case title, transportation, attraction, accommodation
+    }
+    
+    // MARK: Property
     
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
     var accommodation: Accommodation?
-    
-    var allArray: [Any] = [ ]
-    
+  
     var transportations: [Transportation] = []
     var attractions: [Attraction] = []
     var accommodations: [Accommodation] = []
     
+    var rows: [ Row ] = [ .title ]
+    var allArray: [Any] = [ ]
+    
     var isEditingTransportation = false
     var isEditingAttraction = false
     var isEditingAccommodation = false
+    
+    var isPostReceived = true
+    var isTransportationReceived = false
+    var isAttractionReceived = false
+    var isAccommodationReceived = false
+    
+    // Set up Google Places
+    var attractionCell: AttractionTableViewCell?
+    var accommodationCell: AccommodationTableViewCell?
     
     var countryArray = [String]()
     
@@ -41,16 +52,9 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
-    enum Row {
-        case title, transportation, attraction, accommodation
-    }
-    
-    var rows: [ Row ] = [ .title ]
-    
-    var attractionCell: AttractionTableViewCell?
-    var accommodationCell: AccommodationTableViewCell?
-    
     let databaseRef = FIRDatabase.database().reference()
+    
+    // MARK: IBOutlet
     
     @IBOutlet weak var updateButton: UIBarButtonItem!
     
@@ -287,6 +291,8 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             
             let timeStamp: NSNumber = Int(NSDate().timeIntervalSince1970)
+            
+            FIRAnalytics.logEventWithName("press_updateButton", parameters: ["name": userID!])
             
             for index in 0..<rows.count {
                 
