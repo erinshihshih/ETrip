@@ -169,65 +169,65 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
         case .title:
             
             
-            //            let cellIdentifier = "titleCell"
-            //            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
-            if allArray.count - 1 >= indexPath.row {
+            let cellIdentifier = "titleCell"
+            let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
+            //            if allArray.count - 1 >= indexPath.row {
+            //
+            //                let cell = allArray[indexPath.row] as! EditTableViewCell
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.startDateTextField.delegate = self
+            cell.returnDateTextField.delegate = self
+            
+            // Set up views if editing an existing data.
+            if let post = post {
                 
-                let cell = allArray[indexPath.row] as! EditTableViewCell
-                
-                // Handle the text field’s user input via delegate callbacks.
-                cell.startDateTextField.delegate = self
-                cell.returnDateTextField.delegate = self
-                
-                // Set up views if editing an existing data.
-                if let post = post {
-                    
-                    cell.titleTextField.text = post.title
-                    cell.countryTextField.text = post.country
-                    cell.startDateTextField.text = post.startDate
-                    cell.returnDateTextField.text = post.returnDate
-                }
-                
-                cell.countryTextField.inputView = pickerView
-                
-                allArray[indexPath.row] = cell
-                
-                return cell
-                
-            } else {
-                
-                let cellIdentifier = "titleCell"
-                let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
-                
-                // Handle the text field’s user input via delegate callbacks.
-                cell.startDateTextField.delegate = self
-                cell.returnDateTextField.delegate = self
-                
-                // Set up views if editing an existing data.
-                if let post = post {
-                    
-                    cell.titleTextField.text = post.title
-                    cell.countryTextField.text = post.country
-                    cell.startDateTextField.text = post.startDate
-                    cell.returnDateTextField.text = post.returnDate
-                }
-                
-                cell.countryTextField.inputView = pickerView
-                
-                allArray.append(cell)
-                
-                return cell
+                cell.titleTextField.text = post.title
+                cell.countryTextField.text = post.country
+                cell.startDateTextField.text = post.startDate
+                cell.returnDateTextField.text = post.returnDate
             }
+            
+            cell.countryTextField.inputView = pickerView
+            
+            //                allArray[indexPath.row] = cell
+            
+            return cell
+            
+            //            } else {
+            //
+            //                let cellIdentifier = "titleCell"
+            //                let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
+            //
+            //                // Handle the text field’s user input via delegate callbacks.
+            //                cell.startDateTextField.delegate = self
+            //                cell.returnDateTextField.delegate = self
+            //
+            //                // Set up views if editing an existing data.
+            //                if let post = post {
+            //
+            //                    cell.titleTextField.text = post.title
+            //                    cell.countryTextField.text = post.country
+            //                    cell.startDateTextField.text = post.startDate
+            //                    cell.returnDateTextField.text = post.returnDate
+            //                }
+            //
+            //                cell.countryTextField.inputView = pickerView
+            //
+            //                allArray.append(cell)
+            //
+            //                return cell
+            //            }
             
             
             
         case .transportation:
             
-            //            let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
+                        let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
             
-            if allArray.count - 1 >= indexPath.row {
-                
-                let cell = allArray[indexPath.row] as! TransportationTableViewCell
+//            if allArray.count - 1 >= indexPath.row {
+//                
+//                let cell = allArray[indexPath.row] as! TransportationTableViewCell
                 
                 // Handle the text field’s user input via delegate callbacks.
                 cell.typeTextField.delegate = self
@@ -253,51 +253,51 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     cell.departDateTextField.text = transportation!.departDate
                     cell.arriveDateTextField.text = transportation!.arriveDate
                 }
-                allArray[indexPath.row] = cell
+//                allArray[indexPath.row] = cell
                 return cell
-                
-            } else {
-                let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
-                
-                // Handle the text field’s user input via delegate callbacks.
-                cell.typeTextField.delegate = self
-                cell.airlineComTextField.delegate = self
-                cell.flightNoTextField.delegate = self
-                cell.bookingRefTextField.delegate = self
-                cell.departFromTextField.delegate = self
-                cell.arriveAtTextField.delegate = self
-                cell.departDateTextField.delegate = self
-                cell.arriveDateTextField.delegate = self
-                
-                if !isEditingTransportation {
-                    
-                    let theTransportation = transportations[indexPath.row - 1]
-                    
-                    // Set up views if editing an existing data.
-                    let transportation = theTransportation
-                    
-                    cell.typeTextField.text = transportation.type
-                    cell.airlineComTextField.text = transportation.airlineCom
-                    cell.flightNoTextField.text = transportation.flightNo
-                    cell.bookingRefTextField.text = transportation.bookingRef
-                    cell.departFromTextField.text = transportation.departFrom
-                    cell.arriveAtTextField.text = transportation.arriveAt
-                    cell.departDateTextField.text = transportation.departDate
-                    cell.arriveDateTextField.text = transportation.arriveDate
-                }
-                
-                allArray.append(cell)
-                return cell
-            }
+//                
+//            } else {
+//                let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
+//                
+//                // Handle the text field’s user input via delegate callbacks.
+//                cell.typeTextField.delegate = self
+//                cell.airlineComTextField.delegate = self
+//                cell.flightNoTextField.delegate = self
+//                cell.bookingRefTextField.delegate = self
+//                cell.departFromTextField.delegate = self
+//                cell.arriveAtTextField.delegate = self
+//                cell.departDateTextField.delegate = self
+//                cell.arriveDateTextField.delegate = self
+//                
+//                if !isEditingTransportation {
+//                    
+//                    let theTransportation = transportations[indexPath.row - 1]
+//                    
+//                    // Set up views if editing an existing data.
+//                    let transportation = theTransportation
+//                    
+//                    cell.typeTextField.text = transportation.type
+//                    cell.airlineComTextField.text = transportation.airlineCom
+//                    cell.flightNoTextField.text = transportation.flightNo
+//                    cell.bookingRefTextField.text = transportation.bookingRef
+//                    cell.departFromTextField.text = transportation.departFrom
+//                    cell.arriveAtTextField.text = transportation.arriveAt
+//                    cell.departDateTextField.text = transportation.departDate
+//                    cell.arriveDateTextField.text = transportation.arriveDate
+//                }
+//                
+//                allArray.append(cell)
+//                return cell
+//            }
             
             
         case .attraction:
-            //
-            //            let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
-            if allArray.count - 1 >= indexPath.row {
-                
-                let cell = allArray[indexPath.row] as! AttractionTableViewCell
-                
+            
+                        let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
+//            if allArray.count - 1 >= indexPath.row {
+//                
+//                let cell = allArray[indexPath.row] as! AttractionTableViewCell
+//                
                 
                 cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
@@ -311,50 +311,49 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     cell.websiteLabel.text = attraction!.website
                 }
                 
-                allArray[indexPath.row] = cell
+//                allArray[indexPath.row] = cell
                 return cell
                 
-            } else {
-                let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
-                
-                // Handle the text field’s user input via delegate callbacks.
-                
-                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-                
-                if !isEditingAttraction {
-                    
-                    let theAttraction = attractions[indexPath.row - transportations.count - 1]
-                    
-                    // Set up views if editing an existing data.
-                    let attraction = theAttraction
-                    
-                    cell.nameLabel.text = attraction.name
-                    cell.phoneLabel.text = attraction.phone
-                    cell.addressLabel.text = attraction.address
-                    cell.websiteLabel.text = attraction.website
-                    
-                }
-                
-                allArray.append(cell)
-                return cell
-            }
+//            } else {
+//                let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
+//                
+//                // Handle the text field’s user input via delegate callbacks.
+//                
+//                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+//                
+//                if !isEditingAttraction {
+//                    
+//                    let theAttraction = attractions[indexPath.row - transportations.count - 1]
+//                    
+//                    // Set up views if editing an existing data.
+//                    let attraction = theAttraction
+//                    
+//                    cell.nameLabel.text = attraction.name
+//                    cell.phoneLabel.text = attraction.phone
+//                    cell.addressLabel.text = attraction.address
+//                    cell.websiteLabel.text = attraction.website
+//                    
+//                }
+//                
+//                allArray.append(cell)
+//                return cell
+//            }
             
             
             
         case .accommodation:
             
-            //            let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+                        let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
-            if allArray.count - 1 >= indexPath.row {
-                
-                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+//            if allArray.count - 1 >= indexPath.row {
+//                
+//                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
                 
                 
                 // Handle the text field’s user input via delegate callbacks.
                 cell.checkinDateTextField.delegate = self
                 cell.checkoutDateTextField.delegate = self
                 cell.bookingRefTextField.delegate = self
-                
                 
                 cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
@@ -372,34 +371,34 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                 }
                 
-                allArray[indexPath.row] = cell
+//                allArray[indexPath.row] = cell
                 return cell
                 
-            } else {
-                
-                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
-                cell.checkinDateTextField.delegate = self
-                cell.checkoutDateTextField.delegate = self
-                
-                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-                
-                if !isEditingAccommodation {
-                    
-                    let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
-                    
-                    // Set up views if editing an existing data.
-                    let accommodation = theAccommodation
-                    
-                    cell.nameLabel.text = accommodation.name
-                    cell.addressLabel.text = accommodation.address
-                    cell.checkinDateTextField.text = accommodation.checkinDate
-                    cell.checkoutDateTextField.text = accommodation.checkoutDate
-                    
-                }
-                
-                allArray.append(cell)
-                return cell
-            }
+//            } else {
+//                
+//                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+//                cell.checkinDateTextField.delegate = self
+//                cell.checkoutDateTextField.delegate = self
+//                
+//                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+//                
+//                if !isEditingAccommodation {
+//                    
+//                    let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
+//                    
+//                    // Set up views if editing an existing data.
+//                    let accommodation = theAccommodation
+//                    
+//                    cell.nameLabel.text = accommodation.name
+//                    cell.addressLabel.text = accommodation.address
+//                    cell.checkinDateTextField.text = accommodation.checkinDate
+//                    cell.checkoutDateTextField.text = accommodation.checkoutDate
+//                    
+//                }
+//                
+//                allArray.append(cell)
+//                return cell
+//            }
             
             
             
@@ -440,11 +439,11 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .title:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
-                    //                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
+                    let cell = tableView.cellForRowAtIndexPath(indexPath) as! EditTableViewCell
                     let indexPathRow = indexPath.row
                     
-                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
-                        
+//                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
+                    
                         // Trip Title Cell
                         let title = cell.titleTextField.text ?? ""
                         let country = cell.countryTextField.text ?? ""
@@ -467,7 +466,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         databaseRef.updateChildValues(updatedTitleOnFire)
                         
                         
-                    } else { return }
+//                    } else { return }
                     
                 case .transportation:
                     
@@ -759,7 +758,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                 allIndex.append(card.indexPathRow)
             }
             
-            if let card =  arr[index] as? Attraction {s
+            if let card =  arr[index] as? Attraction {
                 allIndex.append(card.indexPathRow)
             }
             
