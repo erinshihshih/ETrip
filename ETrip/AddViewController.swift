@@ -168,7 +168,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         case .title:
             
-            
             if allArray.count - 1 >= indexPath.row {
                 
                 let cell = allArray[indexPath.row] as! AddTableViewCell
@@ -189,6 +188,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.countryTextField.inputView = pickerView
                 
                 allArray[indexPath.row] = cell
+                
                 return cell
                 
             } else {
@@ -212,6 +212,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.countryTextField.inputView = pickerView
                 
                 allArray.addObject(cell)
+                
                 return cell
             }
             

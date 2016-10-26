@@ -168,6 +168,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         case .title:
             
+            
             let cellIdentifier = "titleCell"
             let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EditTableViewCell
             
