@@ -90,135 +90,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if allArrayTest.count < 1 {
-            return
-        }
-        
-        ////        allArray = []
-        //
-        ////        rows = []
-        //        allArray.addObject(AddTableViewCell())
-        //        rows.append(.title)
-        
-        for card in allArrayTest {
-            
-            if let item = card as? Transportation {
-                
-//                transportations.append(Transportation(postID: item.postID, transportationID: item.transportationID, indexPathRow: item.indexPathRow, type: item.type, departDate: item.departDate, arriveDate: item.arriveDate, departFrom: item.departFrom, arriveAt: item.arriveAt, airlineCom: item.airlineCom, flightNo: item.flightNo, bookingRef: item.bookingRef))
-                
-                isEditingTransportation = true
-                rows.append(.transportation)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
-                
-                
-                //                let cell = TransportationTableViewCell()
-                ////                cell.typeTextField.text = item.type
-                ////                cell.airlineComTextField.text = item.airlineCom
-                ////                cell.flightNoTextField.text = item.flightNo
-                ////                cell.bookingRefTextField.text = item.bookingRef
-                ////                cell.departFromTextField.text = item.departFrom
-                ////                cell.arriveAtTextField.text = item.arriveAt
-                ////                cell.departDateTextField.text = item.departDate
-                ////                cell.arriveDateTextField.text = item.arriveDate
-                //                allArray.addObject(cell)
-                
-                //                rows.append(.transportation)
-            }
-            
-            if let item = card as? Attraction {
-                
-                
-                isEditingAttraction = true
-                rows.append(.attraction)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
-                
-                //                let cell = AttractionTableViewCell()
-                //                    cell.nameLabel.text = item.name
-                //                    cell.phoneLabel.text = item.phone
-                //                    cell.addressLabel.text = item.address
-                //                    cell.websiteLabel.text = item.website
-                //                allArray.addObject(cell)
-                
-                //                rows.append(.attraction)
-            }
-            
-            
-            if let item = card as? Accommodation {
-                
-                isEditingAccommodation = true
-                rows.append(.accommodation)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
-                
-                //                let cell = AccommodationTableViewCell()
-                
-                //                    cell.nameLabel.text = item.name
-                //                    cell.addressLabel.text = item.address
-                //                    cell.checkinDateTextField.text = item.checkinDate
-                //                    cell.checkoutDateTextField.text = item.checkoutDate
-                
-                //                allArray.addObject(cell)
-                
-                //                rows.append(.accommodation)
-                
-                //                tableView.reloadData()
-            }
-        }
-        
-        for (index, card) in allArray.enumerate() {
-            
-            if index > 0 {
-                if let item = allArrayTest[index - 1] as? Transportation {
-                    
-                    
-                    let cell = allArray[index] as! TransportationTableViewCell
-                    cell.typeTextField.text = item.type
-                    cell.airlineComTextField.text = item.airlineCom
-                    cell.flightNoTextField.text = item.flightNo
-                    cell.bookingRefTextField.text = item.bookingRef
-                    cell.departFromTextField.text = item.departFrom
-                    cell.arriveAtTextField.text = item.arriveAt
-                    cell.departDateTextField.text = item.departDate
-                    cell.arriveDateTextField.text = item.arriveDate
-                    
-                }
-                
-                if let item = allArrayTest[index - 1] as? Attraction {
-                    
-        
-                    let cell = allArray[index] as! AttractionTableViewCell
-                    cell.nameLabel.text = item.name
-                    cell.phoneLabel.text = item.phone
-                    cell.addressLabel.text = item.address
-                    cell.websiteLabel.text = item.website
-                }
-                
-                
-                if let item = allArrayTest[index - 1] as? Accommodation {
-            
-                    let cell = allArray[index] as! AccommodationTableViewCell
-                    
-                    cell.nameLabel.text = item.name
-                    cell.addressLabel.text = item.address
-                    cell.checkinDateTextField.text = item.checkinDate
-                    cell.checkoutDateTextField.text = item.checkoutDate
-                    
-                }
-            }
-            
-        }
-        
-        
-    }
-    
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -252,6 +123,88 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         tableView.addGestureRecognizer(longpress)
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if allArrayTest.count < 1 {
+            return
+        }
+        
+        for type in allArrayTest {
+            
+            if type is Transportation {
+                
+                isEditingTransportation = true
+                rows.append(.transportation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+            }
+            
+            if type is Attraction {
+                
+                isEditingAttraction = true
+                rows.append(.attraction)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+            }
+            
+            if type is Accommodation {
+                
+                isEditingAccommodation = true
+                rows.append(.accommodation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+            }
+        }
+        
+        for (index, type) in allArray.enumerate() {
+            
+            if index > 0 {
+                if let item = allArrayTest[index - 1] as? Transportation {
+                    
+                    let cell = allArray[index] as! TransportationTableViewCell
+                    cell.typeTextField.text = item.type
+                    cell.airlineComTextField.text = item.airlineCom
+                    cell.flightNoTextField.text = item.flightNo
+                    cell.bookingRefTextField.text = item.bookingRef
+                    cell.departFromTextField.text = item.departFrom
+                    cell.arriveAtTextField.text = item.arriveAt
+                    cell.departDateTextField.text = item.departDate
+                    cell.arriveDateTextField.text = item.arriveDate
+                    
+                }
+                
+                if let item = allArrayTest[index - 1] as? Attraction {
+                    
+                    let cell = allArray[index] as! AttractionTableViewCell
+                    cell.nameLabel.text = item.name
+                    cell.phoneLabel.text = item.phone
+                    cell.addressLabel.text = item.address
+                    cell.websiteLabel.text = item.website
+                }
+                
+                if let item = allArrayTest[index - 1] as? Accommodation {
+                    
+                    let cell = allArray[index] as! AccommodationTableViewCell
+                    
+                    cell.nameLabel.text = item.name
+                    cell.addressLabel.text = item.address
+                    cell.checkinDateTextField.text = item.checkinDate
+                    cell.checkoutDateTextField.text = item.checkoutDate
+                    
+                }
+            }
+        }
+    }
+    
+    
     
     // MARK: Function
     func onLaunchClicked(sender: UIButton) {
@@ -307,16 +260,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 // Handle the text field’s user input via delegate callbacks.
                 cell.startDateTextField.delegate = self
                 cell.returnDateTextField.delegate = self
-                
-                //                // Set up views if editing an existing data.
-                //                if let post = post {
-                //
-                //                    cell.titleTextField.text = post.title
-                //                    cell.countryTextField.text = post.country
-                //                    cell.startDateTextField.text = post.startDate
-                //                    cell.returnDateTextField.text = post.returnDate
-                //                }
-                
+            
                 cell.countryTextField.inputView = pickerView
                 
                 allArray[indexPath.row] = cell
@@ -344,8 +288,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.countryTextField.inputView = pickerView
                 
                 allArray.addObject(cell)
- 
-                
+            
                 return cell
             }
             
@@ -563,8 +506,30 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                 "startDate": startDate,
                                                                 "returnDate": returnDate ]
                         
-                        databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-                        
+//                        if let postID = post?.postID {
+//                            let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+//                            databaseRef.updateChildValues(updatedTitleOnFire)
+//                        } else {
+                        //////////////
+                        let n: Int! = self.navigationController?.viewControllers.count
+                        if let presentVC = self.navigationController?.viewControllers[n-2] as? HomeTableViewController{
+                            
+                            databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+                            
+                        } else {
+                            
+                            guard let postID = post?.postID else {
+                                return
+                            }
+                            
+                            let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+                            databaseRef.updateChildValues(updatedTitleOnFire)
+
+                        }
+//                            
+//                            databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+                       
+
                         // Set the post to be passed to HomeTableViewController after the unwind segue.
                         post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                         
@@ -572,29 +537,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         print("prepareForSegue: title cast wrong")
                         return
                     }
-                    
-                    //                    // Trip Title Cell
-                    //                    let title = cell.titleTextField.text ?? ""
-                    //                    let country = cell.countryTextField.text ?? ""
-                    //
-                    //                    // needs to be re-designed > Date Picker
-                    //                    let startDate = cell.startDateTextField.text ?? ""
-                    //                    let returnDate = cell.returnDateTextField.text ?? ""
-                    //
-                    //                    // Store tripTitle in Firebase
-                    //                    let titleOnFire: [String: AnyObject] = ["uid": userID!,
-                    //                                                            "postID": postIDKey,
-                    //                                                            "indexPathRow": indexPathRow,
-                    //                                                            "timestamp": timeStamp,
-                    //                                                            "title": title,
-                    //                                                            "country": country,
-                    //                                                            "startDate": startDate,
-                    //                                                            "returnDate": returnDate ]
-                    //
-                    //                    databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-                    //
-                    //                    // Set the post to be passed to HomeTableViewController after the unwind segue.
-                    //                    post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                     
                 case .transportation:
                     
@@ -627,8 +569,40 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                           "arriveAt": arriveAt,
                                                                           "departDate": departDate,
                                                                           "arriveDate": arriveDate ]
+
                         
                         databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
+
+
+    
+                        
+//                        } else {
+//                            
+//                            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+//                                snapshot in
+//                                
+//                                guard let postID = self.post?.postID else {
+//                                    return
+//                                }
+//                                guard let selectedTransportation = self.allArray[indexPathRow] as? Transportation else {
+//                                    return
+//                                }
+//                                let transportationID = selectedTransportation.transportationID
+//                                
+//                                let transportationsPostID = snapshot.value!["postID"] as! String
+//                                let transportationKeyID = snapshot.key
+//                                
+//                                if transportationsPostID == postID && transportationKeyID == transportationID {
+//                                    
+//                                    let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
+//                                    
+//                                    databaseRef.updateChildValues(updatedTransportationOnFire)
+//                                }
+//                            })
+//
+//                            
+//                        }
+                    
                         
                     } else {
                         
@@ -667,24 +641,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                         print("prepareForSegue: AttractionTableViewCell cast wrong")
                         return
                     }
-                    
-                    // Attraction Cell
-                    //                    let name = cell.nameLabel.text ?? ""
-                    //                    let address = cell.addressLabel.text ?? ""
-                    //                    let phone = cell.phoneLabel.text ?? ""
-                    //                    let website = cell.websiteLabel.text ?? ""
-                    
-                    //                    let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                    //                                                                  "postID": postIDKey,
-                    //                                                                  "attractionID": attractionIDKey,
-                    //                                                                  "indexPathRow": indexPathRow,
-                    //                                                                  "timestamp": timeStamp,
-                    //                                                                  "name": name,
-                    //                                                                  "address": address,
-                    //                                                                  "phone": phone,
-                    //                                                                  "website": website ]
-                    //
-                    //                    databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+
                     
                 case .accommodation:
                     
@@ -712,7 +669,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                          "checkoutDate": checkoutDate,
                                                                          "bookingRef": bookingRef ]
                         
-                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+//                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
                         
                     } else {
                         

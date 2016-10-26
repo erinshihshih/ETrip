@@ -190,38 +190,12 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "editSegue" {
+        if segue.identifier == "editPostSegue" {
             let detailViewController = segue.destinationViewController as! AddViewController
-            
-//            detailViewController.rows = rows
             
             detailViewController.post = post
             
             detailViewController.allArrayTest = allArray
-            
-//
-            
-//            detailViewController.transportations = transportations
-//            detailViewController.accommodations = accommodations
-//            detailViewController.attractions = attractions
-            
-//            var destAllarray = allArray
-//            destAllarray.insert(post!, atIndex: 0)
-//            detailViewController.allArray = allArray
-//            detailViewController.sortMyArray(allArray)
-            
-            
-            
-//            var post: Post?
-//            var transportation: Transportation?
-//            var attraction: Attraction?
-//            var accommodation: Accommodation?
-//            
-//            var posts: [Post] = []
-//            var attractions: [Attraction] = []
-//            
-//            var rows: [ Row ] = [ .title ]
-//            var allArray: NSMutableArray = []
             
             print("Edit the trip.")
         }

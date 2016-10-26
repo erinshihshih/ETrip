@@ -473,7 +473,7 @@
                                 <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="edit"/>
                                 <connections>
-                                    <segue destination="Agl-cn-ojr" kind="show" identifier="editSegue" id="4Vh-s9-XDb"/>
+                                    <segue destination="Agl-cn-ojr" kind="show" identifier="editPostSegue" id="4Vh-s9-XDb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">

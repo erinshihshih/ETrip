@@ -223,182 +223,182 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         case .transportation:
             
-                        let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
+            let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
             
-//            if allArray.count - 1 >= indexPath.row {
-//                
-//                let cell = allArray[indexPath.row] as! TransportationTableViewCell
+            //            if allArray.count - 1 >= indexPath.row {
+            //
+            //                let cell = allArray[indexPath.row] as! TransportationTableViewCell
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.typeTextField.delegate = self
+            cell.airlineComTextField.delegate = self
+            cell.flightNoTextField.delegate = self
+            cell.bookingRefTextField.delegate = self
+            cell.departFromTextField.delegate = self
+            cell.arriveAtTextField.delegate = self
+            cell.departDateTextField.delegate = self
+            cell.arriveDateTextField.delegate = self
+            
+            if !isEditingTransportation  {
                 
-                // Handle the text field’s user input via delegate callbacks.
-                cell.typeTextField.delegate = self
-                cell.airlineComTextField.delegate = self
-                cell.flightNoTextField.delegate = self
-                cell.bookingRefTextField.delegate = self
-                cell.departFromTextField.delegate = self
-                cell.arriveAtTextField.delegate = self
-                cell.departDateTextField.delegate = self
-                cell.arriveDateTextField.delegate = self
+                transportation = allArray[indexPath.row] as? Transportation
                 
-                if !isEditingTransportation  {
-                    
-                    transportation = allArray[indexPath.row] as? Transportation
-                    
-                    // Set up views if editing an existing data.
-                    cell.typeTextField.text = transportation!.type
-                    cell.airlineComTextField.text = transportation!.airlineCom
-                    cell.flightNoTextField.text = transportation!.flightNo
-                    cell.bookingRefTextField.text = transportation!.bookingRef
-                    cell.departFromTextField.text = transportation!.departFrom
-                    cell.arriveAtTextField.text = transportation!.arriveAt
-                    cell.departDateTextField.text = transportation!.departDate
-                    cell.arriveDateTextField.text = transportation!.arriveDate
-                }
-//                allArray[indexPath.row] = cell
-                return cell
-//                
-//            } else {
-//                let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
-//                
-//                // Handle the text field’s user input via delegate callbacks.
-//                cell.typeTextField.delegate = self
-//                cell.airlineComTextField.delegate = self
-//                cell.flightNoTextField.delegate = self
-//                cell.bookingRefTextField.delegate = self
-//                cell.departFromTextField.delegate = self
-//                cell.arriveAtTextField.delegate = self
-//                cell.departDateTextField.delegate = self
-//                cell.arriveDateTextField.delegate = self
-//                
-//                if !isEditingTransportation {
-//                    
-//                    let theTransportation = transportations[indexPath.row - 1]
-//                    
-//                    // Set up views if editing an existing data.
-//                    let transportation = theTransportation
-//                    
-//                    cell.typeTextField.text = transportation.type
-//                    cell.airlineComTextField.text = transportation.airlineCom
-//                    cell.flightNoTextField.text = transportation.flightNo
-//                    cell.bookingRefTextField.text = transportation.bookingRef
-//                    cell.departFromTextField.text = transportation.departFrom
-//                    cell.arriveAtTextField.text = transportation.arriveAt
-//                    cell.departDateTextField.text = transportation.departDate
-//                    cell.arriveDateTextField.text = transportation.arriveDate
-//                }
-//                
-//                allArray.append(cell)
-//                return cell
-//            }
+                // Set up views if editing an existing data.
+                cell.typeTextField.text = transportation!.type
+                cell.airlineComTextField.text = transportation!.airlineCom
+                cell.flightNoTextField.text = transportation!.flightNo
+                cell.bookingRefTextField.text = transportation!.bookingRef
+                cell.departFromTextField.text = transportation!.departFrom
+                cell.arriveAtTextField.text = transportation!.arriveAt
+                cell.departDateTextField.text = transportation!.departDate
+                cell.arriveDateTextField.text = transportation!.arriveDate
+            }
+            //                allArray[indexPath.row] = cell
+            return cell
+            //
+            //            } else {
+            //                let cell = NSBundle.mainBundle().loadNibNamed("TransportationTableViewCell", owner: UITableViewCell.self, options: nil).first as! TransportationTableViewCell
+            //
+            //                // Handle the text field’s user input via delegate callbacks.
+            //                cell.typeTextField.delegate = self
+            //                cell.airlineComTextField.delegate = self
+            //                cell.flightNoTextField.delegate = self
+            //                cell.bookingRefTextField.delegate = self
+            //                cell.departFromTextField.delegate = self
+            //                cell.arriveAtTextField.delegate = self
+            //                cell.departDateTextField.delegate = self
+            //                cell.arriveDateTextField.delegate = self
+            //
+            //                if !isEditingTransportation {
+            //
+            //                    let theTransportation = transportations[indexPath.row - 1]
+            //
+            //                    // Set up views if editing an existing data.
+            //                    let transportation = theTransportation
+            //
+            //                    cell.typeTextField.text = transportation.type
+            //                    cell.airlineComTextField.text = transportation.airlineCom
+            //                    cell.flightNoTextField.text = transportation.flightNo
+            //                    cell.bookingRefTextField.text = transportation.bookingRef
+            //                    cell.departFromTextField.text = transportation.departFrom
+            //                    cell.arriveAtTextField.text = transportation.arriveAt
+            //                    cell.departDateTextField.text = transportation.departDate
+            //                    cell.arriveDateTextField.text = transportation.arriveDate
+            //                }
+            //
+            //                allArray.append(cell)
+            //                return cell
+            //            }
             
             
         case .attraction:
             
-                        let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
-//            if allArray.count - 1 >= indexPath.row {
-//                
-//                let cell = allArray[indexPath.row] as! AttractionTableViewCell
-//                
+            let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
+            //            if allArray.count - 1 >= indexPath.row {
+            //
+            //                let cell = allArray[indexPath.row] as! AttractionTableViewCell
+            //
+            
+            cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+            
+            if !isEditingAttraction  {
                 
-                cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+                attraction = allArray[indexPath.row] as? Attraction
                 
-                if !isEditingAttraction  {
-                    
-                    attraction = allArray[indexPath.row] as? Attraction
-                    
-                    cell.nameLabel.text = attraction!.name
-                    cell.phoneLabel.text = attraction!.phone
-                    cell.addressLabel.text = attraction!.address
-                    cell.websiteLabel.text = attraction!.website
-                }
-                
-//                allArray[indexPath.row] = cell
-                return cell
-                
-//            } else {
-//                let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
-//                
-//                // Handle the text field’s user input via delegate callbacks.
-//                
-//                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-//                
-//                if !isEditingAttraction {
-//                    
-//                    let theAttraction = attractions[indexPath.row - transportations.count - 1]
-//                    
-//                    // Set up views if editing an existing data.
-//                    let attraction = theAttraction
-//                    
-//                    cell.nameLabel.text = attraction.name
-//                    cell.phoneLabel.text = attraction.phone
-//                    cell.addressLabel.text = attraction.address
-//                    cell.websiteLabel.text = attraction.website
-//                    
-//                }
-//                
-//                allArray.append(cell)
-//                return cell
-//            }
+                cell.nameLabel.text = attraction!.name
+                cell.phoneLabel.text = attraction!.phone
+                cell.addressLabel.text = attraction!.address
+                cell.websiteLabel.text = attraction!.website
+            }
+            
+            //                allArray[indexPath.row] = cell
+            return cell
+            
+            //            } else {
+            //                let cell = NSBundle.mainBundle().loadNibNamed("AttractionTableViewCell", owner: UITableViewCell.self, options: nil).first as! AttractionTableViewCell
+            //
+            //                // Handle the text field’s user input via delegate callbacks.
+            //
+            //                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+            //
+            //                if !isEditingAttraction {
+            //
+            //                    let theAttraction = attractions[indexPath.row - transportations.count - 1]
+            //
+            //                    // Set up views if editing an existing data.
+            //                    let attraction = theAttraction
+            //
+            //                    cell.nameLabel.text = attraction.name
+            //                    cell.phoneLabel.text = attraction.phone
+            //                    cell.addressLabel.text = attraction.address
+            //                    cell.websiteLabel.text = attraction.website
+            //
+            //                }
+            //
+            //                allArray.append(cell)
+            //                return cell
+            //            }
             
             
             
         case .accommodation:
             
-                        let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
             
-//            if allArray.count - 1 >= indexPath.row {
-//                
-//                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            //            if allArray.count - 1 >= indexPath.row {
+            //
+            //                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            
+            
+            // Handle the text field’s user input via delegate callbacks.
+            cell.checkinDateTextField.delegate = self
+            cell.checkoutDateTextField.delegate = self
+            cell.bookingRefTextField.delegate = self
+            
+            cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+            
+            if !isEditingAccommodation  {
+                
+                accommodation = allArray[indexPath.row] as? Accommodation
+                
+                // Set up views if editing an existing data.
+                cell.nameLabel.text = accommodation!.name
+                cell.addressLabel.text = accommodation!.address
+                cell.checkinDateTextField.text = accommodation!.checkinDate
+                cell.checkoutDateTextField.text = accommodation!.checkoutDate
+                cell.bookingRefTextField.text = accommodation!.bookingRef
                 
                 
-                // Handle the text field’s user input via delegate callbacks.
-                cell.checkinDateTextField.delegate = self
-                cell.checkoutDateTextField.delegate = self
-                cell.bookingRefTextField.delegate = self
-                
-                cell.searchButton.addTarget(self, action: #selector(EditViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-                
-                if !isEditingAccommodation  {
-                    
-                    accommodation = allArray[indexPath.row] as? Accommodation
-                    
-                    // Set up views if editing an existing data.
-                    cell.nameLabel.text = accommodation!.name
-                    cell.addressLabel.text = accommodation!.address
-                    cell.checkinDateTextField.text = accommodation!.checkinDate
-                    cell.checkoutDateTextField.text = accommodation!.checkoutDate
-                    cell.bookingRefTextField.text = accommodation!.bookingRef
-                    
-                    
-                }
-                
-//                allArray[indexPath.row] = cell
-                return cell
-                
-//            } else {
-//                
-//                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
-//                cell.checkinDateTextField.delegate = self
-//                cell.checkoutDateTextField.delegate = self
-//                
-//                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
-//                
-//                if !isEditingAccommodation {
-//                    
-//                    let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
-//                    
-//                    // Set up views if editing an existing data.
-//                    let accommodation = theAccommodation
-//                    
-//                    cell.nameLabel.text = accommodation.name
-//                    cell.addressLabel.text = accommodation.address
-//                    cell.checkinDateTextField.text = accommodation.checkinDate
-//                    cell.checkoutDateTextField.text = accommodation.checkoutDate
-//                    
-//                }
-//                
-//                allArray.append(cell)
-//                return cell
-//            }
+            }
+            
+            //                allArray[indexPath.row] = cell
+            return cell
+            
+            //            } else {
+            //
+            //                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+            //                cell.checkinDateTextField.delegate = self
+            //                cell.checkoutDateTextField.delegate = self
+            //
+            //                cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
+            //
+            //                if !isEditingAccommodation {
+            //
+            //                    let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
+            //
+            //                    // Set up views if editing an existing data.
+            //                    let accommodation = theAccommodation
+            //
+            //                    cell.nameLabel.text = accommodation.name
+            //                    cell.addressLabel.text = accommodation.address
+            //                    cell.checkinDateTextField.text = accommodation.checkinDate
+            //                    cell.checkoutDateTextField.text = accommodation.checkoutDate
+            //
+            //                }
+            //
+            //                allArray.append(cell)
+            //                return cell
+            //            }
             
             
             
@@ -442,7 +442,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let indexPathRow = indexPath.row
                     
-//                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
+                    //                    if let cell = allArray[indexPathRow] as? EditTableViewCell {
                     if let cell = tableView.cellForRowAtIndexPath(indexPath) as? EditTableViewCell {
                         // Trip Title Cell
                         let title = cell.titleTextField.text ?? ""
@@ -478,49 +478,48 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                         fatalError()
                     }
                     
-//                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
+                    //                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
                     if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TransportationTableViewCell {
-                    let transportationID = selectedTransportation.transportationID
-                    
-                    // Transportation Cell
-                    let type = cell.typeTextField.text ?? ""
-                    let airlineCom = cell.airlineComTextField.text ?? ""
-                    let flightNo = cell.flightNoTextField.text ?? ""
-                    let bookingRef = cell.bookingRefTextField.text ?? ""
-                    let departFrom = cell.departFromTextField.text ?? ""
-                    let arriveAt = cell.arriveAtTextField.text ?? ""
-                    let departDate = cell.departDateTextField.text ?? ""
-                    let arriveDate = cell.arriveDateTextField.text ?? ""
-                    
-                    let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": postID,
-                                                                      "transportationID": transportationID,
-                                                                      "indexPathRow": indexPathRow,
-                                                                      "timestamp": timeStamp,
-                                                                      "type": type,
-                                                                      "airlineCom": airlineCom,
-                                                                      "flightNo": flightNo,
-                                                                      "bookingRef": bookingRef,
-                                                                      "departFrom": departFrom,
-                                                                      "arriveAt": arriveAt,
-                                                                      "departDate": departDate,
-                                                                      "arriveDate": arriveDate ]
-                    
-                    databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                        snapshot in
+                        let transportationID = selectedTransportation.transportationID
                         
-                        let transportationsPostID = snapshot.value!["postID"] as! String
-                        //                       let transportationsindexPathRow = snapshot.value!["indexPathRow"] as! Int
-                        //                        let transportationID = self.transportation?.transportationID
-                        let transportationKeyID = snapshot.key
+                        // Transportation Cell
+                        let type = cell.typeTextField.text ?? ""
+                        let airlineCom = cell.airlineComTextField.text ?? ""
+                        let flightNo = cell.flightNoTextField.text ?? ""
+                        let bookingRef = cell.bookingRefTextField.text ?? ""
+                        let departFrom = cell.departFromTextField.text ?? ""
+                        let arriveAt = cell.arriveAtTextField.text ?? ""
+                        let departDate = cell.departDateTextField.text ?? ""
+                        let arriveDate = cell.arriveDateTextField.text ?? ""
                         
-                        if transportationsPostID == postID && transportationKeyID == transportationID {
+                        let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                          "postID": postID,
+                                                                          "transportationID": transportationID,
+                                                                          "indexPathRow": indexPathRow,
+                                                                          "timestamp": timeStamp,
+                                                                          "type": type,
+                                                                          "airlineCom": airlineCom,
+                                                                          "flightNo": flightNo,
+                                                                          "bookingRef": bookingRef,
+                                                                          "departFrom": departFrom,
+                                                                          "arriveAt": arriveAt,
+                                                                          "departDate": departDate,
+                                                                          "arriveDate": arriveDate ]
+                        
+                        databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                            snapshot in
                             
-                            let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
+                            let transportationsPostID = snapshot.value!["postID"] as! String
+                            let transportationKeyID = snapshot.key
                             
-                            databaseRef.updateChildValues(updatedTransportationOnFire)
-                        }
-                    })
+                            if transportationsPostID == postID && transportationKeyID == transportationID {
+                                
+                                let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
+                                
+                                databaseRef.updateChildValues(updatedTransportationOnFire)
+                            }
+                        })
+                        
                     } else { return }
                     
                     
@@ -536,7 +535,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let attractionID = selectedAttraction.attractionID
                     
-//                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
+                    //                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
                     if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AttractionTableViewCell {
                         // Attraction Cell
                         let name = cell.nameLabel.text ?? ""
@@ -568,7 +567,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                             }
                         })
                     } else { return }
-                
+                    
                 case .accommodation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
@@ -578,45 +577,45 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     guard let selectedAccommodation = allArray[indexPathRow] as? Accommodation else {
                         fatalError()
                     }
-//                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
+                    //                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     
                     let accommodationID = selectedAccommodation.accommodationID
                     
                     if let cell = tableView.cellForRowAtIndexPath(indexPath) as? AccommodationTableViewCell {
-                    // Accommodation Cell
-                    let name = cell.nameLabel.text ?? ""
-                    //                    let phone = cell.phoneLabel.text ?? ""
-                    let address = cell.addressLabel.text ?? ""
-                    let checkinDate = cell.checkinDateTextField.text ?? ""
-                    let checkoutDate = cell.checkoutDateTextField.text ?? ""
-                    let bookingRef = cell.bookingRefTextField.text ?? ""
-                    
-                    
-                    let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                     "postID": postID,
-                                                                     "accommodationID": accommodationID,
-                                                                     "indexPathRow": indexPathRow,
-                                                                     "timestamp": timeStamp,
-                                                                     "name": name,
-                                                                     //                                                                     "phone": phone,
-                        "address": address,
-                        "checkinDate": checkinDate,
-                        "checkoutDate": checkoutDate,
-                        "bookingRef": bookingRef ]
-                    
-                    databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                        snapshot in
+                        // Accommodation Cell
+                        let name = cell.nameLabel.text ?? ""
+                        //                    let phone = cell.phoneLabel.text ?? ""
+                        let address = cell.addressLabel.text ?? ""
+                        let checkinDate = cell.checkinDateTextField.text ?? ""
+                        let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                        let bookingRef = cell.bookingRefTextField.text ?? ""
                         
-                        let accommodationsPostID = snapshot.value!["postID"] as! String
-                        let accommodationKeyID = snapshot.key
                         
-                        if accommodationsPostID == postID && accommodationID == accommodationKeyID {
+                        let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                         "postID": postID,
+                                                                         "accommodationID": accommodationID,
+                                                                         "indexPathRow": indexPathRow,
+                                                                         "timestamp": timeStamp,
+                                                                         "name": name,
+                                                                         //                                                                     "phone": phone,
+                            "address": address,
+                            "checkinDate": checkinDate,
+                            "checkoutDate": checkoutDate,
+                            "bookingRef": bookingRef ]
+                        
+                        databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                            snapshot in
                             
-                            let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
+                            let accommodationsPostID = snapshot.value!["postID"] as! String
+                            let accommodationKeyID = snapshot.key
                             
-                            databaseRef.updateChildValues(updatedAccommodationOnFire)
-                        }
-                    })
+                            if accommodationsPostID == postID && accommodationID == accommodationKeyID {
+                                
+                                let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
+                                
+                                databaseRef.updateChildValues(updatedAccommodationOnFire)
+                            }
+                        })
                         
                     } else { return }
                     
