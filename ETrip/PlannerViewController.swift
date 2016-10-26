@@ -46,40 +46,37 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
 //        let view : UIView = self.view //Any view can be here!
         
-        let snapshotImage = pdfFile()
+        let pdfFile = tableViewToPdfFile()
         
-        let activityViewController = UIActivityViewController(activityItems: [snapshotImage], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [pdfFile], applicationActivities: nil)
         
         activityViewController.popoverPresentationController?.sourceView = sender
         self.self.presentViewController(activityViewController, animated: true, completion: nil)
         
         //        Crashlytics.sharedInstance().crash()
         
-        
-        
     }
     
 
     
     // UITableView -> PDF
-    func pdfFile() -> NSMutableData {
+    func tableViewToPdfFile() -> NSMutableData {
         
         let paperA4 = CGRect(x: -25, y: 25, width: 612, height: 892);
-        let pageWithMargin = CGRect(x: 0, y: 0, width: paperA4.width-50, height: paperA4.height-50);
+        let pageWithMargin = CGRect(x: 0, y: 0, width: paperA4.width-50, height: paperA4.height-50)
         
         let fittedSize: CGSize = self.tableView.sizeThatFits(CGSizeMake(pageWithMargin.width, self.tableView.contentSize.height))
         self.tableView.bounds = CGRectMake(0, 0, fittedSize.width, fittedSize.height)
         
         let pdfData = NSMutableData()
         
-        
         UIGraphicsBeginPDFContextToData(pdfData, paperA4, nil)
         
         for var pageOriginY:CGFloat = 0; pageOriginY < fittedSize.height; pageOriginY += paperA4.size.height {
             
-            UIGraphicsBeginPDFPageWithInfo(paperA4, nil);
+            UIGraphicsBeginPDFPageWithInfo(paperA4, nil)
             
-            CGContextSaveGState(UIGraphicsGetCurrentContext());
+            CGContextSaveGState(UIGraphicsGetCurrentContext())
             
             CGContextTranslateCTM(UIGraphicsGetCurrentContext(), 0, -pageOriginY)
             
@@ -90,20 +87,18 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.bounds = pageWithMargin // Reset the tableView
         
-        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
-        let pdfFileName = path.stringByAppendingPathComponent("testfilewnew.pdf")
-        
         return pdfData
+
+//        // Store Pdf File to local finder
+//        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+//        let pdfFileName = path.stringByAppendingPathComponent("testfilewnew.pdf")
 //        
 //        pdfData.writeToFile(pdfFileName, atomically: true)
 //        
 //        print(path)
-
         
     }
-    
-    
-    
+
     
     // MARK: - Set up View
 
