@@ -260,7 +260,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 // Handle the text field’s user input via delegate callbacks.
                 cell.startDateTextField.delegate = self
                 cell.returnDateTextField.delegate = self
-            
+                
                 cell.countryTextField.inputView = pickerView
                 
                 allArray[indexPath.row] = cell
@@ -288,7 +288,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 cell.countryTextField.inputView = pickerView
                 
                 allArray.addObject(cell)
-            
+                
                 return cell
             }
             
@@ -528,13 +528,14 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                     "returnDate": returnDate ]
                             
                             let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
+                            
                             databaseRef.updateChildValues(updatedTitleOnFire)
-
+                            
                         }
-//                            
-//                            databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-                       
-
+                        //
+                        //                            databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
+                        
+                        
                         // Set the post to be passed to HomeTableViewController after the unwind segue.
                         post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
                         
@@ -574,9 +575,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                           "arriveAt": arriveAt,
                                                                           "departDate": departDate,
                                                                           "arriveDate": arriveDate ]
-
                         
-//                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
+                        
+                        //                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
                         
                         
                         let n: Int! = self.navigationController?.viewControllers.count
@@ -594,7 +595,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                 
                                 let transportationID = self.transportation?.transportationID
                                 
-                                let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                let transportationOnFire: [String: AnyObject] = [
+                                    
+                                    "uid": userID!,
                                     "postID": transportationsPostID,
                                     "transportationID": transportationID!,
                                     "indexPathRow": indexPathRow,
@@ -649,14 +652,54 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                       "phone": phone,
                                                                       "website": website ]
                         
-                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+//                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                        
+                        
+                        let n: Int! = self.navigationController?.viewControllers.count
+                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                            
+                            databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                            
+                        } else {
+                            
+                            databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                snapshot in
+                                
+                                let attractionsPostID = snapshot.value!["postID"] as! String
+                                let attractionKeyID = snapshot.key
+                                
+                                let attractionID = self.attraction?.attractionID
+                                
+                                let attractionOnFire: [String: AnyObject] = [
+                                    
+                                    "uid": userID!,
+                                    "postID": attractionsPostID,
+                                    "attractionID": attractionID!,
+                                    "indexPathRow": indexPathRow,
+                                    "timestamp": timeStamp,
+                                    "name": name,
+                                    "address": address,
+                                    "phone": phone,
+                                    "website": website ]
+                                
+                                
+                                if attractionKeyID == attractionID {
+                                    
+                                    let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
+                                    
+                                    databaseRef.updateChildValues(updatedAttractionOnFire)
+                                }
+                            })
+                            
+                        }
+
                         
                     } else {
                         
                         print("prepareForSegue: AttractionTableViewCell cast wrong")
                         return
                     }
-
+                    
                     
                 case .accommodation:
                     
@@ -684,7 +727,45 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                          "checkoutDate": checkoutDate,
                                                                          "bookingRef": bookingRef ]
                         
-//                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+                        //                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+                        
+                        let n: Int! = self.navigationController?.viewControllers.count
+                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                            
+                            databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
+                            
+                        } else {
+                            
+                            databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                snapshot in
+                                
+                                let accommodationsPostID = snapshot.value!["postID"] as! String
+                                let accommodationKeyID = snapshot.key
+                                
+                                let accommodationID = self.attraction?.attractionID
+                                
+                                let accommodationOnFire: [String: AnyObject] = [
+                                    "uid": userID!,
+                                    "postID": accommodationsPostID,
+                                    "accommodationID": accommodationID!,
+                                    "indexPathRow": indexPathRow,
+                                    "timestamp": timeStamp,
+                                    "name": name,
+                                    "address": address,
+                                    "checkinDate": checkinDate,
+                                    "checkoutDate": checkoutDate,
+                                    "bookingRef": bookingRef ]
+                                
+                                if accommodationKeyID == accommodationID {
+                                    
+                                    let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
+                                    
+                                    databaseRef.updateChildValues(updatedAccommodationOnFire)
+                                }
+                            })
+                            
+                        }
+
                         
                     } else {
                         
