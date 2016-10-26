@@ -194,6 +194,9 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             let detailViewController = segue.destinationViewController as! AddViewController
             
             detailViewController.post = post
+            detailViewController.transportation = transportation
+            detailViewController.attraction = attraction
+            detailViewController.accommodation = accommodation
             
             detailViewController.allArrayTest = allArray
             

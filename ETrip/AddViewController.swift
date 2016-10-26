@@ -506,13 +506,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                 "startDate": startDate,
                                                                 "returnDate": returnDate ]
                         
-//                        if let postID = post?.postID {
-//                            let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
-//                            databaseRef.updateChildValues(updatedTitleOnFire)
-//                        } else {
                         //////////////
                         let n: Int! = self.navigationController?.viewControllers.count
-                        if let presentVC = self.navigationController?.viewControllers[n-2] as? HomeTableViewController{
+                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
                             
                             databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
                             
@@ -521,6 +517,15 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             guard let postID = post?.postID else {
                                 return
                             }
+                            
+                            let titleOnFire: [String: AnyObject] = ["uid": userID!,
+                                                                    "postID": postID,
+                                                                    "indexPathRow": indexPathRow,
+                                                                    "timestamp": timeStamp,
+                                                                    "title": title,
+                                                                    "country": country,
+                                                                    "startDate": startDate,
+                                                                    "returnDate": returnDate ]
                             
                             let updatedTitleOnFire = ["/posts/\(postID)": titleOnFire]
                             databaseRef.updateChildValues(updatedTitleOnFire)
@@ -571,38 +576,48 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                           "arriveDate": arriveDate ]
 
                         
-                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
-
-
-    
+//                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
                         
-//                        } else {
-//                            
-//                            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-//                                snapshot in
-//                                
-//                                guard let postID = self.post?.postID else {
-//                                    return
-//                                }
-//                                guard let selectedTransportation = self.allArray[indexPathRow] as? Transportation else {
-//                                    return
-//                                }
-//                                let transportationID = selectedTransportation.transportationID
-//                                
-//                                let transportationsPostID = snapshot.value!["postID"] as! String
-//                                let transportationKeyID = snapshot.key
-//                                
-//                                if transportationsPostID == postID && transportationKeyID == transportationID {
-//                                    
-//                                    let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
-//                                    
-//                                    databaseRef.updateChildValues(updatedTransportationOnFire)
-//                                }
-//                            })
-//
-//                            
-//                        }
-                    
+                        
+                        let n: Int! = self.navigationController?.viewControllers.count
+                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                            
+                            databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
+                            
+                        } else {
+                            
+                            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                snapshot in
+                                
+                                let transportationsPostID = snapshot.value!["postID"] as! String
+                                let transportationKeyID = snapshot.key
+                                
+                                let transportationID = self.transportation?.transportationID
+                                
+                                let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                    "postID": transportationsPostID,
+                                    "transportationID": transportationID!,
+                                    "indexPathRow": indexPathRow,
+                                    "timestamp": timeStamp,
+                                    "type": type,
+                                    "airlineCom": airlineCom,
+                                    "flightNo": flightNo,
+                                    "bookingRef": bookingRef,
+                                    "departFrom": departFrom,
+                                    "arriveAt": arriveAt,
+                                    "departDate": departDate,
+                                    "arriveDate": arriveDate ]
+                                
+                                
+                                if transportationKeyID == transportationID {
+                                    
+                                    let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
+                                    
+                                    databaseRef.updateChildValues(updatedTransportationOnFire)
+                                }
+                            })
+                            
+                        }
                         
                     } else {
                         
