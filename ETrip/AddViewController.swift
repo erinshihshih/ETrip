@@ -89,6 +89,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    var isFirst = true
+    
     
     
     // MARK: View Life Cycle
@@ -126,47 +128,61 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    
+//        func sortAllArrayTest() {
         
+//        override func viewWillAppear(animated: Bool) {
+//            super.viewWillAppear(animated)
+    
         if allArrayTest.count < 1 {
             return
         }
         
-        for type in allArrayTest {
-            
-            if type is Transportation {
+        if isFirst {
+        
+            for type in allArrayTest {
                 
-                isEditingTransportation = true
-                rows.append(.transportation)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
+                if type is Transportation {
+                    
+                    isEditingTransportation = true
+                    rows.append(.transportation)
+                    tableView.beginUpdates()
+                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                    tableView.endUpdates()
+                    
+                }
                 
+                if type is Attraction {
+                    
+                    isEditingAttraction = true
+                    rows.append(.attraction)
+                    tableView.beginUpdates()
+                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                    tableView.endUpdates()
+                    
+                }
+                
+                if type is Accommodation {
+                    
+                    isEditingAccommodation = true
+                    rows.append(.accommodation)
+                    tableView.beginUpdates()
+                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                    tableView.endUpdates()
+                    
+                }
             }
             
-            if type is Attraction {
-                
-                isEditingAttraction = true
-                rows.append(.attraction)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
-                
-            }
-            
-            if type is Accommodation {
-                
-                isEditingAccommodation = true
-                rows.append(.accommodation)
-                tableView.beginUpdates()
-                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                tableView.endUpdates()
-                
-            }
+            isFirst = false
+
+        
         }
+        
         
         for (index, type) in allArray.enumerate() {
             
             if index > 0 {
+                
                 if let item = allArrayTest[index - 1] as? Transportation {
                     
                     let cell = allArray[index] as! TransportationTableViewCell

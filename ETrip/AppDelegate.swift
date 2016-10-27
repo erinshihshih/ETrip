@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // MARK: Google Places
-        GMSServices.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
-        GMSPlacesClient.provideAPIKey("AIzaSyC7-QCK31uQks9bwLMQIKuuJ9TfLB-3Zak")
+        GMSServices.provideAPIKey("AIzaSyBmirkpWQGgrYG-erGK6jG2RSCjfQwHUvM")
+        GMSPlacesClient.provideAPIKey("AIzaSyBmirkpWQGgrYG-erGK6jG2RSCjfQwHUvM")
         
         // MARK: Set up Crashlytics
 //        Fabric.with([Crashlytics.self])

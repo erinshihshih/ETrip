@@ -175,7 +175,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfn-Go-LVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="495"/>
+            <point key="canvasLocation" x="926" y="495"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="hA4-21-lO8">
@@ -641,50 +641,50 @@
         <scene sceneID="0HK-YX-HOj">
             <objects>
                 <tableViewController id="Rc8-nM-64U" customClass="SideMenuTableViewController" customModule="ETrip" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="575" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Lh-Lb-dyW">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="488" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Lh-Lb-dyW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SideMenuTableViewCell" rowHeight="575" id="dyi-Cf-ov4" customClass="SideMenuTableViewCell" customModule="ETrip" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="575"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SideMenuTableViewCell" rowHeight="573" id="dyi-Cf-ov4" customClass="SideMenuTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="573"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyi-Cf-ov4" id="0ec-Of-mNQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="575"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="573"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3OM-tB-va6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3OM-tB-va6">
                                             <rect key="frame" x="8" y="200" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="0FB-t6-ver"/>
                                                 <constraint firstAttribute="width" constant="100" id="ij4-xN-DbN"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvX-fm-jTD">
-                                            <rect key="frame" x="116" y="235" width="66" height="29"/>
-                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
-                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
                                             <rect key="frame" x="134" y="270" width="48" height="30"/>
                                             <state key="normal" title="Logout"/>
                                             <connections>
                                                 <action selector="logoutButton:" destination="dyi-Cf-ov4" eventType="touchUpInside" id="75V-PL-jKK"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvX-fm-jTD">
+                                            <rect key="frame" x="116" y="200" width="66" height="29"/>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Hse-D7-5na" firstAttribute="leading" secondItem="nvX-fm-jTD" secondAttribute="leading" constant="428" id="3Oq-dZ-EnV"/>
                                         <constraint firstItem="3OM-tB-va6" firstAttribute="top" secondItem="0ec-Of-mNQ" secondAttribute="top" constant="200" id="6ng-Zj-7pG"/>
-                                        <constraint firstItem="3OM-tB-va6" firstAttribute="centerY" secondItem="0ec-Of-mNQ" secondAttribute="centerY" id="93r-SL-zGF"/>
+                                        <constraint firstItem="3OM-tB-va6" firstAttribute="centerY" secondItem="0ec-Of-mNQ" secondAttribute="centerY" constant="-36.5" id="93r-SL-zGF"/>
                                         <constraint firstItem="Hse-D7-5na" firstAttribute="top" secondItem="nvX-fm-jTD" secondAttribute="bottom" constant="41" id="A9X-8g-kri"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Hse-D7-5na" secondAttribute="trailing" constant="410" id="BA1-Tm-h1e"/>
                                         <constraint firstItem="nvX-fm-jTD" firstAttribute="leading" secondItem="3OM-tB-va6" secondAttribute="trailing" constant="8" id="Gql-r8-39z"/>
                                         <constraint firstItem="nvX-fm-jTD" firstAttribute="centerY" secondItem="3OM-tB-va6" secondAttribute="centerY" constant="-35.5" id="Hd0-cB-mt3"/>
                                         <constraint firstAttribute="bottom" secondItem="3OM-tB-va6" secondAttribute="bottom" constant="200" id="R3g-uW-In5"/>
                                         <constraint firstItem="3OM-tB-va6" firstAttribute="leading" secondItem="0ec-Of-mNQ" secondAttribute="leading" constant="8" id="WS7-7y-IVt"/>
-                                        <constraint firstItem="nvX-fm-jTD" firstAttribute="top" secondItem="3OM-tB-va6" secondAttribute="top" constant="35" id="ZAf-ot-MY2"/>
+                                        <constraint firstItem="nvX-fm-jTD" firstAttribute="top" secondItem="3OM-tB-va6" secondAttribute="top" id="ZAf-ot-MY2"/>
                                         <constraint firstItem="Hse-D7-5na" firstAttribute="trailing" secondItem="nvX-fm-jTD" secondAttribute="trailing" id="l3i-kB-2iE"/>
                                         <constraint firstItem="Hse-D7-5na" firstAttribute="bottom" secondItem="3OM-tB-va6" secondAttribute="bottom" id="oXf-us-Rjp"/>
                                     </constraints>
@@ -699,7 +699,7 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="nvX-fm-jTD" id="Ro3-Bq-DqM"/>
                                     <outlet property="profileImage" destination="3OM-tB-va6" id="W6z-I3-DMa"/>
@@ -910,6 +910,6 @@
         <image name="transportation" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Vh-s9-XDb"/>
+        <segue reference="PIV-dv-BR3"/>
     </inferredMetricsTieBreakers>
 </document>
