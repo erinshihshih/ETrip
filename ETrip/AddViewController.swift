@@ -248,7 +248,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
         switch rows[indexPath.row] {
             
         case .title:
@@ -310,6 +309,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 allArray[indexPath.row] = cell
                 return cell
+  
                 
             } else {
                 
@@ -389,26 +389,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
             if allArray.count - 1 >= indexPath.row {
                 
-                let cell = NSBundle.mainBundle().loadNibNamed("AccommodationTableViewCell", owner: UITableViewCell.self, options: nil).first as! AccommodationTableViewCell
+                let cell = allArray[indexPath.row] as! AccommodationTableViewCell
                 
                 cell.checkinDateTextField.delegate = self
                 cell.checkoutDateTextField.delegate = self
                 
                 cell.searchButton.addTarget(self, action: #selector(AddViewController.onLaunchClicked(_:)), forControlEvents: .TouchUpInside)
                 
-                if !isEditingAccommodation {
-                    
-                    let theAccommodation = accommodations[indexPath.row - transportations.count - attractions.count - 1]
-                    
-                    // Set up views if editing an existing data.
-                    let accommodation = theAccommodation
-                    
-                    cell.nameLabel.text = accommodation.name
-                    cell.addressLabel.text = accommodation.address
-                    cell.checkinDateTextField.text = accommodation.checkinDate
-                    cell.checkoutDateTextField.text = accommodation.checkoutDate
-                    
-                }
                 
                 allArray[indexPath.row] = cell
                 return cell
@@ -532,9 +519,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             databaseRef.updateChildValues(updatedTitleOnFire)
                             
                         }
-                        //
-                        //                            databaseRef.child("posts").child(postIDKey).setValue(titleOnFire)
-                        
                         
                         // Set the post to be passed to HomeTableViewController after the unwind segue.
                         post = Post(postID: postIDKey, indexPathRow: indexPathRow, title: title, country: country, startDate: startDate, returnDate: returnDate)
@@ -1081,13 +1065,11 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
             
         }
         
-        
         attractionCell = nil
         accommodationCell = nil
-        
-        
-        
+     
         self.dismissViewControllerAnimated(true, completion: nil)
+    
     }
     
     func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {

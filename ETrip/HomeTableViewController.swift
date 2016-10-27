@@ -25,11 +25,10 @@ class HomeTableViewController: UITableViewController {
         
 //        // 狀態列顯示為白色
 //        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-
         
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
-        FirebaseManager.shared.fetchPosts()
+//        FirebaseManager.shared.fetchPosts()
         
         // sideMenu set up
         
@@ -48,13 +47,23 @@ class HomeTableViewController: UITableViewController {
         
         FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
             kFIRParameterContentType: (FIRAuth.auth()?.currentUser?.displayName)!,
-            kFIRParameterItemID: "1"
+            kFIRParameterItemID: "user_name"
             ])
         
         
         
     }
-    
+
+    override func viewDidAppear(animated: Bool) {
+         super.viewDidAppear(animated)
+        
+        posts = []
+        
+        FirebaseManager.shared.delegate = self
+       
+        FirebaseManager.shared.fetchPosts()
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
