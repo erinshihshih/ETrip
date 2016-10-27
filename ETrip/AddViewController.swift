@@ -42,12 +42,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
     
-    var transportationCell: TransportationTableViewCell?
+//    var transportationCell: TransportationTableViewCell?
     
-    var countryArray = [String]()
-    //    var transportationArray = ["Airplane", "Train", "Bus"]
     
-    // title pickerView
+    // PickerView
     var pickerView = UIPickerView()
     //    var transportationPickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
@@ -60,7 +58,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    let transportationTypeArray = [ "Airplne", "Bus", "Train" ]
+    var countryArray = [String]()
+
+    let transportationTypeArray = [ "Airplane", "Bus", "Train" ]
     
     let databaseRef = FIRDatabase.database().reference()
     
@@ -829,7 +829,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 if let cell = allArray[index] as? TransportationTableViewCell {
                     
+                    
                     cell.typeTextField.text = transportationTypeArray[row]
+                    
+                    
                 }
             }
         }
@@ -867,7 +870,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             
-            //        startDatePicker.reloadInputViews()
+            // startDatePicker.reloadInputViews()
             startDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
             returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }

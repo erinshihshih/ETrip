@@ -124,8 +124,11 @@ class HomeTableViewController: UITableViewController {
             if let selectedCell = sender as? HomeTableViewCell {
                 let indexPath = tableView.indexPathForCell(selectedCell)!
                 
+                if posts.count >= 1 {
                 let selectedPost = posts[indexPath.row]
                 detailViewController.post = selectedPost
+                
+                } else { return }
                 
                 print("Show the trip result.")
             }

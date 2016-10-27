@@ -144,7 +144,19 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             let transportation = allArray[indexPath.row] as! Transportation
           
             // Set up views if editing an existing data.
-            cell.typeLabel.text = transportation.type
+            if transportation.type == "Train" {
+                
+                cell.typeImage.image = UIImage(named: "train")
+                
+            } else if transportation.type == "Bus" {
+                
+                cell.typeImage.image = UIImage(named: "bus")
+                
+            } else if transportation.type == "Airplane" {
+                
+                cell.typeImage.image = UIImage(named: "aeroplane")
+            }
+            
             cell.airlineComLabel.text = transportation.airlineCom
             cell.flightNoLabel.text = transportation.flightNo
             cell.bookingRefLabel.text = transportation.bookingRef
@@ -202,6 +214,20 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             print("Edit the trip.")
         }
+        
+//        if segue.identifier == "editPostSegue" {
+//            let detailViewController = segue.destinationViewController as! AddViewController
+//            
+//            detailViewController.post = post
+//            detailViewController.transportation = transportation
+//            detailViewController.attraction = attraction
+//            detailViewController.accommodation = accommodation
+//            
+//            detailViewController.allArrayTest = allArray
+//            
+//            print("Edit the trip.")
+//        }
+
         
     }
     

@@ -11,7 +11,7 @@ import UIKit
 class TransportationPlannerViewCell: UITableViewCell {
 
  
-    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var typeImage: UIImageView!
     
     @IBOutlet weak var airlineComLabel: UILabel!
     
