@@ -42,6 +42,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
     
+    var transportationCell: TransportationTableViewCell?
+    
     var countryArray = [String]()
     //    var transportationArray = ["Airplane", "Train", "Bus"]
     
@@ -50,11 +52,15 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     //    var transportationPickerView = UIPickerView()
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
+    var transportationTypePickerView = UIPickerView()
     
     enum PickerType: Int {
         case country = 0
+        case transportationType = 1
         
     }
+    
+    let transportationTypeArray = [ "Airplne", "Bus", "Train" ]
     
     let databaseRef = FIRDatabase.database().reference()
     
@@ -119,9 +125,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         
+        transportationTypePickerView.backgroundColor = UIColor.blackColor()
+        transportationTypePickerView.showsSelectionIndicator = true
+        
+        
         
         // Picker View UI
         setUpPickerViewUI()
+        
+        //choose which pickerview is used
+        pickerView.tag = 0
+        transportationTypePickerView.tag = 1
         
         saveButton.enabled = false
         
@@ -789,18 +803,50 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return countryArray.count
+       
+        if pickerView.tag == 0 {
+        
+            return countryArray.count
+        
+        } else if pickerView.tag == 1{
+        
+            return transportationTypeArray.count
+        }
+        
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       
+        if pickerView.tag == 0 {
+            return countryArray[row]
+        }
+        if pickerView.tag == 1 {
+            
+            return transportationTypeArray[row]
+        }
+        
         return countryArray[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        if pickerView.tag == 0 {
+            
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
         cell.countryTextField.text = countryArray[row]
+            
+        } else if pickerView.tag == 1 {
+            
+            for index in 0..<rows.count {
+                
+                if let cell = allArray[index] as? TransportationTableViewCell {
+    
+                        cell.typeTextField.text = transportationTypeArray[row]
+                }
+            }
+        }
     }
     
     func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
@@ -809,6 +855,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return title
         
     }
+    
     
     // MARK: TextField Delegate
     
@@ -819,16 +866,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             
-            
             //        startDatePicker.reloadInputViews()
             startDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
             returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
         
         // 等新增完其他cell再做判斷
-        //        if  let cell = textField.superview?.superview as? TransportationTableViewCell {
-        //            print("it's transportation Cell!")
-        //        }
+        if let cell = textField.superview?.superview as? TransportationTableViewCell {
+         
+            cell.typeTextField.inputView = transportationTypePickerView
+        
+        }
         
     }
     
@@ -882,7 +930,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         returnDatePicker.minuteInterval = 30
         returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        
+    
+        // Transportation Type Picker
+        transportationTypePickerView.delegate = self
+    
     }
     
     /*
