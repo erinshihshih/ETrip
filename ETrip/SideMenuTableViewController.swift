@@ -19,6 +19,7 @@ class SideMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: items[indexPath.row])
         
     }
     
@@ -36,7 +37,17 @@ class SideMenuTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+    
         return 1
+//        switch section {
+//        case 0:
+//            return 1
+//        case 1:
+//            return 4
+//        default:
+//            assert(false, "section \(section)")
+//            return 0
+//        }
     }
     
     
