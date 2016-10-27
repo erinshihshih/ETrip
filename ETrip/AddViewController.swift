@@ -125,8 +125,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         
-        transportationTypePickerView.backgroundColor = UIColor.blackColor()
-        transportationTypePickerView.showsSelectionIndicator = true
+       
         
         
         
@@ -816,45 +815,47 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       
-        if pickerView.tag == 0 {
-            return countryArray[row]
-        }
-        if pickerView.tag == 1 {
-            
-            return transportationTypeArray[row]
-        }
-        
-        return countryArray[row]
-    }
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 0 {
             
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
-        cell.countryTextField.text = countryArray[row]
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
+            cell.countryTextField.text = countryArray[row]
             
         } else if pickerView.tag == 1 {
             
             for index in 0..<rows.count {
                 
                 if let cell = allArray[index] as? TransportationTableViewCell {
-    
-                        cell.typeTextField.text = transportationTypeArray[row]
+                    
+                    cell.typeTextField.text = transportationTypeArray[row]
                 }
             }
         }
     }
     
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
-        let title = NSAttributedString(string: countryArray[row], attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
-        return title
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.whiteColor()
+        pickerLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
+        pickerLabel.textAlignment = NSTextAlignment.Center
         
+        if pickerView.tag == 0 {
+        
+            pickerLabel.text = countryArray[row]
+            
+        } else if pickerView.tag == 1 {
+            
+            pickerLabel.text = transportationTypeArray[row]
+
+        }
+        
+        return pickerLabel
+    
     }
+    
     
     
     // MARK: TextField Delegate
@@ -871,7 +872,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             returnDatePicker.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
         
-        // 等新增完其他cell再做判斷
         if let cell = textField.superview?.superview as? TransportationTableViewCell {
          
             cell.typeTextField.inputView = transportationTypePickerView
@@ -933,6 +933,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
         // Transportation Type Picker
         transportationTypePickerView.delegate = self
+        transportationTypePickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
+        transportationTypePickerView.showsSelectionIndicator = true
     
     }
     
