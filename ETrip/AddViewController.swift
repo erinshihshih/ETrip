@@ -51,6 +51,11 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     
+    enum PickerType: Int {
+        case country = 0
+        
+    }
+    
     let databaseRef = FIRDatabase.database().reference()
     
     // MARK: IBOutlet
