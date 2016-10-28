@@ -58,6 +58,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    var currnetEditingTypeTextField: UITextField?
+    
     var countryArray = [String]()
 
     let transportationTypeArray = [ "Airplane", "Bus", "Train" ]
@@ -795,7 +797,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    // MARK: Country Picker Delegate
+    // MARK: Picker Delegate
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
@@ -815,6 +817,28 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return 1
     }
     
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.whiteColor()
+        pickerLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
+        pickerLabel.textAlignment = NSTextAlignment.Center
+        
+        if pickerView.tag == 0 {
+            
+            pickerLabel.text = countryArray[row]
+            
+        } else if pickerView.tag == 1 {
+            
+            pickerLabel.text = transportationTypeArray[row]
+            
+        }
+        
+        return pickerLabel
+        
+    }
+
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if pickerView.tag == 0 {
@@ -824,58 +848,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.countryTextField.text = countryArray[row]
             
         } else if pickerView.tag == 1 {
-            
-            for index in 0..<rows.count {
                 
-                if let cell = allArray[index] as? TransportationTableViewCell {
-                    
-                    
-                    cell.typeTextField.text = transportationTypeArray[row]
-                    
-                    }
-//
-//                let indexPath = NSIndexPath(forRow: index, inSection: 0)
-//                
-//                let indexPathRow = indexPath.row
-//                
-//                guard let selectedCell = allArray[indexPathRow] as? TransportationTableViewCell else {
-//                    return
-//                }
-//                
-//                if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TransportationTableViewCell {
-//                    cell.typeTextField.text = transportationTypeArray[row]
-//                    
-//            }
-        }
-        }
-    }
-    
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
-        
-        let pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.whiteColor()
-        pickerLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        pickerLabel.textAlignment = NSTextAlignment.Center
-        
-        if pickerView.tag == 0 {
-        
-            pickerLabel.text = countryArray[row]
-            
-        } else if pickerView.tag == 1 {
-            
-            pickerLabel.text = transportationTypeArray[row]
+            currnetEditingTypeTextField?.text = transportationTypeArray[row]
 
         }
-        
-        return pickerLabel
-    
     }
-    
     
     
     // MARK: TextField Delegate
-    
     func textFieldDidBeginEditing(textField: UITextField) {
+        
+        currnetEditingTypeTextField = textField
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
@@ -888,14 +871,18 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         if let cell = textField.superview?.superview as? TransportationTableViewCell {
-         
+            
             cell.typeTextField.inputView = transportationTypePickerView
-        
+            
         }
         
     }
     
+
+    
     func textFieldDidEndEditing(textField: UITextField) {
+        
+        currnetEditingTypeTextField = nil
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
