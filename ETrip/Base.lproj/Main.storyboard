@@ -296,6 +296,7 @@
                             <constraint firstItem="XZy-wa-uF0" firstAttribute="leading" secondItem="lXI-Tf-QVt" secondAttribute="leading" id="9aX-ja-vpx"/>
                             <constraint firstAttribute="trailing" secondItem="XZy-wa-uF0" secondAttribute="trailing" id="XGc-ZS-S8a"/>
                             <constraint firstItem="2fv-w3-tID" firstAttribute="top" secondItem="XZy-wa-uF0" secondAttribute="bottom" id="gS5-Df-Nkv"/>
+                            <constraint firstItem="XZy-wa-uF0" firstAttribute="width" secondItem="lXI-Tf-QVt" secondAttribute="width" id="tyD-ek-jyr"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -913,6 +914,6 @@
         <image name="worldwide" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PIV-dv-BR3"/>
+        <segue reference="4Vh-s9-XDb"/>
     </inferredMetricsTieBreakers>
 </document>

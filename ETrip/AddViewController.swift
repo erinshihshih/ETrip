@@ -144,100 +144,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         
+        // LiquidButton
+        createLiquidFloatingActionButton()
         
         
-        //MARK: Create LiquidFloatingActionButton
-        let createButton: (CGRect, LiquidFloatingActionButtonAnimateStyle) -> LiquidFloatingActionButton = { (frame, style) in
-            let floatingActionButton = CustomDrawingActionButton(frame: frame)
-            floatingActionButton.animateStyle = style
-            floatingActionButton.dataSource = self
-            floatingActionButton.delegate = self
-            return floatingActionButton
-        }
         
-        let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
-            let cell = LiquidFloatingCell(icon: UIImage(named: iconName)!)
-            return cell
-        }
-        let customCellFactory: (String) -> LiquidFloatingCell = { (iconName) in
-            let cell = CustomCell(icon: UIImage(named: iconName)!, name: iconName)
-            return cell
-        }
-        cells.append(cellFactory("transportation"))
-        cells.append(customCellFactory("attraction"))
-        cells.append(cellFactory("accommodation"))
-        
-        let floatingFrame = CGRect(x: self.view.frame.width - 50 - 10, y: view.frame.height - 50 - 80, width: 50, height: 50)
-        let bottomRightButton = createButton(floatingFrame, .Up)
-        
-        bottomRightButton.color = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
-        bottomRightButton.image = UIImage(named: "add")
-        self.view.addSubview(bottomRightButton)
-        
-        
+
+
     }
-    
-    //MARK: Setting VC function
-    func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
-        return cells.count
-    }
-    
-    func cellForIndex(index: Int) -> LiquidFloatingCell {
-        return cells[index]
-    }
-    
-    func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
-        
-        print("did Tapped! \(index)")
-        
-        switch index {
-            
-        case 0:
-            
-            isEditingTransportation = true
-            rows.append(.transportation)
-            tableView.beginUpdates()
-            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-            tableView.endUpdates()
-            
-            liquidFloatingActionButton.close()
-            
-        case 1:
-            
-            isEditingAttraction = true
-            rows.append(.attraction)
-            tableView.beginUpdates()
-            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-            tableView.endUpdates()
-            
-            liquidFloatingActionButton.close()
-            
-            
-            
-        case 2:
-            isEditingAccommodation = true
-            rows.append(.accommodation)
-            tableView.beginUpdates()
-            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-            tableView.endUpdates()
-            
-            liquidFloatingActionButton.close()
-            
-            liquidFloatingActionButton.close()
-            
-        default: break
-        }
-        
-    }
-    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //        func sortAllArrayTest() {
-        
-        //        override func viewWillAppear(animated: Bool) {
-        //            super.viewWillAppear(animated)
         
         if allArrayTest.count < 1 {
             return
@@ -328,6 +245,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     
     // MARK: Function
+    
+    // TASK: Setting Google Places
     func onLaunchClicked(sender: UIButton) {
         
         if let sender = sender.superview?.superview as? AttractionTableViewCell{
@@ -348,7 +267,85 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
+    //TASK: Create LiquidFloatingActionButton
+    func createLiquidFloatingActionButton() {
+        
+        let createButton: (CGRect, LiquidFloatingActionButtonAnimateStyle) -> LiquidFloatingActionButton = { (frame, style) in
+            let floatingActionButton = CustomDrawingActionButton(frame: frame)
+            floatingActionButton.animateStyle = style
+            floatingActionButton.dataSource = self
+            floatingActionButton.delegate = self
+            return floatingActionButton
+        }
+        
+        let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+            let cell = LiquidFloatingCell(icon: UIImage(named: iconName)!)
+            return cell
+        }
+        let customCellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+            let cell = CustomCell(icon: UIImage(named: iconName)!, name: iconName)
+            return cell
+        }
+        cells.append(cellFactory("transportation"))
+        cells.append(customCellFactory("attraction"))
+        cells.append(cellFactory("accommodation"))
+        
+        let floatingFrame = CGRect(x: self.view.frame.width - 50 - 10, y: view.frame.height - 50 - 80, width: 50, height: 50)
+        let bottomRightButton = createButton(floatingFrame, .Up)
+        
+        bottomRightButton.color = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+        bottomRightButton.image = UIImage(named: "add")
+        self.view.addSubview(bottomRightButton)
+        
+    }
     
+    
+    //TASK: Setting LiquidFloatingActionButton function
+    func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
+        return cells.count
+    }
+    
+    func cellForIndex(index: Int) -> LiquidFloatingCell {
+        return cells[index]
+    }
+    
+    func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
+        
+        switch index {
+            
+        case 0:
+            
+            isEditingTransportation = true
+            rows.append(.transportation)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
+            liquidFloatingActionButton.close()
+            
+        case 1:
+            
+            isEditingAttraction = true
+            rows.append(.attraction)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
+            liquidFloatingActionButton.close()
+            
+        case 2:
+            isEditingAccommodation = true
+            rows.append(.accommodation)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
+            liquidFloatingActionButton.close()
+            
+        default: break
+        }
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -358,12 +355,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return rows.count
     }
     
@@ -378,9 +373,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 let cell = allArray[indexPath.row] as! AddTableViewCell
                 
                 // Handle the text field’s user input via delegate callbacks.
+                cell.titleTextField.delegate = self
+                cell.countryTextField.delegate = self
                 cell.startDateTextField.delegate = self
                 cell.returnDateTextField.delegate = self
-                
                 cell.countryTextField.inputView = pickerView
                 
                 allArray[indexPath.row] = cell
@@ -393,6 +389,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! AddTableViewCell
                 
                 // Handle the text field’s user input via delegate callbacks.
+                cell.titleTextField.delegate = self
+                cell.countryTextField.delegate = self
                 cell.startDateTextField.delegate = self
                 cell.returnDateTextField.delegate = self
                 
@@ -937,8 +935,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             currnetEditingTypeTextField?.text = transportationTypeArray[row]
             
         }
+        
+         self.view.endEditing(true)
     }
-    
+
     
     // MARK: TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -946,7 +946,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         currnetEditingTypeTextField = textField
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
-            
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             
@@ -956,19 +955,29 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         if let cell = textField.superview?.superview as? TransportationTableViewCell {
-            
+
+            tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
+
             cell.typeTextField.inputView = transportationTypePickerView
             
         }
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+    }
     
     
     func textFieldDidEndEditing(textField: UITextField) {
         
         currnetEditingTypeTextField = nil
         
+        tableView.setContentOffset((CGPointMake(0, 0)), animated: true)
+
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
             if cell.startDateTextField.text != nil {
@@ -1001,6 +1010,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.returnDateTextField.text = formatter.stringFromDate(sender.date)
             
         }
+        
+        self.view.endEditing(true)
     }
     
     // MARK: Set Up PickerView UI
