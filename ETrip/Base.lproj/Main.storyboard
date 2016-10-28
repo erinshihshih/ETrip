@@ -259,18 +259,40 @@
                                                     <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="barLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-cI-wEJ">
+                                                    <rect key="frame" x="13" y="172" width="544" height="1"/>
+                                                    <color key="backgroundColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="w9k-Hi-uMJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="worldwide" translatesAutoresizingMaskIntoConstraints="NO" id="fyK-sg-3U1">
+                                                    <rect key="frame" x="557" y="158" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="0HK-Qw-rHy"/>
+                                                        <constraint firstAttribute="height" constant="30" id="oEY-i1-pk1"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YWS-kU-c6x" firstAttribute="top" secondItem="5hl-ho-272" secondAttribute="bottom" constant="8" id="3SO-v8-Iy1"/>
                                                 <constraint firstItem="YWS-kU-c6x" firstAttribute="trailing" secondItem="5hl-ho-272" secondAttribute="trailing" id="5zP-G3-llb"/>
                                                 <constraint firstItem="5hl-ho-272" firstAttribute="trailing" secondItem="Hfc-Jm-FW5" secondAttribute="trailing" id="BMP-5L-SQr"/>
+                                                <constraint firstItem="fyK-sg-3U1" firstAttribute="leading" secondItem="Ylh-cI-wEJ" secondAttribute="trailing" id="FZP-bd-lnw"/>
                                                 <constraint firstItem="YWS-kU-c6x" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="GEv-I5-a1q"/>
                                                 <constraint firstItem="rJu-y9-iUW" firstAttribute="leading" secondItem="YWS-kU-c6x" secondAttribute="leading" id="Hwn-6d-T6h"/>
                                                 <constraint firstItem="Hfc-Jm-FW5" firstAttribute="trailing" secondItem="VRp-T8-cQT" secondAttribute="trailingMargin" id="JDM-nF-vhl"/>
                                                 <constraint firstItem="rJu-y9-iUW" firstAttribute="top" secondItem="YWS-kU-c6x" secondAttribute="top" constant="38" id="Jsj-Ed-KJP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Ylh-cI-wEJ" secondAttribute="bottom" constant="8" id="KTQ-CO-5ua"/>
                                                 <constraint firstItem="Hfc-Jm-FW5" firstAttribute="top" secondItem="VRp-T8-cQT" secondAttribute="topMargin" constant="5" id="OIA-cR-EHl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fyK-sg-3U1" secondAttribute="trailing" constant="5" id="RbX-kx-9r4"/>
                                                 <constraint firstItem="Hfc-Jm-FW5" firstAttribute="leading" secondItem="5hl-ho-272" secondAttribute="leading" id="UMU-Md-YG9"/>
+                                                <constraint firstItem="fyK-sg-3U1" firstAttribute="centerY" secondItem="Ylh-cI-wEJ" secondAttribute="centerY" id="VId-YQ-Iy6"/>
                                                 <constraint firstItem="Hfc-Jm-FW5" firstAttribute="leading" secondItem="VRp-T8-cQT" secondAttribute="leadingMargin" id="WSs-CV-PsJ"/>
+                                                <constraint firstItem="Ylh-cI-wEJ" firstAttribute="leading" secondItem="VRp-T8-cQT" secondAttribute="leadingMargin" constant="5" id="cy6-up-hBg"/>
                                                 <constraint firstItem="5hl-ho-272" firstAttribute="top" secondItem="Hfc-Jm-FW5" secondAttribute="bottom" constant="8" symbolic="YES" id="hgY-Aj-dfx"/>
                                                 <constraint firstItem="rJu-y9-iUW" firstAttribute="trailing" secondItem="YWS-kU-c6x" secondAttribute="trailing" id="xpa-xi-3r7"/>
                                                 <constraint firstItem="rJu-y9-iUW" firstAttribute="leading" secondItem="YWS-kU-c6x" secondAttribute="trailing" constant="-584" id="zQa-zB-K6s"/>
@@ -914,6 +936,6 @@
         <image name="worldwide" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Vh-s9-XDb"/>
+        <segue reference="PIV-dv-BR3"/>
     </inferredMetricsTieBreakers>
 </document>

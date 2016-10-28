@@ -76,7 +76,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     @IBOutlet weak var tableView: UITableView!
     
-    var isFirst = true
+    var isFirstAdd = true
     
     
     
@@ -119,9 +119,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         
         
-
-
+        
+        
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -130,8 +138,11 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             return
         }
         
-        if isFirst {
-            
+        if !isFirstAdd {
+   
+            return
+        }
+        
             for type in allArrayTest {
                 
                 if type is Transportation {
@@ -165,10 +176,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 }
             }
             
-            isFirst = false
-            
-            
-        }
+            isFirstAdd = false
+        
+        
         
         
         for (index, type) in allArray.enumerate() {
@@ -290,6 +300,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.beginUpdates()
             tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
             tableView.endUpdates()
+
+            moveTableViewToLastCell()
             
             liquidFloatingActionButton.close()
             
@@ -301,19 +313,40 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
             tableView.endUpdates()
             
+            moveTableViewToLastCell()
+            
             liquidFloatingActionButton.close()
             
         case 2:
+            
             isEditingAccommodation = true
             rows.append(.accommodation)
             tableView.beginUpdates()
             tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
             tableView.endUpdates()
             
+            moveTableViewToLastCell()
+            
             liquidFloatingActionButton.close()
             
         default: break
         }
+        
+    }
+    
+    func moveTableViewToLastCell() {
+        
+        // First figure out how many sections there are
+        let lastSectionIndex = self.tableView.numberOfSections - 1
+        
+        // Then grab the number of rows in the last section
+        let lastRowIndex = self.tableView.numberOfRowsInSection(lastSectionIndex) - 1
+        
+        // Now just construct the index path
+        let pathToLastRow = NSIndexPath(forRow: lastRowIndex, inSection: lastSectionIndex)
+        
+        // Make the last row visible
+        self.tableView.scrollToRowAtIndexPath(pathToLastRow, atScrollPosition: UITableViewScrollPosition.None, animated: true)
         
     }
     
@@ -529,6 +562,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
     }
+    
+   
     
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
@@ -906,9 +941,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
         
-         self.view.endEditing(true)
+        self.view.endEditing(true)
     }
-
+    
     
     // MARK: TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -925,9 +960,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         if let cell = textField.superview?.superview as? TransportationTableViewCell {
-
+            
             tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
-
+            
             cell.typeTextField.inputView = transportationTypePickerView
             
         }
@@ -947,7 +982,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         currentEditingTypeTextField = nil
         
         tableView.setContentOffset((CGPointMake(0, 0)), animated: true)
-
+        
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
             if cell.startDateTextField.text != nil {
