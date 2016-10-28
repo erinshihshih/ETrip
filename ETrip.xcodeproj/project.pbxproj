@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95044D291DA23C5200696DC8 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */; };
+		951285611DC3016400540304 /* LiquidFloatingButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */; };
 		95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BED1D9D0D9F00E389E1 /* Post.swift */; };
 		95143BF01D9D0ED100E389E1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */; };
 		95143BF61D9D127B00E389E1 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BF51D9D127B00E389E1 /* ResultViewController.swift */; };
@@ -71,6 +72,7 @@
 		221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.release.xcconfig"; sourceTree = "<group>"; };
 		413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETrip.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETrip/Pods-ETrip.debug.xcconfig"; sourceTree = "<group>"; };
 		95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiquidFloatingButtonManager.swift; sourceTree = "<group>"; };
 		95143BED1D9D0D9F00E389E1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		95143BEF1D9D0ED100E389E1 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		95143BF51D9D127B00E389E1 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 				956CF6801DB4A32C006AD9B1 /* MapViewController.swift */,
 				9547E73F1DB089790023EE68 /* AddViewController.swift */,
+				951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 			);
@@ -512,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E3E91D1D9E65E3005BC373 /* EditTableViewCell.swift in Sources */,
+				951285611DC3016400540304 /* LiquidFloatingButtonManager.swift in Sources */,
 				95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */,
 				95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */,
 				95DB08741D98D01C009C404A /* LoginViewController.swift in Sources */,

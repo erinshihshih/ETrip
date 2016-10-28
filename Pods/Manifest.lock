@@ -62,6 +62,7 @@ PODS:
   - GoogleSymbolUtilities (1.1.1)
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
+  - LiquidFloatingActionButton (1.2.0)
   - PDFGenerator (1.4.3)
 
 DEPENDENCIES:
@@ -79,6 +80,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
+  - LiquidFloatingActionButton
   - PDFGenerator (~> 1.4.3)
 
 SPEC CHECKSUMS:
@@ -102,8 +104,9 @@ SPEC CHECKSUMS:
   GooglePlaces: 16e96266483b8010e9f275399403647978523c86
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  LiquidFloatingActionButton: 9c28961915754e08cf596ea6bdd60f9cd949f172
   PDFGenerator: 8e28213b0b36e41f667b474e24ab7c84c8cee303
 
-PODFILE CHECKSUM: c631a4f3dd85c40aeb6a23108d2d9c51592f8d87
+PODFILE CHECKSUM: a22253105c5fbba09398c8c1cde2c4e92ba88e83
 
 COCOAPODS: 1.1.0.beta.1

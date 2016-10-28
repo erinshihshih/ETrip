@@ -11,8 +11,9 @@ import Firebase
 import FirebaseDatabase
 import GoogleMaps
 import GooglePlacePicker
+import LiquidFloatingActionButton
 
-class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, LiquidFloatingActionButtonDataSource, LiquidFloatingActionButtonDelegate {
     
     enum Row {
         case title, transportation, attraction, accommodation
@@ -65,6 +66,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     let transportationTypeArray = [ "Airplane", "Bus", "Train" ]
     
     let databaseRef = FIRDatabase.database().reference()
+    
+    var cells: [LiquidFloatingCell] = []
+    var floatingActionButton: LiquidFloatingActionButton!
     
     // MARK: IBOutlet
     
@@ -125,11 +129,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             })
             
         }
-        
-        
-       
-        
-        
+    
         
         // Picker View UI
         setUpPickerViewUI()
@@ -144,7 +144,75 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
         
+        
+        
+        //MARK: Create LiquidFloatingActionButton
+        let createButton: (CGRect, LiquidFloatingActionButtonAnimateStyle) -> LiquidFloatingActionButton = { (frame, style) in
+            let floatingActionButton = CustomDrawingActionButton(frame: frame)
+            floatingActionButton.animateStyle = style
+            floatingActionButton.dataSource = self
+            floatingActionButton.delegate = self
+            return floatingActionButton
+        }
+        
+        let cellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+            let cell = LiquidFloatingCell(icon: UIImage(named: iconName)!)
+            return cell
+        }
+        let customCellFactory: (String) -> LiquidFloatingCell = { (iconName) in
+            let cell = CustomCell(icon: UIImage(named: iconName)!, name: iconName)
+            return cell
+        }
+        cells.append(cellFactory("transportation"))
+        cells.append(customCellFactory("attraction"))
+        cells.append(cellFactory("accommodation"))
+        
+        let floatingFrame = CGRect(x: self.view.frame.width - 50 - 10, y: view.frame.height - 50 - 80, width: 50, height: 50)
+        let bottomRightButton = createButton(floatingFrame, .Up)
+        
+        bottomRightButton.color = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+        bottomRightButton.image = UIImage(named: "add")
+        self.view.addSubview(bottomRightButton)
+
+        
     }
+    
+    //MARK: Setting VC function
+    func numberOfCells(liquidFloatingActionButton: LiquidFloatingActionButton) -> Int {
+        return cells.count
+    }
+    
+    func cellForIndex(index: Int) -> LiquidFloatingCell {
+        return cells[index]
+    }
+    
+    func liquidFloatingActionButton(liquidFloatingActionButton: LiquidFloatingActionButton, didSelectItemAtIndex index: Int) {
+        
+        print("did Tapped! \(index)")
+        
+        switch index {
+            
+        case 0:
+            guard let vc: AnyObject = self.storyboard?.instantiateViewControllerWithIdentifier("pictureVC") else {return}
+            self.showViewController(vc as! UIViewController, sender: vc)
+            liquidFloatingActionButton.close()
+            
+        case 1: break
+//            let firebaseManager = FirebaseManager()
+//            firebaseManager.firebaseGlobeDelegate = self
+//            firebaseManager.loadFriendData()
+            
+            
+        case 2:
+            guard let vc: AnyObject = self.storyboard?.instantiateViewControllerWithIdentifier("profileVC") else {return}
+            self.showViewController(vc as! UITabBarController, sender: vc)
+            liquidFloatingActionButton.close()
+            
+        default: break
+        }
+        
+    }
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)

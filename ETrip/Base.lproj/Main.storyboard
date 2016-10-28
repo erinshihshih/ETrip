@@ -216,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XZy-wa-uF0">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="AddTableViewCell" customModule="ETrip" customModuleProvider="target">
@@ -289,41 +289,13 @@
                                     <outlet property="delegate" destination="Agl-cn-ojr" id="wf1-4v-ZrZ"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-ko-G6r">
-                                <rect key="frame" x="0.0" y="492" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem image="transportation" id="B0l-7k-JI9">
-                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="addTransportationButton:" destination="Agl-cn-ojr" id="CzI-br-tW3"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="A9v-tV-eXz"/>
-                                    <barButtonItem image="attraction" id="0hL-jB-7xn">
-                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="addAttractionButton:" destination="Agl-cn-ojr" id="7gR-H8-Wkf"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZpZ-Yf-dV1"/>
-                                    <barButtonItem image="accommodation" id="hf6-70-Tt4">
-                                        <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="addAccommodationButton:" destination="Agl-cn-ojr" id="76b-6o-CsD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XZy-wa-uF0" firstAttribute="top" secondItem="EaU-7v-6GB" secondAttribute="bottom" id="2dq-uG-2MI"/>
                             <constraint firstItem="XZy-wa-uF0" firstAttribute="leading" secondItem="lXI-Tf-QVt" secondAttribute="leading" id="9aX-ja-vpx"/>
-                            <constraint firstAttribute="trailing" secondItem="fg2-ko-G6r" secondAttribute="trailing" id="U4p-qG-KcT"/>
-                            <constraint firstItem="fg2-ko-G6r" firstAttribute="leading" secondItem="lXI-Tf-QVt" secondAttribute="leading" id="WZN-a4-y3K"/>
                             <constraint firstAttribute="trailing" secondItem="XZy-wa-uF0" secondAttribute="trailing" id="XGc-ZS-S8a"/>
-                            <constraint firstAttribute="bottom" secondItem="fg2-ko-G6r" secondAttribute="bottom" id="e6j-Ag-tVC"/>
-                            <constraint firstItem="2fv-w3-tID" firstAttribute="top" secondItem="XZy-wa-uF0" secondAttribute="bottom" id="gS5-Df-Nkv"/>
+                            <constraint firstItem="2fv-w3-tID" firstAttribute="top" secondItem="XZy-wa-uF0" secondAttribute="bottom" constant="44" id="gS5-Df-Nkv"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
@@ -676,7 +648,7 @@
                                                 <constraint firstAttribute="width" constant="150" id="ij4-xN-DbN"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
                                             <rect key="frame" x="102" y="449" width="47" height="27"/>
                                             <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="13"/>
                                             <state key="normal" title="Logout">
