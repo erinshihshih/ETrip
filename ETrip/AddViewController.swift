@@ -59,7 +59,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-    var currnetEditingTypeTextField: UITextField?
+    var currentEditingTypeTextField: UITextField?
     
     var countryArray = [String]()
     
@@ -75,36 +75,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBAction func addTransportationButton(sender: UIBarButtonItem) {
-        
-        isEditingTransportation = true
-        rows.append(.transportation)
-        tableView.beginUpdates()
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-        tableView.endUpdates()
-        
-    }
-    
-    @IBAction func addAttractionButton(sender: UIBarButtonItem) {
-        
-        isEditingAttraction = true
-        rows.append(.attraction)
-        tableView.beginUpdates()
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-        tableView.endUpdates()
-        
-    }
-    
-    @IBAction func addAccommodationButton(sender: UIBarButtonItem) {
-        
-        isEditingAccommodation = true
-        rows.append(.accommodation)
-        tableView.beginUpdates()
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-        tableView.endUpdates()
-        
-    }
     
     var isFirst = true
     
@@ -290,7 +260,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cells.append(customCellFactory("attraction"))
         cells.append(cellFactory("accommodation"))
         
-        let floatingFrame = CGRect(x: self.view.frame.width - 50 - 10, y: view.frame.height - 50 - 80, width: 50, height: 50)
+        let floatingFrame = CGRect(x: self.view.frame.width - 45 - 10, y: view.frame.height - 45 - 80, width: 45, height: 45)
         let bottomRightButton = createButton(floatingFrame, .Up)
         
         bottomRightButton.color = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
@@ -932,7 +902,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         } else if pickerView.tag == 1 {
             
-            currnetEditingTypeTextField?.text = transportationTypeArray[row]
+            currentEditingTypeTextField?.text = transportationTypeArray[row]
             
         }
         
@@ -943,7 +913,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     // MARK: TextField Delegate
     func textFieldDidBeginEditing(textField: UITextField) {
         
-        currnetEditingTypeTextField = textField
+        currentEditingTypeTextField = textField
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
             cell.startDateTextField.inputView = startDatePicker
@@ -974,7 +944,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func textFieldDidEndEditing(textField: UITextField) {
         
-        currnetEditingTypeTextField = nil
+        currentEditingTypeTextField = nil
         
         tableView.setContentOffset((CGPointMake(0, 0)), animated: true)
 

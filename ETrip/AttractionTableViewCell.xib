@@ -74,6 +74,16 @@
                             </mask>
                         </variation>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="barLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juh-GR-5aG">
+                        <rect key="frame" x="8" y="194" width="364" height="1"/>
+                        <color key="backgroundColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="CLW-Up-Kgg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WxT-79-wgJ" firstAttribute="top" secondItem="ycb-0T-6T5" secondAttribute="bottom" constant="8" symbolic="YES" id="1Pg-b0-XGK"/>
@@ -83,6 +93,7 @@
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="leading" secondItem="WxT-79-wgJ" secondAttribute="leading" id="C67-9S-bzc"/>
                     <constraint firstItem="v50-zY-Gxl" firstAttribute="leading" secondItem="2Zj-vA-pAC" secondAttribute="leading" constant="33" id="DPH-2h-yWM"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="trailing" secondItem="WxT-79-wgJ" secondAttribute="trailing" id="KgN-A5-CG8"/>
+                    <constraint firstAttribute="bottom" secondItem="juh-GR-5aG" secondAttribute="bottom" constant="5" id="PQE-Qf-3sP"/>
                     <constraint firstItem="S9T-df-3ZQ" firstAttribute="centerY" secondItem="Ii8-eV-aN4" secondAttribute="centerY" id="PXk-6Y-caV"/>
                     <constraint firstItem="s9T-YX-Wul" firstAttribute="top" secondItem="Ii8-eV-aN4" secondAttribute="top" constant="20" id="RWH-Kr-lVM"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="leading" secondItem="2Zj-vA-pAC" secondAttribute="leading" id="bUq-RD-ii9"/>
@@ -90,6 +101,8 @@
                     <constraint firstItem="s9T-YX-Wul" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="70" id="lrb-5E-poq"/>
                     <constraint firstItem="2Zj-vA-pAC" firstAttribute="top" secondItem="v50-zY-Gxl" secondAttribute="bottom" constant="8" id="mnD-wr-nTo"/>
                     <constraint firstItem="v50-zY-Gxl" firstAttribute="centerY" secondItem="s9T-YX-Wul" secondAttribute="centerY" id="oap-F6-lex"/>
+                    <constraint firstItem="juh-GR-5aG" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="8" id="qco-Ge-iB1"/>
+                    <constraint firstAttribute="trailing" secondItem="juh-GR-5aG" secondAttribute="trailing" constant="8" id="shy-Ww-cHf"/>
                     <constraint firstItem="S9T-df-3ZQ" firstAttribute="leading" secondItem="Ii8-eV-aN4" secondAttribute="leading" constant="15" id="v3R-vQ-lgr"/>
                     <constraint firstItem="ycb-0T-6T5" firstAttribute="top" secondItem="2Zj-vA-pAC" secondAttribute="bottom" constant="8" symbolic="YES" id="vTY-pM-hLu"/>
                 </constraints>
