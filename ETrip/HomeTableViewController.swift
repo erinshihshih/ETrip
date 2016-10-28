@@ -299,7 +299,7 @@ extension NSString {
     func stringToDouble() -> Double {
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "EEE MMMdd, yyyy"
+        dateFormatter.dateFormat = "EEE MMMdd, yyyy HH:mm"
         
         let date = dateFormatter.dateFromString(self as String)
         return date!.timeIntervalSince1970

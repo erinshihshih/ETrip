@@ -930,6 +930,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         startDatePicker.minuteInterval = 30
         startDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         startDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+//        startDatePicker.setValue("CourierNewPS-BoldMT", forKey: "textFont")
         
         returnDatePicker.minuteInterval = 30
         returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)

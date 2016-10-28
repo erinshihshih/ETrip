@@ -219,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="AddTableViewCell" customModule="ETrip" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="titleCell" rowHeight="189" id="5Z6-Wx-752" customClass="AddTableViewCell" customModule="ETrip" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="189"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Z6-Wx-752" id="VRp-T8-cQT">
