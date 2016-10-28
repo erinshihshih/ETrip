@@ -832,9 +832,21 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     cell.typeTextField.text = transportationTypeArray[row]
                     
-                    
-                }
-            }
+                    }
+//
+//                let indexPath = NSIndexPath(forRow: index, inSection: 0)
+//                
+//                let indexPathRow = indexPath.row
+//                
+//                guard let selectedCell = allArray[indexPathRow] as? TransportationTableViewCell else {
+//                    return
+//                }
+//                
+//                if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TransportationTableViewCell {
+//                    cell.typeTextField.text = transportationTypeArray[row]
+//                    
+//            }
+        }
         }
     }
     
@@ -905,11 +917,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         formatter.dateFormat = "EEE MMM dd, yyyy HH:mm"
         
         if sender == startDatePicker {
+            
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
             cell.startDateTextField.text = formatter.stringFromDate(sender.date)
             
         } else if sender == returnDatePicker {
+            
             let indexPath = NSIndexPath(forRow: 0, inSection: 0)
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! AddTableViewCell
             cell.returnDateTextField.text = formatter.stringFromDate(sender.date)
