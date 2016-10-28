@@ -43,7 +43,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var attractionCell: AttractionTableViewCell?
     var accommodationCell: AccommodationTableViewCell?
     
-//    var transportationCell: TransportationTableViewCell?
+    //    var transportationCell: TransportationTableViewCell?
     
     
     // PickerView
@@ -62,7 +62,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var currnetEditingTypeTextField: UITextField?
     
     var countryArray = [String]()
-
+    
     let transportationTypeArray = [ "Airplane", "Bus", "Train" ]
     
     let databaseRef = FIRDatabase.database().reference()
@@ -129,7 +129,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             })
             
         }
-    
+        
         
         // Picker View UI
         setUpPickerViewUI()
@@ -173,7 +173,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         bottomRightButton.color = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
         bottomRightButton.image = UIImage(named: "add")
         self.view.addSubview(bottomRightButton)
-
+        
         
     }
     
@@ -193,41 +193,58 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         switch index {
             
         case 0:
-            guard let vc: AnyObject = self.storyboard?.instantiateViewControllerWithIdentifier("pictureVC") else {return}
-            self.showViewController(vc as! UIViewController, sender: vc)
+            
+            isEditingTransportation = true
+            rows.append(.transportation)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
             liquidFloatingActionButton.close()
             
-        case 1: break
-//            let firebaseManager = FirebaseManager()
-//            firebaseManager.firebaseGlobeDelegate = self
-//            firebaseManager.loadFriendData()
+        case 1:
+            
+            isEditingAttraction = true
+            rows.append(.attraction)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
+            liquidFloatingActionButton.close()
+            
             
             
         case 2:
-            guard let vc: AnyObject = self.storyboard?.instantiateViewControllerWithIdentifier("profileVC") else {return}
-            self.showViewController(vc as! UITabBarController, sender: vc)
+            isEditingAccommodation = true
+            rows.append(.accommodation)
+            tableView.beginUpdates()
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+            tableView.endUpdates()
+            
+            liquidFloatingActionButton.close()
+            
             liquidFloatingActionButton.close()
             
         default: break
         }
         
     }
-
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-    
-//        func sortAllArrayTest() {
         
-//        override func viewWillAppear(animated: Bool) {
-//            super.viewWillAppear(animated)
-    
+        //        func sortAllArrayTest() {
+        
+        //        override func viewWillAppear(animated: Bool) {
+        //            super.viewWillAppear(animated)
+        
         if allArrayTest.count < 1 {
             return
         }
         
         if isFirst {
-        
+            
             for type in allArrayTest {
                 
                 if type is Transportation {
@@ -262,8 +279,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             }
             
             isFirst = false
-
-        
+            
+            
         }
         
         
@@ -413,7 +430,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 
                 allArray[indexPath.row] = cell
                 return cell
-  
+                
                 
             } else {
                 
@@ -740,7 +757,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                                                       "phone": phone,
                                                                       "website": website ]
                         
-//                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
+                        //                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
                         
                         
                         let n: Int! = self.navigationController?.viewControllers.count
@@ -780,7 +797,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             })
                             
                         }
-
+                        
                         
                     } else {
                         
@@ -853,7 +870,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                             })
                             
                         }
-
+                        
                         
                     } else {
                         
@@ -872,13 +889,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-       
+        
         if pickerView.tag == 0 {
-        
+            
             return countryArray.count
-        
+            
         } else if pickerView.tag == 1{
-        
+            
             return transportationTypeArray.count
         }
         
@@ -905,7 +922,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return pickerLabel
         
     }
-
+    
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -916,9 +933,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.countryTextField.text = countryArray[row]
             
         } else if pickerView.tag == 1 {
-                
+            
             currnetEditingTypeTextField?.text = transportationTypeArray[row]
-
+            
         }
     }
     
@@ -946,7 +963,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
     }
     
-
+    
     
     func textFieldDidEndEditing(textField: UITextField) {
         
@@ -998,17 +1015,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         startDatePicker.minuteInterval = 30
         startDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         startDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-//        startDatePicker.setValue("CourierNewPS-BoldMT", forKey: "textFont")
+        //        startDatePicker.setValue("CourierNewPS-BoldMT", forKey: "textFont")
         
         returnDatePicker.minuteInterval = 30
         returnDatePicker.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         returnDatePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-    
+        
         // Transportation Type Picker
         transportationTypePickerView.delegate = self
         transportationTypePickerView.backgroundColor = UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 0.5)
         transportationTypePickerView.showsSelectionIndicator = true
-    
+        
     }
     
     /*
@@ -1214,9 +1231,9 @@ extension AddViewController: GMSAutocompleteViewControllerDelegate {
         
         attractionCell = nil
         accommodationCell = nil
-     
+        
         self.dismissViewControllerAnimated(true, completion: nil)
-    
+        
     }
     
     func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
