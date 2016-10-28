@@ -153,7 +153,7 @@
                 <outlet property="checkoutDateLabel" destination="HAE-2n-OGu" id="RzI-7S-Twy"/>
                 <outlet property="nameLabel" destination="dJ5-ua-UMr" id="LWM-ew-DP0"/>
             </connections>
-            <point key="canvasLocation" x="621" y="530"/>
+            <point key="canvasLocation" x="594" y="680"/>
         </tableViewCell>
     </objects>
     <resources>
