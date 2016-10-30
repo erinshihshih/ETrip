@@ -48,7 +48,7 @@ class HomeTableViewController: UITableViewController {
         navigationItem.backBarButtonItem = backButton
         
         FIRAnalytics.logEventWithName(kFIREventSelectContent, parameters: [
-            kFIRParameterContentType: (FIRAuth.auth()?.currentUser?.displayName)!,
+            kFIRParameterContentType: ((FIRAuth.auth()?.currentUser?.displayName) ?? "Fist Login"),
             kFIRParameterItemID: "user_name"
             ])
         
