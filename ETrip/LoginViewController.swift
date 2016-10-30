@@ -19,7 +19,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         self.loginButton.hidden = true
-        loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 300, width: view.frame.width/2, height: 50)
+        loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 200, width: view.frame.width/2, height: 50)
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             
@@ -49,6 +49,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
                 
+                
+                
                 self.view.addSubview(self.loginButton)
                 
             }
@@ -56,6 +58,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
      
     }
+    
+//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+//        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+//            
+////            loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height*1.3, width: view.frame.width/2, height: 50)
+//  
+//            
+//        } else {
+////            loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height*1.3, width: view.frame.width/2, height: 50)
+//        }
+//    }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         

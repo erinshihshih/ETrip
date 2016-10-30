@@ -81,6 +81,17 @@ class HomeTableViewController: UITableViewController {
         pullToRefreshControl = UIRefreshControl()
         pullToRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         pullToRefreshControl.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        // Setup UI
+        
+        pullToRefreshControl.tintColor = UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1)
+        
+        let attributes = [NSForegroundColorAttributeName: UIColor(red: 182/255, green: 212/255, blue: 242/255, alpha: 1), NSFontAttributeName : UIFont(name: "CourierNewPSMT", size: 20)!]
+        
+        let attributedTitle = NSAttributedString(string: "pull to refresh", attributes: attributes)
+        
+        pullToRefreshControl.attributedTitle = attributedTitle
+        
         tableView.addSubview(pullToRefreshControl)
     }
     
