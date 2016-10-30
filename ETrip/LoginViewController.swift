@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.viewDidLoad()
         
         self.loginButton.hidden = true
+        loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 300, width: view.frame.width/2, height: 50)
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             
@@ -43,10 +44,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 // No user is signed in and show the login button
                 self.loginButton.hidden = false
-                
-                
-                self.loginButton.center.x = self.view.center.x
-                self.loginButton.center.y = self.view.center.y*1.4
+//                self.loginButton.center.x = self.view.center.x
+//                self.loginButton.center.y = self.view.center.y*1.4
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
                 

@@ -13,18 +13,20 @@ import FBSDKCoreKit
 
 class HomeTableViewController: UITableViewController {
     
+    // MARK: Property
     var posts = [Post]()
     var deletePostIndexPath: NSIndexPath? = nil
     
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     let databaseRef = FIRDatabase.database().reference()
     
+    var pullToRefreshControl: UIRefreshControl!
+
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        // 狀態列顯示為白色
-//        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         // Firebase Manager Delegate
         FirebaseManager.shared.delegate = self
@@ -50,10 +52,12 @@ class HomeTableViewController: UITableViewController {
             kFIRParameterItemID: "user_name"
             ])
         
-        
+       
+    
+        pullToRefresh()
         
     }
-
+    
     override func viewDidAppear(animated: Bool) {
          super.viewDidAppear(animated)
         
@@ -70,7 +74,29 @@ class HomeTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Table view data source
+    // MARK: Function
+    
+    func pullToRefresh() {
+        
+        pullToRefreshControl = UIRefreshControl()
+        pullToRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        pullToRefreshControl.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(pullToRefreshControl)
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        posts = []
+        
+        FirebaseManager.shared.delegate = self
+        
+        FirebaseManager.shared.fetchPosts()
+        pullToRefreshControl.endRefreshing()
+        
+    }
+    
+    
+    // MARK: - UITableViewDataSource
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
