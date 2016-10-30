@@ -17,7 +17,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="mlB-g4-OKL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy4-05-eUA">
+                                <rect key="frame" x="235" y="225" width="130" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="kPN-YA-ECs"/>
+                                    <constraint firstAttribute="width" constant="130" id="mhD-X5-PK7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="220"/>
+                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="3" height="3"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T r i p" textAlignment="natural" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9m1-lr-UF0">
+                                <rect key="frame" x="236" y="366" width="129" height="36"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="2"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sy4-05-eUA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="14S-tl-fDH"/>
+                            <constraint firstItem="mlB-g4-OKL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="18p-VA-Vg1"/>
+                            <constraint firstItem="9m1-lr-UF0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eak-2V-mro"/>
+                            <constraint firstItem="mlB-g4-OKL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Jlp-PY-ZCc"/>
+                            <constraint firstItem="mlB-g4-OKL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LkX-Jd-EyY"/>
+                            <constraint firstItem="mlB-g4-OKL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Miw-dZ-GNG"/>
+                            <constraint firstItem="mlB-g4-OKL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NeS-ML-EDw"/>
+                            <constraint firstItem="9m1-lr-UF0" firstAttribute="top" secondItem="sy4-05-eUA" secondAttribute="bottom" constant="-9" id="Vlr-3z-tYw"/>
+                            <constraint firstAttribute="trailing" secondItem="mlB-g4-OKL" secondAttribute="trailing" id="VnA-ln-Sr0"/>
+                            <constraint firstItem="sy4-05-eUA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WxZ-Cv-7tt"/>
+                            <constraint firstItem="sy4-05-eUA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="m6U-9D-sjw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mlB-g4-OKL" secondAttribute="bottom" id="mB5-p9-JGc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="18p-VA-Vg1"/>
+                                <exclude reference="Jlp-PY-ZCc"/>
+                                <exclude reference="NeS-ML-EDw"/>
+                                <exclude reference="m6U-9D-sjw"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -929,6 +976,7 @@
     <resources>
         <image name="accommodation" width="22" height="22"/>
         <image name="attraction" width="22" height="22"/>
+        <image name="backGround" width="542" height="828"/>
         <image name="edit" width="22" height="22"/>
         <image name="notepad" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>

@@ -43,7 +43,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 // No user is signed in and show the login button
                 self.loginButton.hidden = false
-                self.loginButton.center = self.view.center
+                
+                
+                self.loginButton.center.x = self.view.center.x
+                self.loginButton.center.y = self.view.center.y*1.4
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
                 
