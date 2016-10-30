@@ -188,7 +188,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Trips" id="JjH-7q-JRF">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="F5S-et-PKV"/>
+                        <barButtonItem key="leftBarButtonItem" image="user" id="F5S-et-PKV"/>
                         <barButtonItem key="rightBarButtonItem" image="plus" id="72s-fy-jAS">
                             <connections>
                                 <segue destination="Agl-cn-ojr" kind="show" identifier="addPostSegue" id="PIV-dv-BR3"/>
@@ -671,7 +671,7 @@
                                                 <constraint firstAttribute="width" constant="150" id="ij4-xN-DbN"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-D7-5na">
                                             <rect key="frame" x="102" y="449" width="47" height="27"/>
                                             <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="13"/>
                                             <state key="normal" title="Logout">
@@ -688,6 +688,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.71372549019999998" green="0.83137254900000002" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="Hse-D7-5na" firstAttribute="leading" secondItem="nvX-fm-jTD" secondAttribute="leading" constant="428" id="3Oq-dZ-EnV"/>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Hse-D7-5na" secondAttribute="bottom" constant="5" id="6dJ-07-Mu4"/>
@@ -850,6 +851,9 @@
                                                 <constraint firstItem="2F4-bh-an0" firstAttribute="top" secondItem="271-TY-Axj" secondAttribute="topMargin" constant="5" id="tdQ-bT-f4F"/>
                                                 <constraint firstItem="h14-a3-LAL" firstAttribute="leading" secondItem="yB6-uQ-A0c" secondAttribute="trailing" constant="-584" id="yye-9P-4Ld"/>
                                             </constraints>
+                                            <variation key="heightClass=regular-widthClass=regular" ambiguous="YES">
+                                                <rect key="frame" x="0.0" y="0.0" width="800" height="189"/>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="countryTextField" destination="WRK-0r-KBP" id="GMv-Wb-MjW"/>
@@ -926,13 +930,13 @@
         <image name="accommodation" width="22" height="22"/>
         <image name="attraction" width="22" height="22"/>
         <image name="edit" width="22" height="22"/>
-        <image name="menu" width="22" height="22"/>
         <image name="notepad" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
         <image name="route" width="22" height="22"/>
         <image name="share" width="22" height="22"/>
         <image name="success" width="22" height="22"/>
         <image name="transportation" width="22" height="22"/>
+        <image name="user" width="22" height="22"/>
         <image name="worldwide" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
