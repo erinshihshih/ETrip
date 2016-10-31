@@ -19,7 +19,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loginButton.hidden = true
         loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 200, width: view.frame.width/2, height: 40)
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
@@ -44,9 +43,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             } else {
                 
                 // No user is signed in and show the login button
-                self.loginButton.hidden = false
-//                self.loginButton.center.x = self.view.center.x
-//                self.loginButton.center.y = self.view.center.y*1.4
                 self.loginButton.readPermissions = ["public_profile", "email", "user_friends"]
                 self.loginButton.delegate = self
                 
@@ -60,16 +56,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
      
     }
     
-//    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-//        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
-//            
-////            loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height*1.3, width: view.frame.width/2, height: 50)
-//  
-//            
-//        } else {
-////            loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height*1.3, width: view.frame.width/2, height: 50)
-//        }
-//    }
     
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         
@@ -78,17 +64,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         print("User Logged In")
         
-        self.loginButton.hidden = true
-        
         if error != nil {
-            
-            self.loginButton.hidden = false
             
             print("Error :  \(error.description)")
             
         } else if result.isCancelled {
-            
-            self.loginButton.hidden = false
             
             print("Login is cancelled")
             
