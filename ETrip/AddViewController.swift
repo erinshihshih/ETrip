@@ -111,8 +111,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         saveButton.enabled = false
         
         // Longpress to Reorder Cell
-        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-        tableView.addGestureRecognizer(longpress)
+//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+//        tableView.addGestureRecognizer(longpress)
         
         // LiquidButton
         createLiquidFloatingActionButton()
@@ -705,6 +705,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                     let transportationID = selectedTransportation.transportationID
                             
                                     let postID = selectedTransportation.postID
+                                    
+                                    let indexPath = selectedTransportation.indexPathRow
                             
                                     // Transportation Cell
                                     let type = cell.typeTextField.text ?? ""
@@ -719,7 +721,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                     databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
                                         snapshot in
                                         
-                                        let transportationsPostID = snapshot.value!["postID"] as! String
+                                        let transportationPostID = snapshot.value!["postID"] as! String
                                         let transportationKeyID = snapshot.key
                                         
                                         let transportationOnFire: [String: AnyObject] = [
@@ -727,7 +729,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                             "uid": userID!,
                                             "postID": postID,
                                             "transportationID": transportationKeyID,
-                                            "indexPathRow": indexPathRow,
+                                            "indexPathRow": indexPath,
                                             "timestamp": timeStamp,
                                             "type": type,
                                             "airlineCom": airlineCom,
@@ -738,7 +740,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                                             "departDate": departDate,
                                             "arriveDate": arriveDate ]
                                         
-                                        if transportationsPostID == postID && transportationKeyID == transportationID {
+                                        if transportationPostID == postID && transportationKeyID == transportationID {
                                             
                                             let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
                                             
@@ -759,150 +761,187 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
-                    let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
                     
-                    if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
+                    let n: Int! = self.navigationController?.viewControllers.count
+                    if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil {
                         
-                        print("It's AttractionTableViewCell")
-                        let name = cell.nameLabel.text ?? ""
-                        let address = cell.addressLabel.text ?? ""
-                        let phone = cell.phoneLabel.text ?? ""
-                        let website = cell.websiteLabel.text ?? ""
-                        
-                        let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                      "postID": postIDKey,
-                                                                      "attractionID": attractionIDKey,
-                                                                      "indexPathRow": indexPathRow,
-                                                                      "timestamp": timeStamp,
-                                                                      "name": name,
-                                                                      "address": address,
-                                                                      "phone": phone,
-                                                                      "website": website ]
-                        
-                        //                        databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
-                        
-                        
-                        let n: Int! = self.navigationController?.viewControllers.count
-                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                        if let cell = allArray[indexPathRow] as? AttractionTableViewCell {
+                            
+                            let attractionIDKey = FIRDatabase.database().reference().childByAutoId().key
+                            
+                            let name = cell.nameLabel.text ?? ""
+                            let address = cell.addressLabel.text ?? ""
+                            let phone = cell.phoneLabel.text ?? ""
+                            let website = cell.websiteLabel.text ?? ""
+                            
+                            let attractionOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                          "postID": postIDKey,
+                                                                          "attractionID": attractionIDKey,
+                                                                          "indexPathRow": indexPathRow,
+                                                                          "timestamp": timeStamp,
+                                                                          "name": name,
+                                                                          "address": address,
+                                                                          "phone": phone,
+                                                                          "website": website ]
                             
                             databaseRef.child("attractions").child(attractionIDKey).setValue(attractionOnFire)
-                            
-                        } else {
-                            
-                            databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                                snapshot in
-                                
-                                let attractionsPostID = snapshot.value!["postID"] as! String
-                                let attractionKeyID = snapshot.key
-                                
-                                let attractionID = self.attraction?.attractionID
-                                
-                                let attractionOnFire: [String: AnyObject] = [
-                                    
-                                    "uid": userID!,
-                                    "postID": attractionsPostID,
-                                    "attractionID": attractionID!,
-                                    "indexPathRow": indexPathRow,
-                                    "timestamp": timeStamp,
-                                    "name": name,
-                                    "address": address,
-                                    "phone": phone,
-                                    "website": website ]
-                                
-                                
-                                if attractionKeyID == attractionID {
-                                    
-                                    let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
-                                    
-                                    databaseRef.updateChildValues(updatedAttractionOnFire)
-                                }
-                            })
-                            
                         }
-                        
                         
                     } else {
                         
-                        print("prepareForSegue: AttractionTableViewCell cast wrong")
-                        return
+                        for (index, type) in allArray.enumerate() {
+                            
+                            if index > 0 {
+                                
+                                if let selectedAttraction = allArrayTest[index - 1] as? Attraction {
+                                    
+                                    let cell = allArray[index] as! AttractionTableViewCell
+                                    
+                                    let attractionID = selectedAttraction.attractionID
+                                    
+                                    let postID = selectedAttraction.postID
+                                    
+                                    let indexPath = selectedAttraction.indexPathRow
+                                    
+                                    // Attraction Cell
+                                    
+                                    let name = cell.nameLabel.text ?? ""
+                                    let address = cell.addressLabel.text ?? ""
+                                    let phone = cell.phoneLabel.text ?? ""
+                                    let website = cell.websiteLabel.text ?? ""
+                                    
+                                    databaseRef.child("attractions").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                        snapshot in
+                                        
+                                        let attractionPostID = snapshot.value!["postID"] as! String
+                                        let attractionKeyID = snapshot.key
+                                        
+                                        
+                                        let attractionOnFire: [String: AnyObject] = [
+                                            
+                                            "uid": userID!,
+                                            "postID": postID,
+                                            "attractionID": attractionKeyID,
+                                            "indexPathRow": indexPath,
+                                            "timestamp": timeStamp,
+                                            "name": name,
+                                            "address": address,
+                                            "phone": phone,
+                                            "website": website ]
+                                        
+                                        if attractionPostID == postID && attractionKeyID == attractionID {
+                                            
+                                            let updatedAttractionOnFire = ["/attractions/\(attractionKeyID)": attractionOnFire]
+                                            
+                                            databaseRef.updateChildValues(updatedAttractionOnFire)
+                                            
+                                        }
+                                        
+                                    })
+                                }
+                                
+                            }
+                        }
                     }
+                    
                     
                     
                 case .accommodation:
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
-                    let accommodationIDKey = FIRDatabase.database().reference().childByAutoId().key
                     
-                    if let cell = allArray[indexPathRow] as? AccommodationTableViewCell {
-                        // Accommodation Cell
-                        let name = cell.nameLabel.text ?? ""
-                        let address = cell.addressLabel.text ?? ""
-                        let checkinDate = cell.checkinDateTextField.text ?? ""
-                        let checkoutDate = cell.checkoutDateTextField.text ?? ""
-                        let bookingRef = cell.bookingRefTextField.text ?? ""
+                    let n: Int! = self.navigationController?.viewControllers.count
+                    if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil {
                         
-                        
-                        let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                         "postID": postIDKey,
-                                                                         "accommodationID": accommodationIDKey,
-                                                                         "indexPathRow": indexPathRow,
-                                                                         "timestamp": timeStamp,
-                                                                         "name": name,
-                                                                         "address": address,
-                                                                         "checkinDate": checkinDate,
-                                                                         "checkoutDate": checkoutDate,
-                                                                         "bookingRef": bookingRef ]
-                        
-                        //                        databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
-                        
-                        let n: Int! = self.navigationController?.viewControllers.count
-                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                        if let cell = allArray[indexPathRow] as? AccommodationTableViewCell {
+                            
+                            let accommodationIDKey = FIRDatabase.database().reference().childByAutoId().key
+                            
+                            
+                            // Accommodation Cell
+                            let name = cell.nameLabel.text ?? ""
+                            let address = cell.addressLabel.text ?? ""
+                            let checkinDate = cell.checkinDateTextField.text ?? ""
+                            let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                            let bookingRef = cell.bookingRefTextField.text ?? ""
+                            
+                            let accommodationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                             "postID": postIDKey,
+                                                                             "accommodationID": accommodationIDKey,
+                                                                             "indexPathRow": indexPathRow,
+                                                                             "timestamp": timeStamp,
+                                                                             "name": name,
+                                                                             "address": address,
+                                                                             "checkinDate": checkinDate,
+                                                                             "checkoutDate": checkoutDate,
+                                                                             "bookingRef": bookingRef ]
                             
                             databaseRef.child("accommodations").child(accommodationIDKey).setValue(accommodationOnFire)
-                            
-                        } else {
-                            
-                            databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                                snapshot in
-                                
-                                let accommodationsPostID = snapshot.value!["postID"] as! String
-                                let accommodationKeyID = snapshot.key
-                                
-                                let accommodationID = self.attraction?.attractionID
-                                
-                                let accommodationOnFire: [String: AnyObject] = [
-                                    "uid": userID!,
-                                    "postID": accommodationsPostID,
-                                    "accommodationID": accommodationID!,
-                                    "indexPathRow": indexPathRow,
-                                    "timestamp": timeStamp,
-                                    "name": name,
-                                    "address": address,
-                                    "checkinDate": checkinDate,
-                                    "checkoutDate": checkoutDate,
-                                    "bookingRef": bookingRef ]
-                                
-                                if accommodationKeyID == accommodationID {
-                                    
-                                    let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
-                                    
-                                    databaseRef.updateChildValues(updatedAccommodationOnFire)
-                                }
-                            })
-                            
                         }
-                        
-                        
+                    
+                            
                     } else {
-                        
-                        print("prepareForSegue: AccommodationTableViewCell cast wrong")
-                        return
+                            
+                            for (index, type) in allArray.enumerate() {
+                                
+                                if index > 0 {
+                                    
+                                    if let selectedAccommodation = allArrayTest[index - 1] as? Accommodation {
+                                        
+                                        let cell = allArray[index] as! AccommodationTableViewCell
+                                        
+                                        let accommodationID = selectedAccommodation.accommodationID
+                                        
+                                        let postID = selectedAccommodation.postID
+                                        
+                                        let indexPath = selectedAccommodation.indexPathRow
+                                        
+                                        // Accommodation Cell
+                                        let name = cell.nameLabel.text ?? ""
+                                        let address = cell.addressLabel.text ?? ""
+                                        let checkinDate = cell.checkinDateTextField.text ?? ""
+                                        let checkoutDate = cell.checkoutDateTextField.text ?? ""
+                                        let bookingRef = cell.bookingRefTextField.text ?? ""
+                                        
+                                        databaseRef.child("accommodations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                            snapshot in
+                                            
+                                            let accommodationPostID = snapshot.value!["postID"] as! String
+                                            let accommodationKeyID = snapshot.key
+                                            
+                                            let accommodationOnFire: [String: AnyObject] = [
+                                                "uid": userID!,
+                                                "postID": postID,
+                                                "accommodationID": accommodationKeyID,
+                                                "indexPathRow": indexPath,
+                                                "timestamp": timeStamp,
+                                                "name": name,
+                                                "address": address,
+                                                "checkinDate": checkinDate,
+                                                "checkoutDate": checkoutDate,
+                                                "bookingRef": bookingRef ]
+                                            
+                                            if accommodationPostID == postID && accommodationKeyID == accommodationID {
+                                                
+                                                let updatedAccommodationOnFire = ["/accommodations/\(accommodationKeyID)": accommodationOnFire]
+                                                
+                                                databaseRef.updateChildValues(updatedAccommodationOnFire)
+                                                
+                                        }
+                                    })
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
+    
+                    
+                
+
     
     // MARK: Picker Delegate
     
