@@ -139,46 +139,44 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         
         if !isFirstAdd {
-   
+            
             return
         }
         
-            for type in allArrayTest {
+        for type in allArrayTest {
+            
+            if type is Transportation {
                 
-                if type is Transportation {
-                    
-                    isEditingTransportation = true
-                    rows.append(.transportation)
-                    tableView.beginUpdates()
-                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                    tableView.endUpdates()
-                    
-                }
+                isEditingTransportation = true
+                rows.append(.transportation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
                 
-                if type is Attraction {
-                    
-                    isEditingAttraction = true
-                    rows.append(.attraction)
-                    tableView.beginUpdates()
-                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                    tableView.endUpdates()
-                    
-                }
-                
-                if type is Accommodation {
-                    
-                    isEditingAccommodation = true
-                    rows.append(.accommodation)
-                    tableView.beginUpdates()
-                    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
-                    tableView.endUpdates()
-                    
-                }
             }
             
-            isFirstAdd = false
+            if type is Attraction {
+                
+                isEditingAttraction = true
+                rows.append(.attraction)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+            }
+            
+            if type is Accommodation {
+                
+                isEditingAccommodation = true
+                rows.append(.accommodation)
+                tableView.beginUpdates()
+                tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
+                tableView.endUpdates()
+                
+            }
+        }
         
-        
+        isFirstAdd = false
         
         
         for (index, type) in allArray.enumerate() {
@@ -300,7 +298,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.beginUpdates()
             tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: rows.count - 1, inSection: 0)], withRowAnimation: .Bottom)
             tableView.endUpdates()
-
+            
             moveTableViewToLastCell()
             
             liquidFloatingActionButton.close()
@@ -563,7 +561,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-   
+    
     
     //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     //        return UITableViewAutomaticDimension
@@ -656,85 +654,106 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                     
                     let indexPath = NSIndexPath(forRow: index, inSection: 0)
                     let indexPathRow = indexPath.row
-                    let transportationIDKey = FIRDatabase.database().reference().childByAutoId().key
                     
-                    if let cell = allArray[indexPathRow] as? TransportationTableViewCell {
+                    let n: Int! = self.navigationController?.viewControllers.count
+                    if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
                         
-                        // Transportation Cell
-                        let type = cell.typeTextField.text ?? ""
-                        let airlineCom = cell.airlineComTextField.text ?? ""
-                        let flightNo = cell.flightNoTextField.text ?? ""
-                        let bookingRef = cell.bookingRefTextField.text ?? ""
-                        let departFrom = cell.departFromTextField.text ?? ""
-                        let arriveAt = cell.arriveAtTextField.text ?? ""
-                        let departDate = cell.departDateTextField.text ?? ""
-                        let arriveDate = cell.arriveDateTextField.text ?? ""
-                        
-                        let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
-                                                                          "postID": postIDKey,
-                                                                          "transportationID": transportationIDKey,
-                                                                          "indexPathRow": indexPathRow,
-                                                                          "timestamp": timeStamp,
-                                                                          "type": type,
-                                                                          "airlineCom": airlineCom,
-                                                                          "flightNo": flightNo,
-                                                                          "bookingRef": bookingRef,
-                                                                          "departFrom": departFrom,
-                                                                          "arriveAt": arriveAt,
-                                                                          "departDate": departDate,
-                                                                          "arriveDate": arriveDate ]
-                        
-                        
-                        //                        databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
-                        
-                        
-                        let n: Int! = self.navigationController?.viewControllers.count
-                        if (self.navigationController?.viewControllers[n-2] as? HomeTableViewController) != nil{
+                        if let cell = allArray[indexPathRow] as? TransportationTableViewCell {
+                            
+                            let transportationIDKey = FIRDatabase.database().reference().childByAutoId().key
+                            
+                            // Transportation Cell
+                            let type = cell.typeTextField.text ?? ""
+                            let airlineCom = cell.airlineComTextField.text ?? ""
+                            let flightNo = cell.flightNoTextField.text ?? ""
+                            let bookingRef = cell.bookingRefTextField.text ?? ""
+                            let departFrom = cell.departFromTextField.text ?? ""
+                            let arriveAt = cell.arriveAtTextField.text ?? ""
+                            let departDate = cell.departDateTextField.text ?? ""
+                            let arriveDate = cell.arriveDateTextField.text ?? ""
+                            
+                            
+                            let transportationOnFire: [String: AnyObject] = [ "uid": userID!,
+                                                                              "postID": postIDKey,
+                                                                              "transportationID": transportationIDKey,
+                                                                              "indexPathRow": indexPathRow,
+                                                                              "timestamp": timeStamp,
+                                                                              "type": type,
+                                                                              "airlineCom": airlineCom,
+                                                                              "flightNo": flightNo,
+                                                                              "bookingRef": bookingRef,
+                                                                              "departFrom": departFrom,
+                                                                              "arriveAt": arriveAt,
+                                                                              "departDate": departDate,
+                                                                              "arriveDate": arriveDate ]
+                            
                             
                             databaseRef.child("transportations").child(transportationIDKey).setValue(transportationOnFire)
-                            
-                        } else {
-                            
-                            databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
-                                snapshot in
-                                
-                                let transportationsPostID = snapshot.value!["postID"] as! String
-                                let transportationKeyID = snapshot.key
-                                
-                                let transportationID = self.transportation?.transportationID
-                                
-                                let transportationOnFire: [String: AnyObject] = [
-                                    
-                                    "uid": userID!,
-                                    "postID": transportationsPostID,
-                                    "transportationID": transportationID!,
-                                    "indexPathRow": indexPathRow,
-                                    "timestamp": timeStamp,
-                                    "type": type,
-                                    "airlineCom": airlineCom,
-                                    "flightNo": flightNo,
-                                    "bookingRef": bookingRef,
-                                    "departFrom": departFrom,
-                                    "arriveAt": arriveAt,
-                                    "departDate": departDate,
-                                    "arriveDate": arriveDate ]
-                                
-                                
-                                if transportationKeyID == transportationID {
-                                    
-                                    let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
-                                    
-                                    databaseRef.updateChildValues(updatedTransportationOnFire)
-                                }
-                            })
                             
                         }
                         
                     } else {
                         
-                        print("prepareForSegue: TransportationTableViewCell cast wrong")
-                        return
+                        for (index, type) in allArray.enumerate() {
+                            
+                            if index > 0 {
+                                
+                                if let selectedTransportation = allArrayTest[index - 1] as? Transportation {
+                                    
+                                    let cell = allArray[index] as! TransportationTableViewCell
+                                    
+                                    let transportationID = selectedTransportation.transportationID
+                            
+                                    let postID = selectedTransportation.postID
+                            
+                                    // Transportation Cell
+                                    let type = cell.typeTextField.text ?? ""
+                                    let airlineCom = cell.airlineComTextField.text ?? ""
+                                    let flightNo = cell.flightNoTextField.text ?? ""
+                                    let bookingRef = cell.bookingRefTextField.text ?? ""
+                                    let departFrom = cell.departFromTextField.text ?? ""
+                                    let arriveAt = cell.arriveAtTextField.text ?? ""
+                                    let departDate = cell.departDateTextField.text ?? ""
+                                    let arriveDate = cell.arriveDateTextField.text ?? ""
+                                    
+                                    databaseRef.child("transportations").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+                                        snapshot in
+                                        
+                                        let transportationsPostID = snapshot.value!["postID"] as! String
+                                        let transportationKeyID = snapshot.key
+                                        
+                                        let transportationOnFire: [String: AnyObject] = [
+                                            
+                                            "uid": userID!,
+                                            "postID": postID,
+                                            "transportationID": transportationKeyID,
+                                            "indexPathRow": indexPathRow,
+                                            "timestamp": timeStamp,
+                                            "type": type,
+                                            "airlineCom": airlineCom,
+                                            "flightNo": flightNo,
+                                            "bookingRef": bookingRef,
+                                            "departFrom": departFrom,
+                                            "arriveAt": arriveAt,
+                                            "departDate": departDate,
+                                            "arriveDate": arriveDate ]
+                                        
+                                        if transportationsPostID == postID && transportationKeyID == transportationID {
+                                            
+                                            let updatedTransportationOnFire = ["/transportations/\(transportationKeyID)": transportationOnFire]
+                                            
+                                            databaseRef.updateChildValues(updatedTransportationOnFire)
+                                            
+                                        }
+                                        
+                                    })
+                                }
+                        
+                            }
+                        }
                     }
+                    
+                    
                     
                 case .attraction:
                     
@@ -951,6 +970,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         currentEditingTypeTextField = textField
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
+            
             cell.startDateTextField.inputView = startDatePicker
             cell.returnDateTextField.inputView = returnDatePicker
             

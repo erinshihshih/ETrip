@@ -202,7 +202,6 @@
 				9547E73F1DB089790023EE68 /* AddViewController.swift */,
 				951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
-				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -246,6 +245,7 @@
 			children = (
 				95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */,
 				95DB08801D98D01C009C404A /* Info.plist */,
+				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
 				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
 				959002341DA2354700EB5C76 /* SWRevealViewController.m */,
