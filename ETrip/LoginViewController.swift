@@ -13,13 +13,14 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    let loginButton: FBSDKLoginButton = FBSDKLoginButton()
+//    let loginButton: FBSDKLoginButton = FBSDKLoginButton()
     
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.loginButton.hidden = true
-        loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 200, width: view.frame.width/2, height: 50)
+        loginButton.frame = CGRect(x: view.frame.width/4, y: view.frame.height - 200, width: view.frame.width/2, height: 40)
         
         FIRAuth.auth()?.addAuthStateDidChangeListener { auth, user in
             

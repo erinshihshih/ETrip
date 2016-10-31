@@ -37,9 +37,12 @@ class FirebaseManager {
     
     func fetchPosts() {
         
-        databaseRef.child("posts").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
+         databaseRef.child("posts").queryOrderedByChild("uid").queryEqualToValue(currentUid).observeSingleEventOfType(.Value, withBlock: {
+        
+//        databaseRef.child("posts").queryOrderedByKey().observeSingleEventOfType(.Value, withBlock: {
             snapshot in
             if snapshot.exists() {
+                
                 
                 self.posts = []
                 
@@ -59,8 +62,8 @@ class FirebaseManager {
                     
                     for (index, item) in firebaseItemValue.enumerate() {
                         
-                        let uid = item["uid"] as! String
-                        guard uid == self.currentUid else { return }
+//                        let uid = item["uid"] as! String
+//                        guard uid == self.currentUid else { return }
                         
                         let postID = firebaseItemKey[index]
                         
