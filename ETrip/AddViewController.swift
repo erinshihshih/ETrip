@@ -111,8 +111,8 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         saveButton.enabled = false
         
         // Longpress to Reorder Cell
-//        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
-//        tableView.addGestureRecognizer(longpress)
+        let longpress = UILongPressGestureRecognizer(target: self, action: #selector(AddViewController.longPressGestureRecognized(_:)))
+        tableView.addGestureRecognizer(longpress)
         
         // LiquidButton
         createLiquidFloatingActionButton()

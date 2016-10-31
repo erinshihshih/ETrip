@@ -528,18 +528,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gjk-fi-TIK">
-                                <rect key="frame" x="512" y="69" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Xun-W3-ADc"/>
-                                    <constraint firstAttribute="width" constant="30" id="jPj-9Z-caA"/>
-                                </constraints>
-                                <color key="tintColor" red="0.0" green="0.25098039215686274" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="edit"/>
-                                <connections>
-                                    <segue destination="Agl-cn-ojr" kind="show" identifier="editPostSegue" id="4Vh-s9-XDb"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIz-dV-1Ow">
                                 <rect key="frame" x="20" y="99" width="133" height="23"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
@@ -641,9 +629,7 @@
                             <constraint firstItem="P96-cx-vhq" firstAttribute="baseline" secondItem="TFz-e1-xAi" secondAttribute="baseline" id="BAP-64-R1x"/>
                             <constraint firstAttribute="trailing" secondItem="8R9-Tv-AK9" secondAttribute="trailing" constant="20" id="CEd-u9-5c7"/>
                             <constraint firstItem="EzE-NT-XJT" firstAttribute="centerY" secondItem="bH1-yI-dse" secondAttribute="centerY" id="HA2-8R-QXf"/>
-                            <constraint firstItem="gjk-fi-TIK" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="5" id="JHF-do-Vrk"/>
                             <constraint firstItem="2XH-bI-TUl" firstAttribute="leading" secondItem="P96-cx-vhq" secondAttribute="leading" id="LLW-iB-Xir"/>
-                            <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="gjk-fi-TIK" secondAttribute="trailing" constant="8" id="Lhd-Gs-LAB"/>
                             <constraint firstItem="IIz-dV-1Ow" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="35" id="LmR-TI-7wH"/>
                             <constraint firstItem="bH1-yI-dse" firstAttribute="leading" secondItem="MYA-89-w7n" secondAttribute="leading" constant="20" id="MpS-2L-K6d"/>
                             <constraint firstAttribute="trailing" secondItem="EzE-NT-XJT" secondAttribute="trailing" constant="20" id="QOI-zi-gVU"/>
@@ -1006,7 +992,6 @@
         <image name="accommodation" width="22" height="22"/>
         <image name="attraction" width="22" height="22"/>
         <image name="backGround" width="542" height="828"/>
-        <image name="edit" width="22" height="22"/>
         <image name="notepad" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
         <image name="route" width="22" height="22"/>
@@ -1016,7 +1001,4 @@
         <image name="user" width="22" height="22"/>
         <image name="worldwide" width="22" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="PIV-dv-BR3"/>
-    </inferredMetricsTieBreakers>
 </document>
