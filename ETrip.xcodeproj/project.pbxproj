@@ -19,7 +19,6 @@
 		9541A5911DAE445500F108A3 /* AttractionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */; };
 		9547E7401DB089790023EE68 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547E73F1DB089790023EE68 /* AddViewController.swift */; };
 		9547E7421DB08A2C0023EE68 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9547E7411DB08A2C0023EE68 /* AddTableViewCell.swift */; };
-		9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */; };
 		9549ED891D9918260074E306 /* Transportation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED881D9918260074E306 /* Transportation.swift */; };
 		9549ED8B1D991C3D0074E306 /* Accommodation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8A1D991C3D0074E306 /* Accommodation.swift */; };
 		9549ED8E1D991E970074E306 /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9549ED8D1D991E970074E306 /* Attraction.swift */; };
@@ -44,6 +43,7 @@
 		95DB088A1D98D01C009C404A /* ETripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08891D98D01C009C404A /* ETripTests.swift */; };
 		95DB08951D98D01C009C404A /* ETripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08941D98D01C009C404A /* ETripUITests.swift */; };
 		95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DC53A51DB74C2E00F7CD29 /* CoreLocation.framework */; };
+		95DE9C111DC70D8000171D3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */; };
 		95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */; };
 		95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */; };
 		95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E9181D9E6513005BC373 /* EditViewController.swift */; };
@@ -83,7 +83,6 @@
 		9541A58F1DAE445500F108A3 /* AttractionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionTableViewCell.xib; sourceTree = "<group>"; };
 		9547E73F1DB089790023EE68 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		9547E7411DB08A2C0023EE68 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
-		9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9549ED881D9918260074E306 /* Transportation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transportation.swift; sourceTree = "<group>"; };
 		9549ED8A1D991C3D0074E306 /* Accommodation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accommodation.swift; sourceTree = "<group>"; };
 		9549ED8D1D991E970074E306 /* Attraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		95DC53B71DB750B700F7CD29 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		95DC53B91DB750C000F7CD29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		95DC53BB1DB750CB00F7CD29 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationTableViewCell.swift; sourceTree = "<group>"; };
 		95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationTableViewCell.xib; sourceTree = "<group>"; };
 		95E3E9181D9E6513005BC373 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -244,8 +244,8 @@
 		959002311DA2351400EB5C76 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */,
 				95DB08801D98D01C009C404A /* Info.plist */,
-				9549ED861D98F6FC0074E306 /* GoogleService-Info.plist */,
 				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
 				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
 				959002341DA2354700EB5C76 /* SWRevealViewController.m */,
@@ -382,7 +382,7 @@
 				TargetAttributes = {
 					95DB086D1D98D01C009C404A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2U2ZYLXZGM;
+						DevelopmentTeam = 7J23689F2Y;
 					};
 					95DB08841D98D01C009C404A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -424,9 +424,9 @@
 				95C2AB3B1DB60D4900884360 /* AccommodationTableViewCell.xib in Resources */,
 				95DB087F1D98D01C009C404A /* LaunchScreen.storyboard in Resources */,
 				956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */,
-				9549ED871D98F6FC0074E306 /* GoogleService-Info.plist in Resources */,
 				956CF6851DB4B760006AD9B1 /* TransportationPlannerViewCell.xib in Resources */,
 				95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */,
+				95DE9C111DC70D8000171D3D /* GoogleService-Info.plist in Resources */,
 				95DB08771D98D01C009C404A /* Main.storyboard in Resources */,
 				95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */,
 			);
@@ -709,7 +709,7 @@
 				INFOPLIST_FILE = ETrip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETrip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
@@ -743,7 +743,7 @@
 				INFOPLIST_FILE = ETrip/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETrip;
+				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETrip;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
