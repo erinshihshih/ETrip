@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ETrip.xcodeproj">
+      location = "group:/Users/ErinShih/Desktop/ETrip/ETripTogether.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

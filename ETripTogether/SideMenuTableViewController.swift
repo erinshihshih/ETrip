@@ -73,7 +73,7 @@ class SideMenuTableViewController: UITableViewController {
             
             // 儲存圖像至firebase
             let storage = FIRStorage.storage()
-            let storageRef = storage.referenceForURL("gs://etrip-56a68.appspot.com")
+            let storageRef = storage.referenceForURL("gs://etriptogether.appspot.com")
             let profilePicRef = storageRef.child(user.uid+"/profile_pic.jpg")
             
             // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)

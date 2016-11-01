@@ -43,12 +43,12 @@
 		95DB088A1D98D01C009C404A /* ETripTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08891D98D01C009C404A /* ETripTests.swift */; };
 		95DB08951D98D01C009C404A /* ETripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08941D98D01C009C404A /* ETripUITests.swift */; };
 		95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DC53A51DB74C2E00F7CD29 /* CoreLocation.framework */; };
-		95DE9C111DC70D8000171D3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */; };
 		95DE9C131DC8266C00171D3D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DE9C121DC8266C00171D3D /* Social.framework */; };
 		95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */; };
 		95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */; };
 		95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E9181D9E6513005BC373 /* EditViewController.swift */; };
 		95E3E91D1D9E65E3005BC373 /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */; };
+		95F594461DC8705E00F727DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95F594451DC8705E00F727DA /* GoogleService-Info.plist */; };
 		D93AC57FD5203932B78485C1 /* Pods_ETrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +101,7 @@
 		95C2AB391DB60D4900884360 /* AccommodationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccommodationTableViewCell.xib; sourceTree = "<group>"; };
 		95C2AB3C1DB615B100884360 /* AccommodationPlannerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccommodationPlannerViewCell.swift; sourceTree = "<group>"; };
 		95C2AB3D1DB615B200884360 /* AccommodationPlannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccommodationPlannerViewCell.xib; sourceTree = "<group>"; };
-		95DB086E1D98D01C009C404A /* ETrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DB086E1D98D01C009C404A /* ETripTogether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ETripTogether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08711D98D01C009C404A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DB08731D98D01C009C404A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95DB08761D98D01C009C404A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,10 +109,10 @@
 		95DB087B1D98D01C009C404A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95DB087E1D98D01C009C404A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95DB08801D98D01C009C404A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95DB08851D98D01C009C404A /* ETripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DB08851D98D01C009C404A /* ETripTogether.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETripTogether.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08891D98D01C009C404A /* ETripTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETripTests.swift; sourceTree = "<group>"; };
 		95DB088B1D98D01C009C404A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95DB08901D98D01C009C404A /* ETripUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETripUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DB08901D98D01C009C404A /* ETripTogether.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ETripTogether.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DB08941D98D01C009C404A /* ETripUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETripUITests.swift; sourceTree = "<group>"; };
 		95DB08961D98D01C009C404A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95DC53A51DB74C2E00F7CD29 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -127,12 +127,12 @@
 		95DC53B71DB750B700F7CD29 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		95DC53B91DB750C000F7CD29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		95DC53BB1DB750CB00F7CD29 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95DE9C121DC8266C00171D3D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationTableViewCell.swift; sourceTree = "<group>"; };
 		95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationTableViewCell.xib; sourceTree = "<group>"; };
 		95E3E9181D9E6513005BC373 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
+		95F594451DC8705E00F727DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -247,8 +247,8 @@
 		959002311DA2351400EB5C76 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */,
 				95DB08801D98D01C009C404A /* Info.plist */,
+				95F594451DC8705E00F727DA /* GoogleService-Info.plist */,
 				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
 				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
@@ -261,7 +261,7 @@
 		95DB08651D98D01C009C404A = {
 			isa = PBXGroup;
 			children = (
-				95DB08701D98D01C009C404A /* ETrip */,
+				95DB08701D98D01C009C404A /* ETripTogether */,
 				95DB08881D98D01C009C404A /* ETripTests */,
 				95DB08931D98D01C009C404A /* ETripUITests */,
 				95DB086F1D98D01C009C404A /* Products */,
@@ -273,14 +273,14 @@
 		95DB086F1D98D01C009C404A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95DB086E1D98D01C009C404A /* ETrip.app */,
-				95DB08851D98D01C009C404A /* ETripTests.xctest */,
-				95DB08901D98D01C009C404A /* ETripUITests.xctest */,
+				95DB086E1D98D01C009C404A /* ETripTogether.app */,
+				95DB08851D98D01C009C404A /* ETripTogether.xctest */,
+				95DB08901D98D01C009C404A /* ETripTogether.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		95DB08701D98D01C009C404A /* ETrip */ = {
+		95DB08701D98D01C009C404A /* ETripTogether */ = {
 			isa = PBXGroup;
 			children = (
 				95DB08711D98D01C009C404A /* AppDelegate.swift */,
@@ -293,7 +293,7 @@
 				959002311DA2351400EB5C76 /* SupportingFiles */,
 				95DB087D1D98D01C009C404A /* LaunchScreen.storyboard */,
 			);
-			path = ETrip;
+			path = ETripTogether;
 			sourceTree = "<group>";
 		};
 		95DB08881D98D01C009C404A /* ETripTests */ = {
@@ -317,9 +317,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95DB086D1D98D01C009C404A /* ETrip */ = {
+		95DB086D1D98D01C009C404A /* ETripTogether */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95DB08991D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETrip" */;
+			buildConfigurationList = 95DB08991D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogether" */;
 			buildPhases = (
 				409EEC9DEB919C85375EADFF /* [CP] Check Pods Manifest.lock */,
 				95DB086A1D98D01C009C404A /* Sources */,
@@ -333,14 +333,14 @@
 			);
 			dependencies = (
 			);
-			name = ETrip;
+			name = ETripTogether;
 			productName = ETrip;
-			productReference = 95DB086E1D98D01C009C404A /* ETrip.app */;
+			productReference = 95DB086E1D98D01C009C404A /* ETripTogether.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95DB08841D98D01C009C404A /* ETripTests */ = {
+		95DB08841D98D01C009C404A /* ETripTogetherTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95DB089C1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTests" */;
+			buildConfigurationList = 95DB089C1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogetherTests" */;
 			buildPhases = (
 				95DB08811D98D01C009C404A /* Sources */,
 				95DB08821D98D01C009C404A /* Frameworks */,
@@ -351,14 +351,14 @@
 			dependencies = (
 				95DB08871D98D01C009C404A /* PBXTargetDependency */,
 			);
-			name = ETripTests;
+			name = ETripTogetherTests;
 			productName = ETripTests;
-			productReference = 95DB08851D98D01C009C404A /* ETripTests.xctest */;
+			productReference = 95DB08851D98D01C009C404A /* ETripTogether.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		95DB088F1D98D01C009C404A /* ETripUITests */ = {
+		95DB088F1D98D01C009C404A /* ETripTogetherUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95DB089F1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripUITests" */;
+			buildConfigurationList = 95DB089F1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogetherUITests" */;
 			buildPhases = (
 				95DB088C1D98D01C009C404A /* Sources */,
 				95DB088D1D98D01C009C404A /* Frameworks */,
@@ -369,9 +369,9 @@
 			dependencies = (
 				95DB08921D98D01C009C404A /* PBXTargetDependency */,
 			);
-			name = ETripUITests;
+			name = ETripTogetherUITests;
 			productName = ETripUITests;
-			productReference = 95DB08901D98D01C009C404A /* ETripUITests.xctest */;
+			productReference = 95DB08901D98D01C009C404A /* ETripTogether.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -398,7 +398,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95DB08691D98D01C009C404A /* Build configuration list for PBXProject "ETrip" */;
+			buildConfigurationList = 95DB08691D98D01C009C404A /* Build configuration list for PBXProject "ETripTogether" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -411,9 +411,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95DB086D1D98D01C009C404A /* ETrip */,
-				95DB08841D98D01C009C404A /* ETripTests */,
-				95DB088F1D98D01C009C404A /* ETripUITests */,
+				95DB086D1D98D01C009C404A /* ETripTogether */,
+				95DB08841D98D01C009C404A /* ETripTogetherTests */,
+				95DB088F1D98D01C009C404A /* ETripTogetherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,7 +430,7 @@
 				956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */,
 				956CF6851DB4B760006AD9B1 /* TransportationPlannerViewCell.xib in Resources */,
 				95DB087C1D98D01C009C404A /* Assets.xcassets in Resources */,
-				95DE9C111DC70D8000171D3D /* GoogleService-Info.plist in Resources */,
+				95F594461DC8705E00F727DA /* GoogleService-Info.plist in Resources */,
 				95DB08771D98D01C009C404A /* Main.storyboard in Resources */,
 				95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */,
 			);
@@ -570,12 +570,12 @@
 /* Begin PBXTargetDependency section */
 		95DB08871D98D01C009C404A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95DB086D1D98D01C009C404A /* ETrip */;
+			target = 95DB086D1D98D01C009C404A /* ETripTogether */;
 			targetProxy = 95DB08861D98D01C009C404A /* PBXContainerItemProxy */;
 		};
 		95DB08921D98D01C009C404A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 95DB086D1D98D01C009C404A /* ETrip */;
+			target = 95DB086D1D98D01C009C404A /* ETripTogether */;
 			targetProxy = 95DB08911D98D01C009C404A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -710,13 +710,13 @@
 					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
 					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
-				INFOPLIST_FILE = ETrip/Info.plist;
+				INFOPLIST_FILE = ETripTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETrip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETripTogether;
+				PRODUCT_NAME = ETripTogether;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ETripTogether/ETrip-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -744,13 +744,13 @@
 					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
 					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
-				INFOPLIST_FILE = ETrip/Info.plist;
+				INFOPLIST_FILE = ETripTogether/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETrip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.erinshih.ETripTogether;
+				PRODUCT_NAME = ETripTogether;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "ETrip/ETrip-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ETripTogether/ETrip-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -761,8 +761,8 @@
 				INFOPLIST_FILE = ETripTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETripTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ETrip.app/ETrip";
+				PRODUCT_NAME = ETripTogether;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ETripTogether.app/ETripTogether";
 			};
 			name = Debug;
 		};
@@ -773,8 +773,8 @@
 				INFOPLIST_FILE = ETripTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETripTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ETrip.app/ETrip";
+				PRODUCT_NAME = ETripTogether;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ETripTogether.app/ETripTogether";
 			};
 			name = Release;
 		};
@@ -784,7 +784,7 @@
 				INFOPLIST_FILE = ETripUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETripUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ETripTogether;
 				TEST_TARGET_NAME = ETrip;
 			};
 			name = Debug;
@@ -795,7 +795,7 @@
 				INFOPLIST_FILE = ETripUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = erinshih.ETripUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ETripTogether;
 				TEST_TARGET_NAME = ETrip;
 			};
 			name = Release;
@@ -803,7 +803,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95DB08691D98D01C009C404A /* Build configuration list for PBXProject "ETrip" */ = {
+		95DB08691D98D01C009C404A /* Build configuration list for PBXProject "ETripTogether" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95DB08971D98D01C009C404A /* Debug */,
@@ -812,7 +812,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95DB08991D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETrip" */ = {
+		95DB08991D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogether" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95DB089A1D98D01C009C404A /* Debug */,
@@ -821,7 +821,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95DB089C1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTests" */ = {
+		95DB089C1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogetherTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95DB089D1D98D01C009C404A /* Debug */,
@@ -830,7 +830,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95DB089F1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripUITests" */ = {
+		95DB089F1D98D01C009C404A /* Build configuration list for PBXNativeTarget "ETripTogetherUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95DB08A01D98D01C009C404A /* Debug */,
