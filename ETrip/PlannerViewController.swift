@@ -10,6 +10,7 @@ import UIKit
 import PDFGenerator
 import Firebase
 import Social
+import FBSDKShareKit
 
 //import Crashlytics
 
@@ -64,8 +65,11 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func shareToFacebook() {
         
+//        let content = FBSDKShareLinkContent
+        
         let shareToFacebook: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        shareToFacebook.setInitialText("Let's build that trip \(post!.title) and go to \(post!.country) together!!! From \(post!.startDate) to \(post!.returnDate) Wanna join me? Message me! -- ETripTogether")
+//        shareToFacebook.setInitialText("Let's build that trip \(post!.title) and go to \(post!.country) together!!! From \(post!.startDate) to \(post!.returnDate) Wanna join me? Message me! -- ETripTogether")
+//        shareToFacebook.addImage(UIImage(contentsOfFile: "ETripIcon"))
         self.presentViewController(shareToFacebook, animated: true, completion: nil)
         
     }
