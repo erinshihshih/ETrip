@@ -10,7 +10,7 @@ import UIKit
 import PDFGenerator
 import Firebase
 import Social
-import FBSDKShareKit
+
 
 //import Crashlytics
 

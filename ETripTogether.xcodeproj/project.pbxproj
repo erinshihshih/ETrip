@@ -27,6 +27,7 @@
 		956CF6851DB4B760006AD9B1 /* TransportationPlannerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */; };
 		956CF6881DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */; };
 		956CF6891DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 956CF6871DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib */; };
+		95734CED1DC8A0040053B32E /* Pods_ETripTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95734CEC1DC8A0040053B32E /* Pods_ETripTogether.framework */; };
 		959002351DA2354700EB5C76 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959002341DA2354700EB5C76 /* SWRevealViewController.m */; };
 		959002371DA2399A00EB5C76 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959002361DA2399A00EB5C76 /* SideMenuTableViewController.swift */; };
 		9595446C1D9CE2A300D676EB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595446B1D9CE2A300D676EB /* HomeTableViewController.swift */; };
@@ -49,7 +50,6 @@
 		95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E9181D9E6513005BC373 /* EditViewController.swift */; };
 		95E3E91D1D9E65E3005BC373 /* EditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */; };
 		95F594461DC8705E00F727DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95F594451DC8705E00F727DA /* GoogleService-Info.plist */; };
-		D93AC57FD5203932B78485C1 /* Pods_ETrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +92,7 @@
 		956CF6831DB4B760006AD9B1 /* TransportationPlannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationPlannerViewCell.xib; sourceTree = "<group>"; };
 		956CF6861DB4BE06006AD9B1 /* AttractionPlannerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionPlannerViewCell.swift; sourceTree = "<group>"; };
 		956CF6871DB4BE06006AD9B1 /* AttractionPlannerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttractionPlannerViewCell.xib; sourceTree = "<group>"; };
+		95734CEC1DC8A0040053B32E /* Pods_ETripTogether.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_ETripTogether.framework; path = "../../Library/Developer/Xcode/DerivedData/ETripTogether-dllhhhycwycnwadfjunbcjkzcuuz/Build/Products/Debug-iphonesimulator/Pods_ETripTogether.framework"; sourceTree = "<group>"; };
 		959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ETrip-Bridging-Header.h"; sourceTree = "<group>"; };
 		959002331DA2354700EB5C76 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		959002341DA2354700EB5C76 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -133,6 +134,9 @@
 		95E3E9181D9E6513005BC373 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		95E3E91C1D9E65E3005BC373 /* EditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableViewCell.swift; sourceTree = "<group>"; };
 		95F594451DC8705E00F727DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DAFBABB7B01BF3F2B53005F /* Pods-ETripTogether.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETripTogether.release.xcconfig"; path = "Pods/Target Support Files/Pods-ETripTogether/Pods-ETripTogether.release.xcconfig"; sourceTree = "<group>"; };
+		C5F3A4D386737B6B1EF5F990 /* Pods-ETripTogether.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ETripTogether.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ETripTogether/Pods-ETripTogether.debug.xcconfig"; sourceTree = "<group>"; };
+		E371078C8C0B42357A4B1E21 /* Pods_ETripTogether.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETripTogether.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ETrip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -141,9 +145,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95734CED1DC8A0040053B32E /* Pods_ETripTogether.framework in Frameworks */,
 				95DE9C131DC8266C00171D3D /* Social.framework in Frameworks */,
 				95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */,
-				D93AC57FD5203932B78485C1 /* Pods_ETrip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +171,7 @@
 		0B672F724339F868AF7F3098 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95734CEC1DC8A0040053B32E /* Pods_ETripTogether.framework */,
 				95DE9C121DC8266C00171D3D /* Social.framework */,
 				95DC53BB1DB750CB00F7CD29 /* SystemConfiguration.framework */,
 				95DC53B91DB750C000F7CD29 /* QuartzCore.framework */,
@@ -181,6 +186,7 @@
 				95DC53A71DB74F5B00F7CD29 /* AVFoundation.framework */,
 				95DC53A51DB74C2E00F7CD29 /* CoreLocation.framework */,
 				E9938757E2A1A48A1777F11B /* Pods_ETrip.framework */,
+				E371078C8C0B42357A4B1E21 /* Pods_ETripTogether.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,6 +196,8 @@
 			children = (
 				413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */,
 				221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */,
+				C5F3A4D386737B6B1EF5F990 /* Pods-ETripTogether.debug.xcconfig */,
+				9DAFBABB7B01BF3F2B53005F /* Pods-ETripTogether.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -204,7 +212,6 @@
 				95143BF71D9D1ADB00E389E1 /* PlannerViewController.swift */,
 				956CF6801DB4A32C006AD9B1 /* MapViewController.swift */,
 				9547E73F1DB089790023EE68 /* AddViewController.swift */,
-				951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */,
 				95E3E9181D9E6513005BC373 /* EditViewController.swift */,
 			);
 			name = Controller;
@@ -251,6 +258,7 @@
 				95F594451DC8705E00F727DA /* GoogleService-Info.plist */,
 				9537D6EF1DBA158D0026C037 /* SwiftPDFGenerator.swift */,
 				95DB08781D98D01C009C404A /* ETrip.xcdatamodeld */,
+				951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */,
 				959002331DA2354700EB5C76 /* SWRevealViewController.h */,
 				959002341DA2354700EB5C76 /* SWRevealViewController.m */,
 				959002321DA2354600EB5C76 /* ETrip-Bridging-Header.h */,
@@ -480,7 +488,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETrip/Pods-ETrip-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETripTogether/Pods-ETripTogether-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		86A640DB7B8E8B6089D805D8 /* [CP] Embed Pods Frameworks */ = {
@@ -495,7 +503,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETrip/Pods-ETrip-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ETripTogether/Pods-ETripTogether-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		950B49B91DBD9A4C0023B6BF /* ShellScript */ = {
@@ -621,6 +629,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -667,6 +676,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -688,7 +698,7 @@
 		};
 		95DB089A1D98D01C009C404A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 413BC3398FFD7394522B83E7 /* Pods-ETrip.debug.xcconfig */;
+			baseConfigurationReference = C5F3A4D386737B6B1EF5F990 /* Pods-ETripTogether.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -718,12 +728,13 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ETripTogether/ETrip-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		95DB089B1D98D01C009C404A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 221E4E19DB97934AF0A946F4 /* Pods-ETrip.release.xcconfig */;
+			baseConfigurationReference = 9DAFBABB7B01BF3F2B53005F /* Pods-ETripTogether.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -751,6 +762,7 @@
 				PRODUCT_NAME = ETripTogether;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ETripTogether/ETrip-Bridging-Header.h";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
