@@ -44,6 +44,7 @@
 		95DB08951D98D01C009C404A /* ETripUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DB08941D98D01C009C404A /* ETripUITests.swift */; };
 		95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DC53A51DB74C2E00F7CD29 /* CoreLocation.framework */; };
 		95DE9C111DC70D8000171D3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */; };
+		95DE9C131DC8266C00171D3D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95DE9C121DC8266C00171D3D /* Social.framework */; };
 		95E22DC21DA5FFF8003BCAAE /* TransportationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */; };
 		95E22DC31DA5FFF8003BCAAE /* TransportationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */; };
 		95E3E9191D9E6513005BC373 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3E9181D9E6513005BC373 /* EditViewController.swift */; };
@@ -127,6 +128,7 @@
 		95DC53B91DB750C000F7CD29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		95DC53BB1DB750CB00F7CD29 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		95DE9C101DC70D8000171D3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95DE9C121DC8266C00171D3D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		95E22DC01DA5FFF8003BCAAE /* TransportationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationTableViewCell.swift; sourceTree = "<group>"; };
 		95E22DC11DA5FFF8003BCAAE /* TransportationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationTableViewCell.xib; sourceTree = "<group>"; };
 		95E3E9181D9E6513005BC373 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DE9C131DC8266C00171D3D /* Social.framework in Frameworks */,
 				95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */,
 				D93AC57FD5203932B78485C1 /* Pods_ETrip.framework in Frameworks */,
 			);
@@ -164,6 +167,7 @@
 		0B672F724339F868AF7F3098 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95DE9C121DC8266C00171D3D /* Social.framework */,
 				95DC53BB1DB750CB00F7CD29 /* SystemConfiguration.framework */,
 				95DC53B91DB750C000F7CD29 /* QuartzCore.framework */,
 				95DC53B71DB750B700F7CD29 /* OpenGLES.framework */,

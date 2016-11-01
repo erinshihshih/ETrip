@@ -475,7 +475,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let indexPathRow = indexPath.row
                     
                     guard let selectedTransportation = allArray[indexPathRow] as? Transportation else {
-                        fatalError()
+                        return
                     }
                     
                     //                    let cell = allArray[indexPathRow] as! TransportationTableViewCell
@@ -530,7 +530,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAttraction = allArray[indexPathRow] as? Attraction else {
-                        fatalError()
+                        return
                     }
                     
                     let attractionID = selectedAttraction.attractionID
@@ -575,7 +575,7 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let indexPathRow = indexPath.row
                     
                     guard let selectedAccommodation = allArray[indexPathRow] as? Accommodation else {
-                        fatalError()
+                        return
                     }
                     //                    let cell = allArray[indexPathRow] as! AccommodationTableViewCell
                     

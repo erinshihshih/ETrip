@@ -9,6 +9,7 @@
 import UIKit
 import PDFGenerator
 import Firebase
+import Social
 
 //import Crashlytics
 
@@ -58,6 +59,14 @@ class PlannerViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         FIRAnalytics.logEventWithName("SharePdf", parameters: ["name": (FIRAuth.auth()?.currentUser?.uid)!])
 
+        
+    }
+    
+    @IBAction func shareToFacebook() {
+        
+        let shareToFacebook: SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+        self.presentViewController(shareToFacebook, animated: true, completion: nil)
         
     }
     

@@ -616,6 +616,13 @@
                                     <constraint firstAttribute="height" constant="30" id="y4P-FF-oZt"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-6j-qoh">
+                                <rect key="frame" x="496" y="69" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="shareToFacebook" destination="HTy-sV-NdB" eventType="touchUpInside" id="eeH-9U-6xf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -636,7 +643,9 @@
                             <constraint firstItem="bH1-yI-dse" firstAttribute="centerX" secondItem="MYA-89-w7n" secondAttribute="centerX" id="RSY-pd-EwT"/>
                             <constraint firstAttribute="trailing" secondItem="jpz-ZS-9Yd" secondAttribute="trailing" id="RWZ-KI-v9A"/>
                             <constraint firstItem="FZ4-p6-S0w" firstAttribute="leading" secondItem="k0S-LF-sEC" secondAttribute="trailing" constant="15" id="TzK-0L-zOa"/>
+                            <constraint firstItem="vJi-6j-qoh" firstAttribute="top" secondItem="ShW-IK-Wgb" secondAttribute="bottom" constant="5" id="V62-fb-G8F"/>
                             <constraint firstItem="k0S-LF-sEC" firstAttribute="top" secondItem="IIz-dV-1Ow" secondAttribute="bottom" constant="12" id="VZL-xx-qOt"/>
+                            <constraint firstItem="8R9-Tv-AK9" firstAttribute="leading" secondItem="vJi-6j-qoh" secondAttribute="trailing" constant="8" id="VfS-es-c2p"/>
                             <constraint firstItem="TFz-e1-xAi" firstAttribute="trailing" secondItem="k0S-LF-sEC" secondAttribute="trailing" id="ZcB-Xm-Evh"/>
                             <constraint firstItem="jpz-ZS-9Yd" firstAttribute="top" secondItem="bH1-yI-dse" secondAttribute="bottom" constant="12" id="aTA-cG-vLH"/>
                             <constraint firstItem="FZ4-p6-S0w" firstAttribute="centerY" secondItem="k0S-LF-sEC" secondAttribute="centerY" id="cx3-bv-cbb"/>

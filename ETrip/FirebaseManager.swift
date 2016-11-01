@@ -49,15 +49,15 @@ class FirebaseManager {
                 for item in [snapshot.value] {
                     
                     guard let itemDictionary = item as? NSDictionary else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
-                        fatalError()
+                        return
                     }
                     
                     for (index, item) in firebaseItemValue.enumerate() {
@@ -101,15 +101,15 @@ class FirebaseManager {
                 for item in [snapshot.value] {
                     
                     guard let itemDictionary = item as? NSDictionary else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
-                        fatalError()
+                        return
                     }
                     
                     for (index, item) in firebaseItemValue.enumerate() {
@@ -149,15 +149,15 @@ class FirebaseManager {
                 for item in [snapshot.value] {
                     
                     guard let itemDictionary = item as? NSDictionary else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
-                        fatalError()
+                        return
                     }
                     
                     for (index, item) in firebaseItemValue.enumerate() {
@@ -192,15 +192,15 @@ class FirebaseManager {
                 for item in [snapshot.value] {
                     
                     guard let itemDictionary = item as? NSDictionary else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemKey = itemDictionary.allKeys as? [String] else {
-                        fatalError()
+                        return
                     }
                     
                     guard let firebaseItemValue = itemDictionary.allValues as? [NSDictionary] else {
-                        fatalError()
+                        return
                     }
                     
                     for (index, item) in firebaseItemValue.enumerate() {
