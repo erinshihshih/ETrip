@@ -79,7 +79,7 @@ class HomeTableViewController: UITableViewController {
     func pullToRefresh() {
         
         pullToRefreshControl = UIRefreshControl()
-        pullToRefreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        
         pullToRefreshControl.addTarget(self, action: #selector(HomeTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         // Setup UI
