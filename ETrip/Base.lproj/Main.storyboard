@@ -616,9 +616,13 @@
                                     <constraint firstAttribute="height" constant="30" id="y4P-FF-oZt"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-6j-qoh">
-                                <rect key="frame" x="496" y="69" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJi-6j-qoh">
+                                <rect key="frame" x="512" y="69" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="exg-15-DFR"/>
+                                    <constraint firstAttribute="width" constant="30" id="mIK-mV-XVT"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="facebook"/>
                                 <connections>
                                     <action selector="shareToFacebook" destination="HTy-sV-NdB" eventType="touchUpInside" id="eeH-9U-6xf"/>
                                 </connections>
@@ -1001,6 +1005,7 @@
         <image name="accommodation" width="22" height="22"/>
         <image name="attraction" width="22" height="22"/>
         <image name="backGround" width="542" height="828"/>
+        <image name="facebook" width="22" height="22"/>
         <image name="notepad" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
         <image name="route" width="22" height="22"/>
