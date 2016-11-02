@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PDFGenerator
 import Firebase
 import Social
 

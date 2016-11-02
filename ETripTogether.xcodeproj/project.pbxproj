@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		775D780688AEFA9C4F14D571 /* Pods_ETripTogether.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E371078C8C0B42357A4B1E21 /* Pods_ETripTogether.framework */; };
 		95044D291DA23C5200696DC8 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95044D281DA23C5200696DC8 /* SideMenuTableViewCell.swift */; };
 		951285611DC3016400540304 /* LiquidFloatingButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951285601DC3016400540304 /* LiquidFloatingButtonManager.swift */; };
 		95143BEE1D9D0D9F00E389E1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95143BED1D9D0D9F00E389E1 /* Post.swift */; };
@@ -148,6 +149,7 @@
 				95734CED1DC8A0040053B32E /* Pods_ETripTogether.framework in Frameworks */,
 				95DE9C131DC8266C00171D3D /* Social.framework in Frameworks */,
 				95DC53A61DB74C2E00F7CD29 /* CoreLocation.framework in Frameworks */,
+				775D780688AEFA9C4F14D571 /* Pods_ETripTogether.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

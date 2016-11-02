@@ -88,17 +88,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         self.tableView.delegate = self
         
         
-        // Country Picker
-        for code in NSLocale.ISOCountryCodes() as [String] {
-            
-            let name = NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: code) ?? "Country not found for code: \(code)"
-            
-            countryArray.append(name)
-            countryArray.sortInPlace({ ( name1, name2) -> Bool in
-                name1 < name2
-            })
-            
-        }
+       
         
         
         // Picker View UI
@@ -126,6 +116,17 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Country Picker
+        for code in NSLocale.ISOCountryCodes() as [String] {
+            
+            let name = NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: code) ?? "Country not found for code: \(code)"
+            
+            countryArray.append(name)
+            countryArray.sortInPlace({ ( name1, name2) -> Bool in
+                name1 < name2
+            })
+            
+        }
         
     }
     
