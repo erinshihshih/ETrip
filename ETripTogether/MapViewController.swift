@@ -34,6 +34,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     var placeHolder: GMSMarker?
     var placeHolderView: UIImageView?
     
+    var counterMarker: Int = Int()
+
+    
     @IBAction func searchWithAddress(sender: AnyObject) {
 
         
@@ -54,14 +57,6 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             }
             // 3
             if let place = place {
-                
-                
-//                let coordinates = CLLocationCoordinate2DMake(place.coordinate.latitude, place.coordinate.longitude)
-//                let marker = GMSMarker(position: coordinates)
-//                marker.title = place.name
-//                marker.map = self.mapView
-//                self.mapView.animateToLocation(coordinates)
-            
             
 //                let placeHolder = UIImage(named: "placeholder")!.imageWithRenderingMode(.AlwaysTemplate)
 //                let markerView = UIImageView(image: placeHolder)
@@ -161,7 +156,58 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         
         print("An error occurred while tracking location changes : \(error.description)")
     }
+    
+    
+    func mapView(mapView: GMSMapView, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
+        
+        if counterMarker < 10 {
+            counterMarker += 1
+            let marker = GMSMarker(position: coordinate)
+            marker.appearAnimation = kGMSMarkerAnimationPop
+            
+            marker.map = mapView
+            marker.position.latitude = coordinate.latitude
+            marker.position.longitude = coordinate.longitude
+            marker.icon = GMSMarker.markerImageWithColor(UIColor.cyanColor())
+            print(marker.position.latitude)
+            print(marker.position.longitude)
+            
+        } else {
+            let alert = UIAlertController(title: "Alert", message: "Too many markers! Please delete the boring places you would like to go to keep the quality of the journey.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                NSLog("ok")
+                
+                
+                })
 
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+        
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        
+        let alert = UIAlertController(title: "Alert", message: "Are you Sure for deleting ?!", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("No Pressed")
+            
+            
+            })
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("Yes Pressed")
+            marker.map = nil
+            self.counterMarker -= 1
+            
+            })
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        return true
+    }
+    
     
    
     
