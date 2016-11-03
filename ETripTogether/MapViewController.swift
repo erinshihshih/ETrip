@@ -36,6 +36,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     var counterMarker: Int = Int()
 
+    var places: [AnyObject] = []
     
     @IBAction func searchWithAddress(sender: AnyObject) {
 
@@ -73,13 +74,37 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
                 marker.map = self.mapView
                 self.placeHolder = marker
                 
+                
+                
+//                self.places.append(marker)
+//                
+//                for marker in self.places {
+//                    
+//                    if self.places.count >= 2 {
+////
+//                    print(marker)
+//                    let path = GMSMutablePath()
+//                    path.addLatitude(position.latitude, longitude: position.longitude)
+////                    path.addLatitude(-31.95285, longitude:115.85734)
+//                    let polyline = GMSPolyline(path: path)
+//                    polyline.strokeWidth = 10.0
+//                    polyline.geodesic = true
+//                    polyline.map = self.mapView
+//                        
+//                    }
+//                }
+                
+                
+                
+                
+                
             } else {
                 print("No place was selected")
             }
         }
 
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +122,18 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         mapView.delegate = self
         
         mapView.settings.myLocationButton = true
+        
+//        let path = GMSMutablePath()
+//        path.addLatitude(-37.81319, longitude:144.96298)
+//        path.addLatitude(-31.95285, longitude:115.85734)
+//        let polyline = GMSPolyline(path: path)
+//        polyline.strokeWidth = 10.0
+//        polyline.geodesic = true
+//        polyline.map = mapView
+        
 
+
+      
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
@@ -120,8 +156,6 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         let camera = GMSCameraPosition.cameraWithLatitude(25.042789, longitude: 121.564869, zoom: 18)
         mapView.myLocationEnabled = true
         mapView.camera = camera
-    
-        mapView.clear()
         
 //        let currentLocation = CLLocationCoordinate2DMake(25.042789, 121.564869)
 //        let marker = GMSMarker(position: currentLocation)
