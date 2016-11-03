@@ -52,6 +52,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     var startDatePicker = UIDatePicker()
     var returnDatePicker = UIDatePicker()
     var transportationTypePickerView = UIPickerView()
+    var transportationDepartDatePickerView = UIDatePicker()
     
     enum PickerType: Int {
         case country = 0
@@ -86,10 +87,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
-        
-       
-        
         
         // Picker View UI
         setUpPickerViewUI()
@@ -1024,7 +1021,9 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
             
             cell.typeTextField.inputView = transportationTypePickerView
+            cell.departDateTextField.inputView = transportationDepartDatePickerView
             
+//             transportationDepartDatePickerView.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
         
     }
@@ -1075,6 +1074,18 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             cell.returnDateTextField.text = formatter.stringFromDate(sender.date)
             
         }
+//        else if sender == transportationDepartDatePickerView {
+//            
+//            let indexPath = tableView.indexPathForSelectedRow
+//            if let cell = tableView.cellForRowAtIndexPath(indexPath!) as? TransportationTableViewCell {
+//            
+////            if let cell = sender.superview?.superview as? TransportationTableViewCell {
+//            
+//                cell.departDateTextField.text = formatter.stringFromDate(sender.date)
+//            
+//            }
+        
+//        }
         
         self.view.endEditing(true)
     }
