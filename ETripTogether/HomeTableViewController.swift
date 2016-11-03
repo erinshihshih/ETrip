@@ -32,6 +32,14 @@ class HomeTableViewController: UITableViewController {
         FirebaseManager.shared.delegate = self
 //        FirebaseManager.shared.fetchPosts()
         
+        
+        posts = []
+        
+        FirebaseManager.shared.delegate = self
+        
+        FirebaseManager.shared.fetchPosts()
+
+        
         // sideMenu set up
         
         self.menuButton.target = self.revealViewController()
@@ -57,17 +65,17 @@ class HomeTableViewController: UITableViewController {
         pullToRefresh()
         
     }
-    
-    override func viewDidAppear(animated: Bool) {
-         super.viewDidAppear(animated)
-        
-        posts = []
-        
-        FirebaseManager.shared.delegate = self
-       
-        FirebaseManager.shared.fetchPosts()
-        
-    }
+
+//    override func viewDidAppear(animated: Bool) {
+//         super.viewDidAppear(animated)
+//        
+//        posts = []
+//        
+//        FirebaseManager.shared.delegate = self
+//       
+//        FirebaseManager.shared.fetchPosts()
+//        
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

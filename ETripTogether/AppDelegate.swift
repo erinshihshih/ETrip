@@ -16,6 +16,7 @@ import GooglePlaces
 import GooglePlacePicker
 import Fabric
 import Crashlytics
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // MARK: Set up Crashlytics
 //        Fabric.with([Crashlytics.self])
+        IQKeyboardManager.sharedManager().enable = true
    
         return true
     }

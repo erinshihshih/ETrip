@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="380" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="380" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="380" height="249.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygN-HW-LHO">
-                        <rect key="frame" x="13" y="11" width="362" height="232"/>
+                        <rect key="frame" x="12" y="11" width="362" height="232"/>
                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="0.5" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -25,7 +25,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plannerBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Mve-80-MXH">
-                        <rect key="frame" x="10" y="8" width="362" height="232"/>
+                        <rect key="frame" x="10" y="10" width="360" height="230"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="10"/>
@@ -152,12 +152,12 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Mve-80-MXH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="1Q8-LS-9SU"/>
+                    <constraint firstItem="Mve-80-MXH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="1Q8-LS-9SU"/>
                     <constraint firstItem="gcv-Ai-cuJ" firstAttribute="trailing" secondItem="Xg6-Bb-pWG" secondAttribute="trailing" id="1a2-Pk-25s"/>
                     <constraint firstItem="Bcz-NS-sWS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="1m2-ZS-tI2"/>
                     <constraint firstItem="gcv-Ai-cuJ" firstAttribute="top" secondItem="2ZC-rn-slG" secondAttribute="bottom" constant="8" id="344-dk-poa"/>
                     <constraint firstItem="iqZ-6h-uy1" firstAttribute="centerY" secondItem="Xg6-Bb-pWG" secondAttribute="centerY" id="3Wh-4b-nHY"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ygN-HW-LHO" secondAttribute="trailing" constant="-3" id="5YW-tO-Y2w"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ygN-HW-LHO" secondAttribute="trailing" constant="-2" id="5YW-tO-Y2w"/>
                     <constraint firstItem="Xg6-Bb-pWG" firstAttribute="top" secondItem="gcv-Ai-cuJ" secondAttribute="bottom" constant="8" id="5lj-xm-HW6"/>
                     <constraint firstItem="2ZC-rn-slG" firstAttribute="top" secondItem="14M-Pv-6Xj" secondAttribute="bottom" constant="8" id="6aM-pM-d3q"/>
                     <constraint firstItem="14M-Pv-6Xj" firstAttribute="trailing" secondItem="2ZC-rn-slG" secondAttribute="trailing" id="7T8-mt-OaP"/>
@@ -175,7 +175,7 @@
                     <constraint firstItem="Mve-80-MXH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Iw2-qb-DE7"/>
                     <constraint firstItem="Xg6-Bb-pWG" firstAttribute="top" secondItem="gcv-Ai-cuJ" secondAttribute="bottom" constant="6" id="Jew-O7-gS5"/>
                     <constraint firstItem="14M-Pv-6Xj" firstAttribute="top" secondItem="f9R-yI-Cky" secondAttribute="bottom" constant="8" id="LU9-vc-mGP"/>
-                    <constraint firstItem="ygN-HW-LHO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="Lud-Zg-HtR"/>
+                    <constraint firstItem="ygN-HW-LHO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="Lud-Zg-HtR"/>
                     <constraint firstItem="Kyv-2U-ac5" firstAttribute="leading" secondItem="Dyd-oJ-0YQ" secondAttribute="leading" id="M2F-pB-ETz"/>
                     <constraint firstItem="Bcz-NS-sWS" firstAttribute="leading" secondItem="kya-VJ-d1X" secondAttribute="leading" id="NYW-CS-CGU"/>
                     <constraint firstItem="Kyv-2U-ac5" firstAttribute="centerY" secondItem="14M-Pv-6Xj" secondAttribute="centerY" id="OHn-e0-xQI"/>
@@ -186,7 +186,7 @@
                     <constraint firstItem="tiL-wY-5nr" firstAttribute="baseline" secondItem="Bcz-NS-sWS" secondAttribute="baseline" id="WHG-sY-TWv"/>
                     <constraint firstItem="f9R-yI-Cky" firstAttribute="leading" secondItem="14M-Pv-6Xj" secondAttribute="leading" id="XuG-cg-N3M"/>
                     <constraint firstItem="14M-Pv-6Xj" firstAttribute="top" secondItem="f9R-yI-Cky" secondAttribute="bottom" constant="8" id="a3e-5T-XcH"/>
-                    <constraint firstAttribute="trailing" secondItem="Mve-80-MXH" secondAttribute="trailing" constant="8" id="car-qY-A5F"/>
+                    <constraint firstAttribute="trailing" secondItem="Mve-80-MXH" secondAttribute="trailing" constant="10" id="car-qY-A5F"/>
                     <constraint firstItem="2ZC-rn-slG" firstAttribute="leading" secondItem="beH-EP-zIS" secondAttribute="trailing" constant="20" id="dCU-UB-Wtn"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ygN-HW-LHO" secondAttribute="bottom" constant="-1.5" id="dK5-Ru-toD"/>
                     <constraint firstAttribute="bottom" secondItem="Mve-80-MXH" secondAttribute="bottom" constant="10" id="dKC-Gx-G1G"/>
