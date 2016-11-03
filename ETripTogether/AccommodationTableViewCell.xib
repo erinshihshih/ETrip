@@ -24,8 +24,8 @@
                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="accommodation" translatesAutoresizingMaskIntoConstraints="NO" id="oRO-D9-5OY">
-                        <rect key="frame" x="15" y="83" width="35" height="35"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accommodation" translatesAutoresizingMaskIntoConstraints="NO" id="oRO-D9-5OY">
+                        <rect key="frame" x="15" y="108" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="QwL-at-BY6"/>
                             <constraint firstAttribute="width" constant="35" id="wGN-Gk-ktO"/>
@@ -79,7 +79,7 @@
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-CI-O71">
                         <rect key="frame" x="0.0" y="236" width="380" height="5"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="5" id="Zvd-CJ-ayu"/>
                         </constraints>

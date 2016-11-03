@@ -1023,7 +1023,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
             
             cell.typeTextField.inputView = transportationTypePickerView
-            cell.departDateTextField.inputView = transportationDepartDatePickerView
+//            cell.departDateTextField.inputView = transportationDepartDatePickerView
             
 //             transportationDepartDatePickerView.addTarget(self, action: #selector(AddViewController.updateDateField(_:)), forControlEvents: .ValueChanged)
         }
