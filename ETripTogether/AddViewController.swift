@@ -999,7 +999,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             
         }
         
-        self.view.endEditing(true)
+//        self.view.endEditing(true)
     }
     
     
@@ -1020,7 +1020,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         if let cell = textField.superview?.superview as? TransportationTableViewCell {
             
-            tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
+//            tableView.setContentOffset((CGPointMake(0, 250)), animated: true)
             
             cell.typeTextField.inputView = transportationTypePickerView
 //            cell.departDateTextField.inputView = transportationDepartDatePickerView
@@ -1042,7 +1042,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         currentEditingTypeTextField = nil
         
-        tableView.setContentOffset((CGPointMake(0, 0)), animated: true)
+//        tableView.setContentOffset((CGPointMake(0, 0)), animated: true)
         
         if let cell = textField.superview?.superview as? AddTableViewCell {
             
@@ -1089,7 +1089,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
 //        }
         
-        self.view.endEditing(true)
+//        self.view.endEditing(true)
     }
     
     // MARK: Set Up PickerView UI

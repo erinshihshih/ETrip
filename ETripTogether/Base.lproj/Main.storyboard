@@ -481,56 +481,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-Gb-0yN">
-                                <rect key="frame" x="20" y="84" width="133" height="23"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0EC-0P-vrM">
-                                <rect key="frame" x="51" y="154" width="41" height="19"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-Ki-diE">
-                                <rect key="frame" x="30" y="188" width="62" height="20"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBi-1U-7yX">
-                                <rect key="frame" x="107" y="119" width="140" height="21"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-PT-jTV">
-                                <rect key="frame" x="107" y="188" width="173" height="20"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcA-0S-YaY">
-                                <rect key="frame" x="107" y="154" width="163" height="19"/>
-                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3C-p9-oly">
-                                <rect key="frame" x="20" y="119" width="72" height="20"/>
-                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="0.5" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQZ-4r-wy0" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="216" width="600" height="335"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-Z0-exc">
-                                <rect key="frame" x="511" y="74" width="79" height="30"/>
-                                <state key="normal" title="Find Myself">
+                                <rect key="frame" x="445" y="74" width="145" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="QLn-dj-OFV"/>
+                                    <constraint firstAttribute="height" constant="30" id="zpH-vb-CWD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="15"/>
+                                <state key="normal" title="Find that Place!" backgroundImage="cellBackground">
                                     <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="searchWithAddress:" destination="DAs-TF-3wK" eventType="touchUpInside" id="X8F-H3-S2X"/>
@@ -539,41 +503,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="upB-Ki-diE" secondAttribute="trailing" constant="-107" id="2QR-zv-Fhy"/>
-                            <constraint firstItem="uBi-1U-7yX" firstAttribute="leading" secondItem="n3C-p9-oly" secondAttribute="trailing" constant="15" id="4LB-aV-pjF"/>
-                            <constraint firstItem="upB-Ki-diE" firstAttribute="trailing" secondItem="0EC-0P-vrM" secondAttribute="trailing" id="Byh-M7-R3Q"/>
+                            <constraint firstAttribute="trailing" secondItem="AQZ-4r-wy0" secondAttribute="trailing" id="AON-Uo-Fau"/>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" id="DSX-eO-hCd"/>
                             <constraint firstAttribute="trailing" secondItem="3lA-Z0-exc" secondAttribute="trailing" constant="10" id="Exv-CP-HbM"/>
-                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="upB-Ki-diE" secondAttribute="bottom" constant="8" id="HHF-8c-mdz"/>
-                            <constraint firstItem="uBi-1U-7yX" firstAttribute="leading" secondItem="wcA-0S-YaY" secondAttribute="leading" id="HLT-wM-tah"/>
-                            <constraint firstItem="wcA-0S-YaY" firstAttribute="centerY" secondItem="0EC-0P-vrM" secondAttribute="centerY" id="Nlv-jl-lPe"/>
-                            <constraint firstItem="VIb-PT-jTV" firstAttribute="centerY" secondItem="upB-Ki-diE" secondAttribute="centerY" id="Owi-6g-BPa"/>
-                            <constraint firstItem="uBi-1U-7yX" firstAttribute="centerY" secondItem="n3C-p9-oly" secondAttribute="centerY" id="RfF-Kf-9Dr"/>
-                            <constraint firstItem="8gU-Gb-0yN" firstAttribute="leading" secondItem="n3C-p9-oly" secondAttribute="leading" id="U0C-Vl-8kB"/>
-                            <constraint firstItem="upB-Ki-diE" firstAttribute="top" secondItem="0EC-0P-vrM" secondAttribute="bottom" constant="15" id="V33-6h-9xC"/>
-                            <constraint firstItem="0EC-0P-vrM" firstAttribute="trailing" secondItem="n3C-p9-oly" secondAttribute="trailing" id="YDQ-7C-aDC"/>
-                            <constraint firstItem="VIb-PT-jTV" firstAttribute="leading" secondItem="wcA-0S-YaY" secondAttribute="leading" id="YVr-W8-nZx"/>
-                            <constraint firstItem="0EC-0P-vrM" firstAttribute="top" secondItem="n3C-p9-oly" secondAttribute="bottom" constant="15" id="b3f-ow-CFw"/>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leading" id="U7w-f7-uHo"/>
                             <constraint firstItem="3lA-Z0-exc" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="10" id="bRs-HA-vdL"/>
+                            <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" id="bld-F5-dF7"/>
                             <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="AQZ-4r-wy0" secondAttribute="bottom" id="duL-tt-7dc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AQZ-4r-wy0" secondAttribute="trailing" constant="-20" id="eSR-sd-rsS"/>
+                            <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="AQZ-4r-wy0" secondAttribute="bottom" id="hUz-8U-dGW"/>
                             <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leadingMargin" constant="-20" id="nmX-dj-cQv"/>
-                            <constraint firstItem="n3C-p9-oly" firstAttribute="top" secondItem="8gU-Gb-0yN" secondAttribute="bottom" constant="12" id="pZS-f6-PGa"/>
-                            <constraint firstItem="8gU-Gb-0yN" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leading" constant="20" id="rfB-OG-xjV"/>
-                            <constraint firstItem="8gU-Gb-0yN" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="20" id="uzQ-mo-oir"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="2QR-zv-Fhy"/>
+                                <exclude reference="DSX-eO-hCd"/>
+                                <exclude reference="eSR-sd-rsS"/>
+                                <exclude reference="nmX-dj-cQv"/>
+                                <exclude reference="duL-tt-7dc"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map View" image="route" selectedImage="route" id="UeP-b1-QSN"/>
                     <connections>
-                        <outlet property="countryLabel" destination="uBi-1U-7yX" id="KZo-1Y-qr0"/>
                         <outlet property="mapView" destination="AQZ-4r-wy0" id="fMw-ER-txe"/>
-                        <outlet property="returnDateLabel" destination="VIb-PT-jTV" id="plN-Re-TZQ"/>
-                        <outlet property="startDateLabel" destination="wcA-0S-YaY" id="hqX-a1-9Ku"/>
-                        <outlet property="titleLabel" destination="8gU-Gb-0yN" id="Q0f-Um-8iu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HlH-wF-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
