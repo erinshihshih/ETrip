@@ -91,6 +91,19 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         // Picker View UI
         setUpPickerViewUI()
         
+        // Country Picker
+        for code in NSLocale.ISOCountryCodes() as [String] {
+            
+            let name = NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: code) ?? "Country not found for code: \(code)"
+            
+            countryArray.append(name)
+            countryArray.sortInPlace({ ( name1, name2) -> Bool in
+                name1 < name2
+            })
+            
+        }
+
+        
         //choose which pickerview is used
         pickerView.tag = 0
         transportationTypePickerView.tag = 1
@@ -113,17 +126,6 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Country Picker
-        for code in NSLocale.ISOCountryCodes() as [String] {
-            
-            let name = NSLocale.currentLocale().displayNameForKey(NSLocaleCountryCode, value: code) ?? "Country not found for code: \(code)"
-            
-            countryArray.append(name)
-            countryArray.sortInPlace({ ( name1, name2) -> Bool in
-                name1 < name2
-            })
-            
-        }
         
     }
     
