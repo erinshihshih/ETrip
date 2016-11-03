@@ -497,7 +497,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="searchWithAddress:" destination="DAs-TF-3wK" eventType="touchUpInside" id="X8F-H3-S2X"/>
+                                    <action selector="searchWithAddress:" destination="DAs-TF-3wK" eventType="touchUpInside" id="28Z-ft-l1P"/>
                                 </connections>
                             </button>
                         </subviews>

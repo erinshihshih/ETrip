@@ -10,19 +10,11 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import GooglePlacePicker
-
 class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     var post: Post?
     var transportation: Transportation?
     var attraction: Attraction?
-    
-//    @IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var countryLabel: UILabel!
-//    @IBOutlet weak var startDateLabel: UILabel!
-//    @IBOutlet weak var returnDateLabel: UILabel!
-    
-    @IBOutlet weak var editButton: UIButton!
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -35,11 +27,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     var placeHolderView: UIImageView?
     
     var counterMarker: Int = Int()
-
     var places: [CLLocationCoordinate2D] = []
     
     @IBAction func searchWithAddress(sender: AnyObject) {
-
         
         // 1
         let center = CLLocationCoordinate2DMake(self.latitude, self.longitude)
@@ -58,26 +48,26 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             }
             // 3
             if let place = place {
-            
-//                let placeHolder = UIImage(named: "placeholder")!.imageWithRenderingMode(.AlwaysTemplate)
-//                let markerView = UIImageView(image: placeHolder)
-//                markerView.tintColor = UIColor.redColor()
-//                self.placeHolderView = markerView
+                
+                //                let placeHolder = UIImage(named: "placeholder")!.imageWithRenderingMode(.AlwaysTemplate)
+                //                let markerView = UIImageView(image: placeHolder)
+                //                markerView.tintColor = UIColor.redColor()
+                //                self.placeHolderView = markerView
                 
                 let position = CLLocationCoordinate2DMake(place.coordinate.latitude, place.coordinate.longitude)
                 let marker = GMSMarker(position: position)
                 marker.title = place.name
                 marker.snippet = place.formattedAddress
-//                marker.iconView = markerView
-                marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1))
+                //                marker.iconView = markerView
+                marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+)
                 marker.tracksViewChanges = true
                 marker.map = self.mapView
                 self.placeHolder = marker
                 
+                
                 self.places.append(marker.position)
-                
                 let path = GMSMutablePath()
-                
                 for position in self.places {
                     
                     if self.places.count >= 2 {
@@ -91,17 +81,25 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
                 polyline.strokeColor = UIColor.cyanColor()
                 polyline.geodesic = true
                 polyline.map = self.mapView
+
+                
+                
+                
+                
                 
             } else {
                 print("No place was selected")
             }
         }
-
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.titleLabel.text = post?.title
+//        self.countryLabel.text = post?.country
+//        self.startDateLabel.text = post?.startDate
+//        self.returnDateLabel.text = post?.returnDate
         
         self.locationManager = CLLocationManager()
         self.locationManager.delegate = self
@@ -109,10 +107,18 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         self.locationManager.startUpdatingLocation()
         
         mapView.delegate = self
-        mapView.myLocationEnabled = true
+        
         mapView.settings.myLocationButton = true
         
-      
+        //        let path = GMSMutablePath()
+        //        path.addLatitude(-37.81319, longitude:144.96298)
+        //        path.addLatitude(-31.95285, longitude:115.85734)
+        //        let polyline = GMSPolyline(path: path)
+        //        polyline.strokeWidth = 10.0
+        //        polyline.geodesic = true
+        //        polyline.map = mapView
+        
+        
     }
     
     func mapView(mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
@@ -129,28 +135,31 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(25.042789, longitude: 121.564869, zoom: 18)
+        mapView.myLocationEnabled = true
+        mapView.camera = camera
+        
+        //        let currentLocation = CLLocationCoordinate2DMake(25.042789, 121.564869)
+        //        let marker = GMSMarker(position: currentLocation)
+        //        marker.title = "AppWorks"
+        //        marker.snippet = "Taipei"
+        //        marker.map = mapView
+        
+    }
+    
     
     
     //MARK: Location protocol
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        // 1
+        let location:CLLocation = locations.last!
+        self.latitude = location.coordinate.latitude
+        self.longitude = location.coordinate.longitude
         
-        let location = locations.last
         
-        let camera = GMSCameraPosition.cameraWithLatitude((location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 5.0)
-        
-        self.mapView?.animateToCameraPosition(camera)
-        
-        //Finally stop updating location otherwise it will come again and again in this delegate
-        self.locationManager.stopUpdatingLocation()
-        
-        // 2
-//        let coordinates = CLLocationCoordinate2DMake(self.latitude, self.longitude)
-//        let marker = GMSMarker(position: coordinates)
-//        marker.title = "I am here"
-//        marker.map = self.mapView
-//        marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1))
-     
-//        self.mapView.animateToLocation(coordinates)
         
     }
     
@@ -162,7 +171,7 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     func mapView(mapView: GMSMapView, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
         
-        if counterMarker < 8 {
+        if counterMarker < 10 {
             counterMarker += 1
             let marker = GMSMarker(position: coordinate)
             marker.appearAnimation = kGMSMarkerAnimationPop
@@ -170,14 +179,13 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             marker.map = mapView
             marker.position.latitude = coordinate.latitude
             marker.position.longitude = coordinate.longitude
-            marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1))
+            marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
+)
             print(marker.position.latitude)
             print(marker.position.longitude)
-            
+          
             self.places.append(marker.position)
-
             let path = GMSMutablePath()
-            
             for position in self.places {
                 
                 if self.places.count >= 2 {
@@ -192,7 +200,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             polyline.geodesic = true
             polyline.map = self.mapView
             
-            
+        
+    
+    
         } else {
             let alert = UIAlertController(title: "Alert", message: "Too many markers! Please delete the boring places you would like to go to keep the quality of the journey.", preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -202,11 +212,10 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
                 
                 
                 })
-
             self.presentViewController(alert, animated: true, completion: nil)
         }
     }
-        
+    
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
         
         let alert = UIAlertController(title: "Alert", message: "Are you Sure for deleting ?!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -229,17 +238,4 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
         return true
     }
     
-    
-   
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "editSegue" {
-//            let detailViewController = segue.destinationViewController as! EditViewController
-//            
-//            detailViewController.post = post
-//            
-//            print("Edit the trip.")
-//        }
-//    }
-
 }
