@@ -1,4 +1,4 @@
-## ETrip
+## ETripTogether
 > Let's build the ETrip Together. We work hard and also need to play hard. Let's build that trip with ETripTogether and share the plan with friends!
 
 # Feature
