@@ -154,12 +154,19 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
     
     //MARK: Location protocol
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        // 1
+         1
         let location:CLLocation = locations.last!
         self.latitude = location.coordinate.latitude
         self.longitude = location.coordinate.longitude
         
-        
+//        let location = locations.last
+//        
+//        let camera = GMSCameraPosition.cameraWithLatitude((location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 17.0)
+//        
+//        self.mapView?.animateToCameraPosition(camera)
+//        
+//        //Finally stop updating location otherwise it will come again and again in this delegate
+//        self.locationManager.stopUpdatingLocation()
         
     }
     
