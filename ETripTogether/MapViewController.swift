@@ -186,10 +186,9 @@ class MapViewController: UIViewController, UISearchBarDelegate, CLLocationManage
             marker.map = mapView
             marker.position.latitude = coordinate.latitude
             marker.position.longitude = coordinate.longitude
-            marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1)
-)
-            print(marker.position.latitude)
-            print(marker.position.longitude)
+            marker.icon = GMSMarker.markerImageWithColor(UIColor(red: 0/255, green: 64/255, blue: 128/255, alpha: 1))
+//            print(marker.position.latitude)
+//            print(marker.position.longitude)
           
             self.places.append(marker.position)
             let path = GMSMutablePath()
