@@ -1,7 +1,7 @@
-## ETripTogether
+# ETripTogether
 > Let's build the ETrip Together. We work hard and also need to play hard. Let's build that trip with ETripTogether and share the plan with friends!
 
-# Feature
+## Feature
   * Login
     * Facebook Login
   * Home
@@ -16,7 +16,7 @@
   * Map
     * Detail of route
 
-# Libraries
+## Libraries
   * FBSDK
   * GoogleMaps
   * GooglePlaces
@@ -28,17 +28,21 @@
     * Crashlytics
 
 
-# ScreenShot
-![ipad snapshot 1](https://cloud.githubusercontent.com/assets/21031430/19998310/190743d8-a2a7-11e6-84d1-2eb5a2579b87.png)
+## ScreenShot
+![iphone snapshot 1](https://cloud.githubusercontent.com/assets/21031430/19998565/7e0d1496-a2a8-11e6-889c-c5395ef7fa02.png)
+![iphone snapshot 2](https://cloud.githubusercontent.com/assets/21031430/19998581/92c87b5a-a2a8-11e6-82c2-7ccaf3a0bfb6.png)
+![iphone snapshot 3](https://cloud.githubusercontent.com/assets/21031430/19998584/93177c8c-a2a8-11e6-87eb-d27e017c76c7.png)
+![iphone snapshot 4](https://cloud.githubusercontent.com/assets/21031430/19998583/9311d098-a2a8-11e6-9cef-819d32ed4330.png)
+![iphone snapshot 5](https://cloud.githubusercontent.com/assets/21031430/19998582/93108738-a2a8-11e6-9730-3d0165d19ae2.png)
 
 
 
-# Requirement
+## Requirement
   * iOS 8.0+
   * Xcode 7.3+
   * pod install
 
-# Contacts
+## Contacts
 ErinShih
 <br>www.linkedin.com/in/erinshih
 <br>erinshih88@gmail.com
