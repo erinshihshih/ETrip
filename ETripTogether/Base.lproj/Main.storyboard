@@ -485,14 +485,24 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-Z0-exc">
-                                <rect key="frame" x="445" y="74" width="145" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shadowLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOV-jU-XRW">
+                                <rect key="frame" x="417" y="104" width="175" height="3"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="145" id="QLn-dj-OFV"/>
+                                    <constraint firstAttribute="height" constant="3" id="MTK-uw-XLr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lA-Z0-exc">
+                                <rect key="frame" x="417" y="74" width="175" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="QLn-dj-OFV"/>
                                     <constraint firstAttribute="height" constant="30" id="zpH-vb-CWD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="15"/>
-                                <state key="normal" title="Find that Place!" backgroundImage="cellBackground">
+                                <state key="normal" title="Find that Place!" backgroundImage="findButton">
                                     <color key="titleColor" red="0.0" green="0.25098039220000001" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -505,13 +515,16 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="AQZ-4r-wy0" secondAttribute="trailing" id="AON-Uo-Fau"/>
                             <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" id="DSX-eO-hCd"/>
-                            <constraint firstAttribute="trailing" secondItem="3lA-Z0-exc" secondAttribute="trailing" constant="10" id="Exv-CP-HbM"/>
+                            <constraint firstAttribute="trailing" secondItem="3lA-Z0-exc" secondAttribute="trailing" constant="8" id="Exv-CP-HbM"/>
+                            <constraint firstItem="tOV-jU-XRW" firstAttribute="top" secondItem="3lA-Z0-exc" secondAttribute="bottom" id="KAA-ZS-yfX"/>
                             <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leading" id="U7w-f7-uHo"/>
+                            <constraint firstItem="tOV-jU-XRW" firstAttribute="leading" secondItem="3lA-Z0-exc" secondAttribute="leading" id="WTJ-oY-lju"/>
                             <constraint firstItem="3lA-Z0-exc" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" constant="10" id="bRs-HA-vdL"/>
                             <constraint firstItem="AQZ-4r-wy0" firstAttribute="top" secondItem="1vQ-21-sgE" secondAttribute="bottom" id="bld-F5-dF7"/>
                             <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="AQZ-4r-wy0" secondAttribute="bottom" id="duL-tt-7dc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AQZ-4r-wy0" secondAttribute="trailing" constant="-20" id="eSR-sd-rsS"/>
                             <constraint firstItem="Nsd-Vx-pgC" firstAttribute="top" secondItem="AQZ-4r-wy0" secondAttribute="bottom" id="hUz-8U-dGW"/>
+                            <constraint firstItem="tOV-jU-XRW" firstAttribute="trailing" secondItem="3lA-Z0-exc" secondAttribute="trailing" id="kww-fz-Czg"/>
                             <constraint firstItem="AQZ-4r-wy0" firstAttribute="leading" secondItem="tih-hk-ZUw" secondAttribute="leadingMargin" constant="-20" id="nmX-dj-cQv"/>
                         </constraints>
                         <variation key="default">
@@ -1036,6 +1049,7 @@
         <image name="backGround" width="542" height="828"/>
         <image name="cellBackground" width="313" height="135"/>
         <image name="facebook" width="22" height="22"/>
+        <image name="findButton" width="313" height="135"/>
         <image name="notepad" width="22" height="22"/>
         <image name="plus" width="22" height="22"/>
         <image name="route" width="22" height="22"/>
