@@ -29,10 +29,10 @@
 
 
 ## ScreenShot
-![iphone snapshot 1](https://cloud.githubusercontent.com/assets/21031430/19998565/7e0d1496-a2a8-11e6-889c-c5395ef7fa02.png)
-![iphone snapshot 2](https://cloud.githubusercontent.com/assets/21031430/19998581/92c87b5a-a2a8-11e6-82c2-7ccaf3a0bfb6.png)
-![iphone snapshot 4](https://cloud.githubusercontent.com/assets/21031430/19998583/9311d098-a2a8-11e6-9cef-819d32ed4330.png)
-![iphone snapshot 5](https://cloud.githubusercontent.com/assets/21031430/19998582/93108738-a2a8-11e6-9730-3d0165d19ae2.png)
+![snapshot 1](https://cloud.githubusercontent.com/assets/21031430/20045338/248e60b6-a4db-11e6-9bf4-5384f2fb705a.png)
+![snapshot 2](https://cloud.githubusercontent.com/assets/21031430/20045340/249092a0-a4db-11e6-8edc-ad718e212aa9.png)
+![snapshot 3](https://cloud.githubusercontent.com/assets/21031430/20045337/248a4ea4-a4db-11e6-8592-5a934f3737c2.png)
+![snapshot 4](https://cloud.githubusercontent.com/assets/21031430/20045339/24901b7c-a4db-11e6-8e4e-6c8c016ed73d.png)
 
 
 
